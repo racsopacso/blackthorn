@@ -1,0 +1,13 @@
+{
+	"name": "always-show-rolls",
+	"description": "Show rolls",
+	"title": "Always Show Rolls",
+	"version": "1.0.0",
+	"minimumCoreVersion": "0.4.5",
+	"author": "Azzurite#2004",
+	"scripts": [],
+	"styles": [
+		"style.css"
+	],
+	"packs": []
+}

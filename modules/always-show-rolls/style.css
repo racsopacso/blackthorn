@@ -1,0 +1,11 @@
+.dice-roll .dice-tooltip {
+	display: block !important;
+}
+
+.dice-roll .dice-total{
+	display: None;
+}
+
+.dice-roll .dice-formula{
+	display: None;
+}
