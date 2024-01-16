@@ -1,8 +1,8 @@
 {
     "id": "pin-cushion",
     "title": "Pin Cushion",
-    "description": "Adds additional map pin (Journal Note/Scene Note) functionality",
-    "version": "1.8.31",
+    "description": "Adds additional functionality on Journal Note/Scene Note and Journal directory",
+    "version": "1.9.11",
     "authors": [
         {
             "name": "Cole Schultz",
@@ -100,11 +100,9 @@
             "path": "languages/de.json"
         }
     ],
-    "scripts": [
-        "scripts/lib/jquery.powertip.js"
-    ],
+    "scripts": [],
     "esmodules": [
-        "pin-cushion.js"
+        "module.js"
     ],
     "styles": [
         "styles/pin-cushion.css",
@@ -120,15 +118,15 @@
         "styles/jquery.powertip-yellow.css"
     ],
     "compatibility": {
-        "minimum": 10,
-        "verified": 10,
-        "maximum": 10
+        "minimum": 11,
+        "verified": 11,
+        "maximum": 11
     },
     "url": "https://github.com/p4535992/foundryvtt-pin-cushion",
     "manifest": "https://github.com/p4535992/foundryvtt-pin-cushion/releases/latest/download/module.json",
-    "download": "https://github.com/p4535992/foundryvtt-pin-cushion/releases/download/v1.8.31/module.zip",
-    "readme": "https://github.com/p4535992/foundryvtt-pin-cushion/blob/v1.8.31/README.md",
-    "changelog": "https://github.com/p4535992/foundryvtt-pin-cushion/blob/v1.8.31/changelog.md",
+    "download": "https://github.com/p4535992/foundryvtt-pin-cushion/releases/download/1.9.11/module.zip",
+    "readme": "https://github.com/p4535992/foundryvtt-pin-cushion/blob/master/README.md",
+    "changelog": "https://github.com/p4535992/foundryvtt-pin-cushion/blob/master/CHANGELOG.md",
     "bugs": "https://github.com/p4535992/foundryvtt-pin-cushion/issues",
     "allowBugReporter": true,
     "manifestPlusVersion": "1.2.0",
@@ -151,31 +149,43 @@
         "conflicts": [
             {
                 "id": "backgroundless-pins",
-                "reason": "Redundancy of features you can disable 'FVTT Backgroundless Pins' module if you want"
+                "reason": "Redundancy of features you can disable 'FVTT Backgroundless Pins' module if you want, BUT IS NOT MANDATORY"
             },
             {
                 "id": "journal-thumbnail",
-                "reason": "Redundancy of features you can disable 'Thumbnails for Journal Entries' module if you want"
+                "reason": "Redundancy of features you can disable 'Thumbnails for Journal Entries' module if you want, BUT IS NOT MANDATORY"
             },
             {
                 "id": "gmtext-in-notes",
-                "reason": "Redundancy of features you can disable 'GM-only tooltips for Notes' module if you want"
+                "reason": "Redundancy of features you can disable 'GM-only tooltips for Notes' module if you want, BUT IS NOT MANDATORY"
             },
             {
                 "id": "revealed-notes-manager",
-                "reason": "Redundancy of features you can disable 'Revealed Notes Manager' module if you want"
+                "reason": "Redundancy of features you can disable 'Revealed Notes Manager' module if you want, BUT IS NOT MANDATORY"
             },
             {
                 "id": "journal-sidebar-images",
-                "description": "Redundancy of features you can disable 'Journal Sidebar Images' module if you want"
+                "description": "Redundancy of features you can disable 'Journal Sidebar Images' module if you want, BUT IS NOT MANDATORY"
             },
             {
                 "id": "map-note-hover-display",
-                "reason": "Redundancy of features you can disable 'Map Note Hover Display' module if you want"
+                "reason": "Redundancy of features you can disable 'Map Note Hover Display' module if you want, BUT IS NOT MANDATORY"
             },
             {
                 "id": "one-click-note-creation",
-                "reason": "Redundancy of features you can disable 'One click note creation' module if you want"
+                "reason": "Redundancy of features you can disable 'One click note creation' module if you want, BUT IS NOT MANDATORY"
+            },
+            {
+                "id": "jal",
+                "reason": "Redundancy of features you can disable 'Journal Anchor Links' module if you want, BUT IS NOT MANDATORY"
+            },
+            {
+                "id": "disguise-unreachable-links",
+                "reason": "Redundancy of features you can disable 'Disguise Unreachable Links' module if you want, BUT IS NOT MANDATORY"
+            },
+            {
+                "id": "journal-directory-pages",
+                "reason": "Redundancy of features you can disable 'Journal Directory Pages' module if you want, BUT IS NOT MANDATORY"
             }
         ]
     }

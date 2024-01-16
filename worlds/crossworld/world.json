@@ -1,0 +1,16 @@
+{
+  "title": "Crossworld",
+  "id": "crossworld",
+  "system": "pf1",
+  "background": "ROTT.jpg",
+  "joinTheme": "default",
+  "description": "<p>Funky Archaeology Campaign Vibes</p>",
+  "coreVersion": "11.315",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11"
+  },
+  "systemVersion": "9.6",
+  "lastPlayed": "Fri Jan 12 2024 15:50:42 GMT+0000 (Coordinated Universal Time)",
+  "playtime": 581851
+}

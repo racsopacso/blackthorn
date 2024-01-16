@@ -1,16 +1,11 @@
 {
   "id": "simple-worldbuilding-plus",
-  "name": "simple-worldbuilding-plus",
   "title": "Simple World-building Plus",
   "description": "Adds TinyMCE enhancements useful for building character sheets with the Simple World-building system.",
-  "author": "Asacolips",
   "version": "1.1.0",
-  "minimumCoreVersion": 10,
-  "compatibleCoreVersion": 10,
   "compatibility": {
-    "minimum": 10,
-    "maximum": 11,
-    "verified": 10.285
+    "minimum": "10",
+    "verified": "10.288"
   },
   "esmodules": [
     "module/simple-worldbuilding-plus.js"
@@ -22,7 +17,8 @@
     {
       "lang": "en",
       "name": "English",
-      "path": "lang/en.json"
+      "path": "lang/en.json",
+      "flags": {}
     }
   ],
   "url": "https://gitlab.com/asacolips-projects/foundry-mods/simple-worldbuilding-plus",
