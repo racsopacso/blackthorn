@@ -1,7 +1,15 @@
-2024/01/12-15:47:04.714356 7f56d6237b38 Recovering log #20
-2024/01/12-15:47:04.718160 7f56d6237b38 Delete type=3 #18
-2024/01/12-15:47:04.718192 7f56d6237b38 Delete type=0 #20
-2024/01/12-15:47:19.601267 7f5453fb0b38 Level-0 table #25: started
-2024/01/12-15:47:19.601295 7f5453fb0b38 Level-0 table #25: 0 bytes OK
-2024/01/12-15:47:19.602617 7f5453fb0b38 Delete type=0 #23
-2024/01/12-15:47:19.604023 7f5453fb0b38 Manual compaction at level-0 from 'undefined' @ 72057594037927935 : 1 .. 'undefined' @ 0 : 0; will stop at (end)
+2024/01/16-12:17:05.306659 7fef87fefb38 Recovering log #27
+2024/01/16-12:17:05.307714 7fef87fefb38 Level-0 table #29: started
+2024/01/16-12:17:05.312896 7fef87fefb38 Level-0 table #29: 645 bytes OK
+2024/01/16-12:17:05.319966 7fef87fefb38 Delete type=0 #27
+2024/01/16-12:17:05.320012 7fef87fefb38 Delete type=3 #26
+2024/01/16-22:16:31.078773 7fecfd1c5b38 Level-0 table #32: started
+2024/01/16-22:16:31.080693 7fecfd1c5b38 Level-0 table #32: 775 bytes OK
+2024/01/16-22:16:31.082080 7fecfd1c5b38 Delete type=0 #30
+2024/01/16-22:16:31.082442 7fecfd1c5b38 Manual compaction at level-0 from '!macros!3gFWDS8CFkHgy1kD' @ 72057594037927935 : 1 .. '!macros!gA5C5yCXpqzSGukA' @ 0 : 0; will stop at '!macros!gA5C5yCXpqzSGukA' @ 1 : 1
+2024/01/16-22:16:31.082452 7fecfd1c5b38 Compacting 1@0 + 0@1 files
+2024/01/16-22:16:31.084096 7fecfd1c5b38 Generated table #33@0: 1 keys, 645 bytes
+2024/01/16-22:16:31.084110 7fecfd1c5b38 Compacted 1@0 + 0@1 files => 645 bytes
+2024/01/16-22:16:31.085423 7fecfd1c5b38 compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/01/16-22:16:31.085493 7fecfd1c5b38 Delete type=2 #29
+2024/01/16-22:16:31.091972 7fecfd1c5b38 Manual compaction at level-0 from '!macros!gA5C5yCXpqzSGukA' @ 1 : 1 .. '!macros!gA5C5yCXpqzSGukA' @ 0 : 0; will stop at (end)
