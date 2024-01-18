@@ -3,3 +3,10 @@
 2024/01/16-22:17:54.362159 7fef877ecb38 Level-0 table #8: 4256085 bytes OK
 2024/01/16-22:17:54.371184 7fef877ecb38 Delete type=0 #6
 2024/01/16-22:17:54.373621 7fef877ecb38 Delete type=3 #4
+2024/01/17-21:34:01.135410 7fecfd1c5b38 Compacting 2@0 + 0@1 files
+2024/01/17-21:34:01.302185 7fecfd1c5b38 Generated table #10@0: 2369 keys, 2129665 bytes
+2024/01/17-21:34:01.427032 7fecfd1c5b38 Generated table #11@0: 2398 keys, 2125704 bytes
+2024/01/17-21:34:01.427062 7fecfd1c5b38 Compacted 2@0 + 0@1 files => 4255369 bytes
+2024/01/17-21:34:01.428756 7fecfd1c5b38 compacted to: files[ 0 2 0 0 0 0 0 ]
+2024/01/17-21:34:01.429125 7fecfd1c5b38 Delete type=2 #8
+2024/01/17-21:34:01.430923 7fecfd1c5b38 Delete type=2 #5
