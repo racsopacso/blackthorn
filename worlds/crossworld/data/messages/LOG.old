@@ -1,24 +1,15 @@
-2024/01/16-12:17:05.227109 7fef877ecb38 Recovering log #27
-2024/01/16-12:17:05.229258 7fef877ecb38 Level-0 table #29: started
-2024/01/16-12:17:05.234333 7fef877ecb38 Level-0 table #29: 37042 bytes OK
-2024/01/16-12:17:05.239296 7fef877ecb38 Delete type=0 #27
-2024/01/16-12:17:05.239458 7fef877ecb38 Delete type=3 #26
-2024/01/16-22:16:31.001076 7fecfd1c5b38 Level-0 table #32: started
-2024/01/16-22:16:31.007712 7fecfd1c5b38 Level-0 table #32: 77357 bytes OK
-2024/01/16-22:16:31.011905 7fecfd1c5b38 Delete type=0 #30
-2024/01/16-22:16:31.037488 7fecfd1c5b38 Manual compaction at level-0 from '!messages!1B9PkYHVS5swchAt' @ 72057594037927935 : 1 .. '!messages!zvpSulKWzvU7BFTb' @ 0 : 0; will stop at '!messages!xFBoWiFPSDSUmixV' @ 18 : 1
-2024/01/16-22:16:31.037505 7fecfd1c5b38 Compacting 2@0 + 0@1 files
-2024/01/16-22:16:31.045550 7fecfd1c5b38 Generated table #33@0: 82 keys, 114753 bytes
-2024/01/16-22:16:31.045582 7fecfd1c5b38 Compacted 2@0 + 0@1 files => 114753 bytes
-2024/01/16-22:16:31.047545 7fecfd1c5b38 compacted to: files[ 0 1 1 0 0 0 0 ]
-2024/01/16-22:16:31.047702 7fecfd1c5b38 Delete type=2 #29
-2024/01/16-22:16:31.047859 7fecfd1c5b38 Delete type=2 #32
-2024/01/16-22:16:31.050116 7fecfd1c5b38 Manual compaction at level-0 from '!messages!xFBoWiFPSDSUmixV' @ 18 : 1 .. '!messages!zvpSulKWzvU7BFTb' @ 0 : 0; will stop at (end)
-2024/01/16-22:16:31.060268 7fecfd1c5b38 Manual compaction at level-1 from '!messages!1B9PkYHVS5swchAt' @ 72057594037927935 : 1 .. '!messages!zvpSulKWzvU7BFTb' @ 0 : 0; will stop at '!messages!zvpSulKWzvU7BFTb' @ 32 : 1
-2024/01/16-22:16:31.060279 7fecfd1c5b38 Compacting 1@1 + 1@2 files
-2024/01/16-22:16:31.067303 7fecfd1c5b38 Generated table #34@1: 84 keys, 117273 bytes
-2024/01/16-22:16:31.067322 7fecfd1c5b38 Compacted 1@1 + 1@2 files => 117273 bytes
-2024/01/16-22:16:31.068718 7fecfd1c5b38 compacted to: files[ 0 0 1 0 0 0 0 ]
-2024/01/16-22:16:31.068808 7fecfd1c5b38 Delete type=2 #33
-2024/01/16-22:16:31.068922 7fecfd1c5b38 Delete type=2 #5
-2024/01/16-22:16:31.075319 7fecfd1c5b38 Manual compaction at level-1 from '!messages!zvpSulKWzvU7BFTb' @ 32 : 1 .. '!messages!zvpSulKWzvU7BFTb' @ 0 : 0; will stop at (end)
+2024/01/27-16:40:21.764520 7fef877ecb38 Recovering log #42
+2024/01/27-16:40:21.768357 7fef877ecb38 Delete type=3 #40
+2024/01/27-16:40:21.768412 7fef877ecb38 Delete type=0 #42
+2024/01/27-16:44:53.138909 7fecfd1c5b38 Level-0 table #48: started
+2024/01/27-16:44:53.141261 7fecfd1c5b38 Level-0 table #48: 1252 bytes OK
+2024/01/27-16:44:53.143855 7fecfd1c5b38 Delete type=0 #46
+2024/01/27-16:44:53.146243 7fecfd1c5b38 Manual compaction at level-0 from '!messages!05xBGNprAXLSXPOx' @ 72057594037927935 : 1 .. '!messages!zxQ7BYODRbG2XLyC' @ 0 : 0; will stop at (end)
+2024/01/27-16:44:53.166899 7fecfd1c5b38 Manual compaction at level-1 from '!messages!05xBGNprAXLSXPOx' @ 72057594037927935 : 1 .. '!messages!zxQ7BYODRbG2XLyC' @ 0 : 0; will stop at '!messages!eWIOHWERHY8WSiq8' @ 415 : 1
+2024/01/27-16:44:53.166913 7fecfd1c5b38 Compacting 1@1 + 1@2 files
+2024/01/27-16:44:53.185654 7fecfd1c5b38 Generated table #49@1: 369 keys, 386253 bytes
+2024/01/27-16:44:53.185675 7fecfd1c5b38 Compacted 1@1 + 1@2 files => 386253 bytes
+2024/01/27-16:44:53.187264 7fecfd1c5b38 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/01/27-16:44:53.187370 7fecfd1c5b38 Delete type=2 #48
+2024/01/27-16:44:53.187503 7fecfd1c5b38 Delete type=2 #44
+2024/01/27-16:44:53.196111 7fecfd1c5b38 Manual compaction at level-1 from '!messages!eWIOHWERHY8WSiq8' @ 415 : 1 .. '!messages!zxQ7BYODRbG2XLyC' @ 0 : 0; will stop at (end)
