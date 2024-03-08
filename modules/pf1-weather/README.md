@@ -2,6 +2,11 @@
 Added macros with functionality to follow PF1's weather rules found at:<br>
 https://www.d20pfsrd.com/gamemastering/environment/weather/ <br>
 Manifest URL: https://raw.githubusercontent.com/ntriel/pf1-weather-macros/main/module.json
+# v1.0.11 UPDATE
+Release of 1.0.10 failed to include ft to m conversions. Fixing in this release.
+
+# v1.0.10 UPDATE
+Now checks units used in PF1 to change temp from F to C. (Doesn't retroactivly change previously generated weather)
 
 # v1.0.9 UPDATE
 Fixed issue where whispering message to GM didn't work if GM wasn't named "Gamemaster"

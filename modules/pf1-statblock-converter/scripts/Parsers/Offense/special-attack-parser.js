@@ -13,6 +13,7 @@ export class SpecialAttackParser extends ParserBase {
 
             console.log("Parsing Special Attack: " + value)
             let specialAttacks = sbcUtils.sbcSplit(value, false);
+            specialAttacks = sbcUtils.fixSplitGroup(specialAttacks);
             console.log(specialAttacks)
             let type = "attack"
 

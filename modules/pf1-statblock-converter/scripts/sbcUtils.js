@@ -12,7 +12,7 @@ export class sbcUtils {
         let tempActor = await Actor.create({
             name: "sbc | Actor Template",
             type: sbcConfig.const.actorType[sbcData.actorType],
-            folder: sbcData.customFolderId
+            folder: sbcData.customWIPFolderId
         }, { temporary: false })
         return tempActor
     }
@@ -1107,6 +1107,16 @@ export class sbcUtils {
         } else {
             return [value]
         }
+    }
+
+    static fixSplitGroup(input) {
+        const reversedInput = input.reverse();
+        return reversedInput.map((element, index) => {
+            if(index > 0 && reversedInput[index - 1].startsWith("+"))
+                return `${element} ${reversedInput[index - 1]}`;
+            if(!element.startsWith("+"))
+                return element;
+        }).filter(element => !!element).reverse();
     }
 
     static getKeyByValue(object, value) {

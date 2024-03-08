@@ -1,6 +1,11 @@
 # Simple Worldbuilding Plus
 
-This is a small module that adds a few quality of life enhancements to make it easier to build custom character sheets in the Simple Worldbuilding system. There are primarily three features, the third of which is exclusive to Simple Worldbuilding. The inline stat syntax and journal templates are technically system agnostic and could be used in any system.
+![Foundry v11.315](https://img.shields.io/badge/Foundry-v11.315-green) ![Foundry v12](https://img.shields.io/badge/Foundry-v12-yellow)
+
+This is a small module that adds a few quality of life enhancements to make it easier to build custom character sheets in the Simple Worldbuilding system.
+
+- Adds support for inline rolls in the description tab of the character sheet that can reference your actor and item roll attributes.
+- Adds support for defining derived attributes in a module setting so that you can define them in one place rather than across multiple actors.
 
 ## Installation
 
@@ -8,21 +13,13 @@ Install via Foundry's package manager or the following manifest URL: [https://gi
 
 ## Inline stat syntax
 
-There's currently an issue in Foundry and/or Simple Worldbuilding that prevents inline rolls such as `[[@str]]` from outputting correctly if they're included in a character sheet, due to them being unable to locate the actor object from the context they're in. Until that issue is resolved, this module adds an additional syntax that lets you use the following to output stats:
+There's currently an issue in Simple Worldbuilding that prevents inline rolls such as `[[@str]]` from outputting correctly if they're included in a character sheet due to the actor not being passed to the sheet. This resolves that by overriding the sheet and passing that data in. Additionally, if a roll is just for display and isnt' a button, the d20 icon on the result will be hidden in the sheet.
 
-`{{@str}}`
+### Legacy Inline Rolls
 
-This works using the same general logic as inline rolls, so you could do formulas such as `{{floor((@str - 10) / 2)}}` to calculate more complicated values.
+In older versions of this module, inline rolls were added to the sheet with curly braces, such as `{{@str}}`. The module now uses the normal `[[@str]]` syntax, but there is a compatibility layer in place to convert to the new syntax on the fly. You should use `[[@attrName]]` going forward, but if/when the module eventually removes support for the previous format, a migration will be included to convert rolls for you.
 
-This syntax technically works with die results, but it is intended for displaying stats only. It does not inlcude a d20 icon like inline rolls do, in order to conserve space.
-
-## Journal Templates
-
-**Note: The journal templates feature is no longer available as of version 1.1.0 of this module due to them not being supported by the Prose Mirror editor used by character sheets.**
-
-This module checks for journal entries using the prefix `SWP_TPL_`, such as `SWP_TPL_Character` or `SWP_TPL_Quest Template`. The contents of those entries will be made available in TinyMCE text editors as a template with the name starting after the `SWP_TPL_` prefix. You can use this to build character sheet templates with prefilled stat attributes or for other general utility purposes like creating a standard quest format for your journal entries that can be re-used. The templates will become available in all of your TinyMCE editors wherever they appear, so the sky is the limit!
-
-## Derived Values (Simple Worldbuilding only)
+## Derived Values
 
 **Note: In the 1.1.0 version of this module, this is now tracked in a module setting under the settings configuration dialog rather than a journal entry. The syntax is still the same however.**
 
@@ -44,11 +41,3 @@ Derived attributes will be placed in a special `d` attribute on your actor. For 
 ```
 
 Those would all be placed in `actor.data.data.d`, so that you could reference them in rolls using text such as `{{@d.str.mod}}` or `{{@d.dex.mod}}`. The d prefix is necessary because if you're using the short syntax, the attributes are string/number/bool values and not objects, so it's impossible to have both `@str` and `@str.mod` in that scenario.
-
-## Screenshots
-
-![Screenshot of the template widget](https://mattsmithin.nyc3.digitaloceanspaces.com/assets/swp-templates.png)
-
-![Screenshot of the template widget](https://mattsmithin.nyc3.digitaloceanspaces.com/assets/swp-templates-button.png)
-
-![Screenshot of the template widget](https://mattsmithin.nyc3.digitaloceanspaces.com/assets/swp-template-widget.png)

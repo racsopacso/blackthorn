@@ -1,7 +1,7 @@
 export class SimpleWorldbuildingPlusDerivedMenu extends FormApplication {
   /** @override */
 	static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       title: game.i18n.localize("simpleWorldbuildingPlus.settings.derived.name"),
       id: "simple-worldbuilding-plus-derived",
       classes: ["simple-worldbuilding-plus", "simple-worldbuilding-plus-derived"],

@@ -33,7 +33,10 @@ export class ClassParser extends ParserBase {
                 let isPrestigeClass = false
                 let isWizardClass = false
 
-                if (classInput.search(patternPrestigeClasses) !== -1) {
+                sbcUtils.log("Pattern", [patternPrestigeClasses, "Result", classInput.search(patternPrestigeClasses)])
+                sbcUtils.log("Pattern", [patternSupportedClasses, "Result", classInput.search(patternSupportedClasses)])
+                sbcUtils.log("Pattern", [patternWizardClasses, "Result", classInput.search(patternWizardClasses)])
+                if (classInput.search(patternPrestigeClasses) !== -1 && sbcConfig.prestigeClassNames.length > 0) {
                     isPrestigeClass = true
                 }
                 if (classInput.search(patternSupportedClasses) !== -1) {
@@ -43,6 +46,7 @@ export class ClassParser extends ParserBase {
                     isWizardClass = true
                 }
 
+                sbcUtils.log(`${isPrestigeClass}, ${isSupportedClass}, ${isWizardClass}`)
                 // Supported Class, Prestige Class or Wizard Class found
                 if (isPrestigeClass || isSupportedClass || isWizardClass) {
                     let tempClassName = sbcUtils.parseSubtext(classInput.replace(/\d+/g, "").trim())

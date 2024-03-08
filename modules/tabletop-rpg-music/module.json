@@ -1,0 +1,31 @@
+{
+  "id": "tabletop-rpg-music",
+  "title": "Tabletop RPG Music",
+  "description": "<p>A free and evergrowing collection of Fantasy and Sci Fi tracks for Foundry users. Support me on <a href='https://www.patreon.com/tabletoprpgmusic' title='Patreon'>Patreon</a> to help me keep writing!</p>",
+  "authors": [
+    {
+      "name": "Tabletop RPG Music"
+    }
+  ],
+  "url": "https://www.patreon.com/tabletoprpgmusic",
+  "version": "3.1.0",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11"
+  },
+  "scripts": ["scripts/tabletop-rpg-music.js"],
+  "esmodules": [],
+  "styles": [],
+  "languages": [],
+  "packs": [
+    {
+      "name": "tabletop-rpg-music",
+      "label": "Tabletop RPG Music",
+      "path": "/packs/tabletop-rpg-music",
+      "type": "Playlist",
+      "private": false
+    }
+  ],
+  "manifest": "https://foundryvtt.s3-us-west-2.amazonaws.com/modules/tabletop-rpg-music/module.json",
+  "download": "https://foundryvtt.s3-us-west-2.amazonaws.com/modules/tabletop-rpg-music/tabletop-rpg-music-3.1.0.zip"
+}

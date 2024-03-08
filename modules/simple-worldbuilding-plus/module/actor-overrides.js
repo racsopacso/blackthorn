@@ -19,7 +19,7 @@ export class SwpActor extends SimpleActor {
         flatObj[modifier.key] = SwpUtility._replaceData(modifier.formula, data);
         let fullObj = expandObject(flatObj);
 
-        data.d = mergeObject(data.d, fullObj);
+        data.d = foundry.utils.mergeObject(data.d, fullObj);
       }
     }
 

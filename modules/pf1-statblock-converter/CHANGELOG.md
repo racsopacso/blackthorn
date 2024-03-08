@@ -1,5 +1,18 @@
 # Change Log
 
+2024_02_10 - v4.5.3
+* Fixed: SBC was inoperable if the WIP folder didn't exist but the main import folder did.
+
+2024_02_10 - v4.5.2
+* Fixed: Pincer attacks were not picked up during attack parsing
+* Fixed: Languages were sometimes not all imported
+* Fixed: Failed to find Broken items when parsing gear
+* Fixed: Failed to properly calculate broken effects on attacks
+* Fixed: Issues with Magus spell blocks (and others, but more rarely)
+* Fixed: Failed to detect quantity of consumables, and plural versions of potions/scrolls/wands
+* Fixed: SBC would generate an error when importing currency, but did it anyways
+* Changed: Added a hidden WIP folder to hold actors while importing (import button moves them into the import folder itself)
+
 2024_01_02 - v4.5.1
 * Fixed: Masterwork gear wasn't being marked as such without an enhancement bonus
 * Fixed: Masterwork status wasn't accounted for in attack comparison for attack parsing

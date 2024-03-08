@@ -197,7 +197,7 @@ export class AttackParser extends ParserBase {
                         m_AttackData.isBroken = true;
 
                         // Remove the found data from the current input
-                        m_InputAttack = m_InputAttack.replace(/(\bbroken\b)/i, "");
+                        //m_InputAttack = m_InputAttack.replace(/(\bbroken\b)/i, "");
 
                         //No valid name remaining
                         if (!/[a-z](?![^(]*\))/i.test(m_InputAttack))
@@ -260,7 +260,11 @@ export class AttackParser extends ParserBase {
                             m_AttackData.isNatural = true;
 
                             // Clean up the plural name
-                            let tempNaturalAttackName = m_AttackData.attackName.replace(/s$/, "").match(naturalAttacksPattern)[1].capitalize();
+                            let tempNaturalAttackName = "";
+                            if (m_AttackData.attackName.search(/Pincers/i) === -1)
+                                tempNaturalAttackName = m_AttackData.attackName.replace(/s$/, "").match(naturalAttacksPattern)[1].capitalize();
+                            else
+                                tempNaturalAttackName = m_AttackData.attackName.match(naturalAttacksPattern)[1].capitalize();
 
                             // If the natural attack is from the system compendium, use that
                             if(Object.values(sbcConfig.naturalAttacks).find(na => na === tempNaturalAttackName))
@@ -676,13 +680,15 @@ export class AttackParser extends ParserBase {
                             +sbcData.characterData.conversionValidation.attributes.bab
                             + +CONFIG["PF1"].sizeMods[sbcData.characterData.actorData.system.traits.size]
                             + +m_ActionData.attackAbilityModifier
-                            + +m_ActionData.featAttackBonus;
+                            + +m_ActionData.featAttackBonus
+                            + (m_AttackData.isBroken ? -2 : 0);
                         
                         sbcConfig.options.debug && console.log(`Calculated Attack Modifier: ${calculatedAttackModifier} =\n` +
                             `Bab: ${sbcData.characterData.conversionValidation.attributes.bab}\n` +
                             `Size Mod: ${CONFIG["PF1"].sizeMods[sbcData.characterData.actorData.system.traits.size]}\n` +
                             `Attack Ability Modifier: ${m_ActionData.attackAbilityModifier}\n` +
-                            `Feat Attack Bonus: ${m_ActionData.featAttackBonus}\n`);
+                            `Feat Attack Bonus: ${m_ActionData.featAttackBonus}\n` +
+                            `Broken: ${m_AttackData.isBroken ? -2 : 0}\n`);
 
                         // account for Masterwork status
                         if (m_AttackData.isMasterwork)
@@ -717,13 +723,14 @@ export class AttackParser extends ParserBase {
                         }
 
                         // let calculatedDamageBonus = (m_AttackData.isPrimaryAttack) ? +strDamageBonus + +m_AttackData.enhancementBonus : strDamageBonus + +m_AttackData.enhancementBonus - 5
-                        let calculatedDamageBonus = +strDamageBonus + +m_AttackData.enhancementBonus + +m_ActionData.featDamageBonus;
+                        let calculatedDamageBonus = +strDamageBonus + +m_AttackData.enhancementBonus + +m_ActionData.featDamageBonus + (m_AttackData.isBroken ? -2 : 0);
                         let damageOffset = +m_ActionData.damageBonus - +calculatedDamageBonus;
                         sbcConfig.options.debug && console.log(`Damage Offset: ${damageOffset}\n` +
                             `Damage Bonus: ${m_ActionData.damageBonus}\n` +
                             `Calculated Damage Bonus: ${calculatedDamageBonus}\n` +
                             `Str Damage Bonus: ${strDamageBonus}\n` +
-                            `Enhancement Bonus: ${m_AttackData.enhancementBonus}\n`);
+                            `Enhancement Bonus: ${m_AttackData.enhancementBonus}\n` +
+                            `Broken: ${m_AttackData.isBroken ? -2 : 0}\n`);
                         if((damageOffset === Math.floor(strDamageBonus / 2)) && strDamageBonus > 0) {
                             calculatedDamageBonus += Math.floor(strDamageBonus / 2);
                             m_ActionData.damageMult = 1.5;

@@ -1,7 +1,7 @@
 {
   "title": "Pathfinder 1E Weather",
   "description": "Adds weather funcionality based on PF1's rules for weather.  Can be used with SimpleCalendar to add weather reports as notes on the calendar using a button in the side panel.",
-  "version": "1.0.9",
+  "version": "1.0.11",
   "relationships": {
     "systems": [
       {
@@ -83,7 +83,7 @@
     }
   ],
   "url": "https://github.com/ntriel/pf1-weather-macros",
-  "download": "https://github.com/ntriel/pf1-weather-macros/archive/v1.0.9.zip",
+  "download": "https://github.com/ntriel/pf1-weather-macros/archive/v1.0.11.zip",
   "manifest": "https://raw.githubusercontent.com/ntriel/pf1-weather-macros/main/module.json",
   "readme": "https://github.com/ntriel/pf1-weather-macros/blob/main/README.md",
   "changelog": "https://github.com/ntriel/pf1-weather-macros/blob/main/CHANGELOG.md",

@@ -46,7 +46,7 @@ export class GearParser extends ParserBase {
 
                 // Preserve text inside ( ) for a backup search
                 if(gearSubtext && gearSubtext.length > 0) {
-                  if(gearSubtext.search(/\d+$/) !== -1 && !patternSupportedSpells.test(gearText)) {
+                  if(gearSubtext.search(/\d+$/) !== -1) {// && !patternSupportedSpells.test(gearText)) {
                     quantity = +gearSubtext;
 
                   }
@@ -80,7 +80,7 @@ export class GearParser extends ParserBase {
 
                 let gear = {
                     type: "loot",
-                    name: gearText.replace(/^([\d+]+|masterwork|mwk)/g, "").trim(),
+                    name: gearText.replace(/^([\d+]+|masterwork|mwk|broken)/gi, "").trim(),
                     altName: altName,
                     rawName: input.replace(/(\(\d+\)|\swith 20 arrows)/gi, "").trim(),
                     subtext: gearSubtext,
@@ -150,7 +150,7 @@ export class GearParser extends ParserBase {
                     gear.type = "consumable";
 
                     let namePattern = gearText.match(patternSupportedSpells);
-                    let consumableType = namePattern[1]?.toLowerCase();
+                    let consumableType = this.getConsumableType(namePattern[1]?.toLowerCase());
                     let spellName = namePattern[2];
                     // let charges = gearSubtext?.match(/\d+/)?.[0] ?? (/wand/i.test(consumableType) ? 50 : 1);
                     let charges = gearSubtext?.match(/(\d+) charges/i)?.[1] ?? (/wand/i.test(consumableType) ? 50 : 1);
@@ -247,7 +247,8 @@ export class GearParser extends ParserBase {
                     let placeholder = await sbcUtils.generatePlaceholderEntity(gear, line)
                     // sbcData.characterData.items.push(placeholder)
                     await createItem(placeholder);
-                    placeholdersGenerated.push(sbcUtils.capitalize(gear.name))
+                    if(placeholder.name.search(/Money Pouch/) === -1)
+                      placeholdersGenerated.push(sbcUtils.capitalize(gear.name))
                 }
 
             }
@@ -272,4 +273,21 @@ export class GearParser extends ParserBase {
 
     }
 
+    getConsumableType(name) {
+      let potionString1 = "potion";
+      let wandString1 = "wand";
+      let scrollString1 = "scroll";
+      let potionString2 = "potions";
+      let wandString2 = "wands";
+      let scrollString2 = "scrolls";
+
+      if(name.search(new RegExp(`^${potionString1}`, "i")) !== -1 || name.search(new RegExp(`^${potionString2}`, "i")) !== -1)
+        return "potion";
+      else if(name.search(new RegExp(`^${wandString1}`, "i")) !== -1 || name.search(new RegExp(`^${wandString2}`, "i")) !== -1)
+        return "wand";
+      else if(name.search(new RegExp(`^${scrollString1}`, "i")) !== -1 || name.search(new RegExp(`^${scrollString2}`, "i")) !== -1)
+        return "scroll";
+      else
+        return "potion";
+    }
 }

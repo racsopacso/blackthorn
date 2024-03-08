@@ -1,4 +1,3 @@
-import { SwpUtility } from './utility.js';
 import { SimpleWorldbuildingPlusDerivedMenu } from './settings.js';
 import { SwpActor } from './actor-overrides.js';
 import { SwpActorSheet } from './actor-sheet-overrides.js';
@@ -46,7 +45,7 @@ Hooks.once('ready', () => {
   // Migrate legacy values.
   let migrationVersion = game.settings.get('simple-worldbuilding-plus', 'migrationVersion');
   let content = false;
-  if (!isNewerVersion(migrationVersion, '1.0.3')) {
+  if (!foundry.utils.isNewerVersion(migrationVersion, '1.0.3')) {
     // Load the SWP_DERIVED journal entry.
     const swpDerivedJournal = game.journal.getName('SWP_DERIVED');
     if (swpDerivedJournal) {
@@ -83,35 +82,6 @@ Hooks.once('ready', () => {
         key: m[1],
         formula: m[2]
       };
-    });
-  }
-})
-
-Hooks.on('renderActorSheet', (app, html, data) => {
-  let content = html.find('.editor-content');
-
-  if (content.length > 0) {
-    let token = app.object.token;
-    let actor = token ? token.actor : app.object;
-    let util = new SwpUtility();
-    let rollData = actor.getRollData();
-    let newContent = util.replaceBracketAttributes(content.html(), rollData);
-
-    content.html(newContent);
-
-    // Add support for custom roll buttons.
-    html.find('.inline-roll-plus').on('click', event => {
-      let target = event.currentTarget;
-      let formula = event.currentTarget.dataset.roll.split('#');
-      let rollFormula = formula[0].trim();
-      let roll = new Roll(rollFormula, rollData);
-      // Perform the roll (async)
-      roll.roll({async: true}).then((roll) => {
-        // Send to chat.
-        roll.toMessage({
-          flavor: formula[1] ? formula[1].trim() : null
-        });
-      });
     });
   }
 });

@@ -24,6 +24,7 @@ export class EntityParser extends ParserBase {
 
             // let array = value.split(/\b,/);
             let array = sbcUtils.sbcSplit(value, processClusters);
+            array = sbcUtils.fixSplitGroup(array);
 
 
             for (let i=0; i<array.length; i++) {

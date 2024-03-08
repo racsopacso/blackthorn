@@ -450,6 +450,7 @@ async function processWeaponGroups() {
 
     for (let feature of features) {
         let subText = sbcUtils.parseSubtext(feature.name.toLowerCase());
+        subText.shift();
         for (let group of subText) {
             let foundGroup = weaponGroups.find(wg => group.includes(wg));
             if(foundGroup) {

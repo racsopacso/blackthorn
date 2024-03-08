@@ -13,6 +13,7 @@ export class SpecialQualityParser extends ParserBase {
         try {
 
             let specialQualities = sbcUtils.sbcSplit(value)
+            specialQualities = sbcUtils.fixSplitGroup(specialQualities);
             let type = "misc"
 
             for (let i=0; i<specialQualities.length; i++) {
