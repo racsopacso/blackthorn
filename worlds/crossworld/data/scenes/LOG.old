@@ -1,8 +1,21 @@
-2024/03/07-15:53:03.505377 7f7cfb4f2b38 Recovering log #109
-2024/03/07-15:53:03.512361 7f7cfb4f2b38 Delete type=3 #107
-2024/03/07-15:53:03.512402 7f7cfb4f2b38 Delete type=0 #109
-2024/03/07-15:54:13.868928 7f7a77d4bb38 Level-0 table #115: started
-2024/03/07-15:54:13.868954 7f7a77d4bb38 Level-0 table #115: 0 bytes OK
-2024/03/07-15:54:13.870411 7f7a77d4bb38 Delete type=0 #113
-2024/03/07-15:54:13.874438 7f7a77d4bb38 Manual compaction at level-0 from '!scenes!00I7otOiQvnQti8T' @ 72057594037927935 : 1 .. '!scenes.walls!SA8bRaQVaOMM1riB.zgtI5ONZ3HehqPoU' @ 0 : 0; will stop at (end)
-2024/03/07-15:54:13.876236 7f7a77d4bb38 Manual compaction at level-1 from '!scenes!00I7otOiQvnQti8T' @ 72057594037927935 : 1 .. '!scenes.walls!SA8bRaQVaOMM1riB.zgtI5ONZ3HehqPoU' @ 0 : 0; will stop at (end)
+2024/03/07-15:54:42.651857 7f7cfccfbb38 Recovering log #114
+2024/03/07-15:54:42.656253 7f7cfccfbb38 Delete type=0 #114
+2024/03/07-15:54:42.656290 7f7cfccfbb38 Delete type=3 #112
+2024/03/20-19:30:15.618276 7f7a77d4bb38 Level-0 table #119: started
+2024/03/20-19:30:15.726668 7f7a77d4bb38 Level-0 table #119: 1691875 bytes OK
+2024/03/20-19:30:15.744356 7f7a77d4bb38 Delete type=0 #117
+2024/03/20-19:46:12.500424 7f7a77d4bb38 Compacting 1@1 + 1@2 files
+2024/03/20-19:46:12.527322 7f7a77d4bb38 Generated table #120@1: 964 keys, 175092 bytes
+2024/03/20-19:46:12.527344 7f7a77d4bb38 Compacted 1@1 + 1@2 files => 175092 bytes
+2024/03/20-19:46:12.528949 7f7a77d4bb38 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/03/20-19:46:12.529160 7f7a77d4bb38 Delete type=2 #119
+2024/03/20-19:46:12.529564 7f7a77d4bb38 Delete type=2 #111
+2024/04/08-19:27:54.885348 7f7a77d4bb38 Level-0 table #122: started
+2024/04/08-19:27:54.967430 7f7a77d4bb38 Level-0 table #122: 2650363 bytes OK
+2024/04/08-19:27:54.975117 7f7a77d4bb38 Delete type=0 #118
+2024/04/08-19:29:53.735472 7f7a77d4bb38 Level-0 table #124: started
+2024/04/08-19:29:53.818381 7f7a77d4bb38 Level-0 table #124: 3977222 bytes OK
+2024/04/08-19:29:53.820873 7f7a77d4bb38 Delete type=0 #121
+2024/04/08-20:41:41.417158 7f7a77d4bb38 Level-0 table #126: started
+2024/04/08-20:41:41.478911 7f7a77d4bb38 Level-0 table #126: 3974566 bytes OK
+2024/04/08-20:41:41.481042 7f7a77d4bb38 Delete type=0 #123
