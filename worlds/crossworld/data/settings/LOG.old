@@ -1,3 +1,24 @@
-2024/03/07-15:54:42.668768 7f7cfc4f8b38 Recovering log #74
-2024/03/07-15:54:42.673445 7f7cfc4f8b38 Delete type=0 #74
-2024/03/07-15:54:42.673483 7f7cfc4f8b38 Delete type=3 #72
+2024/04/22-17:11:55.757958 7fd413caab38 Recovering log #78
+2024/04/22-17:11:55.758338 7fd413caab38 Level-0 table #80: started
+2024/04/22-17:11:55.759305 7fd413caab38 Level-0 table #80: 3008 bytes OK
+2024/04/22-17:11:55.760592 7fd413caab38 Delete type=0 #78
+2024/04/22-17:11:55.760838 7fd413caab38 Delete type=3 #77
+2024/06/13-19:45:42.128903 7fd187fd9b38 Level-0 table #83: started
+2024/06/13-19:45:42.155156 7fd187fd9b38 Level-0 table #83: 2167 bytes OK
+2024/06/13-19:45:42.156426 7fd187fd9b38 Delete type=0 #81
+2024/06/13-19:45:42.161367 7fd187fd9b38 Manual compaction at level-0 from '!settings!7pcu8O2j5t0usMgx' @ 72057594037927935 : 1 .. '!settings!nzZ7NZu9WX0J2Ajf' @ 0 : 0; will stop at '!settings!nzZ7NZu9WX0J2Ajf' @ 61 : 1
+2024/06/13-19:45:42.161380 7fd187fd9b38 Compacting 2@0 + 0@1 files
+2024/06/13-19:45:42.162305 7fd187fd9b38 Generated table #84@0: 4 keys, 2144 bytes
+2024/06/13-19:45:42.162322 7fd187fd9b38 Compacted 2@0 + 0@1 files => 2144 bytes
+2024/06/13-19:45:42.163032 7fd187fd9b38 compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/06/13-19:45:42.163105 7fd187fd9b38 Delete type=2 #83
+2024/06/13-19:45:42.163181 7fd187fd9b38 Delete type=2 #80
+2024/06/13-19:45:42.175279 7fd187fd9b38 Manual compaction at level-0 from '!settings!nzZ7NZu9WX0J2Ajf' @ 61 : 1 .. '!settings!nzZ7NZu9WX0J2Ajf' @ 0 : 0; will stop at (end)
+2024/06/13-19:45:42.177778 7fd187fd9b38 Manual compaction at level-1 from '!settings!7pcu8O2j5t0usMgx' @ 72057594037927935 : 1 .. '!settings!nzZ7NZu9WX0J2Ajf' @ 0 : 0; will stop at '!settings!nzZ7NZu9WX0J2Ajf' @ 89 : 1
+2024/06/13-19:45:42.177787 7fd187fd9b38 Compacting 1@1 + 1@2 files
+2024/06/13-19:45:42.178573 7fd187fd9b38 Generated table #85@1: 9 keys, 2804 bytes
+2024/06/13-19:45:42.178587 7fd187fd9b38 Compacted 1@1 + 1@2 files => 2804 bytes
+2024/06/13-19:45:42.179385 7fd187fd9b38 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/06/13-19:45:42.179438 7fd187fd9b38 Delete type=2 #84
+2024/06/13-19:45:42.179538 7fd187fd9b38 Delete type=2 #76
+2024/06/13-19:45:42.187042 7fd187fd9b38 Manual compaction at level-1 from '!settings!nzZ7NZu9WX0J2Ajf' @ 89 : 1 .. '!settings!nzZ7NZu9WX0J2Ajf' @ 0 : 0; will stop at (end)
