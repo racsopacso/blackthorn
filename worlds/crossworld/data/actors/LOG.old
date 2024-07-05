@@ -1,15 +1,8 @@
-2024/06/13-19:45:50.719773 7fd414cb0b38 Recovering log #97
-2024/06/13-19:45:50.761290 7fd414cb0b38 Delete type=0 #97
-2024/06/13-19:45:50.761322 7fd414cb0b38 Delete type=3 #93
-2024/07/03-17:55:16.673740 7fd187fd9b38 Level-0 table #103: started
-2024/07/03-17:55:16.683813 7fd187fd9b38 Level-0 table #103: 75582 bytes OK
-2024/07/03-17:55:16.684926 7fd187fd9b38 Delete type=0 #101
-2024/07/03-17:55:16.686145 7fd187fd9b38 Manual compaction at level-0 from '!actors!0jDxLFzTG38Q4BIW' @ 72057594037927935 : 1 .. '!actors.items!yRJUsN3ywawlKlhm.yp01qh407hso0vvh' @ 0 : 0; will stop at (end)
-2024/07/03-17:55:16.766594 7fd187fd9b38 Manual compaction at level-1 from '!actors!0jDxLFzTG38Q4BIW' @ 72057594037927935 : 1 .. '!actors.items!yRJUsN3ywawlKlhm.yp01qh407hso0vvh' @ 0 : 0; will stop at '!actors!xeaDM6q2sTfUr4te' @ 5776 : 1
-2024/07/03-17:55:16.766603 7fd187fd9b38 Compacting 1@1 + 1@2 files
-2024/07/03-17:55:16.805123 7fd187fd9b38 Generated table #104@1: 335 keys, 501286 bytes
-2024/07/03-17:55:16.805146 7fd187fd9b38 Compacted 1@1 + 1@2 files => 501286 bytes
-2024/07/03-17:55:16.805686 7fd187fd9b38 compacted to: files[ 0 0 1 0 0 0 0 ]
-2024/07/03-17:55:16.805767 7fd187fd9b38 Delete type=2 #99
-2024/07/03-17:55:16.805858 7fd187fd9b38 Delete type=2 #103
-2024/07/03-17:55:16.805979 7fd187fd9b38 Manual compaction at level-1 from '!actors!xeaDM6q2sTfUr4te' @ 5776 : 1 .. '!actors.items!yRJUsN3ywawlKlhm.yp01qh407hso0vvh' @ 0 : 0; will stop at (end)
+2024/07/04-14:58:24.911598 7fd4144adb38 Recovering log #107
+2024/07/04-14:58:24.912915 7fd4144adb38 Delete type=0 #107
+2024/07/04-14:58:24.912937 7fd4144adb38 Delete type=3 #105
+2024/07/04-14:58:33.516670 7fd187fd9b38 Level-0 table #113: started
+2024/07/04-14:58:33.516687 7fd187fd9b38 Level-0 table #113: 0 bytes OK
+2024/07/04-14:58:33.517218 7fd187fd9b38 Delete type=0 #111
+2024/07/04-14:58:33.518414 7fd187fd9b38 Manual compaction at level-0 from '!actors!0jDxLFzTG38Q4BIW' @ 72057594037927935 : 1 .. '!actors.items!yRJUsN3ywawlKlhm.yp01qh407hso0vvh' @ 0 : 0; will stop at (end)
+2024/07/04-14:58:33.519965 7fd187fd9b38 Manual compaction at level-1 from '!actors!0jDxLFzTG38Q4BIW' @ 72057594037927935 : 1 .. '!actors.items!yRJUsN3ywawlKlhm.yp01qh407hso0vvh' @ 0 : 0; will stop at (end)
