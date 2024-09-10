@@ -1,17 +1,17 @@
-2024/07/29-16:36:50.223600 7fd413caab38 Recovering log #96
-2024/07/29-16:36:50.225086 7fd413caab38 Delete type=0 #96
-2024/07/29-16:36:50.225104 7fd413caab38 Delete type=3 #94
-2024/08/15-17:38:02.716561 7fd187fd9b38 Level-0 table #103: started
-2024/08/15-17:38:02.718777 7fd187fd9b38 Level-0 table #103: 78213 bytes OK
-2024/08/15-17:38:02.719588 7fd187fd9b38 Delete type=0 #101
-2024/08/15-17:38:02.721375 7fd187fd9b38 Manual compaction at level-0 from '!messages!05xBGNprAXLSXPOx' @ 72057594037927935 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at (end)
-2024/08/15-17:38:02.723199 7fd187fd9b38 Manual compaction at level-1 from '!messages!05xBGNprAXLSXPOx' @ 72057594037927935 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at '!messages!zzZzcftR13oMsPoi' @ 2378 : 1
-2024/08/15-17:38:02.723207 7fd187fd9b38 Compacting 1@1 + 2@2 files
-2024/08/15-17:38:02.785161 7fd187fd9b38 Generated table #104@1: 1915 keys, 2127740 bytes
-2024/08/15-17:38:02.792283 7fd187fd9b38 Generated table #105@1: 215 keys, 263683 bytes
-2024/08/15-17:38:02.792301 7fd187fd9b38 Compacted 1@1 + 2@2 files => 2391423 bytes
-2024/08/15-17:38:02.792851 7fd187fd9b38 compacted to: files[ 0 0 2 0 0 0 0 ]
-2024/08/15-17:38:02.792946 7fd187fd9b38 Delete type=2 #99
-2024/08/15-17:38:02.793047 7fd187fd9b38 Delete type=2 #103
-2024/08/15-17:38:02.793805 7fd187fd9b38 Delete type=2 #98
-2024/08/15-17:38:02.865929 7fd187fd9b38 Manual compaction at level-1 from '!messages!zzZzcftR13oMsPoi' @ 2378 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at (end)
+2024/08/15-17:40:34.974455 7fd414cb0b38 Recovering log #102
+2024/08/15-17:40:34.975826 7fd414cb0b38 Delete type=0 #102
+2024/08/15-17:40:34.975850 7fd414cb0b38 Delete type=3 #100
+2024/09/09-14:57:17.655523 7fd187fd9b38 Level-0 table #109: started
+2024/09/09-14:57:17.666467 7fd187fd9b38 Level-0 table #109: 72910 bytes OK
+2024/09/09-14:57:17.668569 7fd187fd9b38 Delete type=0 #107
+2024/09/09-14:57:17.669772 7fd187fd9b38 Manual compaction at level-0 from '!messages!05xBGNprAXLSXPOx' @ 72057594037927935 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at (end)
+2024/09/09-14:57:17.725385 7fd187fd9b38 Manual compaction at level-1 from '!messages!05xBGNprAXLSXPOx' @ 72057594037927935 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at '!messages!zhzh800HazqaN66d' @ 2426 : 1
+2024/09/09-14:57:17.725393 7fd187fd9b38 Compacting 1@1 + 2@2 files
+2024/09/09-14:57:17.770341 7fd187fd9b38 Generated table #110@1: 1903 keys, 2125156 bytes
+2024/09/09-14:57:17.778321 7fd187fd9b38 Generated table #111@1: 264 keys, 318457 bytes
+2024/09/09-14:57:17.778333 7fd187fd9b38 Compacted 1@1 + 2@2 files => 2443613 bytes
+2024/09/09-14:57:17.778819 7fd187fd9b38 compacted to: files[ 0 0 2 0 0 0 0 ]
+2024/09/09-14:57:17.779152 7fd187fd9b38 Delete type=2 #104
+2024/09/09-14:57:17.779543 7fd187fd9b38 Delete type=2 #105
+2024/09/09-14:57:17.779607 7fd187fd9b38 Delete type=2 #109
+2024/09/09-14:57:17.779703 7fd187fd9b38 Manual compaction at level-1 from '!messages!zhzh800HazqaN66d' @ 2426 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at (end)
