@@ -1,5 +1,7 @@
-2024/10/13-20:07:19.661703 7fd414cb0b38 Delete type=3 #1
-2024/10/13-20:07:28.991890 7fd187fd9b38 Level-0 table #5: started
-2024/10/13-20:07:28.991909 7fd187fd9b38 Level-0 table #5: 0 bytes OK
-2024/10/13-20:07:28.992475 7fd187fd9b38 Delete type=0 #3
-2024/10/13-20:07:28.995833 7fd187fd9b38 Manual compaction at level-0 from 'undefined' @ 72057594037927935 : 1 .. 'undefined' @ 0 : 0; will stop at (end)
+2024/10/13-20:07:57.070441 7fd414cb0b38 Recovering log #4
+2024/10/13-20:07:57.071801 7fd414cb0b38 Delete type=0 #4
+2024/10/13-20:07:57.071827 7fd414cb0b38 Delete type=3 #2
+2024/10/14-12:15:17.442695 7fd187fd9b38 Level-0 table #9: started
+2024/10/14-12:15:17.443361 7fd187fd9b38 Level-0 table #9: 1906 bytes OK
+2024/10/14-12:15:17.444227 7fd187fd9b38 Delete type=0 #7
+2024/10/14-12:15:17.446754 7fd187fd9b38 Manual compaction at level-0 from '!scenes!hTSoBTu3V5JGFQlc' @ 72057594037927935 : 1 .. '!scenes.tiles!hTSoBTu3V5JGFQlc.mMxIUI1fXJmrR1zK' @ 0 : 0; will stop at (end)
