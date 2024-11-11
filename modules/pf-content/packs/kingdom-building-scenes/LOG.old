@@ -1,7 +1,7 @@
-2024/10/20-13:17:46.101279 7fd413caab38 Recovering log #100
-2024/10/20-13:17:46.102327 7fd413caab38 Delete type=3 #98
-2024/10/20-13:17:46.102350 7fd413caab38 Delete type=0 #100
-2024/11/07-15:07:16.732558 7fd187fd9b38 Level-0 table #105: started
-2024/11/07-15:07:16.732728 7fd187fd9b38 Level-0 table #105: 0 bytes OK
-2024/11/07-15:07:16.733581 7fd187fd9b38 Delete type=0 #103
-2024/11/07-15:07:16.735101 7fd187fd9b38 Manual compaction at level-0 from '!scenes!VfllkIzpnvc0RLpY' @ 72057594037927935 : 1 .. '!scenes.tokens.delta!VfllkIzpnvc0RLpY.ziOt9nGN3Or6R9vh.ziOt9nGN3Or6R9vh' @ 0 : 0; will stop at (end)
+2024/11/07-15:07:23.434615 7fd4144adb38 Recovering log #104
+2024/11/07-15:07:23.435810 7fd4144adb38 Delete type=0 #104
+2024/11/07-15:07:23.435830 7fd4144adb38 Delete type=3 #102
+2024/11/10-17:07:04.610846 7fd187fd9b38 Level-0 table #109: started
+2024/11/10-17:07:04.611012 7fd187fd9b38 Level-0 table #109: 0 bytes OK
+2024/11/10-17:07:04.611618 7fd187fd9b38 Delete type=0 #107
+2024/11/10-17:07:04.612437 7fd187fd9b38 Manual compaction at level-0 from '!scenes!VfllkIzpnvc0RLpY' @ 72057594037927935 : 1 .. '!scenes.tokens.delta!VfllkIzpnvc0RLpY.ziOt9nGN3Or6R9vh.ziOt9nGN3Or6R9vh' @ 0 : 0; will stop at (end)
