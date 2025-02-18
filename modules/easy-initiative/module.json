@@ -4,15 +4,13 @@
 	"type": "module",
 	"title": "Easy Initiative",
 	"description": "Allows easy inline edititing of initiative values",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"library": false,
+	"manifestPlusVersion": "1.2.0",
 	"compatibility": {
 		"minimum": "10",
-		"verified": "11"
+		"verified": "12"
 	},
-	"manifestPlusVersion": "1.2.0",
-	"minimumCoreVersion": "10",
-	"compatibleCoreVersion": "11",
 	"authors": [
 		{
 			"name": "Alan Davies",
@@ -20,7 +18,6 @@
 			"ko-fi": "cs96and"
 		}
 	],
-	"author": "Alan Davies",
 	"esmodules": [
 		"scripts/easy-initiative.js"
 	],
@@ -30,6 +27,6 @@
 	],
 	"url": "https://github.com/cs96and/FoundryVTT-easy-initiative",
 	"manifest": "https://github.com/cs96and/FoundryVTT-easy-initiative/releases/latest/download/module.json",
-	"download": "https://github.com/cs96and/FoundryVTT-easy-initiative/releases/download/1.0.0/module.zip",
-	"changelog": "https://github.com/cs96and/FoundryVTT-easy-initiative/releases/tag/1.0.0"
+	"download": "https://github.com/cs96and/FoundryVTT-easy-initiative/releases/download/1.1.0/module.zip",
+	"changelog": "https://github.com/cs96and/FoundryVTT-easy-initiative/releases/tag/1.1.0"
 }

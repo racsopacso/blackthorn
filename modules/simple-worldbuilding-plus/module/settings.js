@@ -19,7 +19,7 @@ export class SimpleWorldbuildingPlusDerivedMenu extends FormApplication {
 
   _updateObject(event, formData) {
     const data = expandObject(formData);
-    console.log(data);
     game.settings.set('simple-worldbuilding-plus', 'derived', data);
+    window.location.reload();
   }
 }

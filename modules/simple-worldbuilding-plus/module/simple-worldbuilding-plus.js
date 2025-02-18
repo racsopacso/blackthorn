@@ -7,7 +7,7 @@ Hooks.once('init', async function() {
   game.SimpleWorldbuildingPlus = {};
 
   // Add support for derived attributes on the Simple World-building system.
-  if (game.data.system.id == 'worldbuilding') {
+  if (game?.system?.id == 'worldbuilding' || game?.data?.system?.id == 'worldbuilding') {
     CONFIG.Actor.documentClass = SwpActor;
 
     // Replace the actor sheet with a customized version.

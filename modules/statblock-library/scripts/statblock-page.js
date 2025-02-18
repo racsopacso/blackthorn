@@ -56,22 +56,21 @@ export class JournalStatblockPageSheet extends JournalPageSheet {
 
   importStatblock = async function importStatblock(name, content, event) {
     if (game.modules.get('pf1-statblock-converter').active) {
+      let formInput = `${name}\n${content}`;
+      const api = game.modules.get('pf1-statblock-converter').api?.openSBCDialog;
+      if (!api) {
+        ui.notifications.warn('There is a new version of "sbc | PF1 Statblock Converter". Please update for better results.');
       const wait = async (ms) => new Promise((resolve)=> setTimeout(resolve, ms));
   
-//      let inputText = event.nextElementSibling.innerText;
-//      let sectionId = inputText.replace(/Import (.*) with SBC/gm, `$1`);
-      
-//      sectionId = sectionId.replace(/[^a-zA-Z0-9_]/gm, '');
-      
       window.$('#startSBCButton')[0].click();
-      
-      // let formInput = window.$(`#${sectionId}`)[0].innerText;
-      let formInput = `${name}\n${content}`;
-      
-      await wait(250);
+            
+      await wait(500);
       
       window.$('#sbcInput')[0].value = formInput;
       window.$('#sbcInput').keyup();
+      } else {
+        await api(formInput);
+      }
     }
     else {
       ui.notifications.warn('Please install and enable "sbc | PF1 Statblock Converter" to import this statblock');

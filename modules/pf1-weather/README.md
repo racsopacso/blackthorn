@@ -2,6 +2,10 @@
 Added macros with functionality to follow PF1's weather rules found at:<br>
 https://www.d20pfsrd.com/gamemastering/environment/weather/ <br>
 Manifest URL: https://raw.githubusercontent.com/ntriel/pf1-weather-macros/main/module.json
+
+# v1.0.12 UPDATE
+Updating the module json to conform with v12 FoundryVTT Requirements and validated functionality with the same.
+
 # v1.0.11 UPDATE
 Release of 1.0.10 failed to include ft to m conversions. Fixing in this release.
 

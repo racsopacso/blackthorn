@@ -10,6 +10,8 @@
  * https://mit-license.org/
  */
 
+import { Util } from "./util.js"
+
 export class DamageLogSettings {
 
 	/**
@@ -19,9 +21,7 @@ export class DamageLogSettings {
 	 */
 	constructor() {
 
-		Hooks.on("renderSettingsConfig", this._onRenderSettingsConfig.bind(this));
-
-		const debouncedReload = debounce(() => window.location.reload(), 500);
+		Hooks.on("renderSettingsConfig", this.#onRenderSettingsConfig.bind(this));
 
 		game.settings.register("damage-log", "useTab", {
 			name: game.i18n.localize("damage-log.settings.use-tab"),
@@ -30,7 +30,7 @@ export class DamageLogSettings {
 			config: true,
 			type: Boolean,
 			default: true,
-			onChange: debouncedReload
+			onChange: foundry.utils.debouncedReload
 		});
 
 		game.settings.register("damage-log", "allowPlayerView", {
@@ -39,14 +39,14 @@ export class DamageLogSettings {
 			config: true,
 			type: Boolean,
 			default: false,
-			onChange: debouncedReload
+			onChange: foundry.utils.debouncedReload
 		});
 
 		const permissionChoices = {};
-		permissionChoices[CONST.DOCUMENT_PERMISSION_LEVELS.NONE] = game.i18n.localize("damage-log.settings.none");
-		permissionChoices[CONST.DOCUMENT_PERMISSION_LEVELS.LIMITED] = game.i18n.localize("damage-log.settings.limited");
-		permissionChoices[CONST.DOCUMENT_PERMISSION_LEVELS.OBSERVER] = game.i18n.localize("damage-log.settings.observer");
-		permissionChoices[CONST.DOCUMENT_PERMISSION_LEVELS.OWNER] = game.i18n.localize("damage-log.settings.owner");
+		permissionChoices[Util.DOCUMENT_OWNERSHIP_LEVELS.NONE] = game.i18n.localize("damage-log.settings.none");
+		permissionChoices[Util.DOCUMENT_OWNERSHIP_LEVELS?.LIMITED] = game.i18n.localize("damage-log.settings.limited");
+		permissionChoices[Util.DOCUMENT_OWNERSHIP_LEVELS?.OBSERVER] = game.i18n.localize("damage-log.settings.observer");
+		permissionChoices[Util.DOCUMENT_OWNERSHIP_LEVELS?.OWNER] = game.i18n.localize("damage-log.settings.owner");
 
 		game.settings.register("damage-log", "minPlayerPermission", {
 			name: game.i18n.localize("damage-log.settings.min-player-permission"),
@@ -55,8 +55,8 @@ export class DamageLogSettings {
 			config: true,
 			type: Number,
 			choices: permissionChoices,
-			default: CONST.DOCUMENT_PERMISSION_LEVELS.OWNER,
-			onChange: debouncedReload
+			default: Util.DOCUMENT_OWNERSHIP_LEVELS.OWNER,
+			onChange: foundry.utils.debouncedReload
 		});
 
 		game.settings.register("damage-log", "allowPlayerUndo", {
@@ -76,7 +76,7 @@ export class DamageLogSettings {
 			config: true,
 			type: Boolean,
 			default: false,
-			onChange: debouncedReload
+			onChange: foundry.utils.debouncedReload
 		});
 
 		game.settings.register("damage-log", "hideHealingInLimitedInfo", {
@@ -86,7 +86,7 @@ export class DamageLogSettings {
 			config: true,
 			type: Boolean,
 			default: false,
-			onChange: debouncedReload
+			onChange: foundry.utils.debouncedReload
 		});
 
 		game.settings.register("damage-log", "clampToMax", {
@@ -146,7 +146,7 @@ export class DamageLogSettings {
 	 * This is fired when Foundry's settings window is opened.
 	 * Enable / disable interaction with various settings, depending on whether "Allow Player View" is enabled.
 	 */
-	_onRenderSettingsConfig(settingsConfig, html, user) {
+	#onRenderSettingsConfig(settingsConfig, html, user) {
 		if (!game.user.isGM) return;
 
 		const formGroups = html[0].querySelectorAll('div.form-group');
@@ -155,33 +155,33 @@ export class DamageLogSettings {
 		const playerSpecificDivs = [...formGroups].filter(fg => {
 			return !!fg.querySelector('select[name="damage-log.minPlayerPermission"],input[name="damage-log.allowPlayerUndo"],input[name="damage-log.showLimitedInfoToPlayers"]');
 		});
-		DamageLogSettings._toggleDivs(playerSpecificDivs, this.allowPlayerView);
+		DamageLogSettings.#toggleDivs(playerSpecificDivs, this.allowPlayerView);
 
 		// Disable "Hide healing in the limited damage info", if "Show limited damage info to players" is disabled.
 		const hideHealingDiv = [...formGroups].filter(fg => {
 			return !!fg.querySelector('input[name="damage-log.hideHealingInLimitedInfo"]');
 		});
-		DamageLogSettings._toggleDivs(hideHealingDiv, this.allowPlayerView && this.showLimitedInfoToPlayers);
+		DamageLogSettings.#toggleDivs(hideHealingDiv, this.allowPlayerView && this.showLimitedInfoToPlayers);
 		
 		const allowPlayersCheckbox = html[0].querySelector('input[name="damage-log.allowPlayerView"]');
 		const showLimitedInfoCheckbox = html[0].querySelector('input[name="damage-log.showLimitedInfoToPlayers"]');
 
 		// Handle the allowPlayerView checkbox being toggled.
 		allowPlayersCheckbox.addEventListener("change", (event) => {
-			DamageLogSettings._toggleDivs(playerSpecificDivs, allowPlayersCheckbox.checked);
-			DamageLogSettings._toggleDivs(hideHealingDiv, allowPlayersCheckbox.checked && showLimitedInfoCheckbox.checked);
+			DamageLogSettings.#toggleDivs(playerSpecificDivs, allowPlayersCheckbox.checked);
+			DamageLogSettings.#toggleDivs(hideHealingDiv, allowPlayersCheckbox.checked && showLimitedInfoCheckbox.checked);
 		});
 
 		// Handle the showLimitedInfoToPlayers checkbox being toggled.
 		showLimitedInfoCheckbox.addEventListener("change", (event) => {
-			DamageLogSettings._toggleDivs(hideHealingDiv, allowPlayersCheckbox.checked && showLimitedInfoCheckbox.checked);
+			DamageLogSettings.#toggleDivs(hideHealingDiv, allowPlayersCheckbox.checked && showLimitedInfoCheckbox.checked);
 		});
 	}
 
 	/**
 	 * Enable / disable inputs in a set of divs.
 	 */
-	static _toggleDivs(divs, enabled) {
+	static #toggleDivs(divs, enabled) {
 		for (const div of divs) {
 			// Disable all inputs in the divs (checkboxes and dropdowns)
 			div.querySelectorAll("input,select").forEach(i => i.disabled = !enabled);

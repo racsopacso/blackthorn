@@ -1,22 +1,23 @@
 {
   "title": "Pathfinder 1e Archetypes and Abilities",
   "description": "Adds rule texts for Archetypes, Archetype Class Features, along with 119 Prestige Classes, and associated Prestige Features. Read the README for more information.",
-  "version": "0.3.0",
+  "version": "10.1.0",
+  "esmodules": [
+    "./pf-archetypes.js"
+  ],
   "relationships": {
     "systems": [
       {
         "id": "pf1",
-        "type": "system",
-        "manifest": "https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/releases/permalink/latest/downloads/system.json",
         "compatibility": {
-          "minimum": "9.1",
-          "verified": "9.1"
+          "minimum": "10",
+          "verified": "10.7"
         }
       }
     ]
   },
   "compatibility": {
-    "minimum": "10",
+    "minimum": "11",
     "verified": "11"
   },
   "packFolders": [
@@ -28,8 +29,14 @@
         "pf-arch-features",
         "pf-prestige-features"
       ],
-      "color": "#777777",
-      "folders": []
+      "color": "#777777"
+    },
+    {
+      "name": "Conditions",
+      "packs": [
+        "pf-arch-buffs"
+      ],
+      "color": "#792291"
     }
   ],
   "packs": [
@@ -38,66 +45,55 @@
       "label": "Archetypes",
       "system": "pf1",
       "path": "packs/pf-archetypes",
-      "type": "Item",
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      }
+      "type": "Item"
     },
     {
       "name": "pf-arch-features",
       "label": "Archetype Features",
       "system": "pf1",
       "path": "packs/pf-arch-features",
-      "type": "Item",
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      }
+      "type": "Item"
+    },
+    {
+      "name": "pf-arch-buffs",
+      "label": "Archetype / Prestige Buffs",
+      "system": "pf1",
+      "path": "packs/pf-arch-buffs",
+      "type": "Item"
     },
     {
       "name": "pf-prestige-classes",
       "label": "Prestige Classes",
       "system": "pf1",
       "path": "packs/pf-prestige-classes",
-      "type": "Item",
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      }
+      "type": "Item"
     },
     {
       "name": "pf-prestige-features",
       "label": "Prestige Features",
       "system": "pf1",
       "path": "packs/pf-prestige-features",
-      "type": "Item",
-      "flags": {},
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      }
+      "type": "Item"
     }
   ],
   "authors": [
     {
-      "name": "Tristan Goucher (With major contributions from JoshyNeurotic)",
-      "discord": "fairstrides",
-      "flags": {}
+      "name": "Tristan Goucher (Fair Strides)",
+      "discord": "fairstrides"
+    },
+    {
+      "name": "McGreger",
+      "discord": "mcgreger"
     },
     {
       "name": "fadedshadow589 (With major contributions from JoshyNeurotic)",
-      "discord": "fadedshadow589",
-      "flags": {}
+      "discord": "fadedshadow589"
     }
   ],
   "id": "pf1e-archetypes",
   "url": "https://gitlab.com/tristangoucher/pf1e-archetypes",
-  "manifest": "https://gitlab.com/tristangoucher/pf1e-archetypes/-/releases/0.3.0/downloads/module.json",
-  "download": "https://gitlab.com/tristangoucher/pf1e-archetypes/-/releases/0.3.0/downloads/pf1e-archetypes.zip",
+  "manifest": "https://gitlab.com/tristangoucher/pf1e-archetypes/-/releases/10.1.0/downloads/module.json",
+  "download": "https://gitlab.com/tristangoucher/pf1e-archetypes/-/releases/10.1.0/downloads/pf1e-archetypes.zip",
   "readme": "https://gitlab.com/tristangoucher/pf1e-archetypes/-/blob/main/README.md",
   "changelog": "https://gitlab.com/tristangoucher/pf1e-archetypes/-/blob/main/changelog.md"
 }

@@ -2,7 +2,7 @@ import { JournalStatblockPageSheet } from "./statblock-page.js";
 
 (() => {
   const module = "Pathfinder 1e Statblock Library";
-  const author = "fadedshadow589";
+  const author = "Fair Strides";
   const message = "<>This module includes a feature that allows you to click a button on the provided statblocks and automatically load the text into sbc!</p>";
   const messageEnable = "";
   const disclaimer = "";
@@ -91,17 +91,3 @@ Hooks.once('init', () => {
     makeDefault: false
   });
 });
-
-// // Add sbc import button on journals
-//   Hooks.on('renderJournalPageSheet', (_, jq) => {
-    
-//     let foundButton = jq.find(".importStatblock");
-
-//     jq.find('.importStatblock')
-//       .prop('disabled', false)
-//       .click(function (event) {
-//         event.stopPropagation();
-//         event.preventDefault();
-//         importStatblock(event);
-//       });
-//   })

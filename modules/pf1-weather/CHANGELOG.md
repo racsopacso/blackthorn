@@ -1,3 +1,6 @@
+# v1.0.12 UPDATE
+Updating the module json to conform with v12 FoundryVTT Requirements and validated functionality with the same.
+
 # v1.0.9 UPDATE
 Fixed issue with whispering weather to GM.
 
