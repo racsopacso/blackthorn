@@ -1,17 +1,8 @@
-2024/12/05-18:33:35.098228 7fd4154b3b38 Recovering log #138
-2024/12/05-18:33:35.099353 7fd4154b3b38 Delete type=3 #136
-2024/12/05-18:33:35.099374 7fd4154b3b38 Delete type=0 #138
-2024/12/15-19:13:16.367193 7fd187fd9b38 Level-0 table #145: started
-2024/12/15-19:13:16.378961 7fd187fd9b38 Level-0 table #145: 138993 bytes OK
-2024/12/15-19:13:16.380077 7fd187fd9b38 Delete type=0 #143
-2024/12/15-19:13:16.381804 7fd187fd9b38 Manual compaction at level-0 from '!messages!05xBGNprAXLSXPOx' @ 72057594037927935 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at (end)
-2024/12/15-19:13:16.383548 7fd187fd9b38 Manual compaction at level-1 from '!messages!05xBGNprAXLSXPOx' @ 72057594037927935 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at '!messages!znkIH16E7dazc3iR' @ 2862 : 1
-2024/12/15-19:13:16.383557 7fd187fd9b38 Compacting 1@1 + 2@2 files
-2024/12/15-19:13:16.438749 7fd187fd9b38 Generated table #146@1: 1869 keys, 2125225 bytes
-2024/12/15-19:13:16.459777 7fd187fd9b38 Generated table #147@1: 811 keys, 924922 bytes
-2024/12/15-19:13:16.459793 7fd187fd9b38 Compacted 1@1 + 2@2 files => 3050147 bytes
-2024/12/15-19:13:16.460266 7fd187fd9b38 compacted to: files[ 0 0 2 0 0 0 0 ]
-2024/12/15-19:13:16.460367 7fd187fd9b38 Delete type=2 #141
-2024/12/15-19:13:16.460797 7fd187fd9b38 Delete type=2 #140
-2024/12/15-19:13:16.461013 7fd187fd9b38 Delete type=2 #145
-2024/12/15-19:13:16.462779 7fd187fd9b38 Manual compaction at level-1 from '!messages!znkIH16E7dazc3iR' @ 2862 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at (end)
+2025/02/17-17:45:22.545250 7fd4144adb38 Recovering log #144
+2025/02/17-17:45:22.546584 7fd4144adb38 Delete type=0 #144
+2025/02/17-17:45:22.546602 7fd4144adb38 Delete type=3 #142
+2025/02/20-18:28:11.171796 7fd187fd9b38 Level-0 table #151: started
+2025/02/20-18:28:11.171970 7fd187fd9b38 Level-0 table #151: 0 bytes OK
+2025/02/20-18:28:11.172957 7fd187fd9b38 Delete type=0 #149
+2025/02/20-18:28:11.175872 7fd187fd9b38 Manual compaction at level-0 from '!messages!05xBGNprAXLSXPOx' @ 72057594037927935 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at (end)
+2025/02/20-18:28:11.175917 7fd187fd9b38 Manual compaction at level-1 from '!messages!05xBGNprAXLSXPOx' @ 72057594037927935 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at (end)
