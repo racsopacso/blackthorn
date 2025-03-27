@@ -1,8 +1,17 @@
-2025/02/17-17:45:22.545250 7fd4144adb38 Recovering log #144
-2025/02/17-17:45:22.546584 7fd4144adb38 Delete type=0 #144
-2025/02/17-17:45:22.546602 7fd4144adb38 Delete type=3 #142
-2025/02/20-18:28:11.171796 7fd187fd9b38 Level-0 table #151: started
-2025/02/20-18:28:11.171970 7fd187fd9b38 Level-0 table #151: 0 bytes OK
-2025/02/20-18:28:11.172957 7fd187fd9b38 Delete type=0 #149
-2025/02/20-18:28:11.175872 7fd187fd9b38 Manual compaction at level-0 from '!messages!05xBGNprAXLSXPOx' @ 72057594037927935 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at (end)
-2025/02/20-18:28:11.175917 7fd187fd9b38 Manual compaction at level-1 from '!messages!05xBGNprAXLSXPOx' @ 72057594037927935 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at (end)
+2025/02/20-18:28:15.557893 7fd4144adb38 Recovering log #150
+2025/02/20-18:28:15.559211 7fd4144adb38 Delete type=3 #148
+2025/02/20-18:28:15.559236 7fd4144adb38 Delete type=0 #150
+2025/02/23-15:06:02.411014 7fd187fd9b38 Level-0 table #155: started
+2025/02/23-15:06:02.414903 7fd187fd9b38 Level-0 table #155: 201138 bytes OK
+2025/02/23-15:06:02.416237 7fd187fd9b38 Delete type=0 #153
+2025/02/23-15:06:02.416914 7fd187fd9b38 Manual compaction at level-0 from '!messages!05xBGNprAXLSXPOx' @ 72057594037927935 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at (end)
+2025/02/23-15:06:02.418127 7fd187fd9b38 Manual compaction at level-1 from '!messages!05xBGNprAXLSXPOx' @ 72057594037927935 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at '!messages!ziGaiMTLy2GTEdJ9' @ 3099 : 1
+2025/02/23-15:06:02.418133 7fd187fd9b38 Compacting 1@1 + 2@2 files
+2025/02/23-15:06:02.451487 7fd187fd9b38 Generated table #156@1: 1883 keys, 2127560 bytes
+2025/02/23-15:06:02.471441 7fd187fd9b38 Generated table #157@1: 983 keys, 1117248 bytes
+2025/02/23-15:06:02.471491 7fd187fd9b38 Compacted 1@1 + 2@2 files => 3244808 bytes
+2025/02/23-15:06:02.471961 7fd187fd9b38 compacted to: files[ 0 0 2 0 0 0 0 ]
+2025/02/23-15:06:02.472086 7fd187fd9b38 Delete type=2 #147
+2025/02/23-15:06:02.472217 7fd187fd9b38 Delete type=2 #155
+2025/02/23-15:06:02.472554 7fd187fd9b38 Delete type=2 #146
+2025/02/23-15:06:02.474766 7fd187fd9b38 Manual compaction at level-1 from '!messages!ziGaiMTLy2GTEdJ9' @ 3099 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at (end)
