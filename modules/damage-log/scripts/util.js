@@ -2,7 +2,7 @@
  * Damage Log
  * https://github.com/cs96and/FoundryVTT-damage-log
  *
- * Copyright (c) 2021-2024 Alan Davies - All Rights Reserved.
+ * Copyright (c) 2021-2025 Alan Davies - All Rights Reserved.
  *
  * You may use, distribute and modify this code under the terms of the MIT license.
  *
@@ -12,10 +12,16 @@
 
 export class Util {
 	static #isV12;
+	static #isV13;
 
 	static isV12() {
 		Util.#isV12 ??= !foundry.utils.isNewerVersion("12", game.version);
 		return Util.#isV12;
+	}
+
+	static isV13() {
+		Util.#isV13 ??= !foundry.utils.isNewerVersion("13", game.version);
+		return Util.#isV13;
 	}
 
 	static get CHAT_MESSAGE_STYLES() {
@@ -24,6 +30,10 @@ export class Util {
 
 	static get DOCUMENT_OWNERSHIP_LEVELS() {
 		return (Util.isV12() ? CONST.DOCUMENT_OWNERSHIP_LEVELS : CONST.DOCUMENT_PERMISSION_LEVELS);
+	}
+
+	static get chatLogSelector() {
+		return `${Util.isV13() ? '.' : '#'}chat-log`;
 	}
 
 	static get chatStyleKeyName() {
