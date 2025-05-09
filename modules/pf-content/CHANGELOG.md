@@ -1,5 +1,40 @@
 # Changelog
 
+## 11.1
+
+- Bugfix: Restored Custom HD formulas for animal companions and eidolons
+- Cleanup: removed lifesense UMR
+- Cleanup: removed Robe of the Archmagi
+- Cleanup: Updated many artifacts, cursed items, magic items, and wondrous items with materials and base item stats
+
+## 11.0.1
+
+- Migrated content for use with PF1E v11
+
+## 11.0.0
+
+### Changelog
+
+- Bugfix: Hamatulatsu Feat had incorrect prerequisites
+- Changed: Updated racial traits with v11 updates to senses, movement and other contributions from server
+- Changed: Updated Format of Combat Trick Feats
+- Changed: Add Tags for Combat Trick Feats
+- Changed: Artifact Weapon item type and icons
+- Changed: Moved Usage instruction to newly introduced field.
+- Cleanup: removed universal monster rule features
+- Cleanup: removed vision based Buffs
+- Cleanup: removed druid domains
+- Cleanup: removed 'Extra'-feats
+- Cleanup: removed movement feats
+- Cleanup: removed monster feats
+- Cleanup: removed robe of the archmagi (#122)
+- Cleanup: removed Reaver's Scythe
+- Cleanup: removed Kineticist content
+- Cleanup: removed redundant greater hat of disguise
+- Cleanup: migrated sources from descriptions to source field and enrichers (#143 and #145)
+- Cleanup: removed redundant occult items (#154)
+- Cleanup: removed price, weight, category, and other information from descriptions when possible (#155)
+
 ## 10.2.0
 
 ### Changelog

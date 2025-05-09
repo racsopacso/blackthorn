@@ -1,4 +1,6 @@
-class BloodSplatter {
+import {Socket} from "./lib/socket.js";
+
+export class BloodSplatter {
   constructor() {
     this.containerManager = new BloodSplatterContainerManager();
     this.decalMaterials = {};
@@ -47,6 +49,12 @@ class BloodSplatter {
         });
       } else {
         bloodSheetColor = this.bloodSheetData[creatureType];
+        if (!bloodSheetColor) {
+          const matchingKey = Object.keys(this.bloodSheetData).find((key) => creatureType.includes(key));
+          if (matchingKey) {
+            bloodSheetColor = this.bloodSheetData[matchingKey];
+          }
+        }
       }
       colorData = this.ColorStringToHexAlpha(bloodSheetColor);
     }
@@ -210,7 +218,7 @@ class BloodSplatter {
   }
 
   static getMask(origin, radius){
-    const fov = CONFIG.Canvas.losBackend.create(origin, {
+    const fov = CONFIG.Canvas.polygonBackends.move.create(origin, {
       type: "move",
       density: 12,
     }).points;
@@ -277,10 +285,11 @@ class BloodSplatter {
     }
   }
 
-  static socketSplatFn(tokenIds) {
+  static socketSplatFn({uuids}) {
     if (!game.settings.get("splatter", "enableBloodsplatter")) return;
-    for (let tokenId of tokenIds) {
-      let token = canvas.tokens.get(tokenId);
+    for (let uuid of uuids) {
+      let token = fromUuidSync(uuid);
+      token = token.object ?? token;
       if (!token) return;
       if (canvas.primary.BloodSplatter) {
         canvas.primary.BloodSplatter.SplatFromToken(token);
@@ -293,7 +302,7 @@ class BloodSplatter {
 
   static socketSplat(tokens) {
     let tokenIds = tokens.map((token) => token.id);
-    BloodSplatterSocket.executeForEveryone("Splat", tokenIds);
+    Socket.Splat({tokenIds});
   }
 
   static clearAll() {
@@ -319,19 +328,19 @@ class BloodSplatter {
     return false;
   }
   static getHpVal(actor) {
-    return getProperty(
+    return foundry.utils.getProperty(
       actor.system ?? actor,
       game.settings.get("splatter", "currentHp")
     );
   }
   static getHpMax(actor) {
-    return getProperty(actor.system ?? actor, game.settings.get("splatter", "maxHp"));
+    return foundry.utils.getProperty(actor.system ?? actor, game.settings.get("splatter", "maxHp"));
   }
   static getCreatureType(actorData) {
-    return getProperty(actorData.system, game.settings.get("splatter", "creatureType")) ?? actorData.type;
+    return foundry.utils.getProperty(actorData.system, game.settings.get("splatter", "creatureType")) ?? actorData.type;
   }
   static getCreatureTypeCustom(actorData) {
-    return getProperty(
+    return foundry.utils.getProperty(
       actorData.system,
       game.settings.get("splatter", "creatureTypeCustom")
     );
@@ -356,16 +365,17 @@ class BloodSplatter {
 
       let res = await fetch(b64);
       let blob = await res.blob();
-      const filename = `${canvas.scene.name}.${randomID(20)}.png`;
+      const filename = `${canvas.scene.name}.${foundry.utils.randomID(20)}.png`;
       let file = new File([blob], filename, {type: "image/png"});
       const f = await FilePicker.upload("data", "splatter", file, {});
 
       await canvas.scene.createEmbeddedDocuments("Tile", [{
-        img: f.path,
-        overhead: bgElev !== bloodContainer.elevation,
+        texture: {
+          src: f.path,
+        },
+        elevation: bloodContainer.elevation,
         flags: {
           levels: {
-            rangeBottom: bloodContainer.elevation,
             rangeTop: bloodContainer.elevation,
           }
         },
@@ -378,7 +388,7 @@ class BloodSplatter {
       
     }
 
-    BloodSplatterSocket.executeForEveryone("ClearAll");
+    Socket.ClearAll();
   }
 
 
@@ -438,7 +448,7 @@ class BloodSplatterContainerManager{
   constructor () {
     this.defaultElevation = new TileDocument({width: 1, height: 1}).elevation;
     if (this.defaultElevation == -Infinity) this.defaultElevation = -1e10;
-    this.sort = 1e10;
+    this.sort = 1e100;
     this.containers = [];
   }
   
@@ -452,6 +462,7 @@ class BloodSplatterContainerManager{
     canvas.primary.addChild(container);
     container.elevation = elevation;
     container.sort = this.sort;
+    container.sortLayer = foundry.canvas.groups.PrimaryCanvasGroup.SORT_LAYERS.TILES + 1;
     this.containers.push(container);
     Object.defineProperty(container, "visible", {
       get: () => {
@@ -477,35 +488,3 @@ class BloodSplatterContainerManager{
   }
   
 }
-
-let BloodSplatterSocket;
-
-Hooks.once("socketlib.ready", () => {
-  BloodSplatterSocket = socketlib.registerModule("splatter");
-  BloodSplatterSocket.register("Splat", BloodSplatter.socketSplatFn);
-  BloodSplatterSocket.register("ClearAll", BloodSplatter.clearAll);
-});
-
-Hooks.on("preUpdateActor", function (actor, updates, diff) {
-  diff.oldHpVal = BloodSplatter.getHpVal(actor);
-});
-
-Hooks.on("updateActor", function (actor, updates, diff) {
-  if (
-    !game.settings.get("splatter", "enableBloodsplatter") ||
-    (game.settings.get("splatter", "onlyInCombat") && !game.combat?.started)
-  )
-    return;
-  let token = actor.parent
-    ? canvas.tokens.get(actor.parent.id)
-    : canvas.tokens.placeables.find((t) => t.actor?.id == actor.id);
-  if (!token) return;
-  const impactScale = BloodSplatter.getImpactScale(actor, updates, diff);
-  if( impactScale ) BloodSplatter.executeSplat(token, impactScale);
-});
-
-Hooks.on("canvasReady", function () {
-  if (canvas.primary.BloodSplatter)
-    canvas.primary.BloodSplatter.Destroy();
-});
-

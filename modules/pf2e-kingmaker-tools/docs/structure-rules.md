@@ -3,6 +3,8 @@
 All structure rules are JSON and are persisted using actor flags. They can be edited using the **Edit Structure Rules**
 Macro.
 
+If you need inspiration, take a look at [existing structures](../data/structures)
+
 Rules can be one of the following types:
 
 * References to built ins
@@ -20,103 +22,105 @@ These take the form of
 
 and reference to built-in rules that get maintained and updated with the module. The following refs are available:
 
-* Academy
-* Alchemy Laboratory
-* Arcanist's Tower
-* Arena
-* Bank
-* Bank (V&K)
-* Barracks
-* Brewery
-* Castle
-* Castle (V&K)
-* Cathedral
-* Construction Yard
-* Construction Yard (V&K)
-* Dump
-* Embassy
-* Festival Hall
-* Festival Hall (V&K)
-* Foundry
-* Garrison
-* Garrison (V&K)
-* General Store
-* Gladiatorial Arena
-* Granary
-* Granary (V&K)
-* Guildhall
-* Herbalist
-* Hospital
-* Illicit Market
-* Inn
-* Inn (V&K)
-* Jail
-* Keep
-* Library
-* Library (V&K)
-* Lumberyard
-* Luxury Store
-* Magic Shop
-* Magic Shop (V&K)
-* Mansion
-* Marketplace
-* Menagerie
-* Military Academy
-* Mill
-* Mint
-* Monument
-* Monument (V&K)
-* Museum
-* Noble Villa
-* Occult Shop
-* Occult Shop (V&K)
-* Opera House
-* Palace
-* Palace (V&K)
-* Park
-* Pier
-* Printing House
-* Sacred Grove
-* Secure Warehouse
-* Sewer System
-* Shrine
-* Smithy
-* Smithy (V&K)
-* Specialized Artisan
-* Stable
-* Stockyard
-* Stonemason
-* Tannery
-* Tavern, Dive
-* Tavern, Dive (V&K)
-* Tavern, Luxury
-* Tavern, Luxury (V&K)
-* Tavern, Popular
-* Tavern, Popular (V&K)
-* Tavern, World-Class
-* Tavern, World-Class (V&K)
-* Temple
-* Theater
-* Thieves' Guild
-* Town Hall
-* Town Hall (V&K)
-* Trade Shop
-* University
-* Watchtower
-* Watchtower, Stone
-* Waterfront
-* Bridge
-* Bridge, Stone
-* Cemetery
-* Houses
-* Magical Streetlamps
-* Orphanage
-* Paved Streets
-* Rubble
-* Tavern, Dive
-* Tenement
-* Wall, Stone
-* Wall, Wooden
+* academy
+* alchemy-laboratory
+* arcanists-tower
+* arena
+* bank
+* barracks
+* brewery
+* bridge
+* bridge-stone
+* castle
+* cathedral
+* cemetery
+* construction-yard
+* dump
+* embassy
+* festival-hall
+* fishing-fleets-vk
+* foundry
+* garrison
+* general-store
+* gladiatorial-arena
+* houses
+* granary
+* guildhall
+* herbalist
+* hospital
+* illicit-market
+* inn
+* jail
+* keep
+* library
+* lumberyard
+* luxury-store
+* magic-shop
+* magical-streetlamps
+* mansion
+* marketplace
+* menagerie
+* military-academy
+* mill
+* mint
+* monument
+* museum
+* noble-villa
+* occult-shop
+* opera-house
+* orphanage
+* palace
+* park
+* paved-streets
+* pier
+* rubble
+* printing-house
+* sacred-grove
+* secure-warehouse
+* sewer-system
+* shrine
+* smithy
+* specialized-artisan
+* stable
+* stockyard
+* stonemason
+* tannery
+* tavern-dive
+* tavern-luxury
+* tavern-popular
+* tavern-world-class
+* temple
+* tenement
+* theater
+* thieves-guild
+* town-hall
+* trade-shop
+* university
+* wall-stone
+* wall-wooden
+* watchtower
+* watchtower-stone
+* bank-vk
+* castle-vk
+* construction-yard-vk
+* festival-hall-vk
+* garrison-vk
+* granary-vk
+* inn-vk
+* library-vk
+* magic-shop-vk
+* monument-vk
+* occult-shop-vk
+* palace-vk
+* smithy-vk
+* tavern-dive-vk
+* town-hall-vk
+* pier-vk
+* tavern-luxury-vk
+* tavern-popular-vk
+* tavern-world-class-vk
+* waterfront-vk
+* waterfront
 
 ## Full Rules
 
@@ -127,6 +131,7 @@ A full structure rule would look something like this:
 
 ```json
 {
+  "id": "magic-school",
   "name": "Magic School",
   "notes": "Allows you to retrain your grades",
   "preventItemLevelPenalty": false,
@@ -149,7 +154,9 @@ A full structure rule would look something like this:
   "availableItemsRules": [
     {
       "value": 1,
-      "group": "luxury"
+      "group": "luxury",
+      "alwaysStacks": false,
+      "maximumStacks": 3
     }
   ],
   "settlementEventRules": [
@@ -183,7 +190,7 @@ A full structure rule would look something like this:
   "reducesUnrest": false,
   "reducesRuin": false,
   "upgradeFrom": [
-    "Pier"
+    "pier"
   ],
   "construction": {
     "skills": [
@@ -199,11 +206,30 @@ A full structure rule would look something like this:
     "rp": 2,
     "dc": 2
   },
-  "stacksWith": "Slightly Different Magic School"
+  "stacksWith": "other-magic-school-id",
+  "reduceUnrestBy": {
+    "value": 1,
+    "moreThanOncePerTurn": false,
+    "note": "as long as it's the first wall in a settlement"
+  },
+  "reduceRuinBy": {
+    "value": 2,
+    "ruin": "any"
+  },
+  "gainRuin": {
+    "value": 1,
+    "ruin": "decay"
+  },
+  "increaseResourceDice": {
+    "town": 1,
+    "metropolis": 3
+  },
+  "ignoreConsumptionReductionOf": ["pier"]
 }
 ```
 
-* **name**: optional, if absent taken from the actor name
+* **id**: building id
+* **name**: building name
 * **notes**: optional, is shown at the bottom in the **Building Effects** section
 * **preventItemLevelPenalty**: optional, if not at least one structure in your settlement has this set to true, it will
   reduce purchasable item level by 2 for this settlement
@@ -215,8 +241,7 @@ A full structure rule would look something like this:
   settlement's consumption by the amount
 * **activityBonusRules**: optional, stack up to settlement item bonus and capital item bonuses
     * **value**: mandatory, bonus
-    * **activity**: mandatory, kingdom activity in lowercase with spaces converted to dashes (e.g. **Rest and Relax** ->
-      **rest-and-relax**)
+    * **activity**: mandatory, kingdom activity id; all existing activities can [be found here](https://github.com/BernhardPosselt/pf2e-kingmaker-tools/blob/master/src/kingdom/data/activityData.ts), e.g. "abandon-hex" or "recover-army-damaged"
 * **skillBonusRules**: optional, similar to **activityBonusRules** but allow you to add a flat skill bonus or limit an
   activity bonus to a certain skill
     * **value**: mandatory, bonus
@@ -225,7 +250,8 @@ A full structure rule would look something like this:
       *activityBonusRules**
 * **availableItemsRules**: optional, if given increase the item level for purchasing items in this settlement
     * **value**: mandatory, level increase
-    * **maximumStacks**: optional, up to how what maximum value buildings should stack
+    * **maximumStacks**: optional, defaults to 3; maximum number of allowed buildings to consider
+    * **alwaysStacks**: optional, false by default; if true, is not subjected to maximum stack rules and will always be added to existing value of its group
     * **group**: optional, if absent **stacks with everything else** up to 3 times, otherwise one of:
         * other
         * alchemical
@@ -253,7 +279,7 @@ A full structure rule would look something like this:
   following activities are not enabled by default out of the box; most of them however are enabled by putting companions
   into certain leadership rules:
     * read-all-about-it
-    * evangelize-the-dead
+    * evangelize-the-end
     * decadent-feasts
     * deliberate-planning
     * false-victory
@@ -273,14 +299,13 @@ A full structure rule would look something like this:
     * infamous
     * residential
     * infrastructure
-* **lots**: optional, if provided used to calculate how many lots the building takes up; otherwise the token size is
-  used
-* **level**: optional, if absent, uses the NPC actor's level
+* **lots**: used to calculate how many lots the building takes up
+* **level**: building level
 * **affectsEvents**: optional, used to filter for structures that affect events
 * **affectsDowntime**: optional, used to filter for structures that have downtime bonuses
 * **reducesUnrest**: optional, used to filter for structures that reduce unrest
 * **reducesRuin**: optional, used to filter for structures that reduce ruin
-* **upgradeFrom**: optional, includes a list of structure names that this structure can be upgraded from
+* **upgradeFrom**: optional, includes a list of structure ids that this structure can be upgraded from
 * **construction**:
     * **skills**:
         * **skill**: a skill in lower case
@@ -292,3 +317,15 @@ A full structure rule would look something like this:
     * **ore**: optional, cost
     * **stone**: optional, cost
 * **stacksWith**: optional, name of a structure that this structure should stack item bonuses with; useful when you've got the same building with 2 different construction costs
+
+* **reduceUnrestBy**: optional
+  * **value**: how much unrest is reduced
+  * **moreThanOncePerTurn**: optional, default true; if false, shows a message that it can only be reduced once
+  * **note**: extra restriction notes that are written to chat
+* **reduceRuinBy**: optional
+  * **value**: how much ruin is reduced
+  * **ruin**: one of either **decay**, **crime**, **strife**, **corruption** or **any**
+* **gainRuin**: optional, exactly the same as **reduceRuinBy**
+* **increaseResourceDice**: optional, key is either **village**, **town**, **city** or **metropolis** and value is a number that increases resource dice gained each turn
+* **ignoreConsumptionReductionOf**: optional, a structure id that is removed from consumption reduction in a settlement
+* **consumptionReductionStacks**: optional, if true, all structures with the same name in a settlement add up their consumption reduction

@@ -1,33 +1,21 @@
-<form autocomplete="off">
-  <h2>{{localize "PF1.CreateItemForSpell" name=name}}</h2>
-
+<form autocomplete="off" data-tooltip-class="pf1">
   {{!-- Spell Level --}}
-  <div class="form-group">
-    <label>{{localize "PF1.SpellLevel"}}</label>
-    <div class="form-fields">
-      <input type="number" data-dtype="Number" min="0" step="1" name="sl" value="{{sl}}" placeholder="1" />
-    </div>
-  </div>
+  {{formGroup fields.sl value=sl name="sl" placeholder="1" label="PF1.SpellLevel" localize=true}}
 
   {{!-- Caster Level --}}
-  <div class="form-group">
-    <label>{{localize "PF1.CasterLevel"}}</label>
-    <div class="form-fields">
-      <input type="number" data-dtype="Number" min="1" step="1" name="cl" value="{{cl}}" placeholder="1" />
-    </div>
-  </div>
+  {{formGroup fields.cl value=cl name="cl" placeholder="1" label="PF1.CasterLevel" localize=true autofocus=true}}
+
+  {{formGroup fields.spellType value=spellType name="spellType" label=(localize "PF1.Spellcasting.Type.Label")}}
 
   {{#if isGM}}
-  <div class="form-group">
+  <div class="form-group stacked">
     <label class="checkbox">
-      <input type="checkbox" data-dtype="Boolean" name="identified" checked />
+      {{formInput fields.identified value=identified name="identified"}}
       {{localize "PF1.Identified"}}
     </label>
   </div>
 
-  <div class="form-group">
-    <label>{{localize "PF1.UnidentifiedName"}}</label>
-    <input type="text" name="unidentifiedName" placeholder="{{localize "PF1.CreateItemNamePlaceholder"}}">
-  </div>
+  {{! Unidentified Name }}
+  {{formGroup fields.unidentifiedName name="unidentifiedName" label="PF1.UnidentifiedName" placeholder=(localize "PF1.CreateItemNamePlaceholder") localize=true}}
   {{/if}}
 </form>

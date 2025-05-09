@@ -5,6 +5,732 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+## [5.1.6] - 2025-05-04
+
+### Fixed
+
+* Fix xp macro translations
+
+
+## [5.1.5] - 2025-05-03
+
+### Fixed
+
+* Fix structure name migrations when updating from Foundry V12 without having upgraded to the latest version
+* Abort migrations and show a user error if structures with a broken ref are encountered
+
+## [5.1.4] - 2025-05-03
+
+### Fixed
+
+* Fix structure XP dialog
+
+## [5.1.3] - 2025-04-30
+
+### Fixed
+
+* If more than one user has playlist permissions, only start the track once
+
+## [5.1.2] - 2025-04-29
+
+### Added
+
+* Added Polish translation, thanks @Lioheart
+
+
+## [5.1.1] - 2025-04-26
+
+### Fixed
+
+* Teleporter Macro can now select a different scene
+* Fix translations in migration notification
+
+## [5.1.0] - 2025-04-25
+
+### Added
+
+* Added a macro that changes all NPCs' Health Bars on all scenes to a configured value
+* Added a macro that creates 2 regions used for teleporting tokens between each other
+
+## [5.0.0] - 2025-04-21
+
+### Added
+
+* The module can now be translated into different languages
+* Add modifiers that increase consumption
+* Automate Squatters event consumption increase
+* Allow dragging actor images from a recipe to another recipe
+* Allow users to re-enable the first run message
+* Add all structure traits to Structure Browser filters
+* Add Gain Fame button if built famous/infamous trait type matches kingdom fame type
+* Add buttons to add and resolve kingdom events
+* Allow tracking of blocked Pledge of Fealty
+* Pledge of Fealty, Establish Trade Agreement, Send Diplomatic Envoy and Request Foreign Aid now allow you to pick a group when performing the activity
+* Automate income increase when critically succeeding at building a worksite
+* Deliberate Planning and Hire Adventurers now allow you to pick an Event
+* Add button to mark an event as continuous
+
+### Changed
+* Require FoundryVTT 13
+* Apply Plague event civic penalty automatically without having to add it first
+* Migrate recipe cost to parsed values
+* Indicate activity ordering in Upkeep and Commerce phase
+* Various activity modifiers that give a penalty when performing the activity during consecutive turns now use modifiers to track rather than requiring a toggle
+
+### Fixed
+
+* Filter out lower bonuses in inspect settlement
+* Fix Political Calm bonus
+* Correctly exclude all V&K activities when first creating a kingdom sheet
+* Automatically enable Civil Service bonus
+* Fix Fame & Fortune
+* Fix leadership lores not working when containing special characters
+* Display kingdom activity automation notes
+
+
+## [4.8.2] - 2025-05-03
+
+### Fixed
+
+* Fix structure XP dialog
+* If more than one user has playlist permissions, only start the track once
+
+
+## [4.8.1] - 2025-04-21
+
+### Fixed
+
+* Fix Deploy Army skills
+* Only re-render kingdom sheet once
+* Try to prevent possible null values being migrated when upgrading from versions prior to 4.0.0
+
+## [4.8.0] - 2025-04-09
+
+### Added
+
+* Make Event DC and Step configurable
+
+### Changed
+
+* Collapsed modifier flags and roll options into one
+
+## [4.7.0] - 2025-04-08
+
+### Added
+
+* Automated Free and Fair rerolls
+
+## [4.6.0] - 2025-04-08
+
+### Added
+
+* Each logged-in user can now select an active leader. Doing so will update the action cost in the turn tab when using V&K Leadership Modifiers and preselect the leader in all check popups 
+* When using V&K Leadership Modifiers, the check popup now includes action cost based on the selected leader
+
+### Fixed
+
+* Fix issue that prevented you from building structures
+* Hide Kingdom/Camping export buttons for non GM users
+
+## [4.5.0] - 2025-04-07
+
+### Added
+
+* Automate additional unrest reduction of Endure Anarchy
+* Automate Civil Service supported leader choice
+* Mark feat prerequisites as red if they are not satisfied
+
+### Changed
+
+* Migrate structure name lookups to ids. If you have custom structures, you will need to set an id field
+* Add ids to recipes and camping activities
+* Show ids in homebrew dialogs to allow you to override them easier
+
+### Fixed
+
+* Fix issue that caused wrong resting playlist sound to be set if you changed the playlist but not the track
+* Display Feat Prerequisites
+* Prevent adding the same bonus feat twice
+* Do not mark more than 1 tab as active in the Kingdom section
+* Disable dragging for sheet tabs
+* Display automation notes for features
+* Fix data migration bug back to version 2.0.0
+* Show ruin threshold increase checkboxes for government feats
+
+## [4.4.1] - 2025-04-05
+
+### Fixed
+* Improve event automation
+* Rename Terrain to Map in add settlement dialog
+
+## [4.4.0] - 2025-03-31
+
+### Added
+
+* Add a 3 dot menu to all party actors to export/delete/import camping/kingdom data
+
+
+## [4.3.2] - 2025-03-31
+
+### Fixed
+
+* Fixed Schema migrations for 4.3.0. Earlier versions need manual intervention as described in the Upgrading Notices for 4.0.0
+
+## [4.3.1] - 2025-03-30
+
+### Fixed
+
+* Added searchbar to filter kingdom events
+
+## [4.3.0] - 2025-03-30
+
+### Added
+
+* Events are now completely automated and can be managed like every other homebrew item
+* Compendium links to the official Kingmaker module will be migrated to the new built-in events, everything else has to be migrated manually; you will receive a chat message with events that couldn't be migrated
+
+### Changed
+
+* Inspect Settlement dialog now picks up changes on the canvas allowing you to see added and deleted structures without reopening the dialog
+
+### Fixed
+
+* Fix copy-paste mistake that caused all primal, occult and arcane shopping bonuses to register under divine
+* Fixed Compendium Weather Events
+
+
+## [4.2.5] - 2025-03-28
+
+### Fixed
+
+* Fix invested wording
+
+## [4.2.4] - 2025-03-28
+
+### Fixed
+
+* Improve heartland guidance
+
+
+## [4.2.3] - 2025-03-28
+
+### Fixed
+
+* Improve kingdom creation experience by including relevant notes and guidance
+
+
+## [4.2.2] - 2025-03-28
+
+### Fixed
+
+* Properly escape leader names when not using escaped labels
+
+## [4.2.1] - 2025-03-28
+
+### Fixed
+
+* Display leader actor name in vacancies 
+
+## [4.2.0] - 2025-03-28
+
+### Changed
+
+* Always expand Bonus Feat description
+* Display automation notes for feats during selection
+* Add note about Hire Adventurers about Practical Magical price reduction
+* Increase luxuries gained during collect resources activity by 1 if Quality of Life is taken
+* Display Gain 1 Resource Dice Next Turn button when Fame and Fortune feat is taken
+
+## [4.1.3] - 2025-03-28
+
+### Fixed
+
+* Do not render leader types when leadership modifiers are disabled
+* Remove wink to contribute settlement scenes since those have been contributed
+* If no settlement is selected, swap in a non settlement bg image
+* Improve usage documentation in the creation tab
+
+
+## [4.1.2] - 2025-03-24
+
+### Changed
+
+* Improve upgrading notices to make breaking changes clearer
+
+## [4.1.1] - 2025-03-24
+
+### Fixed
+
+* Prevent users from entering empty number fields
+
+## [4.1.0] - 2025-03-24
+
+### Added
+
+* You can now create new settlement scenes in the Settlements tab. Those will pull in backgrounds kindly provided by dbavirt from Discord if you don't have the official module installed; otherwise, the official module's settlement scenes will be used
+
+
+## [4.0.10] - 2025-03-22
+
+### Fixed
+
+* Do not hide camping icon anymore if setting to hide built in sheet is set to on and no built-in kingdom sheet was created
+
+
+## [4.0.9] - 2025-03-22
+
+### Fixed
+
+* Make camping icons on party actor visible for players even if you haven't created a built-in kingdom sheet 
+
+
+## [4.0.8] - 2025-03-21
+
+### Fixed
+
+* Fix kingdom leader delete button background color using light theme
+* Improve Dorako UI compatibility
+
+
+## [4.0.7] - 2025-03-21
+
+### Fixed
+
+* Remove blacklisted feats from options in kingdom section
+
+
+## [4.0.6] - 2025-03-21
+
+### Fixed
+
+* Do not clear all events when remove one ongoing event
+
+
+## [4.0.5] - 2025-03-21
+
+### Fixed
+
+* Fixed trained skills chocking on null values
+
+### Added 
+
+* Change kingdom sheet backgrounds based on active settlement types
+
+## [4.0.4] - 2025-03-20
+
+### Fixed
+
+* Fix turn tab
+
+
+## [4.0.3] - 2025-03-20
+
+### Fixed
+
+* Always include skill proficiency drop downs to prevent setting them to null
+
+
+## [4.0.2] - 2025-03-20
+
+### Fixed
+
+* Correctly parse farmlands when using official module as resource mode
+
+
+## [4.0.1] - 2025-03-20
+
+### Fixed
+
+* Fixed Kingdom Sheet not opening after migration when one of the kingdom's skills was not set to at least trained
+
+## [4.0.0] - 2025-03-20
+
+### Added
+
+* Kingdom Character Sheet builder with automated ability scores, skill trainings, skill increases and ruin thresholds
+* You can now have more than one kingdom/camping sheet
+* Kingdom Sheet homebrew options for charters, heartlands, governments and milestones
+
+### Removed
+
+* Structure Token Mapping Macro
+* Removed Roll Kingdom Event macro since those depend on the actual kingdom sheet now
+* Removed Camping and Kingdom macros; those are now accessed through the party actor and can be drag and dropped onto your macro bar
+* Removed background for settlement scenes due to unclear commercial licensing
+
+### Changed
+* Armies don't need to be targeted anymore but simply selected
+* Many Feats, Activities and Features have received increased automation, especially ones that upgrade or downgrade degrees of successes
+* Supernatural Solution now correctly rolls before knowing the result
+* Reset/Award Hero Points, Award XP and Roll Stealth/Perception Exploration macros are now party aware. If more than one party exists, you will need to choose the current party in a popup
+* All check dialogs now support selecting a leader by default; this automatically enables the +3 bonus from the Palace to Leadership activities for the Ruler
+* Recruitable Armies are now looked up in a folder that is configured in the kingdom sheet settings
+* For developers only: all code has now been ported from TypeScript to Kotlin so oldsrc/TypeScript setup is not necessary anymore
+
+## [3.1.0] - 2025-02-26
+
+### Fixed
+
+* Fix settlement dice granted by settlement type if using automatic settlement level
+
+### Changed
+
+* Migrated various dialogs to app v2
+* On startup, all custom structures are validated against the current schema instead of each time when querying them
+* **API BREAK**: Require name, lots and level for custom structures and no longer fall back to actor data
+
+## [3.0.0] - 2025-02-25
+
+### Changed
+
+* Overhauled Kingdom Settings and made them local per kingdom sheet
+* All Kingdom Leaders must now refer to an NPC or Character actor; a best effort migration is in place which tries to find an NPC or Character actor by the previously set name. This might not work if your leaders don't have actors or if the names don't line up; to change existing leaders, simply drag and drop an actor from the sideebar onto the leader position in the sheet
+* Kingdom settings are now local to your kingdom sheet. This means that if you are running multiple instances, changes won't propagate anymore to other sheets anymore
+* Roll Table UUIDs are now used for kingdom and cult events. This means that roll table names are not required to be unique anymore
+
+### Added
+
+* Added V&K 1.1 homebrew except:
+  * Construction Time
+  * Renown/Fame/Infamy split
+
+### Fixed
+
+* Edit Structure macro should now edit the base actor and not the unlinked token actor
+* Fix Economic Surge journal link for built-in kingdom events
+
+## [2.1.2] - 2025-01-29
+
+### Fixed
+
+* Do not fail when worldtime returns a fraction
+
+## [2.1.1] - 2025-01-26
+
+### Fixed
+
+* Also add the possiblity to disable advancing daily preps and checking for random encounters when resting
+* Disabling watch in rest popup does not disable random encounter checks anymore
+* Do not show rest config popup when clicking the "Continue" button
+
+## [2.1.0] - 2025-01-26
+
+### Changed
+
+* Clicking on the Rest button on the camping sheet now asks you to confirm the rest, shows you the duration, and allows you to skip the watch, reducing time spent resting and disabling the random encounter check
+
+### Fixed
+
+* Evangelize the Dead has been corrected to Evangelize the End. You might need to adjust your bonuses in existing structures.
+* UUIDs for consumable modifiers on the kingdom sheet are now generated using a fallback that will work when running foundry over HTTP instead of HTTPS only
+
+
+## [2.0.7] - 2024-11-17
+
+### Fixed
+
+* Document required scene permission in the manual when using Tile/Drawing based kingdom resources
+* Fix accidental mentions of the Lands tab in kingdom settings (should have been Status)
+
+### Added
+
+* Make it possible to disable the automatic token mapping in settings if the official module isn't installed
+
+## [2.0.6] - 2024-11-15
+
+### Fixed
+
+* Instead of advancing the random encounter point in time twice during resting, advance the remaining rest period
+
+## [2.0.5] - 2024-11-02
+
+### Fixed
+
+* Closing the DC popup now defaults to a DC of 0 for camping activities
+* Closing the DC popup when resting skips the perception check altogether
+* Properly apply roll mode to weather events table draw
+
+## [2.0.4] - 2024-10-13
+
+### Fixed
+
+* Show recipes up to region level instead of recipes lower than region level
+
+## [2.0.3] - 2024-10-13
+
+### Fixed
+
+* Cap XP gain from XP macro at level 20
+* Do not show total food cost for meals with a cooking result
+* Better hover titles for available ingredients
+
+## [2.0.2] - 2024-10-02
+
+### Fixed
+
+* Correctly limit width of wide character portraits to camping activity tiles
+
+## [2.0.1] - 2024-09-27
+
+### Added
+
+* Regions and Climate can now be configured to use your own settings. This allows you to have custom regions with custom
+  weather, combat tracks and random encounter tables
+* Added a custom Subsist macro that works off the current region and allows you to add Provisions items to your
+  inventory. Provisions are used up before rations and removed after resting. Automation is included for Coyote Cloak
+  and Forager
+* Recipe healing, damaging and condition reducing effects are implemented, automating all remaining recipes
+* There is now a way to increase the number of fame points
+* Campsite Positions are now remembered on each scene so you can reuse their last result if it wasn't a critical failure
+
+### Removed
+
+* Remove token mappings from GMG npcs to not conflict with NPC Core
+* This release marks a departure from Paizo IP to OGL only content due improve licensing compatibility. This primarily
+  means that some names and setting information had to be removed or changed (
+  e.g. the First World has been replaced with "A Supernatural Place" or "Galt Ragout" is now just "Ragout")
+* Removed additional Companion actors: ultimately too difficult to maintain due to Remaster changes and new content
+  releases in addition to Paizo IP
+* Removed various journal entries which are all covered on existing sheets
+* Removed Companion Influence and Discover camping activities. You have to add them on your own now
+* Removed the ability to override combat tracks by region, e.g. by creating a playlist called **Kingmaker.Greenbelt**.
+  Instead, simply configure these on the camping sheet
+
+### Changed
+
+* Meal Effects are now removed right before Prepare Campsite RAW
+* You can have more than one meal effect active at a time which at the same time means that eating a meal won't override
+  the previous meal anymore.
+* Instead of a single meal, players can now choose from the entire array of available recipes RAW
+* If you don't use the official module, you will need to:
+    * Set your combat tracks and random encounters manually in camping sheet
+* All companion names have been removed from camping activities, kingdom events and kingdom activities
+* Companion Kingdom Activities are now handled like all other activities, meaning: you don't have to force override them
+  to enable them without companion leaders. However, they are not migrated and don't automatically enable invested and
+  benefits anymore, when you assign a companion to a leadership position. Enable/Disable them like normally in your turn
+  tab. Regarding Octavia, there's a kingdom sheet setting now to enable that benefit
+* The following camping activities have been renamed:
+    * Dawnflower's Blessing -> Healer's Blessing
+* The following recipes have been renamed
+    * Broiled Tuskwater Oysters -> Broiled Oysters
+    * First World Mince Pie -> Supernatural Mince Pie
+    * Galt Ragout -> Ragout
+    * Giant Scrambled Egg With Shambletus -> Giant Scrambled Egg
+    * Kameberry Pie -> Berry Pie
+    * Whiterose Oysters -> Oysters
+    * Owlbear Omelet -> Omelet
+* The following Kingdom Activities have been renamed:
+    * Restore the Temple of the Elk -> Restore the Temple
+    * Harvest Azure Lily Pollen -> Harvest Lily Pollen
+* Migrations are not run anymore if you've updated from a version prior to 0.12.2 (released in October 2023). If you've
+  upgraded from such a version, download to the latest version for your release that still ships these (1.1.1 for V12 or
+  0.46.2 for V11), then upgrade to this release
+* If you have multiple kingdom sheets, migrations will be run for all of them; you can still only have 1 camping sheet
+* Combat Tracks can now select a track on a playlist in addition to selecting a playlist
+* Camping Sheet and almost all macros are now based on ApplicationV2 which support a dark and light theme out of the box
+* Changing the degree of success dropdown for activities as well as recipes posts all associated messages to chat now
+
+## Fixed
+
+* Lots are not calculated from token size anymore allowing you to use a finer grained grid
+* Private camping rolls are now hidden from players again
+
+## [1.1.1] - 2024-07-17
+
+### Fixed
+
+* When upgrading from V11, correctly migrate modifiers to Recover Army to separated activities to not break the kingdom
+  sheet
+
+## [1.1.0] - 2024-07-09
+
+### Changed
+
+* Mark Pearce [contributed CC licensed](https://github.com/BernhardPosselt/pf2e-kingmaker-tools/issues/76) images for
+  the missing structures. You will need to reimport these structures to make use of the new images. Keep in mind that
+  you also need to replace all existing tokens after deleting their actors.
+
+## [1.0.4] - 2024-07-07
+
+### Fixed
+
+* Only add Inspiring Entertainment bonus if kingdom has at least 1 unrest
+
+## [1.0.3] - 2024-07-05
+
+### Changed
+
+* When activating settlement scenes through the kingdom sheet using ctrl + click, change the active settlement in the
+  sheet to the scene
+
+### Fixed
+
+* Do not show ruin and consumption structure information once per player
+
+## [1.0.2] - 2024-06-30
+
+### Fixed
+
+* Garrison now prints unrest reduction to chat
+
+## [1.0.1] - 2024-06-30
+
+### Added
+
+* Add min lots filter to structure browser
+* Manage Trade Agreements and Trade Commodities activities buttons now ask how many times they should be performed
+* Show hints and buttons when creating a structure token on a sheet that reduces or increases unrest or ruin
+
+### Fixed
+
+* Do not show missing message when reducing more ruin or unrest than present
+
+## [1.0.0-beta7] - 2024-06-19
+
+### Changed
+
+* When no actor selected the cook activity in the camping sheet, show a hint
+
+### Fixed
+
+* Make chat buttons work without refreshing the browser window when no camping nor kingdom actor is present
+* When no settlements exist, make first added settlement the currently selected one
+
+## [1.0.0-beta6] - 2024-06-16
+
+### Fixed
+
+* Automatically remove Tell Campfire Story effects after daily preparations
+* Automatically toggle Tell Campfire Story effects during combat
+* Sum up rations, special ingredients and basic ingredients correctly if more than one item is in the player's inventory
+* Correctly update consumed rations and ingredients on the sheet when an actor is removed or added
+
+## [1.0.0-beta5] - 2024-06-02
+
+### Fixed
+
+* Fix camping activities not letting you unselect results
+
+## [1.0.0-beta4] - 2024-06-02
+
+### Fixed
+
+* Fix recover army structure bonuses; you need to manually migrate **recover-army** rule element targets to:
+    * **recover-army-damaged**
+    * **recover-army-defeated**
+    * **recover-army-lost**
+    * **recover-army-mired-pinned**
+    * **recover-army-shaken**
+    * **recover-army-weary**
+
+## [1.0.0-beta3] - 2024-06-02
+
+### Fixed
+
+* Do not list already known tactics in army tactic browser
+* Disable roll buttons for camping activities if no actor is set
+* Improve Camping Sheet UI to be easier to use on first run
+
+## [1.0.0-beta2] - 2024-05-22
+
+### Changed
+
+* Split Recover Army into separate instances to avoid confusing skill lookups
+* Add button to import structures in structure browser if none are present
+
+### Added
+
+* Add Kingdom Sheet automation for Mired, Weary and Scouting DC by selecting tokens
+* Added a Tactics Browser for Train Army
+* Added Army Browser to Recruit Army
+
+### Fixed
+
+* Do not break roll popup when modifiers have non ASCII names
+
+## [1.0.0-beta1] - 2024-05-18
+
+### Added
+
+* Support for Foundry V12
+
+### Changed
+
+* Make structure browser prettier
+
+### Fixed
+
+* Ignore unlinked armies when calculating army consumption
+* disable army consumption input when auto calculating army consumption
+
+### Removed
+
+* Remove army implementation
+
+## [0.46.2] - 2024-05-17
+
+### Fixed
+
+* Fix bonus feat modifiers not being used
+
+## [0.46.1] - 2024-05-17
+
+### Changed
+
+* Remove house icon from housing
+
+## [0.46.0] - 2024-05-17
+
+### Changed
+
+* List residential lots in settlements list
+* Display Secondary Territory issues in list
+* Replace issues with icons
+
+## [0.45.0] - 2024-05-13
+
+### Added
+
+* This release achieves 100% compatibility with V&K rules except for turning a feat's status bonuses into circumstance
+  bonuses instead of letting them stack with other status bonuses
+* Added the V&K version of Practical Magic
+* Added the V&K version of Request Foreign Aid; in either case you need to manually enable/disable either activity in
+  the **Manage Activities** button at the top of the **Turn** section
+
+## [0.44.0] - 2024-05-04
+
+### Added
+
+* Add a button to reset camping activities
+* Also display building from ruin cost when building structures
+
+### Fixed
+
+* When clicking Gain 1 Fame button on a critical success, a message is posted to chat as usual
+* Re-Rolling Build Structure actions now correctly re-posts the structure build result message
+
+## [0.43.0] - 2024-03-16
+
+### Fixed
+
+* Do not hide camping settings button if no actors are on the sheet
+* Correctly link V&K structures in upgrades
+
+### Changed
+
+* Remove the sheet actor compendium and instead create the actor programmatically when clicking on the camping/kingdom
+  macro
+
+## [0.42.0] - 2024-03-08
+
+### Added
+
+* Kingdom Sheet check popup allows you to enter the roll mode
+* Structure browser allows you to select the active settlement
+* Add tabs for upgradable and free (slowed) structures
+
 ## [0.41.0] - 2024-02-27
 
 ### Added
@@ -34,7 +760,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 * Fix Cemetery structure name
-* Fix Cemetery and Waterfront images that were renamed with the latest Kingmaker update. You will have to either fix these manually in your worlds or reimport and replace them on your scenes
+* Fix Cemetery and Waterfront images that were renamed with the latest Kingmaker update. You will have to either fix
+  these manually in your worlds or reimport and replace them on your scenes
 
 ### Changed
 
@@ -67,7 +794,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 * Do not parse hidden tiles or drawings when using tile/drawing based worksite, size & farmland automation
-* **Roll Perception Exploration** and **Roll Stealth Exploration** now use all characters owned by players in a world except for all characters in the active scene and add the appropriate action roll options
+* **Roll Perception Exploration** and **Roll Stealth Exploration** now use all characters owned by players in a world
+  except for all characters in the active scene and add the appropriate action roll options
 
 ## [0.34.0] - 2024-02-11
 
@@ -110,7 +838,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Added a way to track Food in addition to Farmlands; Food reduces consumption by 1 in claimed hexes similar to Farmlands
+* Added a way to track Food in addition to Farmlands; Food reduces consumption by 1 in claimed hexes similar to
+  Farmlands
 * Camping activities can now be overridden by adding a new activity with the same name as an existing one
 
 ### Changed
@@ -170,7 +899,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 * Re-organize kingdom sheet
-* Worksites, farmlands and kingdom size can now be tracked in 3 different ways in the kingdom sheet settings (**READ THE MANUAL JOURNAL!**):
+* Worksites, farmlands and kingdom size can now be tracked in 3 different ways in the kingdom sheet settings (**READ THE
+  MANUAL JOURNAL!**):
     * Official Module: Use the official module's hex map
     * Tile/Drawing Based: Use tiles/drawings as worksites, claimed hexes and farmlands
     * Manual: Manage everything manually
@@ -300,7 +1030,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 * Use smaller margin of error for placing structure on a block (10% instead of 20%)
-* Do not add grid size again when calculating block positions preventing structures being counted as inside the block when placing them near the block's edges
+* Do not add grid size again when calculating block positions preventing structures being counted as inside the block
+  when placing them near the block's edges
 
 ## [0.21.4] - 2024-01-20
 
@@ -334,7 +1065,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 * Ship a Settlement Scenes compendium
-* Add settlement level automation. You will need to manually migrate your settlement scenes to make use of this automation or turn it off in the kingdom sheet settings. Consult the Kingmaker Tools Manual journal (Help button in the title bar of your kingdom sheet) for more information on how to use it.
+* Add settlement level automation. You will need to manually migrate your settlement scenes to make use of this
+  automation or turn it off in the kingdom sheet settings. Consult the Kingmaker Tools Manual journal (Help button in
+  the title bar of your kingdom sheet) for more information on how to use it.
 
 ### Changed
 
@@ -342,7 +1075,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-* Fix prototype tokens for structures to show no HP bars and display their name for V&K buildings, Waterfront and Monument
+* Fix prototype tokens for structures to show no HP bars and display their name for V&K buildings, Waterfront and
+  Monument
 
 ## [0.20.2] - 2024-01-19
 
@@ -385,12 +1119,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Structure Browser which lets you filter structures, roll checks to build and pay costs replaces the **Build Structure** activity popup. Structures are gathered from all imported structures, so you might need to import them from the compendium
+* Structure Browser which lets you filter structures, roll checks to build and pay costs replaces the **Build Structure
+  ** activity popup. Structures are gathered from all imported structures, so you might need to import them from the
+  compendium
 * Separate structures for Watchtowers and Bridges built out of stone
 
 ### Changed
 
-* Add the following [additional required attributes to structures](docs/structure-rules.md) (you may need to edit your custom structures to make things work again):
+* Add the following [additional required attributes to structures](docs/structure-rules.md) (you may need to edit your
+  custom structures to make things work again):
     * **construction**
 * Add the following additional required attributes to structures:
     * **affectsEvents**

@@ -1,18 +1,8 @@
-2025/05/08-14:29:46.043914 7fd82fa36b38 Recovering log #63
-2025/05/08-14:29:46.045137 7fd82fa36b38 Level-0 table #67: started
-2025/05/08-14:29:46.050542 7fd82fa36b38 Level-0 table #67: 440150 bytes OK
-2025/05/08-14:29:46.052148 7fd82fa36b38 Delete type=0 #63
-2025/05/08-14:29:46.052439 7fd82fa36b38 Delete type=3 #61
-2025/05/08-14:29:55.870002 7fd5a4e88b38 Moved #67 to level-1 440150 bytes OK: files[ 0 1 1 0 0 0 0 ]
-2025/05/08-14:32:45.931999 7fd5a4e88b38 Level-0 table #70: started
-2025/05/08-14:32:45.932017 7fd5a4e88b38 Level-0 table #70: 0 bytes OK
-2025/05/08-14:32:45.932681 7fd5a4e88b38 Delete type=0 #68
-2025/05/08-14:32:45.934058 7fd5a4e88b38 Manual compaction at level-0 from '!scenes!EiLOyGI4pYWlycYn' @ 72057594037927935 : 1 .. '!scenes.walls!yjwfM25qFPiwI9cS.ytCUhniuJFgWFAIG' @ 0 : 0; will stop at (end)
-2025/05/08-14:32:45.936033 7fd5a4e88b38 Manual compaction at level-1 from '!scenes!EiLOyGI4pYWlycYn' @ 72057594037927935 : 1 .. '!scenes.walls!yjwfM25qFPiwI9cS.ytCUhniuJFgWFAIG' @ 0 : 0; will stop at '!scenes.tokens.delta!EiLOyGI4pYWlycYn.SrZKWH4sTbRpxXyp.P7XCx0vDz98gKuy7' @ 19818 : 1
-2025/05/08-14:32:45.936040 7fd5a4e88b38 Compacting 1@1 + 1@2 files
-2025/05/08-14:32:45.941937 7fd5a4e88b38 Generated table #71@1: 1188 keys, 150249 bytes
-2025/05/08-14:32:45.941948 7fd5a4e88b38 Compacted 1@1 + 1@2 files => 150249 bytes
-2025/05/08-14:32:45.942386 7fd5a4e88b38 compacted to: files[ 0 0 1 0 0 0 0 ]
-2025/05/08-14:32:45.942450 7fd5a4e88b38 Delete type=2 #65
-2025/05/08-14:32:45.942579 7fd5a4e88b38 Delete type=2 #67
-2025/05/08-14:32:45.944511 7fd5a4e88b38 Manual compaction at level-1 from '!scenes.tokens.delta!EiLOyGI4pYWlycYn.SrZKWH4sTbRpxXyp.P7XCx0vDz98gKuy7' @ 19818 : 1 .. '!scenes.walls!yjwfM25qFPiwI9cS.ytCUhniuJFgWFAIG' @ 0 : 0; will stop at (end)
+2025/05/08-16:04:32.800116 7fd01c7bc6c0 Recovering log #74
+2025/05/08-16:04:32.801448 7fd01c7bc6c0 Delete type=0 #74
+2025/05/08-16:04:32.801473 7fd01c7bc6c0 Delete type=3 #72
+2025/05/08-16:04:45.891792 7fd01b8ca6c0 Level-0 table #80: started
+2025/05/08-16:04:45.891842 7fd01b8ca6c0 Level-0 table #80: 0 bytes OK
+2025/05/08-16:04:45.892365 7fd01b8ca6c0 Delete type=0 #78
+2025/05/08-16:04:45.895264 7fd01b8ca6c0 Manual compaction at level-0 from '!scenes!EiLOyGI4pYWlycYn' @ 72057594037927935 : 1 .. '!scenes.walls!yjwfM25qFPiwI9cS.ytCUhniuJFgWFAIG' @ 0 : 0; will stop at (end)
+2025/05/08-16:04:45.895299 7fd01b8ca6c0 Manual compaction at level-1 from '!scenes!EiLOyGI4pYWlycYn' @ 72057594037927935 : 1 .. '!scenes.walls!yjwfM25qFPiwI9cS.ytCUhniuJFgWFAIG' @ 0 : 0; will stop at (end)

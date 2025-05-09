@@ -1,11 +1,15 @@
 {
   "id": "pf1-statblock-converter",
-  "title": "sbc | PF1 Stackblock Converter",
-  "description": "Converts Pathfinder 1. Edition statblocks into working PC or NPC actors.",
+  "title": "Statblock Converter (SBC) for Pathfinder 1E",
+  "description": "Converts Pathfinder 1st Edition statblocks into working PC or NPC actors.",
   "authors": [
     {
-      "name": "Tristan Goucher",
+      "name": "Tryss Farron (Fair Strides)",
       "discord": "fairstrides"
+    },
+    {
+      "name": "KitCat",
+      "discord": "kitcat"
     },
     {
       "name": "Lavaeolous",
@@ -15,14 +19,34 @@
   "url": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-statblock-converter",
   "bugs": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-statblock-converter/-/issues",
   "manifest": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-statblock-converter/-/releases/permalink/latest/downloads/module.json",
-  "download": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-statblock-converter/-/releases/4.5.3/downloads/pf1-statblock-converter.zip",
-  "version": "4.5.3",
+  "download": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-statblock-converter/-/releases/5.5.0/downloads/pf1-statblock-converter.zip",
+  "version": "5.5.0",
   "compatibility": {
-    "minimum": "10",
-    "verified": "11"
+    "minimum": "12",
+    "verified": "12"
   },
   "esmodules": [
     "./scripts/sbc.js"
+  ],
+  "packs": [
+    {
+      "name": "mythic-rank-and-features",
+      "label": "Mythic Rank and Features",
+      "type": "Item",
+      "system": "pf1",
+      "ownership": {
+        "PLAYER": "OBSERVER"
+      }
+    },
+    {
+      "name": "spell-components",
+      "label": "Spell Components",
+      "type": "Item",
+      "system": "pf1",
+      "ownership": {
+        "PLAYER": "OBSERVER"
+      }
+    }
   ],
   "styles": [
     "./styles/sbc.css"
@@ -34,14 +58,29 @@
         "type": "system",
         "manifest": "https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/releases/permalink/latest/downloads/system.json",
         "compatibility": {
-          "minimum": "9.5",
-          "verified": "9.6"
+          "minimum": "11",
+          "verified": "11"
         }
+      }
+    ],
+    "modules": [
+      {
+        "id": "pf-content",
+        "type": "module",
+        "manifest": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-content/-/releases/permalink/latest/downloads/module.json"
+      },
+      {
+        "id": "pf1e-archetypes",
+        "type": "module",
+        "manifest": "https://gitlab.com/Tryss_Farron/pf1e-archetypes/-/releases/permalink/latest/downloads/module.json"
       }
     ]
   },
-  "socket": false,
-  "protected": false,
-  "coreTranslation": false,
-  "library": false
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ]
 }

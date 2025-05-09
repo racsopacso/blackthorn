@@ -1,5 +1,1558 @@
 # Changelog
 
+## 11.5 - 2025-5-4
+
+### Bug Fixes
+
+- Some warning icons were not displayed correctly.
+- Currency transfer via drag&drop to sidebar did not work in Foundry v13.
+- Action sheet displayed inherited hold type damage multiplier wrong, actual damage was unaffected. ([4141](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4141))
+- Attack dialog misidentified natural attacks, causing secondary natural attacks to get incorrect ability score multiplier.
+- Changing senses, such as toggling darkvision, did not immediately update vision in all aspects or could cause unexpected vision state.
+- Toggling or adjusting LLV did not refresh visible lights without re-selecting your token.
+- Spellbooks did not consistently have `@class.level` available to them in basic config roll data, especially notable with spell points using spellbooks.
+- Conditional modifier damage type could not be altered.
+- Disabling an item would prevent access to it from the main actor sheet in Foundry v13.
+
+### Changelog
+
+- Added basic support for secondary conditions, e.g. paralyzed and sleep making you helpless. ([3403](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3403))
+- Packs hidden from compendium browser now show a special icon to indicate this state.
+
+### Compendium
+
+- _Woodland Stride_ was not marked as a _Ranger_ class feature.
+
+### API
+
+- Item create dialog now matchtes Foundry v13 API almost fully.
+- ⚠️ `pf1.utils.dialog.getItem()` now returns item document as the documentation says instead of the ID.
+- `pf1.utils.dialog.getItem()` and `pf1.utils.dialog.getActor()` no longer hang indefinitely if simply closed.
+- `getChangeFlat()` no longer fails to return all valid cases if modifier type was undefined.
+- Conditionals and their Modifiers now have functional UUIDs.
+
+## 11.4 - 2025-4-24
+
+### Bug Fixes
+
+- Haste and Rapid Shot were "incorrectly" placed at the end of the attacks instead of after the first. ([4055](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4055))
+- Attack Dialog did not correctly track used ammo, causing it to allow selecting ammo even when there wasn't enough of it.
+- Toggling haste, rapid shot and manyshot in attack dialog multiple times could cause ammo to become unavailable. ([4063](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4063))
+- Attack dialog did not correctly account for abundant ammunition.
+- Attack dialog did not correctly account for non-default ammo cost for ammo availability.
+- Default damage ability choice was not applied correctly to damage. ([4081](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4081))
+- Default damage ability score on actions displayed invalid defaults in some cases (e.g. ranged attacks would default to _Dex_). ([4081](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4081))
+- Apply damage dialog reduce by field for all targets was applied twice. ([4097](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4097))
+- ACP & MaxDex did not have any effect on non-armor/shield items. ([4125](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4125))
+- Action misfire override could not be defined.
+- Combat tab ranges could display wrong results, for example `1 mile` could appear as `5280 mi`.
+- Many die rolls were incorrectly force labeled as "Check" if they had no other label.
+- Attack dialog did not handle ability damage held option correctly, notably failing with thrown weapons and auto-selecting `×.5`.
+- Pure ranged actions (e.g. bow attacks) incorrectly allowed held option for damage ability multiplier.
+- `/d` and `/h` chat command shorthand parsing was overeager, blocking modules providing any other commands starting with the letters.
+- Single use physical items incorrectly displayed remaining quantity as charges.
+- Clearing critical threat range did not disable critical hits.
+- Display card option could display some information (such as DC) incorrectly.
+- Action limited uses failed to display resolved max uses and max formula field lacked a label.
+- Action sheet registration for re-rendering was incorrect and could cause them to lose re-rendering ability and to cause minor memory leak.
+- Apply healing dialog incorrectly displayed and applied DR, ER, and hardness against it.
+- Toggling hardness in apply damage dialog had no effect.
+- Single use items no longer display max charges in action cards or item summaries.
+- _Charge Cost_ conditional modifiers failed to adjust charge cost.
+- Bad conditional formula could make actor sheets inaccessible.
+- Custom currency rates did not allow inputting more than two decimals on item sheet even if the rates demanded higher precision.
+- Drag & drop was no longer functional in various dialogs.
+- Entering item price or other potentially relative input values as fraction without preceding zero would incorrectly reset the value to zero.
+- Armor & Shield hardness and hit points were not automatically adjusted with enhancement bonus.
+- Items with infinite max charges were displayed incorrectly in some circumstances.
+- Chat card reach display had doubled Range label.
+- Script Call visibility toggle was not visible anymore.
+- Secondary natural attacks displayed ability score bonus to damage incorrectly in combat tab tooltip.
+- Spellbook known/available slots were still incorrect in some cases, especially with prepared caster cantrips.
+- Actor preparation could fail if spell had invalid spellbook assigned.
+- Action spell points cost override was not saveable. Migration as such also removed the per-action cost override.
+- Changes targeting thrown attack rolls did nothing.
+- Actor trait selectors could misbehave with custom choices present in items.
+- Full-round action activation can now once again define how many.
+- Migration did not allow save description to mention the effect being harmless.
+- Point buy calculator had some of its text barely readable in light mode.
+- Custom material override could not be set on actions.
+- Attempting to close action summary in item sheet would simply open yet another one.
+- _Disable LLV_ option in light sources had no effect. ([4065](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4065))
+- Basic rolls would remove their numeric results entirely with roll obfuscation enabled.
+- D20 rolls with flavor attached could be incorrectly detected as manipulated rolls.
+- Vision Sharing permissions could be recorded and parsed incorrectly, potentially causing tokens to become visible to unintended players.
+
+### Changelog
+
+- Added basic token ruler implementation. ([3700](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3700))
+- Added Golarian calendar configuration. ([3870](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3870))
+- Added new filter in CompendiumBrowser to search by Source. ([3929](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3929))
+- Attack dialog ammo selection now has more info on currently selected ammo, already used ammo, and abundant ammo is identified.
+- Attack dialog now auto-refreshes when available ammo choices change.
+- Some compendium browser filters now default to _Any_ instead of _All_ (e.g. spell level & class choice). ([4085](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4085))
+- Clicking a filter count in compendium browser now resets that filter. ([4090](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4090))
+- Reduce by field for all targets is now shown only if applying damage to multiple targets.
+- Action card header now uses action image instead of item image. ([4126](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4126))
+- Added simple icons to settings tab buttons and apps for potentially quicker recognition.
+- New actions now more reliably default to inheriting ammo cost and ammo type, instead of enforcing no ammo type and cost of `1`.
+- Apply damage dialog now more clearly distinguishes reduction choices.
+- In-game documentation had outdated ternary examples replaced with new format and the behaviour of logic fuctions better explained.
+- Nameless conditionals are no longer ignored by action use, but they are displayed as _Undefined_ in action card tags.
+- `@Damage` & `@Heal` text enrichers now support Wounds & Vigor fully via `wounds` option.
+- Action unused data cleanup improved.
+- Improved input interactibility feedback, especially with checkboxes.
+- Several action sheet fields are now hidden or disabled if they're not relevant to the overall configuration, others have their inputs limited to appropriate values.
+- Trade goods in inventory tab now display value column once more.
+- Chat message popouts now have titles in cases of item & action cards.
+
+### Compendium
+
+- Added _Curse_ tag to oracle curses. ([4083](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4083))
+- Removed incorrect effect note and source references from nanite hypoguns.
+- Added missing damage to _Phantasmal Killer_ and _Hellfire Ray_ spells. ([4076](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4076), [4073](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4073))
+- Added buff for the _Fly_ spell.
+- Added buffs for _Invisibility_ and _Greater Invisibility_.
+- Added _Quick Stow_ feat from `pf-content` module.
+- _Shifter_'s _Defensive Instinct_ had incorrect formulas for its AC&CMD benefits. ([4062](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4062))
+- Added penalty to _Composite Bows_ when _Strength_ requirement is not met.
+- Invalid formulas in _Burn Corruption_, _Healing_ Hex, _Sunlight Bomb_, _Conjure Deadfall_, and _Pinecone Bomb_ were corrected.
+- Improvements and corrections to _Nuclear Resonator_ tech item. ([4093](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4093))
+- Light source ranges now account for metric system if in use.
+- Replaced default magic swirl icons on all non-universalist spells with ones reflecting their schools. ([4084](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4084))
+- Critical threat information corrected for several items.
+
+### API
+
+- Compendium browser filters can now define their initial boolean filter state instead of always defaulting to _All_. ([4085](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4085))
+- `ActorPF#applyDamage()` no longer incorrectly returns `undefined` under certain circumstances.
+- `pf1.utils.calculateRange()` no longer gives invalid results for certain range units (e.g. mile).
+- Added `ItemChange#subTarget` and `ItemChange#modifier` as proper deprecation handlers for old data access.
+- ⚠️ `ItemAction#critRange` can now return `null` if critical threat range is disabled, instead of incorrectly returning `20`.
+- Overriding carry capacity calculations no longer displays old totals for above head, off ground and drag & push.
+- `pf1GetChangeFlat` hook's actor parameter once again provides the actor.
+- Action use options now include support for _flanking_, _high ground_, _charge_ and _point-blank shot_.
+- `ActorPF#getTokenDocument()` no longer incorrectly queries roll data for data adjustments.
+- Fixed Token creation failing to apply character size correctly in some exotic cases.
+
+## 11.3 - 2025-3-10
+
+### Bug Fixes
+
+- CL and DC conditional modifiers did not have any effect. ([4021](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4021))
+- Cancelling action template placement did not work correctly. ([4023](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4023))
+- Applicable Damage Resistances were hidden in the _Apply Damage_ dialog.
+- `@Apply` enricher level value was incorrectly applied to the activated buff when the buff did not previously exist on actor.
+- Attack card notes were not generated and rendered properly, causing some of them to appear as `[object Object]`.
+- Bad damage formulas in conditionals could make actor sheets unopenable.
+- Card styling was incorrect in certain circumstances, such as with whispers.
+- Scroll position was not preserved in _Container_ sheets.
+- Drag & drop support for _Changes_ was missing in _Container_ sheets.
+- Spontaneous spellbooks handled domain spells and slots in manner that did not follow clear logic. Domain spells and slots are now explicitly extra spells known for spontaneous and are tracked properly. ([1432](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/1432))
+- Hybrid (e.g. Arcanist) spellbooks did not count normal slots correctly when domain spells were involved.
+- Action summary on item sheets failed to display action description. ([4036](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4036))
+- Item summaries in container sheets failed to display expected description and info.
+- Weapon Group filter in item compendium browser was nonfunctional.
+- Creature Type filter in race compendium browser was nonfunctional.
+- Creature Subtype filter was missing in race compendium browser.
+- Static size toggle on tokens was not respected properly for unlinked actors.
+- Spellbooks with automatic slots disabled displayed strange open slots information.
+- Card targets did not display saves rolled from the target buttons anymore.
+- Wound Thresholds incorrectly reduced caster level below `1`.
+- Item sheet price tooltip could give odd values due to floating point inaccuracy and lack of rounding.
+- Item sheet price tooltip displayed blank for zero cost items.
+- Actions with ammo cost set to zero could not be used without linking ammo or having more than zero of the ammo.
+- Unlimited max charges unintentionally displayed `x/Infinity` as charge value.
+- Item sheet's superficial description when empty is now similar size on Firefox as it is in Chrome.
+- Token and combat tracker resource selection was missing several arbitrary health related choices.
+
+### Changelog
+
+- Added chat message context menu option to scroll to referenced message (e.g. saving throw prompted by a spell would scroll to the spell card). ([4046](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4046))
+- Items added as supplements now more reliably are added at sane position among your items at the end of the list, instead of arbitrarily first, in middle, or any other random position. ([4047](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4047))
+- `@Apply` enricher's level option now accepts formulas. ([4024](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4024))
+- Filling in max charges formula now automatically fills in current charges as max instead of leaving it empty.
+- Text enricher roll data attempts to provide `@cl` and `@sl` for the action as they were when the action was activated for cards.
+- Spells with invalid level are now shown at end of the spell list.
+- Invalid spell levels are now marked with warnings with various interface elements removed for them. This for now also includes prepared casters recording spells of levels they're incapable of casting.
+- Item creation and deletion handling improved in some cases, notably with transfer and duplication.
+- Rolling saves through the large save button on cards now updates the card target rolls the same as the smaller target buttons. ([1607](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/1607))
+- Players rolling saves from cards now update card target roll info if GM is online.
+- Saving Throw Effect in action sheet is now hidden if action has no saving throw.
+- Harmless toggle in actions is now disabled and forced to false if action has damage.
+
+### Compendium
+
+- Renamed _Silverdisk_ to _Destroyed Battery_, gave _Battery_ its own unidentified name, and updated unidentified description of both batteries. ([4037](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4037))
+- _Accurate Stance_, _Guarded Stance_, _Reckless Stance_ and _Strength Stance_ buffs along with _Spatial Tear_ sorcerer ability had invalid change and max charges formulas corrected.
+
+### API
+
+- `ChatMessagePF#actionSource` getter now correctly returns actions.
+- ⚠️ `pf1.utils.chat.targetSavingThrowClick()` parameters changed to accommodate bug fixes.
+- Action card metadata now includes save data as it used to.
+- ⚠️ Action card `.action.dc` is deprecated in favor of the restored `.save.dc`
+- Action chat card attack data now correctly includes ammo usage per attack instead of always claiming it to be `1`.
+
+## 11.2 - 2025-2-18
+
+### Bug Fixes
+
+- Container weight was calculated inconsistently, causing their weight to fluctuate and at times not weigh anything. The weight was also unaffected by quantity. ([4015](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4015))
+- Many number inputs lacked constraints on their values, such as allowing negative ACP and fractional experience.
+- Hybrid casters (e.g. Arcanist) had their spell slots and casts tracked incorrectly and not displayed, displaying known spells like spontaneous caster instead.
+- Broken enhanced armor now correctly reduces also the armor granted by enhancement bonus. ([2868](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2868))
+- Duration label generation on invalid formula could cause actor sheet to become completely unavailable. ([4011](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4011))
+- NPC lite sheet actor size adjust was not setting size correctly. ([4009](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4009))
+- Some race items could break migration with unexpected subtype data.
+- Old sense migration could sometimes result in invalid sense data.
+- First iterative no longer has +0 undefined in the attack breakdown.
+
+### Changelog
+
+- `@Condition` enricher now accepts various condition ID aliases to be more accessible. ([3895](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3895))
+- Chat messages are migrated now in chunks like compendium content to improve migration performance.
+- Armor and shield sidebar now displays effective AC when broken in addition to the total AC when not broken.
+- Behaviour with uneditable content on sheets has been made more consistent and with slightly better feedback in parts. ([3643](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3643))
+- Opening compendium browser from actor sheet now automatically expands the pre-selected filter categories to make them more obvious.
+- Automatic migration is no longer run for new worlds.
+
+### Compendium
+
+- Studied Combat had invalid duration formula that caused actor sheets to become unavailable.
+- Updated age resistance spells and buffs.
+
+### API
+
+- Condition registry now contains aliases for conditions and an experimental `getAliased()` function to get conditions by either ID or alias. ([3895](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3895))
+
+## 11.1 - 2025-2-10
+
+### Bug Fixes
+
+- Action template placement could not be cancelled. ([3994](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3994))
+- Rotating action template preview caused it to behave in unexpected ways. ([3993](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3993))
+- Custom traits from items (e.g. weapon proficiencies) were not added to parent actor. ([4001](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4001))
+- Buff condition handling was nearly fully broken.
+- Cancelling condition duration prompt enabled the condition anyway.
+- Drag & dropping conditionals was nonfunctional.
+- Ability drain did not affect ability checks.
+- Automatic expiration of active effects could error with tokens without actor, preventing other effects from being ended.
+- Ray ability templates were too slim, causing grid highlight and template targeting to fail.
+- Ability modifier to skills was not applied correctly.
+- Damage part migration did not handle certain legacy formats.
+- Migration could fail in certain cases where document data preparation had failed due to unmigrated data.
+- Some rolls were recorded as invalid `RollPF2` instances instead of expected `RollPF`.
+- Migration from extremely old senses data (from before senses dialog existed) now correctly sets senses in current format.
+- On the fly migration of action damage parts should now be more tolerant of legacy formats.
+- Migration could fail if action lacked internal damage data entirely.
+
+### Changelog
+
+- Added _Lifesense_ to available senses. ([3930](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3930))
+- Most compendium browser filters are now alphasorted with few exceptions. ([3991](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3991))
+- Roll parsing now converts true and false to numbers 1 and 0 respectively.
+- Compendium migration now performs updates in chunks as it progresses instead of only once all updates are generated.
+- Trait selectors opened from actor sheet now display external choices alongside local ones in special manner, for example languages displays choices from race.
+- Haunts now migrate alignments and sizes more reliably
+
+### Compendium
+
+- Added lifesense as a monster ability and changes to existing feature.
+- Split Grog & Parasol into distinct variants. ([3976](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3976), [3978](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3978))
+- Added Fleshgem spikes. ([3975](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3975))
+- Renamed Dreamer's Star to Desna's Star. ([3985](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3985))
+- Rage class features now add corresponding rage buff to actor.
+- Added Spirit tags for Shaman Spirits. ([3983](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3983))
+
+### API
+
+- ⚠️ Placed template origin UUID now correctly points to the action directly. ([3995](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3995))
+- ⚠️ `AbilityTemplate.drawPreview()` and `ActionUse.promptMeasureTemplate()` return values have changed to accommodate UX handling fixes.
+- Change ordering altered, `pf1.config.buffTargets` sort values have changed to accommodate.
+- Item duplication and splitting now fills `_stats.duplicateSource`
+
+## 11.0 - 2025-2-3
+
+### Important Notice: Formula Syntax Changes
+
+Due to core Foundry VTT updates, some previously supported formula syntax will no longer function in the Pathfinder 1e system.
+
+- For **existing worlds**, the module [**Better Roll Formulas**](https://foundryvtt.com/packages/better-roll-formulas) (by KitCat) is recommended to ensure legacy content immediately remains compatible.
+- For **new worlds**, the system now provides additional formula functions as replacements. Refer to the system documentation (linked in the settings sidebar) for details.
+
+### Bug Fixes
+
+- ⚠️ Items inheriting charges no longer declare duplicate resource pools of their own. ([3202](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3202))
+- Post-Use script call was not executed for items with no actions. ([3602](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3602))
+- Some summoning spells were not properly dismissable ([3642](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3642))
+- Total item value in actor sheet inventory did not account for container contents. ([3659](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3659))
+- Charge cost, spell point cost, and recharge formulas incorrectly claimed they did not support dice. ([3676](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3676))
+- Critical confirmation formula crashed when including a roll flavor ([3681](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3681))
+- Image share function leaked identified names under certain circumstances, such as sharing them from compendiums. ([3714](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3714))
+- Canvas vision is no longer refreshed if observed but not present actor is updated. ([3741](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3741))
+- Changes targeting critical confirmation would incorrectly stack regardless of bonus type. ([3757](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3757))
+- Custom currency rates were not respected in certain actor and container currency functions. ([3826](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3826))
+- Concentration qualifier was not displayed with explicit durations. ([3873](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3873))
+- Chat log buttons now display error notifications when actor does not support the action. ([3878](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3878))
+- Attempting to cast unprepared spell now gives more appropriate warning. ([684](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/684))
+- Adjusted bad damage layout in action sheet.
+- Generic CMB did not respect CMB ability score in actor settings.
+- Ability penalty was not mentioned in ability score breakdown the same as ability damage. ([2201](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2201))
+- Unprepared spells could be cast if they had zero cost. ([3620](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3620))
+- Creating links in actors within compendiums would fail and generate invalid link that would prevent the item sheet from opening. ([3648](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3648))
+- Viewing item sheets in actor in a compendium would fail.
+- Spells with random duration displayed their duration as `undefined`. ([3674](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3674))
+- `@fullAttack` was always true, resulting in for example chained flurry to have -2 penalty even for single attacks. ([3735](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3735))
+- Combat tab attack column no longer displays tooltip for items that have no attack rolls. ([3738](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3738))
+- Initiative roll for hidden combatants was visible if default roll mode was set to visible, now they're always hidden. ([3745](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3745))
+- BAB override did not work on traps, haunts nor vehicles. ([3786](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3786))
+- Vehicle sheet inventory filters did not do anything. ([3847](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3847))
+- Built-in conditions that were supposed to apply ability score penalties (fatigued, entangeld, etc.) applied modifiers instead. ([3932](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3932))
+- `@abilities.X.unmod` was derived from base total rather than actual unmodified total.
+- Attack created from weapon lost did not copy ammo configuration.
+- Chat card ammo recovery chance was inverted, most notably always failing with forced recovery.
+- `@Browse` enricher broke on world load on chat messages.
+- Change editor target selector did not consistently select previously selected target. ([3900](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3900))
+- DSN did not visualize critical confirmations. ([3926](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3926))
+- Text enricher `speaker` shortcut still caused selected tokens to be picked as valid activating actors, too.
+- Incomplete conditional modifiers that could break attack processing are now ignored instead with a warning printed in the console log.
+- Migration could fail with actors in compendiums.
+- Migration could cause pointless updates or repeatedly migrate same data.
+- Effect notes did not use action's roll data.
+- Old item action migration was triggering for new items, possibly breaking items or causing migration to fail.
+- Changing certain settings did not correctly refresh item and action sheets to reflect the new configuration.
+- Actor sheet tooltips did not display number signs correctly.
+- Haunts no longer roll initiative but rather have static one as per rules. ([3785](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3785))
+- Migration did not report migration errors for documents in compendiums.
+- Chat card popouts could lose their interactivity if the card was updated by any means. ([3876](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3876))
+- Hovering over card range did nothing in card popouts.
+- Interactive rolls now work correctly with Take X options and have them pre-resolved.
+- Conditions could show up untranslated on world load.
+- Class names in spell browser and spells now can be affected by Babele translations. ([3673](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3673))
+- Untyped was incorrectly a choice in damage immunities. ([3948](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3948))
+- Adding certain items to player owned NPC actors (e.g. loot sheet) would cause them to become unidentified. ([3821](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3821))
+- Item and action sheets displayed inline rolls in rolled state, causing the values to shift with every render. ([3761](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3761), [3784](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3784))
+- Card roll breakdowns could have strange `+0 undefined` bonus if the action received no ability bonus to attack. ([3787](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3787))
+- Secret tokens were incorrectly removed from targeting data even for area effects.
+
+### Changelog
+
+- Added support for scrolling text on health-related changes. By default this requires _observer_ permission. ([1869](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/1869))
+- Added natural reach display to actor sheet attributes tab. ([196](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/196))
+- Source breakdowns in actor sheet tooltips now attempt to distinguish inactive sources. ([2360](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2360))
+- Actor sheet item delete dialog now warns about child link effects. ([2374](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2374))
+- Sense ranges are now available as change targets. ([2528](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2528))
+- Low-light vision, see invisibility and see in darkness can now be granted by items. ([2407](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2407))
+- Blindsight is now represented as black & white vision. ([3245](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3245))
+- Race, feat, buff, weapon and equipment items can now add creature types and subtypes. ([2793](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2793))
+- Context notes in chat cards now display the source item name in tooltip. ([2843](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2843))
+- Spells can now link "key ability" to ability to attack and ability to damage, allowing simple reference to casting ability regardless which caster is in question. ([3159](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3159))
+- Identified and Unidentified descriptions have been renamed to Superficial Details and Identified Properties to better match their intended use and presentation. ([3182](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3182))
+- Defense card now also displays save bonuses. ([3187](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3187))
+- Roll formulas now may use variety of logic functions: `eq`, `ne`, `lt`, `lte`, `gt`, `gte`, `and`, `or`, `xor`, and `not`.
+- Added firearm, siege weapon and heavy weapon categories to deal with broad proficiencies and better weapon identification. ([3517](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3517))
+- Some conditions are now included as tags in relevant skill and save rolls. ([3586](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3586))
+- Added support for _Dice So Nice_ theming for damage dice. ([3587](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3587))
+- ⚠️ Removed token tooltip feature. ([3597](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3597))
+- Item link creation provides now better feedback about odd linking.
+- Add change flags and condition immunity for morale effects ([3611](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3611))
+- Added `@sp.value` and `@sp.max` shorthands for spellbook spell points. ([3653](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3653))
+- Age category is now selectable with accompanying ability score changes. ([3657](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3657))
+- Added per minute recharge time period ([3677](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3677))
+- Token status HUD condition selection now displays only small subset of conditions for traps, haunts and vehicles. ([3683](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3683))
+- Class association is now automatically filled for class features created from scaratch on actor sheet. The class item itself is not touched, however. ([3720](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3720))
+- Special vision needs selection setting now defaults to enabled.
+- Item hit points are now automatically adjusted with item size. ([3744](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3744))
+- Added _Hands Needed_ field to weapons. Compendium entries updated accordingly. ([3751](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3751), [3825](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3825))
+- Added `@Source` text enricher for displaying minimal book source info. ([3766](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3766))
+- Ability scores that have been disabled have their damage, drain and penalty inputs disabled and hidden. The tooltip also provides less noisy information for such. ([3769](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3769))
+- Improved roll tooltip presentation of base checks and unlabeled parts. ([3805](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3805))
+- Item default name handling improved. ([3812](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3812))
+- Item limited uses can now have infinite max uses if max use formula is not defined. ([3827](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3827))
+- Added display of item charges to buffs tab. ([3866](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3866))
+- Interactive roll resolvers are visually identified in system chat cards when their use is potentially questionable. ([3885](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3885))
+- Basic roll cards have been customized to provide nicer display of natural roll, its bonuses and the total. ([3887](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3887))
+- Incorporeal creature subtype now imposes incorporeal condition. ([3889](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3889))
+- Removed "Add" label from column header create buttons, leaving only a plus sign, for better layout with non-English localizations. ([3898](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3898))
+- Check labels have been made much more uniform. ([3915](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3915))
+- Class deletion now warns about class feature and other association deletions. ([3921](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3921))
+- Added _Dual Heal by Default_ client-side setting. Can be situationally toggled in the apply damage/healing dialog regardless of the default. ([3942](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3942))
+- Actors can now be marked as having no maneuvers on their settings tab, disabling CMD and CMB. ([397](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/397))
+- Actor size is now targetable by changes. ([527](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/527))
+- Remaining ammo is now displayed in combat tab charge column if the attack has no charges. ([743](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/743))
+- Short, Medium and Long ranges are now available for non-spells and relies on item caster level, buff level, or associated class level depending on the item. ([766](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/766))
+- Actor sheet filterable item lists now have filter empty option to hide sections with no items.
+- Actor sheet spell lists now have prepared filter that remove spells that were not prepared. ([924](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/924))
+- Added Flanking, Charge and High Ground options to attack dialog. ([500](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/500))
+- Item hardness and hit poitns are now modified by enhancement bonus automatically. ([1988](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/1988))
+- Added support for fly, burrow and hover conditions like with Foundry v12. Also added swim condition. ([1976](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/1976), [1977](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/1977), [1978](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/1978))
+- Squeezing icon changed to differentiate it from burrowing. ([1978](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/1978))
+- Action roll data now has `@sizeBonus` which is the bonus to attack from size as applied to the action.
+- Size conditional modifier now adjusts `@item.size` also.
+- ⚠️ `@item.size` is now a number like `@size` instead of a string.
+- Attack dialog now has option for inheriting ability damage multiplier from held option and adhering to the power attack oriented held option for consistency.
+- Change editor now auto-closes if the change itself is deleted.
+- Added Babele integration. ([3673](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3673))
+- Damage roll data now includes `@base.total`, `@base.dice`, `@base.die.size`, `@base.die.count`, `@previous.total`, `@previous.dice`, `@previous.die.size`, and `@previous.die.count`. ([2212](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2212))
+- `@Browse` enricher now allows defining tag filters.
+- Action measure templates that exceed the scene size now skip template placement.
+- Clarified Change priority numbers with labels.
+- Most description editing is no longer interrupted by other users editing the same document at the same time. ([1076](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/1076))
+- Weapons, equipment, consumables, feats, class features, spells and racial traits now have combat tab toggle that makes them also be displayed in said tab. ([522](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/522))
+- Actor sheet compendium browser buttons now automatically apply appropriate filters where possible. ([2415](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2415))
+- Basic rolls now display success against known DC and also recap that DC if not obfuscated.
+- `@Skill` enricher now supports `dc` option, for example: `@Skill[hea;dc=15]`.
+- Action attack ability now has _Default_ option that smartly takes the abiltiy score your actor has configured for melee or ranged as appropriate. ([2081](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2081), [3170](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3170))
+- Changes targeting ability checks are now deferred, allowing dice in the formulas. ([3418](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3418))
+- Changes targeting ability-based skills are now deferred, allowing dice in the formulas. ([3418](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3418))
+- Spellbook caster level is displayed directly in the nav bar with the book name.
+- Small and smaller actors are now even smaller.
+- Text enricher speaker roll data retrieval now favors action and item roll data if found, instead of the actor itself.
+- `@Condition` text enricher now can have `duration` defined. ([3937](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3937))
+- `@Condition` text enricher can now accept partial condition ID, e.g. `daz` will match `dazzled`.
+- ⚠️ `[[/heal ...]]` and `[[/damage ...]]` inline roll support removed.
+- `@Heal` and `@Damage` text enrichers now accept `card` option to generate a card instead of applying directly.
+- Migration now has fast mode option (default enabled), which skips already migrated documents.
+- Added area of effect damage type modifier. ([2924](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2924))
+- Added info fields for template inheritance, simple template, and usable with summons. ([3836](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3836))
+- Dropping a class feature onto an actor with multiple classes now tries to be smarter about the default choice.
+- Simplified formula displays now remove `0dX` parts, too.
+- Item duplication handles duplicated item's name now more reliably and consistently.
+- Added missing DCs to Kineticist abilities. ([2296](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2296))
+- Added dedicated display and editor for item instructions/usage. ([2986](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2986))
+- Item summary now shows both descriptions if they are available.
+- Entries in damage resistance, item flag, and various other selector dialogs (tags, base type, associated classes, learned at, race subtypes, etc.) dialogs can be drag & dropped to re-order and copy them.
+- World migration now does simultaneous migration of multiple categories.
+- Free, Nonaction, Passive and Full-round activation no longer allow pointless number specifier. Minimum value for others increased to `1` from `0`.
+- Health configuration now includes separate settings for NPC actors. ([3859](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3859))
+- Improved chat card button feedback.
+- Initiative handling improved to be more consistent and reliable.
+- Identified and unidentified descriptions are now on same tab.
+- Item sheet sidebar inputs for quantity, weight, price, hit points and hardness now accept relative inputs. ([3626](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3626))
+- ⚠️ Outdated localized documentation removed due to lack of contributors to keep them up-to-date.
+- ⚠️ Special activation cost no longer allows additional details.
+- Wound Threshold per-actor override has been removed.
+- Replaced grappled condition icon to something more fitting. ([3646](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3646))
+- Encumbrance tooltip now displays multipliers with single decimal and the size multiplier.
+- Added `@Toggle` text enricher for toggling items.
+- Item tag handling unified for cards, showing similar tags even when simply printing item card to chat withou using.
+
+### Compendium
+
+- Added Revised Action Economy rules to Combat journal in rules compendium. ([253](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/253))
+- Added _Spells_ class feature for all spellcasting classes. ([3027](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3027))
+- Added and updated actions of clenched fist, forceful hand and interposing hand spells. ([3161](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3161))
+- Moved _Warpriest_ blessing prefix from class feature names to tags. ([3194](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3194))
+- Added missing universal monster rules to rules compendium. ([3449](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3449))
+- Removed spell descriptions from smoke bomb and dispelling bomb. ([3490](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3490))
+- Split snorkel into common and masterwork. ([3494](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3494))
+- Harmonized trap sense for investigator with other classes. ([3499](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3499))
+- ⚠️ `racialhd`, `commonbuffs`, `mythicpaths`, `samplemacros`, and `pf1e-rules` compendiums are now `racial-hd`, `buffs`, `mythic-paths`, `macros` and `rules` respectively. ([3538](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3538))
+- Added subtype and size for siege weapons. ([3548](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3548))
+- Updated occultist's evocation implement school. ([3557](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3557))
+- Added bloodline info to ectoplasmic bloodline abilities. ([3558](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3558))
+- Replaced user-defined languages with system provided languages for races. ([3623](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3623))
+- Added icons, measure templates and enhanced actions of certain spells. ([3667](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3667))
+- Healing formula in Oracle's Energy Body ability corrected. ([3731](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3731))
+- Added primal magic roll table. ([3736](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3736))
+- Gunslinger Initiative has been corrected to grant +2 bonus instead of +1. ([3742](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3742))
+- _Poison Resistance_ no longer incorrectly grants higher bonus than `+6`. ([3743](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3743))
+- Removed outdated sample macros (create loot sheet, show defenses, toggle buff, and wild shape). ([3764](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3764))
+- Updated several sample macros (roll skill, roll save, and award XP) ([3765](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3765))
+- Added rules for artificial intelligence and memory facets. ([3796](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3796))
+- Brooch of Shielding slot corrected to neck. ([3814](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3814))
+- Removed "Use" prefix from actions. ([3818](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3818))
+- Added harm and heal undead actions to cure and inflict spells. ([3828](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3828))
+- Removed redundant statistics from cybertech descriptions. ([3838](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3838))
+- Improved and added missing _improved_ and _greater_ combat maneuver feats. ([3841](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3841))
+- Fixed description of poison feature on sample basic monsters. ([3848](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3848))
+- Removed distraction save from swarm attack entry and replaced it with enricher. ([3638](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3638))
+- Added actions to critical feats for saving throws and improved context note content. ([3858](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3858))
+- Fixed invalid content link in _Minor Phantom Object_ spell. ([3933](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3933))
+- Added Reaver's Scythe unique magic weapon.
+- Added missing actions to _Barbed Chains_ and _Shackle_ spells. ([3779](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3779), [3780](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3780))
+- Added missing _Automatic Writing_ and _Touch of Acid_ Shaman abilities. ([3982](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3982))
+- Added senses changes to universal monster rule features.
+- Added technology rules. ([3177](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3177))
+- Removed incorrect liberation subdomain.
+- Fixed incorrect AC values of scatterlight suits and added context note. ([3663](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3663))
+- Fixed incorrect prefix in floor formulas of class abilities.
+- Added missing `<h2>` header for pattern subschool in rules compendium. ([3691](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3691))
+- Harmonized aura class feature and added class association to warpriest.
+- Improved memory facets by adding missing bonus feats and improved action uses.
+- Updated Buffs to include source ability, feature or spell and harmonized icon usage. ([3905](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3905))
+- Removed incorrect Strength to damage bonus on tech guns.
+- Added Combat rules journal with Actions in Combat Attacks of Opportunity table for quick reference. ([3747](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3747))
+- Added rule reference for magical melee weapon, armor and shield abilities. ([3733](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3733))
+- Added several Feats with special move action (flyby attack, improved spring attack etc.)
+- Added amateur swashbuckler and amateur investigator feat.
+- Added "extra"-feats that grant additional selective class feature (arcane exploits, discoveries, etc.).
+- Large number of special text-only spell durations were converted to explicit durations.
+- Added druid specific domains. ([2873](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2873))
+- Added abilities used by templates in _Bestiary 1_. ([3407](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3407))
+- Added robe of the archmagi.
+- Added more monster feats.
+- _Spell Disruption_ and _Greater Spell Disruption_ arcanist exploits had invalid save DC formulas. ([3725](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3725))
+- Fixed Chainsaw having incorrect critical multiplier and lacking iteratives. ([3857](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3857))
+- Removed incorrect _Master Tricks_ rogue talent class association on _Ninja_.
+- Snag net range increment was corrected to 1 from 5. ([3754](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3754))
+- Harmonized various poison use class-abilities.
+- Harmonize timeless body class feature between druid and shifter.
+- Added missing Kineticist content and improved existing content to be more useful
+- Added missing Kineticist blast variants.
+- Added Amphibious, Light-Sensitivity and Mistsight monster abilities.
+- Added many occult items previously included in PF Content module. ([3928](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3928))
+- Added vision related monster abilities as supplement to Racial-HD compendium. ([3424](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3424))
+- Added new buffs with senses targets and updated buff compendium structure. ([3839](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3839))
+- Added spell resistance to drow noble. ([3843](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3843))
+- Updated buff durations for tech gear.
+
+### API
+
+- ⚠️ Item health is now offset-based, `value` and `max` are now derived from `base` and `offset`. ([1988](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/1988))
+- ⚠️ Creature type and subtype template data format on race items changed. `creatureType` moved to `creatureTypes.values` and is now an array. `subTypes` moved to `creatureSubtypes.values`. ([2793](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2793))
+- ⚠️ `ActorPF.getContextNotesParsed()` now returns array of objects instead of array of strings. ([2843](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2843))
+- ⚠️ `ActorPF.formatContextNotes()` has been removed in favor of `ActorPF.enrichContextNotes()` ([2843](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2843))
+- ⚠️ `ActionUse` footnotes and effect notes format has changed to an object. ([2843](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2843))
+- ⚠️ `ActorPF.getContextNotesParsed()` and `ActorSheetPF._getTooltipContext()` are now async.
+- ⚠️ Conditional targets for CL (`effect.cl`), DC (`effect.dc`) and charges (`misc.charges`) have been flattened (to `cl`, `dc` and `charges` respectively). ([3084](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3084))
+- ⚠️ Conditional target functions have been rewritten and are not compatible with the old. Affected functions are `ItemPF#getConditionalTargets()`, `ItemAction#getConditionalTargets()`, and `ItemAction#getConditionalSubTargets()`. ([3084](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3084))
+- ⚠️ `ActionSelector` dialog constructor and open helper function parameters have been revised. The dialog no longer triggers action use but instead only returns selected action ID. ([3278](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3278))
+- ⚠️ `pf1.utils.roll.sizeReach()` now returns a number instead of an array with NumericTerm.
+- ⚠️ `pf1.utils.measureDistance()` and `pf1.utils.canvas.measureDistances()` have been deprecated. ([3380](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3380))
+- ⚠️ All system ActiveEffect data are now stored in `system` instead of `flags`. ([3381](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3381))
+- ⚠️ Chat message metadata (`flags.pf1.metadata`, `flags.pf1.identifiedInfo`, and `flags.pf1.subject`) moved to system. ([3382](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3382))
+- ⚠️ RollPF.safeRoll() now returns a promise as per Foundry API. ([3383](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3383))
+- ⚠️ `ActorPF.getContextNotes()` no longer takes special context strings that are only aliases of real contexts, such as `misc.*` and `attacks.*`. Simplify remove the special prefix in these cases. ([3421](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3421))
+- ⚠️ Conditionals and their modifiers are now datamodels and bring all that encompasses. ([3501](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3501))
+- Attack dialog and action use handling conditional data format has changed to be more ID oriented rather than index.
+- ⚠️ `ChatMessagePF.hasItemSource` has been deprecated in favor of `ChatMessagePF.itemSource` ([3516](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3516))
+- ⚠️ `ItemPF.use()` now returns `ActionUse` instance instead of the resulting chat message on successful use. Generated message is stored in `ActionUse.shared.message` for continued access. ([3555](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3555))
+- ⚠️ `ItemPF.use()` return value for actionless items now has message in `shared.message` to conform with rest of the API instead of `shared.chatCard`.
+- ⚠️ `ItemPF.canCreateItemLink()`, `ItemPF.canCreateItemLink()`, and `ItemPF.generateInitialLinkData()` have been renamed and the API surface redesigned. ([3604](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3604))
+- ⚠️ `getChangeFlat`, `addDefaultChanges`, and `applyChanges` must now be used without `.call()` ([3612](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3612))
+- ⚠️ Renamed `_onItemRoll` method on actor and container sheets to `_onItemCard` ([3698](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3698))
+- ⚠️ Armor & weapon proficiency, languages, and other similar traits have their data format changed. Minimal backwards compatibility provided. ([3719](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3719))
+- ⚠️ Default ammo is now stored in system data instead of flags. Use `item.system.ammo.default` instead. ([3723](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3723))
+- ⚠️ `pf1.config.weaponHoldTypes`, `pf1.config.abilityDamageHeldMultipliers`, and all other hold related data no longer have `normal` option and instead have `1h`, no backwards compatibility provided. ([3846](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3846))
+- ⚠️ `ActorPF.sourceDetails` has been removed. Any info it held is accessible via `ActorPF.getSourceDetails()` ([3893](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3893))
+- ⚠️ Active Effects no longer control active state of buffs by their presence or disabled state. ([3906](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3906))
+- ⚠️ ItemAction is now a data model. ItemAction.defaultData and ItemAction.data are deprecated.
+- ⚠️ `ItemAction.range` is now `ItemAction.rangeIncrement`. No backwards compatibility is provided as `ItemAction.range` is the range data itself.
+- ⚠️ `DamageTypeSelector` now requires update callback to be defined.
+- ⚠️ `ItemAction`'s `spellEffect`, `attackNotes`, `effectNotes`, and `naturalAttack.primaryAttack` are now `effect`, `notes.footer`, `notes.effect` and `naturalAttack.primary` respectively.
+- Actions now have fully functional UUIDs and action sheet header now includes ID/UUID copy button. ([1473](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/1473), [3891](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3891))
+- Added `pf1RenderQuickActions` hook for when token HUD quick actions are rendered.
+- `D20RollPF` now allows overriding how static rolls work.
+- Actor `system.traits` now includes `living`, `undead`, and `construct` besides already existing `humanoid` and `quadruped` for trivial identification. ([3919](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3919))
+- Changes now have fully functional UUIDs and change dialog header now includes ID/UUID copy button.
+- ⚠️ `pf1.config.sheetSections.combat.weapon` id was changed to `weaponLike` to accommodate including actual weapons.
+- ⚠️ Condition `mechanics.flags` is now a `Set` instead of an `Array`.
+- Spellcasting configuration is now much more flexible in terms of progression and preparation options, allowing greater freedom with custom spellbook setups.
+- ⚠️ `pf1.utils.dialog.getNumber()` parameters `render` and `dialog` behave differently now due to the dialog being converted to AppV2. No backwards compatibility provided. ([3634](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3634))
+- Added `pf1.utils.deepClone()` as improved drop-in replacement for Foundry's `deepClone()`.
+- `D20RollPF` now supports `dc` in its options.
+- Added `ItemSpellPF.getConcentrationDC()`
+- ⚠️ Damage types is no longer a complex object with array and custom string and instead is but a single array of types.
+- On-CRUD handling moved to new on-CRUD-operation functions, allowing secondary updates to finish before the original promise returns. ([2675](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2675))
+- `pf1GetRollData` hook is no longer fired off too early. ([2122](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2122))
+- ⚠️ Measured template reference in chat message metadata is now stored as UUID instead of ID. ([3370](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3370))
+- ⚠️ `ActorPF.getInitiativeContextNotes()` has been removed, please use standard context note API instead. ([3706](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3706))
+- ⚠️ `pf1.canvas.TokenQuickActions` functionality merged into `pf1.canvas.TokenHUDPF` with no backwards compatibility.
+- `pf1.utils.createTag()` no longer incorrectly allows long number sequences at start of the string. ([3941](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3941))
+- `ActorPF.applyDamage()` instances parameter now correctly includes normal damage instances when applying critical damage.
+- ⚠️ `ItemAction.getChargeCost()` is now async and returns `Roll` instance instead of number. `ItemAction.getChargeCostSync()` added.
+- Secondary natural attack penalty is now configurable in `pf1.config.naturalAttacks`.
+- ⚠️ `action` drag data type changed to `pf1Action` and the `uuid` points to the Action itself now instead of the parent Item.
+- ⚠️ `pf1.documents.macros.createActionMacro()` parameters changed to just uuid and slot.
+- Chat message system data for actions now includes `nonlethal`, `sl` and `cl` values so effective values of them can be determined after the fact.
+- ⚠️ `ItemAction.getAttacks()` return value is slightly different when resolve parameter is false.
+- Flurry and Unchained Flurry no longer recreate iterative handling and instead re-use base iterative handling.
+- ⚠️ Health configuration format changed with minimal backwards compatibility provided. ([3859](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3859))
+- `pf1.documents.actor.changes.addDefaultChanges()` is deprecated in favor of `Actor#_prepareTypeChanges()`
+- ⚠️ `ItemPF.chatListeners()` and related functions have been moved to `pf1.utils.chat` ([3310](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3310))
+- ⚠️ `pf1.documents.customRolls()` is deprecated in favor of `pf1.chat.command()`
+- ⚠️ `D20RollPF`'s `bonus` option is now deprecated in favor of including it in the formula itself.
+- ⚠️ `Actor.getCRExp()` deprecated in favor of `pf1.utils.CR.getXP()`
+- ⚠️ `json-string`, `isNumber` and `abilityMod` hbs helpers have been removed with no replacement. ([3715](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3715), [3728](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3728))
+- Supplements are now created much more reliably and will finish creating by the time the initial item create promise completes.
+- Compendum browser filter `setup()` and `prepareChoices()` funtions are now async.
+- ⚠️ `pf1.config.classNames` has been removed in favor of `pf1.utils.packs.getClassIDMap()` function.
+- `ActorPF.containerItems` is no longer a cache but rather on demand list of contained items.
+- ⚠️ RollPF.totalHalved is deprecated with no replacement.
+- ⚠️ MaterialTypes registry was renamed to Materials, alongside with MaterialType model to Material.
+- ⚠️ `ChangeEditor.wait()` parameters changed, first param is now the app options and the change instance is part of it.
+- Added `pf1.utils.party.rest()` function and two sample macros for using it.
+- ⚠️ sizeRoll() and sizeReach() function term handling has been revamped entirely.
+- ⚠️ `ItemScriptCall` is now a data model with associated deprecations and API changes. ([1857](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/1857))
+- ⚠️ _Haunt_, _Trap_, and _Vehicle_ actors now use data models and their data structures were partially revamped. ([3175](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3175), [3176](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3176))
+- Skill total modifier is now more controlled by the change system, no longer requiring hacky additions of various pieces of info to it.
+- ⚠️ SplitStack app's render related options are now passed differently with it converted to AppV2 with no backwards compatibility provided.
+- ⚠️ Spell subschool converted into traits-like model
+- ⚠️ `D20RollPF` handling of several options is now more uniform and options are now undefined by default instead of null or empty string if no value is given.
+
+## 10.8 - 2024-10-3
+
+### Bug Fixes
+
+- Range card note is now more specifically labeled max range. ([3534](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3534))
+- Remove child links from items when given to other actors ([3610](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3610))
+- Chat card targets would render in single column in some browsers. ([3651](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3651))
+- Importing actor from JSON could behave unexpectedly in some aspects compared to Foundry default behaviour.
+- Combat tab generic melee and ranged attacks did not display all context notes correctly. ([3650](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3650))
+- Identifiers and other tag-like entities now allow underscores.
+- Skill IDs no longer allow number prefixes.
+- Special range was incorrectly treated the same as feet.
+- Actions no longer show deaf condition tag and spells no longer show doubled deaf tag, leaving it only being shown once for spells.
+- Currency fields are no longer faded when you have no currencies. ([1118](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/1118))
+- Nonlethal, temporary HP and AC were inconsistently available in token resource bar options. ([3339](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3339))
+- Level-up dialog now displays total for ability scores directly and base in tooltip instead of vice versa. ([3487](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3487))
+- Large number of conditions were not disabled on sheet when the character was immune to them. ([3529](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3529))
+- Text enrichers did not find items with their Babele translated name. ([3542](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3542))
+- Character sheets had little layout jitter when certain inputs were focused. ([3544](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3544))
+- Quick actions now can be any item type that qualifies instead of specific subset. ([3628](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3628))
+- Trap actors would error constantly. ([3654](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3654))
+- Special activation type did not correctly allow arbitrary string. ([3658](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3658))
+- Open in browser button in changelog dialog was nonfunctional.
+- Warning sign on context notes displayed wrong.
+- Dead condition did not render as overlay since addition of the new conditions (in v10.5).
+- Skill enricher set to provide info link created two icons.
+- Infinite duration buffs unexpectedly ended on turn start.
+- Armor and shields had their slot column empty.
+- Voidglass, Liquid Glass and Throneglass incorrectly required glass as base material. Cryptstone similarly incorrectly required stone as base material.
+- Missing deeply embedded traits would not be rendered correctly or at all.
+- Roll initiative could sometimes spit out error that made no sense.
+- Clearing item filter list with the browser clear button would not correctly reset the filter.
+- Editing built-in skill via skill edit dialog would cause them to become corrupt.
+- Level-up prompt no longer is based on HD but rather actual level, allowing animal companions and eidolons for example to level-up correctly.
+- Racial HD and Mythic Paths no longer display their level-up buttons only when you have XP for regular levels. Instead the buttons are always displayed.
+- Experience Distributor not preselecting defeated NPCs when using Wounds & Vigor for NPCs.
+- Sheet d20 spin animation was nonfunctional.
+- Right-clicking conditions in token HUD did not turn them to overlays.
+- Token tooltip hidden replacement name is no longer allowed to be empty.
+- Fixed trying to fetch actor for actorless script calls. ([3579](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3579))
+- Give Item dialog target selection choices did not match visible actors.
+
+### Changelog
+
+- Spell Browser now attempts to display proper class name instead of identifier for the class filter choices. ([2540](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2540))
+- Added Weapon and Spell attack change targets. ([3567](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3567))
+- Epic and Magic material traits are now available as choices even if no base material is chosen.
+- Token HUD and API now also block conditions the actor is immune to.
+- Text enricher `as` option now allows `sheet` and `auto` option too to increase versatility.
+- Added missing movement racial trait category.
+- Initiative macro created from drag&drop to hotbar now by default creates combatants.
+- Spellbooks now have Ignore Ability Limit option for spell-like books.
+- Improved input feedback consistency on actor, item and action sheets.
+- Removed enforced borders from all sheet and chat card images. ([3549](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3549))
+- Class skill selection in item sheets are now alphabetically sorted and in columns with greater visibility for custom skills.
+
+### Compendium
+
+- Updated Pestilence Bloodline and it's bloodline powers. ([3559](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3559))
+- Added missing actions to Hissing Rage and Lesser Hurling rage powers. ([3560](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3560))
+- Organized spells compendium content into school folders.
+- Organized weapons and ammunition compendium content into folders.
+- Added touch flag to all class feature actions that were missing it. ([3166](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3166))
+- Wyrwood is now correctly sized as small. ([3537](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3537))
+- Fixed typos in being of ib and syrinx race. ([3573](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3573), [3566](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3566))
+- Whips now more correctly have 15 ft range instead of reach. Monowhip no longer adds stregnth to damage.
+- Added missing minor bag of holding.
+
+### API
+
+- `convertDistance` HBS helper now passes second parameter to underlying function. ([3540](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3540))
+- `pf1.config.buffTargets` and `pf1.config.buffTargetCategories` now support actor and item type filters with actor filters adding warnings and item filters hiding the change options. ([3553](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3553))
+- Skill rank, and certain character speeds when relevant, are now included in skill roll chat message metadata.
+- Added universally available `@step` variable to roll data to allow system of units agnostic measurement formula creation (e.g. `6 * @step` instead of `30` to represent both `30 ft` and `9 m`).
+- Second parameter of `pf1PostActionUse` is now what it is documented to be. ([3554](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3554))
+- `CONFIG.statusEffects` once again includes `name` for full core Foundry data parity.
+- Module introduced actors and items can now define their default icon in `pf1.config.defaultIcons`.
+- Actor sheet item lists once again include type and subtype info in the lists.
+- Material registry now includes additional data such as health per inch, primitive flag, and others. ([3413](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3413))
+- ⚠️ `@details.level.value` no longer is synonym for HD, but rather actual levels (such as without racial HD and mythic paths).
+- `TooltipPF` altered to accommodate actors that don't conform to system expectations.
+
+## 10.7 - 2024-8-21
+
+### Bug Fixes
+
+- Actor sheet search inputs were not usable on uneditable sheets. ([3525](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3525))
+
+### Changelog
+
+- Misfire and Capacity are no longer displayed if item has no ammo type set.
+
+## 10.6 - 2024-8-21
+
+### Bug Fixes
+
+- Editable and uneditable item sheets were not very distinguishable from each other.
+- Scene loading hanging at ~62% in Firefox.
+
+## 10.5 - 2024-8-20
+
+### Bug Fixes
+
+- Long creatures smaller than medium had their reach calculated as shorter than it should've been. ([3411](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3411))
+- Change formulas that were allowed to have random elements were incorrectly reported as not supporting them. ([3415](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3415))
+- Various Change targets (mixture of skill and damage targets) that were supposed to support dice did not do so. ([3415](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3415))
+- Buffs with duration of 1 turn failed to end at end of the turn.
+- Round cycling could randomly cause buffs to end 1 round too early.
+- DC & CL school context notes were not displayed in spell cards.
+- Enricher produced content could render strangely. ([3439](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3439))
+- Equipping in containers was not correctly blocked, causing odd behaviour.
+- Quickbar toggle no longer requires item to have actions. ([3369](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3369))
+- Caster level check found in spell details tab did not function. ([3402](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3402))
+- Actor sheet tooltips did not show for uneditable actors. ([3419](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3419))
+- `@Use` enricher incorrectly used default action if no action was defined. ([3442](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3442))
+- Size modifier to AC was missing under certain circumstances from AC breakdown. ([3445](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3445))
+- Quantity change script call was nonfunctional. ([3448](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3448))
+- Re-rolling initiative for actor with no token no longer endlessly re-adds duplicates of them to combat. ([3451](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3451))
+- Re-rolling initiative for actors with no token now have some additional constraints to avoid rerolling such for multiple combatants if the combatant has been duplicated. ([3451](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3451))
+- Level-up dialog and card could display granted HP wrong for mythic path if the actor had no actual classes or racial HD yet. ([3484](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3484))
+- Wounds from Wounds&Vigor optional rule were not affected by ability score modifications correctly due to the ability score's undrained value not keeping up with changes. ([3488](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3488))
+- Alchemist's Labs had invalid change targets for boosting Craft (Alchemy) skill. ([3504](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3504))
+- Non-deterministic damage in conditional modifiers displayed as constantly rolled result in combat tab. ([3507](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3507))
+- AC max dex tooltips did not account for armor training. ([3519](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3519))
+- Action self charges were not charging correctly on rest.
+- Action selection in `@Use` and `@Action` enrichers did not work correctly.
+- Apply half was nonfunctional in `/heal` and `/damage` cards.
+- Chained flurry generated extra attack penalties incorrectly.
+- Per hour charges did not show on actor sheet.
+- Haunt, trap, and vehicle sheets did not display charges correctly in all cases.
+- Some chat card targets were not properly unhidden on world load, causing an error instead. ([3367](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3367))
+- `@Condition` text enricher label did not work correctly.
+- Drag & dropping macro to script calls would display its icon and name incorrectly until refresh.
+- Dropping content-linkable data in item sheet notes did not create a content link.
+- FCB health choice was doubled up with automatic health.
+- Resetting health settings did not work correctly.
+- Hotbar macro creation from drag&drop could in some circumstances link a macro that user has no access to.
+- `@attributes.hp.value` did not work in changes.
+- Item sheet changes tab did not display invalid change targets correctly.
+- Inactive items (e.g. unequipped magical items, disabled buffs, etc.) still granted weapon, armor and language proficiencies.
+- Item create dialog could display invalid folder selection (e.g. in compendiums).
+- Some drag&drop operations failed for actor-owned items in compendiums. ([3390](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3390))
+- Max charges were not set for items in containers.
+- Nexavaran Steel was misspelled in UI and its internal ID.
+- Race could not be dragged off a sheet.
+- Skipping action use dialog skipped default conditional modifiers, too.
+- Caster Level Offset in class spellbook setup was incorrectly applied to Class Level Modification, causing Ranger, Paladin and Antipaladin have their spellbooks set up incorrectly.
+- Unchained flurry generated its number of attacks incorrectly.
+- Wound thresholds did not apply to attacks.
+- Automatic tag/identifier creation is now friendlier with diacritics.
+- Buffs set to end on initiative ended far too early.
+- Item identifier no longer allows invalid characters. ([3409](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3409))
+- Certain conditional modifier options were not passed through localization correctly.
+- Rounding and continuity options were not displayed correctly in Health settings.
+- Negative levels now show as negative levels in breakdowns instead of as energy drain.
+- Non-physical items incorrectly displayed unidentified description editor.
+- Vehicle CMB did not roll what was configured.
+- Source labeling was invalid for weapons. ([3461](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3461))
+
+### Changelog
+
+- Added `@Weight` and `@Distance` enrichers for easy dynamic conversion of weights and distances. ([2923](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2923))
+- Changelog is now split into latest, major and legacy tabs for easier navigation. ([3172](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3172))
+- Changelog no longer displays legacy versions when it is automatically presented after version change.
+- ⚠️ `@Damage` and `@Heal` enrichers now take roll data from speaker by default instead of target. Including valueless `subject` option reverts to previous behaviour of using subject's roll data. ([3385](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3385))
+- Text enrichers now have common `as` and `vars` options for defining constraint on activator and for roll data source respectively. ([3389](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3389))
+- Haunt actor now provides `@cl` alias in roll data. ([3388](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3388))
+- Increasing mythic tier now prompts for ability score increases as appropriate. ([3396](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3396))
+- _Help_ browser renamed to _Documentation_. ([3433](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3433))
+- Added search filter to trait selectors (language, weapon group, etc. selectors) ([3513](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3513))
+- Added hardness field to actors attributes tab. ([3503](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3503))
+- Added pharmaceutical subtype for consumables.
+- Automatic attack numbering improved when the base attack is labeled with conflicting name (e.g. Scorching Ray).
+- Weapon attacks can now define their category (e.g. simple), allowing automatic proficiency matching to function with them.
+- Weapon attacks can now define weapon type (e.g. one-handed)
+- Several dialogs now autofocus the most commonly relevant input field automatically.
+- Right-clicking a change entry in item sheet opens its editor much like opening items and actions elsewhere. ([3335](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3335))
+- Spell headers now display proper class names instead of IDs where possible.
+- Custom search input clear button removed in favor of HTML built-in clear functionality.
+- Actor sheet buffs tab now displays conditions the character is immune to differently and prevents enabling them.
+- Swapped condition images from pngs to svgs ([3468](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3468))
+- Consumable creation now copies sources from the spell to the created item. ([3462](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3462))
+- Saving throws and concentration checks now support deferred changes.
+- Offset values are now displayed in health tooltips.
+- Add `@Draw` enricher for roll tables ([3405](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3405))
+- `@Apply` text enricher now can find items by name and re-activate existing buffs instead of always adding new.
+- Post-use script calls now make items activatable like on-use script calls.
+- Clarified max dex display on actor sheet attributes tab.
+- Actor sheet tooltips now display forced base values (as usually set by lite sheet) if present.
+- Attacks created from scratch are now by default marked with forced proficiency.
+- Added several additional tooltips to haunt, trap and vehicle sheets.
+- Movement speeds now support context notes. ([3491](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3491))
+- Loot items can now be timeworn.
+- Added missing conditions: dead, disabled, dying, flat-footed, petrified, stable, and unconscious ([511](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/511), [1026](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/1026))
+
+### Compendium
+
+- Added shield bash action to shields and removed redundant shield-weapons. ([3427](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3427))
+- Added tags to magus arcana. ([3485](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3485))
+- Added amulet of mighty fists.
+- Added bracers of armor.
+- Added missing exchange spell class abiltity to inquisitor.
+- Added greater ability score enhancement belts and headbands.
+- Added various wondrous items that grant competence bonuses.
+- Replaced invalid NULL damage formulas from weapons and natural attacks. ([3472](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3472))
+- Split lantern into individual items. ([3459](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3459))
+- Updated action and icon of hydraulic push spell and added usage note.
+- Added buffs for several tech items and linked them as supplements.
+- Added various items used in the iron gods AP.
+- Added actions and supplements to various memory facets.
+- Updated arcanist exploits which requiered touch flag. ([3509](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3509))
+- Bullet recovery chance has been corrected to 0% from default 50%.
+- Added Basic Monsters compendium with several complete NPC actors as examples and as quickstart monsters. ([2800](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2800))
+- Inquisitors no longer have Track class feature twice. ([3428](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3428))
+- Corrected all armor & shield base materials. ([3141](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3141))
+- Construct racial HD no longer gives incorrect amount of bonus HP based on size.
+- Removed STR-damage bonus on laser torch.
+- Fixed typo in magus class association for reduce person mass and shadowfade spells.
+- Corrected several weapon base materials. ([3141](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3141))
+- Removed incorrect compendium links to pf-content items.
+- Split net item into individual instances. ([3458](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3458))
+- Added sources and several missing feature class associations for shifter.
+- Updated context notes of critical feats to use new on critical target.
+- Renamed trail rations and added missing single use action.
+
+### API
+
+- Added `pf1.config.currency` for configuring how currency works. ([1423](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/1423))
+- Haunt, trap and vehicle actors now correctly call `pf1GetRollData` hook.
+- Ability score increases from level and mythic tiers are now more configurable. ([3396](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3396))
+- `ItemPF.use()` fills in `shared.token` more eagerly. ([3416](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3416))
+- Add more data to pf1PreAttackRoll and add pf1PreDamageRoll
+- Added ActorPF.addTempHP() function for easy adjustment of temporary hit points regardless what health rule is in play. ([2204](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2204))
+- Added `pf1PreD20Roll` hook
+- ItemConditional.create() and ItemConditionalModifier.create() now accept non-array for create data for creating single entry.
+- ⚠️ Material registry IDs changed to be consistent. ([3452](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3452))
+- Actor sheet now trusts `ActorPF.getFeatCount()` instead of recalculating itself how many feats you're supposed to have. ([3482](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3482))
+- `ActorPF.getFeatCount()`'s excess and missing values are now calculated via getters on demand, allowing easier overriding.
+- ItemPF.use() no longer retrieves relevant token document in invalid manner. ([3510](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3510))
+- ItemPF.isCharged and ItemAction.isSelfCharged now correctly returns true when charges are configured in all cases.
+- ItemPF.normalMaterial and ItemAction.normalMaterial no longer return incomplete information in certain cases.
+- `ChatMessagePF.targets` no longer fails to provide correct return value for new messages.
+- ⚠️ `pf1.utils.createTag()` no longer returns "tag" when given nothing.
+- `pf1.utils.createTag()` now accepts additional options to control created tag.
+- Cold Iron, Nexsteel and Mithral had incomplete pricing info in material registry. ([3412](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3412))
+- Added `actionSource` getter to `ChatMessagePF`.
+
+## 10.4 - 2024-7-7
+
+### Bug Fixes
+
+- External links in the Help Browser could not be opened ([3349](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3349))
+- Actor sheet combat tab attacks column did not account for BAB override.
+- Clearing XP at level 1 would set to XP to 1 instead of 0. ([3333](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3333))
+- Modifying natural reach with a change caused reach weapon range highlight to display incorrectly. ([3347](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3347))
+- Items could not be created from scratch within containers. ([3357](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3357))
+- Action BAB override did not work if your base BAB was zero. ([3329](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3329))
+- Migration for removal of `penalty` bonus type did not function correctly.
+- Combat updates, such as cycling encounters, did not correctly trigger followup events such as refreshing the encounter.
+- Critical multiplier conditional modifier did not function.
+- Browse items button was nonfunctional in containers.
+- Container sheets displayed items in disabled state under unexpected circumstances.
+- Container dropped into itself would delete itself.
+- Hovering over CR containing box did not include it in the tooltip.
+- Actor types that do not have HD were displaying it in the xp-cr-level box tooltip.
+- Non-buff condiditons and token overlay effects (such as defeated overlay) was hidden with hide token buffs setting enabled.
+- Price per Charge configuration was missing entirely for all items.
+- Conditions are now alphabetically sorted in all supported languages. ([3309](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3309))
+- Mythic tiers were incorrectly affected by negative levels.
+- Blindsight, blindsense and tremorsense had excessive ranges with metric distances in use. ([3318](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3318))
+- Changing health configuration did not request reload.
+
+### Changelog
+
+- Added "Per Hour" limited use period. This is not automatically restored except with rest. ([3326](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3326))
+- Simplified the list of applicable DR types in the Damage Resistance dialog ([3328](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3328))
+- Nexavarian Steel was missing from list of material types. ([3328](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3328))
+- You can now drag & drop sources to item sheets to copy them. This also opens the source editor on the target sheet for farther editing unless shift is held. ([3342](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3342))
+- Aszite and Druchite were not marked as addon materials, and Blight Quartz was missing. ([3353](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3353))
+- Added exhausted option to condition immunities. ([3321](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3321))
+- Added race points, racial trait type and category selection to racial trait feat type. ([3314](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3314), [3315](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3315))
+- Added info blurb in experience config about how custom track functions. ([3317](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3317))
+- Hide from token toggle on buffs now takes immediate effect. Old hidden active buffs are unaffected. ([3358](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3358))
+- Health sources no longer state bonus type.
+
+### Compendium
+
+- Added missing weapon proficiency to outsider racial hd. ([3325](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3325))
+- Fixed incorrect change formulas in powerful stance buff.
+- Added missing improved unarmed strike supplement and source to monk monster templates.
+- Removed obsolete passive actions from class features.
+- Added insanity roll table. ([3327](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3327))
+- Fixed change formulas of familiar class not working when class is renamed.
+- Added missing class association to Witch for Patron Spells and added missing information to Witch's Familiar feature about learning new spells. ([3352](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3352))
+
+### API
+
+- Applying nonlethal healing via ActorPF.applyDamage() now actually heals nonlethal instead of normal health. ([3320](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3320))
+- ActorPF.applyDamage() now accepts `dualHeal` boolean option to indicate the healing also affects nonlethal damage. ([3320](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3320))
+- `pf1.registry.materialTypes` registry entries now support `dr` to determine if they show up in the Damage Resistance Selector. In addition, `shortName` can hold a short-hand form of a material name, and `treatedAs` can be given a material id to be considered the same as the given material (for DR purposes only).` ([3328](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3328))
+- ItemPF.getAttackSources() now accounts for BAB override.
+- ItemAction.getRange({type:"min"}) no longer returns incorrect value for reach with natural reach buffs. ([3347](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3347))
+- ItemPF.charges no longer returns 0 just because the item is not on actor.
+
+## 10.3 - 2024-6-26
+
+### Bug Fixes
+
+- Compendium links and compendium browser buttons were nonfunctional on uneditable sheets (such as when viewing with observer permissions or in locked compendiums).
+- Generic CMB, melee, and ranged attacks did not display related context notes fully or at all. ([3249](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3249))
+- Change and Context Note target selection now sorts targets the same way. ([3251](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3251))
+- Throneglass was incorrectly add-on material instead of normal construction material. ([3291](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3291))
+- Combat tab attack tooltip no longer displayed attack bonuses for each attack (such as iterative progression). ([3292](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3292))
+- Changes targeting subskills were not included in actual rolls. ([3293](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3293))
+- Various conditions (notably paralyzed, helpless, and sleeping) did not apply their effects correctly. ([3294](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3294))
+- Action sheet could not be opened in uneditable sheet via the dedicated button for it.
+- Buff duration label (e.g. in acror sheet buffs tab) failed to resolve durations correctly.
+- Combat tab damage column did not respect maximum ability score limitation nor restrictions on multipliers when modifier is below zero.
+- Container contents weight could become excessively precise.
+- Source registry was having 3 largely harmless errors at world launch.
+- XP distributor's split evenly option still didn't work correctly. ([3234](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3234))
+- Actors with negative levels but no classes would error.
+
+### Changelog
+
+- Bonus type selection is now sorted everywhere. ([3262](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3262))
+- Non-weapon attacks and spells now have access to materials. ([3304](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3304))
+- Right clicking a condition on buffs tab allows configuring its duration or enabling one with duration.
+- ⚠️ `@Heal` and `@Damage` enrichers now replace formula display with provided label instead of using it as prefix.
+- Empty item stacks now have strikethrough again, broken items are slightly discolored red, and some other small item presentation changes to allow custom CSS tweaking better.
+- Owned item migration failures are now more descriptive.
+- Attempting to cast unprepared/unknown spell now causes more accurate error.
+- Modifiers for quantity adjust can now be combined.
+- `@Save` enricher now attempts to resolve the DC parameter as formula if it's not a simple number.
+- Trait types are now alphasorted.
+
+### Compendium
+
+- Add source information to classes ([3300](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3300))
+- Removed Vampire Hunter D and Niobe content, such as the Esufey race, Vampire Hunter and Omdura classes and their related content.
+- Fixed typo in Being of Ib name. ([3307](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3307))
+
+### API
+
+- New categories can be added to DamageTypes.CATEGORIES
+- ActorPF.setCondition() and its kin now accept object in addition to boolean as state parameter for merging into the created active effect.
+
+## 10.2 - 2024-6-23
+
+### Bug Fixes
+
+- Lore and Artistry compendium links did not open journals ([3239](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3239))
+- CMB could not be rolled from summary tabs ([3243](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3243))
+- Skill ranks can no longer be set to negative values.
+- Damage types could not be registered with images
+- Adjusting equipment (armor, wondrous items, etc.) material addons could cause the item sheet to become unopenable.
+- Features tab footer sources tooltip did not include levels or mythic tiers for feats. ([3197](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3197))
+- Wounds were not handling ability drain, penalty and damage correctly. ([3206](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3206))
+- Excess vigor damage was not corretly applied to wounds. ([3221](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3221))
+- Spellbook configuration could not be viewed for actors in locked compendiums. ([3231](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3231))
+- Actions using ammo could falsely claim you're out of ammo and refuse attacks even with everything configured correctly. ([3233](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3233))
+- Experience distributor's split evenly option gave maximum possible to everyone. ([3234](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3234))
+- Action sheet notes section moved from bottom of action tab to usage tab. ([3237](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3237))
+- Wound Thresholds optional rule is now disabled if Wounds & Vigor is also enabled to prevent unpredictable and unexpected behaviour. ([3242](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3242))
+- AC tooltip did not display related context notes. ([3247](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3247))
+- Subskill tooltips did not display context notes correctly. ([3250](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3250))
+- Removed None as spellcasting ability option. ([3253](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3253))
+- Buffs with the icon hidden either through the buff's own setting or the global condition hiding setting would never expire. ([3260](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3260))
+- Buffs with random durations caused invalid warnings. ([3261](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3261))
+- Combat tab damage column had some instances display raw ID rather than human readable name for types in the tooltip. ([3266](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3266))
+- Damage type selector behaved unexpectedly upon re-opening when custom damage type field was used. ([3275](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3275))
+- Duplicating an item sharing charges would duplicate the charge sharing, leading to invalid state of items inheriting charges from more than one source. ([3279](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3279))
+- Splitting stack of 2 items would error. ([3281](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3281))
+- Splitting item stack could cause various problems if the source item had any links. ([3285](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3285))
+- Charge inheritance caused potentially wrong inherited charges due to re-evaluation of max charges. ([3288](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3288))
+- Recharge formula was incorrectly left editable in items inheriting charges. ([3290](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3290))
+- Adding classes to actors raw (holding shift) still caused their level to be forced to 1 as if adding class normally.
+- Give item dialog had far larger selection of characters available than intended, including the character giving the item. ([3282](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3282))
+- Level-up dialog failed to increase chosen favored class bonus (FCB).
+- Roll mode selection in level-up dialog had no effect.
+- Actor sheet damage column could sometimes display invalid shothands (e.g. 4+0d6 becoming 4d6)
+- Using level-up dialog for NPC classes could cause it to error.
+- Level-up dialog failed to auto-select default health option for NPC classes.
+- Level-up dialog would not allow finishing gaining mythic path at a time level progression could grant ability score increase.
+- NPC lite sheet initiative, BAB, AC, CMD and saves inputs had no effect.
+- Non-GM users could get migration errors from scene migration.
+- Class set to provide zero skills per level would prevent gaining Intelligence bonus to skills for those levels.
+- Class spellcasting config could be initialized wrong and result in class level modification formula to have invalid "null" formula.
+- Spell slot preparation migration caused all preparation to be zeroed.
+- Loot items with multiple actions didn't display the action type correctly in chat cards.
+- Combat tab entries with invalid damage formula would not display any info about it in damage tooltip.
+- Initiative rolls ignored the rollMode set in the dialog
+- Skill rank input could enter uneditable state until something else was edited.
+
+### Changelog
+
+- FCB to health is now shown in health breakdown. ([3200](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3200))
+- Wounds now have their wound threshold displayed in their tooltip. ([3206](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3206))
+- Reorganize actor attribute trait list to more meaningful order. ([2704](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/2704))
+
+### Compendium
+
+- Updated saves, actions, icons and sources of fungal blisters and molten orb spells. ([3267](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3267))
+- Add source info to compendium spells
+- Add missing touch flag to spell attacks ([3268](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3268))
+
+### API
+
+- pf1.applications.SplitStack.wait() no longer gives invalid return value for stacks of 2.
+
+## 10.1 - 2024-6-17
+
+### Bug Fixes
+
+- Wounds & Vigor were not healed when resting. ([3214](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3214))
+- Per round limited uses did not have recharge formula.
+- Attack context notes were included with every type of action. ([3199](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3199))
+- Loot items were missing use and post-use script calls options. ([3203](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3203))
+- Implants were missing all script call options.
+- Equip-toggle script call option for physical items could fire needlessly when item was deleted.
+- Some base translation keys were missing for item subtypes. ([3208](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3208))
+- Implants inventory section was still displayed even with cybertech global setting was disabled. ([3209](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3209))
+- Actor sheet could not be opened if a buff had invalid duration formula.
+- Dropping items to item sheet links tab sometimes did not work.
+- Using level-up dialog for mythic path would error.
+- Spells with no actions could not be opened, such as when creating new one from scratch.
+- Could not create race from scratch directly on actor sheet. ([3207](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3207))
+- Resting would incorrectly recharge items with finite charges with no timed recharge.
+- Prepared casters would have their spell uses reset on start of their combat turn.
+- Buffs targeting melee weapon damage had no effect.
+- Ability drain incorrectly affected maximum wounds. ([3206](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3206))
+- Invalid damage formulas could make the actor sheet unopenable.
+
+### Changelog
+
+- Resting for 24 hours or more now increases healing as per full day of rest. ([702](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/702))
+- Migration now cleans up invalid values in Changes.
+
+### Compendium
+
+- Monk was missing their Wholeness of Body ability from 7th level progression. ([3212](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3212))
+
+## 10.0 - 2024-6-15
+
+### Bug Fixes
+
+- Buffs with 1 turn duration now correctly end at the end of turn. ([1126](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1126))
+- Altering health, experience, system of units, fractional bouses, and coin weight divisor system settings now require refresh to take effect properly. ([2245](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2245))
+- Actor spells tab incorrectly displayed `M/DF` and `F/DF` as `M` and `F`.
+- Some Prosemirror buttons were rendered wrong. ([2386](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2386))
+- Price per charge is no longer shown for items that don't use it for their cost (items that restore charges on their own). ([2455](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2455))
+- DR and Energy Resistance were no longer shown in the Defenses card ([2745](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2745))
+- Minimum range selection appeared for range types that it didn't apply to. ([2756](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2756))
+- Applying damage with Wounds & Vigor behaved unexpectedly. ([2786](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2786))
+- Some change and action update and creation operations could create them with excess or invalid data.
+- Spell description range formula was not resolved. ([2895](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2895))
+- Truesight renamed to true seeing and boolean toggle converted to explicit distance. ([2912](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2912))
+- True seeing now grants basic sight within its range. ([2912](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2912))
+- True seeing no longer grants see invisibility past its operational range. ([2912](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2912))
+- Container sheet price input field behaved inconsistently with other items. ([2948](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2948))
+- Single use for non-physical items is no longer valid and is migrated to one non-replenishing charge. ([2965](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2965))
+- Consumables are now generated with full spell description. ([647](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/647))
+- Non-GM may now link journal entries to custom skills.
+- Players could not see previously visible chat card targets after refresh.
+- Negatively sized ability templates are no longer allowed.
+- Zero sized ability templates cancel usage instead of erroring.
+- Toggling off use custom tag left the old tag lingering. ([2318](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2318))
+- Re-organizing items in containers was not working. ([2676](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2676))
+- Range tooltips for attacks will now default to "ft" as a sensible unit. ([2764](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2764))
+- Level up button became stuck once max level was reached.
+- LLV was not disabled with custom vision. ([2640](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2640))
+- Physical items are now unidentified by default where appropriate when added to NPCs. ([2855](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2855))
+- Chat card save button silently fails with no token selected but user having configured character. ([1148](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1148))
+- Health configuration did not allow sane handling of maximized hit dice. Manual re-adjusting of health configuration may be necessary.
+- Allowed circumstance bonuses to stack by default. ([1287](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1287))
+- Chat card targets now display CMD for combat manoeuvres. ([1447](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1447))
+- Multiple editors could be opened for the same script call. ([1582](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1582))
+- CL option was missing in conditional modifiers, now located under effects. ([1585](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1585))
+- Extra ACP penalty from broken armor/shield no longer affects non-skill rolls. ([1796](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1796))
+- Power Attack Critical Multiplier in actions was ignored. ([1809](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1809))
+- Players no longer see empty targets list in chat cards when no targets are visible. ([1842](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1842))
+- Child link chains behaved strangely. ([2073](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2073))
+- Opening another entry selector would close the old, scrapping ongoing edits. ([2200](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2200))
+- Multiple sources granting same custom proficiency would duplicate it on actor attributes tab. ([2284](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2284))
+- Non-system actors could not toggle conditions. ([2378](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2378))
+- Mythic tiers were incorrectly accounted for feat counts. ([2392](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2392))
+- Actor sheet combat tab damage formulas could display wildly wrong values. ([2438](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2438))
+- Condition names could (still) be untranslated after refresh until actor was refreshed again. ([2443](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2443))
+- Large tokens did not count as being within a template if their center wasn't. ([2499](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2499))
+- Fixed multiple issues with consumable creation. ([2536](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2536))
+- sizeRoll() would not convert certain dice correctly or at all. ([2579](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2579))
+- Action Selector dialog would scrap ItemPF.use() options. ([2602](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2602))
+- Using Action Selector dialog would cause chat cards to lose range highlight. ([2601](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2601))
+- Size deficient Constructs received incorrect bonus health. ([2651](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2651))
+- Action sheets were not closed for user if another user deleted the viewed action. ([2728](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2728))
+- Deleting a viewed action could cause errors about missing action.
+- ⚠️ `@classes.X.level` now is affected by negative levels to allow negative level rules to work correctly. Undrained level is accessible as `@classes.X.unlevel`. ([2750](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2750))
+- Minimum range highlight was incorrect for reach weapons. ([2755](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2755))
+- Power Attack multiplier override in actions was nonfunctional. ([2761](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2761))
+- Coin values were randomly stored as strings instead of numbers, causing various issues. ([2763](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2763))
+- Players can now view script calls even if they lack edit rights for them. ([2779](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2779))
+- Actions no longer allow empty unspecified choice for their type, defaulting to other if not present. ([2787](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2787))
+- Legacy operators were not migrated and could cause Changes to misbehave. ([2790](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2790))
+- Item sheet Changes tab failed to keep scroll position. ([2798](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2798))
+- Max uses was displayed incorrectly on actor sheet for non-physical items with limited usage set to single. ([2804](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2804))
+- Adjusting health would sometimes fail. ([2812](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2812))
+- Toggling primary attack in attack dialog did not adjust damage multiplier to pre-configured default in action. ([2851](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2851))
+- Secondary natural attack damage preview was using ability multiplier for primary attack in combat tab. ([2852](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2852))
+- Per Charge cost was calculated incorrectly for wands with costly material components. ([2860](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2860))
+- Physical items were being added to `@resources`. ([2861](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2861))
+- Context notes targeting All Skills would print the note twice for subskills. ([2874](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2874))
+- Cone templates behaved strangely with unusual angles. ([2907](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2907))
+- Mindless creatures no longer incorrectly receive skill ranks from HD. ([2928](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2928))
+- Classes with skills per level set to 0 incorrectly gave 1 instead due to conflict with minimum ranks rule. ([2928](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2928))
+- Mindless creatures no longer incorrectly receive feats from hit dice. ([2928](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2928))
+- Specific skill change target list is now always alphabetically sorted in all languages. ([2929](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2929))
+- Stack of charged items with partially charged item on top evaluated its own value as if all items in the stack had partial charges. ([2940](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2940))
+- Item summaries shown in actor sheet could sometimes fail to display correct data. ([2947](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2947))
+- Quick actions could display Infinite/Infinite, 0/0, NaN/NaN or other very inaccurate statements in certain circumstances. ([2950](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2950))
+- Cowering did not apply Dex Denied to AC penalty. ([2979](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2979))
+- Critical confirmation bonus is no longer pre-evaluated, preserving any dice rolls present. ([3065](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3065))
+- Concentration bonus is no longer pre-evaluated, preserving any dice rolls present. ([3066](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3066))
+- Token tooltip configuration in actors had little effect for what was shown on the tooltips. ([3104](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3104))
+- Clearing some numeric values would cause odd behaviour. ([965](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/965))
+- Added Ability Scores feature from leveling had invalid description.
+- Ability damage was incorrectly displayed as ability score modification in source breakdown.
+- Actionless item with charges could be activated with no charges remaining.
+- Tokens with no actor errored on attempting to assign conditions to them.
+- Stunned condition did not deny Dex to AC ([2981](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2981))
+- Dex denied to AC did not correctly deny dodge bonuses to AC also. ([2980](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2980))
+- Dice rolls in most change formulas are now maximized with exception of deferred rolls (damage and skill checks).
+- CMD incorrectly listed wound threshold source twice.
+- Fixed parsing of custom energy resistances
+- FCB health bonus was not correctly added to max health for non-base classes with manual health configuration in use.
+- Nonlethal damage and temporary hit points have been restored to token and combatant tracked attributes.
+- Actor pre-update would sometimes error.
+- Level-up card could display incorrect number of new feats. ([2127](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2127))
+- Quick actions did not display remaining ammunition in actor sheet.
+- NPC classes can now have favored class bonuses (FCB).
+- Deleting a race could cause harmless errors to appear for other users.
+- refreshActors() was too intense, making some setting toggles lag Foundry heavily. ([2611](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2611))
+- Token secret disposition was not respected by token tooltip.
+- sizeRoll() behaved poorly with 1d1
+- Various sheet inputs could cause the layout to twitch. ([831](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/831))
+- Measured template targeting could sometimes fail to get correct targets.
+- Wound Thresholds did not correctly affect caster level.
+- Loot sheet did not display the value of items inside containers.
+- Added mitigation to change ID conflicts by increasing their uniqueness across items, reducing chances of nonfunctional changes.
+- Held option was renamed to power attack mode in attack dialog to reflect its actual function. ([1117](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1117))
+- Held option is hidden in attack dialog for attacks for which it has no function for. ([2955](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2955))
+- Charge sharing was not properly cleared when master item was deleted.
+- Token.toggleEffect() ignored the active parameter in number of cases.
+- ⚠️ ScriptCall.execute() extraParams option was incorrectly passed to the scripts.
+- Broken condition was ignored for Attack items. ([2820](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2820))
+- Dragging actors from sidebar did not reflect correct token size. ([1935](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1935))
+- Template targeting could sometimes arbitrarily fail with no targets. ([2537](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2537))
+- Vision sharing controls were nonfunctional. ([3078](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3078))
+
+### Changelog
+
+- Users can now adjust quantities by 5 (hold shift key) or 10 (hold control key) ([1042](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1042))
+- Added Spell and Feature as additional in-built buff types. ([1077](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1077))
+- Buff durations now can be configured more precisely when they end, at turn start (default), on initiative, or turn end. ([1126](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1126))
+- Added limited uses per round option, which recharges at start of your turn. ([2732](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2732))
+- Added Natural Reach to Change targets. ([1139](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1139))
+- Links sub-tab defaults to class associations or charges instead of children where possible. ([1240](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1240))
+- Dwarf-like encumbrance split into unaffected by medium/heavy encumbrance. ([1268](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1268))
+- Added quadruped toggle to race that actors inherit. Actor sheet allows overriding this separately. ([1279](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1279))
+- Boolean flags are now available in roll data via `@bFlags.FLAGNAME`. ([1487](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1487))
+- Action measure template color and texture usage no longer require extra toggle to be enabled. ([1559](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1559))
+- Actions can now define per-attack ammo cost. ([1597](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1597))
+- Added performance configuration dialog.
+- Hide Reach Measurements setting has been removed in favor of max reach highlight setting. ([1604](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1604))
+- Holding ALT while drag&dropping item to actor sheet creates that item as unidentified regardless of its original state. ([1708](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1708))
+- Added module integration options. ([1813](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1813))
+- Use prototype token scale as multiplier on character size scale. ([1824](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1824))
+- Actions may override item's held option. ([1837](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1837))
+- Action use now automatically selects cheapest appropriate ammo as default ammo if no default ammo has been chosen. ([1861](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1861))
+- ⚠️ Limited uses now defaults to unlimited instead of undefined. ([2022](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2022))
+- Armor & shields separated from equipment in actor sheet inventory. ([2037](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2037))
+- Spells and abilities can be marked as harmless. ([207](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/207))
+- ActorPF.getSkillInfo() and ActorPF.rollSkill() now take simpler subskill IDs without the superfluous `.subSkills` part. ([2093](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2093))
+- Incorporeal condition now correctly grants deflection bonus to AC. ([2098](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2098))
+- Use relative UUIDs for AEs to remove secondary updates on unlinked tokens. ([2124](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2124))
+- Items are automatically recharged when reducing stack quantity and charges were fully depleted to simulate stack of charged items. ([2191](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2191))
+- Record spell types in spellbooks. ([2262](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2262))
+- Display M/F/DF components as M/F or DF according to spellbooks spell type. ([2262](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2262))
+- Rest dialog can be skipped by holding the skip dialog button. ([2263](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2263))
+- Items can now be used without an actor. ([2269](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2269))
+- Buff start time is now included in toggle script calls as `startTime` and in CRUD context as `context.pf1.startTime` allowing elapsed duration to be determined. ([2327](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2327))
+- Added details and changes tabs to containers. ([2373](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2373), [1160](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1160))
+- Scrolls and some other consumables now distinguish arcane, divine, etc. types. ([2394](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2394))
+- Class casting configuration now includes domain slot info. ([2503](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2503))
+- Physical items with hit points equal or less than half will automatically behave as if broken. ([2517](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2517))
+- Class hit die size selection now is constrained to actual die sizes. ([2527](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2527))
+- Overland speed is displayed in movement speed tooltips. ([2535](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2535))
+- Split stack dialog redesigned. Multiple inputs for stack control and better feedback on results. ([2591](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2591))
+- Automatically open item sheet when such is created from scratch on actor sheet. ([2592](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2592))
+- Action power attack multiplier override now displays inherited multiplier when undefined. ([2616](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2616))
+- Distinguish disabled feats. ([2626](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2626))
+- Token effect icon handling improved, especially when toggling visibility of all conditions. ([2636](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2636), [2637](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2637))
+- Caster Level and Concentration checks are now accessible via spell chat card context menu. ([2642](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2642))
+- Relevant condition are now shown when printing an actor's defenses. ([2658](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2658))
+- Relevant conditions are now shown in action card footers. ([2657](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2657))
+- Migration dialog automatically opens for on-login migration. ([2659](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2659))
+- ACP is now also shown on skills tab. ([2678](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2678))
+- Physical items dropped onto actor sheet from compendium or items directory will have their size automatically adjusted to match the actor. ([2698](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2698))
+- Added tooltips to item sheet price and weight to clarify the values. ([2715](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2715))
+- Background skills now show separate list of sources from adventuring skills. ([2716](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2716))
+- Added materials and alignments to chat card info displays for attacks and weapons ([2733](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2733))
+- Spell points, buff levels, item charges (not in containers), skill ranks, feat charges, and attack charges now accept relative values. ([2769](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2769))
+- Default selection in feature type is now Natural instead of empty. ([2770](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2770))
+- Changes can now be drag & dropped between items. ([2827](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2827))
+- Added duplicate button for changes.
+- Added critical multiplier conditional target. ([288](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/288))
+- Add class dialog and level-up dialog were merged into new redesigned level-up dialog. ([2882](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2882))
+- GM leveling a character with no player owner now defaults to private message. ([3018](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3018))
+- Spells now use same duration configuration as everything else. ([2892](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2892))
+- Added action usage to gear item type. ([2925](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2925))
+- Condition source is displayed with conditions if other than actor. ([2933](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2933))
+- Magic and Epic added as new material type addons ([2954](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2954))
+- Ability damage multiplier now has Held option to inherit multiplier based on held setting. ([2964](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2964))
+- Inline rolls in actor and item sheet descriptions are no longer rolled when displayed on sheet. ([2989](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2989))
+- Actor sheet inventory columns made uniform. ([2995](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2995))
+- Formula fields now give better feedback when they're invalid. ([3058](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3058))
+- Actions can now define maximum ability modifier to damage. ([3071](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3071))
+- Simple warning for missing or excess feats is now displayed at bottom of feat listing. ([3072](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3072))
+- Check only modifiers are now displayed in ability score tooltip. ([3103](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3103))
+- Max Dex effect of armor and encumbrance is now displayed with AC breakdown. ([2435](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2435), [3145](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3145))
+- Containers now have flat weight reduction possibility. ([318](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/318))
+- Prestige classes can now define favored class bonuses. ([482](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/482))
+- Weapon proficiencies are now automatically matched. ([484](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/484))
+- Added misfire input field to items and actions. ([628](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/628))
+- Added optional cost parameter to ItemPF.use() to override charge/slot cost. ([703](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/703))
+- Weapon, armor and shield weight is now automatically adjusted based on item size. ([707](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/707))
+- Identified toggle moved to sidebar with equipped and carried toggles in item sheets. ([748](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/748))
+- Added Critical Hits context note target. ([916](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/916))
+- Added slow-firing and semi-automatic weapon properties.
+- Added splash action property ([3013](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3013))
+- Added material types to weapons, attacks, and actions; expands DR support for actors
+- Added Actions help browser page.
+- Script calls now include `action` parameter directly in script scope when appropriate.
+- Added capacity field to item ammo configuration. Has no in-built function yet. ([2342](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2342))
+- Duration in spells, abilities and such now has concentration and dismissable toggles. These for now have no notable function.
+- Added many additional subtypes to loot items to cover mundane items. ([2337](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2337))
+- Added circle reach highlights for non-square grids
+- Trait selectors are now openable on uneditable item sheets.
+- Content links on actors are now generated as relative links where possible. ([2210](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2210))
+- Players can now see unidentified description for identified items. ([2844](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2844))
+- Alter item.size in roll data to match actor size if the item is resizing. ([2180](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2180))
+- Added BAB override option to actions. ([2530](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2530))
+- Action targeting now ignores tokens with secret disposition. ([2975](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2975))
+- Removed custom toggle from item identifier.
+- Change editing is now done via separate dialog.
+- Changes can now be sorted.
+- Chat card header now changes pointer to signal that it is interactable.
+- Added starting wealth and alignment fields to class details. ([2156](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2156))
+- Containers now allow expanding items to view their summary like the actor sheet.
+- Added cursed, timeworn and artifact quality toggles to items. ([834](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/834), [1937](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1937), [2395](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2395))
+- Added custom item creation dialog for improved clarity on item type choice and immediate selection of subtype. ([2052](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2052))
+- Added implant item type with cybertech subtype. ([489](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/489))
+- Activation type defaults to nonaction and empty selection removed. ([2024](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2024))
+- PC and NPC default disposition can be overridden.
+- Added Alignments to weapons and attacks
+- Item links can now be dragged off like normal items.
+- Drag interactions from compendium browser now turn the browser transparent and allow dropping the items through the browser into underlying sheets.
+- All source detail tooltips replaced with dynamic Foundry tooltips. ([2310](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2310))
+- Enhanced available information via label tags in actor sheet item summaries. ([2961](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2961))
+- ItemPF.use() accepts additional use options to toggle power attack and other options available in the use dialog. ([703](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/703))
+- Features without actions have usage displayed as Passive on actor sheet. ([2880](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2880))
+- Integrated system styling with Foundry's font scaling. ([1188](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1188))
+- Single/Full attack option is displayed for all items with attacks instead of being limited to attacks and weapons. ([1259](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1259))
+- Incorporeal condition now sets natural armor to 0. ([206](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/206))
+- Entry selectors improved in terms of labeling, re-opening, and allow editing multiple things at once.
+- Added caster class level offset configuraton to classes. ([2691](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2691))
+- Armor proficiency matching now uses armor base types instead of the identifier for extended matching. ([2737](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2737))
+- Roll tooltip styling changed to help with long flavors and added consistent sign symbols. ([3008](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3008))
+- Container's item summary now displays contents value and coinage. ([549](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/549))
+- Armor class is now included in token and combatant tracked attributes. ([1952](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1952))
+- Containers and certain loot item subtypes now require equipping for full effect.
+- Action extra attacks segment now has easy configuration for chained and unchained flurry of blows. ([3049](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3049))
+- Added a new sheet and actor type for Haunts ([2307](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2307))
+- Added a sheet and actor type for traps. ([2307](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2307))
+- Added a new sheet and actor type for Vehicles. ([2307](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2307))
+- Added global rules-based vision toggle in system settings to no longer need to toggle custom vision for each token individually. ([2039](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2039))
+- Destroyed items show as disabled and do not count as active. ([2145](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2145))
+- Attack dialog ammo selection is now more informative when no ammo is selected. ([1633](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1633))
+- Non-slotless wondrous items are now auto-unequipped in containers.
+- Improved domain slot presentation so it's clearer how many spells you actually can have. ([2353](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2353))
+- Actor sheet now automatically swaps to relevant tab when drag&dropping items in. ([2932](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2932))
+- Level-Up dialog UX and update handling improved.
+- Spellbook choice in spells no longer shows disabled spellbooks and is hidden when viewing spells without owning actor. ([3164](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3164))
+- Experience Distributor improved.
+- Item sheets now display default ammo and allow configuring default ammo type. ([2431](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2431))
+- Buffs now have simple interface for imparting conditions when enabled. ([2250](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2250))
+- Items can now contain supplement links to other items that are added alongside them to actors. ([561](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/561), [682](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/682), [722](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/722), [1040](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1040), [1792](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1792))
+- Added AC, CMD and BAB to NPC lite sheet ([245](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/245))
+- Added polymorph selection to condition immunities. ([2959](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2959))
+- Migration now includes a progress dialog with secondary dialog for displaying details about any issues that it may have run into. ([1956](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1956))
+- Added natural attack and thrown attack roll change targets.
+- Added all ranged damage, all melee damage, and natural attack damage change targets.
+- Added melee, ranged, and thrown weapon damage change targets. ([709](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/709), [2086](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2086))
+- Item sheet details tab layout heavily modified and cleaned up.
+- Actor sheet re-rendering was removed for some inputs when the value was unchanged.
+- Added option to disable critical confirmations. A small step towards Armor as DR optional rule. ([437](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/437))
+- Creating new or duplicating old items, actions, script calls or other similar instances automatically opens their sheet for editing.
+- Clicking a target in chat card pans to that target in addition to selecting them.
+- Actions can now define charge cost to be per attack. ([2342](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2342))
+- Allow token tooltips to be stickified with a key. No default keybinding. ([1280](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1280))
+- Held option is now hidden for ranged weapons as it does nothing for them. ([2955](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2955))
+- Obfuscated inline rolls are no longer turned into non-inline rolls.
+- Feature and Attack type items can have associated class that is accessible with `@class.level` ([2000](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2000))
+- Races now can define their base speed which is applied on actors when the race is added to them. ([2297](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2297), [2644](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2644))
+- Added links to condition journal entries on the actor buffs tab where such exist. ([1111](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1111))
+- Items can no longer be moved to containers when using the "Give Item" feature.
+- Clarified item notes configuration. ([2450](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2450))
+- Spellbook configuration now behaves in much more uniform manner whether autoslots are enabled or disabled.
+- Ability Penalty added as explicit Change target.
+- Token HUD quick actions no longer include noisy prefix in names.
+- ⚠️ Script change support has been removed.
+- Replaced spellbook problem message with info boxes so multiple issues can be displayed at the same time.
+- Level Drain on attributes tab has been relabeled to Negative Levels. ([1554](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1554))
+- Added lookup() roll function. ([2033](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2033))
+- Added ifelse() and if() roll functions. ([1874](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1874))
+- sizeReach() roll function was converted into a term, fixing several issues with it.
+- Added Post-Use script call category.
+- Proficient toggle in items now defaults to false ([2991](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2991))
+- Item sheets redesigned to include an always visible sidebar with all items. Several more toggles moved to the sidebar. Information from header was consolidated to the sidebar. ([2221](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2221))
+- ⚠️ Spell roll data `@classLevel` is now `@class.level` to match other similar cases.
+- Added Caster Level and Concentration change targets for specific spellbooks. ([135](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/135))
+- Added CL and DC change targets for specific spell schools. ([468](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/468))
+- Buffs and Spells tab positions have been swapped. ([2680](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2680))
+- Trait selector (language, proficiency, etc. selector) now has tag-like handling for custom entries.
+- Added @Ability, @Action, @Apply, @Browse, @Condition, @Damage, @Heal, @Skill, @Save, and @Use custom text enrichers.
+- Regular users can now do world migration for their owned content. ([2410](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2410))
+- Added _Base Vision Permission_ setting to control whether you need observer (Foundry default) or owner rights on actor to see with them. ([900](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/900))
+- Actor sheet item weights display tooltip with base, stack and contents weights.
+
+### Compendium
+
+- Added Long Arm buff.
+- Enhanced actions of coin shot spell. ([2646](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2646))
+- Added missing tags for rogue talents. ([2653](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2653))
+- Added rare material components for spells. ([2660](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2660))
+- Added missing armor proficiency flag for magus class features. ([2668](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2668))
+- Added warpriest spell association for cleric spells up to level 6. ([2687](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2687))
+- Added exchange spell class feature for spontaneous spellcasters. ([2748](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2748))
+- Hourglass, Tent and Whistle were split into distinct items. ([2762](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2762))
+- Added missing racial languages. ([2815](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2815))
+- Harmonized wild empathy description and added bonus feat association to endurance class feat. ([2842](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2842), [2836](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2836))
+- Improved barbarian rage powers and class association. ([2849](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2849))
+- Removed unclear context note of cleave feat and added actions to cleave and greater cleave. ([2871](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2871))
+- Fixed bad html formats in packs ([2889](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2889))
+- Added missing damage formula for call lightning spell. ([2890](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2890))
+- Added table of favored enemies and available combat styles to ranger class features. ([2897](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2897), [2838](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2838))
+- Split telescope into separated items based on magnification. ([2946](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2946))
+- Added missing actions to burning and thorny entanglement. ([2978](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2978))
+- Added tags for oracle mysteries and revelations. ([3000](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3000))
+- Separated several adventuring gear items that were combined in a single item. ([3025](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3025))
+- Fixed incorrect calculation of will bonus in rage buff for chained barbarian. ([3029](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3029))
+- Changed HP per mythic tier to use standard HP feature instead of change. ([3035](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3035))
+- Harmonized entries for evasion class feat and added missing monk (UC) class association. ([964](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/964))
+- Added animal category and different mounts from ultimate equipment items.
+- Added cantrips, knacks and orisons class abilities to classes.
+- Added missing inquisitor class association to domains, subdomains and some domain powers. ([3138](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3138))
+- Added some more magic items (Frost Brand, Gauntlet of Rust, Horn of Blasting, Bag of Tricks, ...).
+- Added measure templates to pit spells.
+- Added ranger combat styles. ([2841](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2841))
+- Added roll tables for timeworn glitches in technology and numerian fluid.
+- Added supplement formula and spellbook to classes ([3024](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3024))
+- Add swashbuckler deeds and update swashbuckler class feats. ([2966](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2966), [2967](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2967))
+- Added technological feats from tech guide and iron gods AP.
+- Updated throwing weapon actions. ([2552](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2552))
+- Added wondrous containers like bag of holding, portable hole, etc.
+- Harmonized Trap Sense, Danger Sense, Trap Finding and Fast Movement class abilities. ([2972](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2972))
+- Harmonized feat formatting, added combat trick tags and removed PFS tag from feats. ([2724](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2724))
+- Removed PFS tag from packs ([2638](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2638))
+- Updated sources, actions and class associations of bloodrager class features.
+- Updated hunter class-features and associations.
+- Several improvements to the investigator class features.
+- Added tags and new feats for several ninja, rogue, slayer, alchemist and investigator talents. In addition overlapping entries were harmonized and class associations maintained. ([2832](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2832), [2831](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2831), [2834](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2834), [2835](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2835))
+- Updated alchemical power components.
+- Updated and added missing alchemical splash weapons. ([3011](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3011))
+- Updated icons and actions of various alchemist bombs. ([3097](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3097))
+- Update class kits and included items. ([3012](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3012))
+- Updated dark tapestry mystery. ([2998](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2998))
+- Moved Adventuring Gear, Kits and some other items to separated subfolders in items compendium.
+- Update and harmonize several Monk and Monk (UC) class features.
+- Added Sources, updated icons, fixed formats and harmonized description of race compendium. ([2893](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2893), [2887](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2887))
+- Updated shaman class features (except for spirits).
+- Updated skald class and some minor enhancement to associated features. ([2896](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2896), [2888](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2888))
+- Updated slayer class features with correct actions, sources and class associations.
+- Reorganized some tools and recreated belt pouch and spell component pouch as containers. ([1160](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1160))
+- Added aura and changes to containers.
+- Added bloodline feat and bloodline spells as separated class feats for sorcerer and bloodrager. ([2280](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2280))
+- Added compendium links to feat prerequisites. ([2648](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2648))
+- Added inline rolls for spells which requiere d%. ([3179](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3179))
+- Added familar class and features. ([3153](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3153))
+- Added haunted subschool and spell descriptors ([2743](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2743), [2742](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2742))
+- Added missing investigator class association to alchemist formulas ([2996](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2996))
+- Added Power Component tag to relevant items to ease finding them. ([2710](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2710))
+- Added secondary actions to channel features. ([3096](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3096))
+- Added missing channel haunt medium class feature and fixed incorrect class association. ([3098](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3098))
+- Added spellbooks class feature to wizard, magus and arcanist class.
+- Added penalty on attack rolls to tower shield. ([2943](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2943))
+- Added variant aasimar and tiefling abilities roll tables.
+- Added Finesse property to all applicable weapons ([2799](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2799))
+- Added backpack variations and sources.
+- Age category templates had invalid changes for age effects on physical ability scores. ([1731](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1731))
+- Paladin, Antipaladin and Ranger now include casting class level offset. ([2691](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2691))
+- Fixed max range increment of many ranged weapons which was incorrectly set to 1. ([2753](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2753))
+- Added missing revised action economy activation data to over 500 items. ([2701](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2701))
+- Removed redundant instances of black powder and powder horn in items and weapon compendium.
+- Added missing damage formula to boneshaker spell ([2949](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2949))
+- Fixed Unchained Rage giving invalid bonuses at level 1.
+- Added sources to fighter class abilities and added armor training (heavy armor).
+- Added 81 missing spells to investigator spell list.
+- Moved technology content from pf-content module to system.
+- Changed Uncanny Dodge to no longer alter FF AC/CMD. ([3083](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3083))
+- Added concealment, total concealment and confusion roll tables. ([3015](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3015))
+
+### API
+
+- Enhanced ability to pass arbitrary data from dialogs. ([1242](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1242))
+- ⚠️ Action measure template data format changed, `customColor` is now `color` and `customTexture` is now `texture`. ([1559](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1559))
+- ⚠️ Action ammo type data and chat card ammo recovery data has been changed. ([1597](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1597))
+- ⚠️ ItemPF.firstAction is deprecated in favor of ItemPF.defaultAction ([1763](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1763))
+- D20RollPF dialog now has more context data: speaker and D20RollPF reference. ([1946](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1946))
+- ⚠️ conditions, conditionTextures, and conditionMechanics in CONFIG.PF1 are deprecated in favor of pf1.registry.conditions ([2013](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2013))
+- ⚠️ Action area renamed from spellArea to area. ([2020](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2020))
+- ⚠️ Change and Context note skill targets no longer include `.subSkills` between main skill ID and subSkill ID. ([2093](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2093))
+- ⚠️ Script call `shared.attackData` contents are now directly in `shared` ([2134](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2134))
+- Attack messages now include used ammo info in their metadata. ([2361](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2361))
+- Spell description is once again stored in .description.value like all other items instead of .shortDescription ([2369](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2369))
+- ⚠️ ActorPF.createAttackFromWeapon() deprecated in favor of ItemAttackPF.fromItem() ([2409](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2409))
+- ⚠️ ItemPF.defaultContextNote() deprecated in favor of pf1.components.ContextNote ([2422](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2422))
+- ⚠️ pf1.utils.canvas.getConditions() was moved to pf1.utils.init.getConditions() ([2500](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2500))
+- Added ItemPhysicalPF.isBroken getter to determine broken status. ([2517](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2517))
+- Added @spellbook to spell roll data. ([2545](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2545))
+- Added intermediate ItemPhysicalPF class that all physical items inherit. ([2563](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2563))
+- ⚠️ ActorPF.mergeCurrency() deprecated in favor of ActorPF.getTotalCurrency() ([2589](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2589))
+- ⚠️ ActorPF.getTotalCurrency() parameters changed. ([2589](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2589))
+- Added ActorPF.getCurrency() which does what old ActorPF.getTotalCurrency() did. ([2589](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2589))
+- ⚠️ Active Effects tracking buffs are now stored on the buffs themselves. ([2612](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2612))
+- ⚠️ ActionUse.getMessageData() is now async
+- ⚠️ ItemPF.getChatData() and ItemAction.getChatData() now only takes one parameter. The old first parameter is no longer used and the function no longer auto-enriches contents. ([2731](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2731))
+- Added showInAction and showInDefense booleans to condition registry entry datamodel to control inclusion in Defense and Action chat cards
+- ActorPF.getSkillInfo() now returns associated journal entry for built-in skills, too. ([2725](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2725))
+- ⚠️ Weapon proficiency IDs are now simple and martial instead of sim and mar. ([2738](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2738))
+- ItemAction.getRange({type:"min"}) no longer always returns 0 for reach if min range is undefined, but instead returns melee range ([2754](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2754))
+- Added ItemAction.canUse getter which returns false if any known use limitation criteria fails. ([2803](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2803))
+- Added ItemBasePF.canUse getter which returns very basic usability state of the item.
+- ItemSpellPF.canCast has been deprecated in favor of the canUse getters on items and actions.
+- Sheet item sections are now configurable via `pf1.config.sheetSections` ([2944](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2944))
+- ⚠️ pf1.utils.chat.createInlineRollString() is deprecated with no replacement. ([3032](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3032))
+- Ability templates now store reference to the item and action that caused their creation. ([2197](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2197))
+- ⚠️ `flags.pf1.abundant` moved to `system.abundant` ([2902](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2902))
+- ItemAction.update() now correctly passes its update options param along to the item update call.
+- Added ItemPF.getProficiency() for retrieving proficiency status. ([2117](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2117))
+- Added getName() and getId() (for system identifier) helper functions to actor.itemTypes type arrays.
+- ⚠️ ActionUse.addEffectNotes(), ChatAttack.addEffectNotes() and ChatAttack.setEffectNotesHTML() are now async
+- Active Effects when created now record their initiative value when owning actor is in combat. ([1126](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1126))
+- Added CombatPF.initiative getter for fetching current initiative value.
+- Added ActorPF.getCombatants() for fetching relevant combatants for the actor.
+- Added `pf1.utils.parseAlignment()` to parse alignment string.
+- Added TokenPF.getOccupiedCells() function.
+- Added TokenPF.isSquare getter.
+- ⚠️ ChatAttack.setAttackNotesHTML() is now async
+- ⚠️ ChatAttack.addAttackNotes() is now async
+- Added `pf1PreAttackRoll` and `pf1AttackRoll` hooks.
+- Targeted tokens are now present in action shared metadata object and modifiable within script calls.
+- Chat message metadata now includes scene ID to properly retain targeted token ID relation and similar.
+- Added source book registry. ([2671](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2671))
+- ⚠️ Handling of items in containers has been reworked completely. ([2273](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2273))
+- ⚠️ Actor's and Item's languages, di, dv, ci, weaponProf, armorProf, descriptors, and weaponGroups custom values are now stored as an array instead of strings.
+- ItemPF.use() `actionID` parameter deprecated in favor of `actionId` ([2069](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2069))
+- ⚠️ ItemPF.getLinkItem() and ItemPF.getLinkedItemSync() are now deprecated in favor of fromUuid()
+- ⚠️ RollPF.safeTotal() is deprecated in favor of RollPF.safeRoll().total
+- ⚠️ ItemSpellPF.getEffectiveSpellLevel() and ItemSpellPF.getEffectiveCasterLevel() are both deprecated in favor of ItemSpellPF.spellLevel and ItemSpellPF.casterLevel respectively.
+- ItemSpellPF.getDC() is deprecated in favor of ItemAction.getDC()
+- Added `pf1CombatTurnSkip` hook with list of skipped combatants when such occur.
+- Added ActorBasePF.activeOwner to retrieve first appropriate player owner or GM suitable for running updates on.
+- ActorPF.rechargeItems() now accepts period configuration and passing additional options to ItemPF.recharge()
+- ⚠️ Actor resources no longer include spells
+- ItemPhysicalPF.getValue() now has `identical` and `maximized` options for aiding various use cases.
+- ⚠️ Experience config data structure converted into DataModel and some option internal names changed. ([2615](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2615))
+- Currency conversion function `pf1.utils.currency.convert()` is now exposed.
+- Currency splitting function `pf1.utils.currency.split()` is now exposed.
+- D20Roll and attack chat cards now include combat reference in metadata.
+- ⚠️ pf1.config.spellComponents now uses long form keys. ([1541](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1541))
+- ⚠️ MeasuredTemplatePF.getHighlightedSquares() deprecated in favor of MeasuredTemplatePF.\_getGridHighlightPositions()
+- ItemSpellPF.canCast could have incorrect return value depending on charge cost. ([2802](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2802))
+- pf1.roll.d20Roll() roll mode parameter no longer prevents roll mode selection in roll dialog. ([2927](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2927))
+- ⚠️ ~skillMods change target was removed. ([3102](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/3102))
+- ⚠️ pf1.applications.ActionChooser renamed to pf1.applications.ActionSelector
+- Action's update() function can now perform deletions as per Foundry's update syntax.
+- ⚠️ `ItemPF.getAttackArray()` and `ItemPF.attackArray` are now deprecated in favor of ItemAction.getAttacks()
+- ⚠️ `{{actionAttacks}}` HBS helper is deprecated with no replacement.
+- ⚠️ AttackDialog constructor parameters revamped completely, taking only ActionUse instance as notable param. No backwards compatibility provided.
+- ⚠️ knownUnused in spell level data consolidated to known.unused
+- ItemBuffPF.recharge() override removed, allowing buffs to be recharged.
+- Currency merging function `pf1.utils.currency.merge()` added.
+- ItemChange.create() now correctly returns only the newly created changes instead of all.
+- ItemPF.maxCharges could return invalid value. It now returns Infinity when item has unlimited or unconfigured use limit.
+- ⚠️ Almost all migration functions are now async.
+- Added ItemBasePF.activeState getter to pair with setActive() as isActive could return a state unrelated to what setActive() changes.
+- ⚠️ MeasuredTemplatePF.getTokensWithin() and ActionUse.getTargets() are now async.
+- `pf1.config.casterProgression` is now more permissive of abnormal configurations with hybrid and prestige.
+- ⚠️ Conditions are now fully tracked via active effects. ([2091](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2091))
+- Added pf1.utils.getActors() generator function.
+- ItemPF.getValue() now has `single` parameter for retrieving singular item's value regardless of the actual stack.
+- ⚠️ ItemContainerPF.getValue() no longer includes the value of contained currency when recursive is not true.
+- ⚠️ ItemContainerPF.getValue() passes all options to .getValue() function of contained items when recursive is true.
+- ⚠️ actor.getSkillInfo() now returns the skill's defined name. The `fullName` property has been added which will include the parent's name.
+- ActorPF.applyDamage() now receives event and element parameters when available.
+- Added canEquip getter on physical items. ([2559](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2559))
+- ActorPF.applyDamage() now accepts additional parameters: `instances` and `message`.
+- `pf1.utils.findInCompendia()` now has docType and disabled options for better filtering. The search functionality has also been improved.
+- ItemPF.recharge() no longer checks time period for items with limited uses set to "charges" or "single".
+- Added pf1.applications.ExperienceDistributor.fromCombat() for opening and initializing XP distributor from combat instance.
+- pf1.documents.duplicateCombatantInitiative() is deprecated in favor of CombatantPF.duplicateWithData() ([2351](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2351))
+- ⚠️ Actions no longer have uses ammunition toggle. ([2018](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2018))
+- ⚠️ ItemChange `.subTarget` and `.modifier` changed to `.target` and `.type` respectively.
+- ⚠️ ItemChange is now a datamodel and ItemChange.data is thus no longer used. Constructor second parameter is also changed due to this.
+- Added sheet getter and render() function to action component to mimic Foundry functionality.
+- Actor.itemTypes caching moved to ActorBasePF.
+- ⚠️ Deprecated pf1.utils.dialog.dialogGetNumber() in favor of the more advanced pf1.utils.dialog.getNumber()
+- Added pf1.utils.overlandSpeed() for converting tactical speed to overland speed. ([2535](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2535))
+- ⚠️ ContextNote.subTarget is deprecated in favor of ContextNote.target
+- ⚠️ pf1.utils.dialog.dialogGetActor is deprecated in favor of the more advanced pf1.utils.dialog.getActor()
+- ItemPF.use() now returns the actual result even if it has to go through action selector.
+- Footnotes may be modified in script calls via `shared.templateData.footnotes` ([2437](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2437))
+- ⚠️ ChatAttack.addAttackNotes() and .setAttackNotesHTML() were removed. Use ActionUse.addFootnotes() instead.
+- ⚠️ Toggling buffs via Token.toggleEffect() is deprecated in favor of directly interacting with the buffs.
+- ⚠️ Token tooltip interfaces redesigned.
+- pf1.config.bonusModifiers is deprecated in favor of pf1.config.bonusTypes ([2320](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2320))
+- pf1.config.stackingBonusModifiers is deprecated in favor of pf1.config.stackingBonusTypes ([2320](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2320))
+- ⚠️ action.attackParts converted to object from tuple. ([1950](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1950))
+- ⚠️ ItemChange support for function operator has been removed with no replacement.
+- ⚠️ Invalid `penalty` bonus type was removed.
+- ⚠️ Conditions with pf1\_ prefix no longer have it.
+- Removed unused get typeColor() from ActorPF. ([1530](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/1530))
+- ⚠️ Spell preparation.spontaneousPrepared and preparation.preparedAmount both are now preparation.value
+- ⚠️ Spell preparation.maxAmount is now preparation.max
+- Actor resource data is now served via Resource class with helpful functionality.
+- Rest dialog form data is passed through to hooks in full.
+- ⚠️ pf1.utils.rollPreProcess._ has been deprecated in favor of pf1.utils.roll._
+- ⚠️ Health config continuity string property deprecated in favor of continuous boolean property.
+- ActorPF.getReach() now accepts number as size.
+- ⚠️ ScriptCall `this` no longer points to the ScriptCall but rather to a Macro delegate.
+- ⚠️ ItemScriptCall.getScriptBody() has been deprecated with no replacement.
+- ⚠️ ItemPF.totalDurationSeconds removed with no replacement.
+- ⚠️ RollPF.safeRoll() is turning async. RollPF.safeRollSync() added to provide sync option for deterministic rolls.
+- ⚠️ ItemPF.getRawEffectData() is now async.
+- ⚠️ Spell descriptor converted into traits-like model
+- Added ItemSpellPF.toConsumableDialog()
+- ⚠️ ActorPF.rollCMB() is deprecated in favor of ActorPF.rollAttack({maneuver:true})
+- ⚠️ ActorPF.rollAttack() accepted parameters changed.
+- pf1ActorRollCmb, pf1PreActorRollCmb, pf1ActorRollAttack, and pf1PreActorRollAttack hooks are no longer used. Normal action hooks will work for what these were for. ([2209](https://gitlab.com/Furyspark/foundryvtt-pathfinder1/-/issues/2209))
+- ⚠️ Item links are now all stored as UUIDs. As relative UUIDs for links pointing to same actor.
+
 ## 9.6 - 2023-11-22
 
 ### Bug Fixes
@@ -1715,7 +3268,7 @@
 
 - Added script calls for changing buff and class levels
 
-## API
+### API
 
 - Added `utils.findInCompendia` to fuzzy search loaded compendia by name as fast as possible
 - Added `utils.sortArrayByName` to sort compendium index arrays for localization

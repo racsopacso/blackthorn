@@ -32,25 +32,45 @@ Token Action HUD is a repositionable HUD of actions for a selected token.
 ## Token Action HUD System Modules
 Token Action HUD Core requires a companion Token Action HUD system module to be installed. Current system modules are:
 
+- [Token Action HUD 13th Age](https://foundryvtt.com/packages/token-action-hud-13th-age)
 - [Token Action HUD for Alien RPG](https://foundryvtt.com/packages/token-action-hud-alien)
+- [Token Action HUD for Anime Campaign](https://foundryvtt.com/packages/token-action-hud-ac)
+- [Token Action HUD BCDice](https://foundryvtt.com/packages/token-action-hud-bcdice)
 - [Token Action HUD for Blade Runner](https://foundryvtt.com/packages/token-action-hud-bladerunner)
+- [Token Action HUD Cairn](https://foundryvtt.com/packages/token-action-hud-cairn)
+- [Token Action HUD CoC7](https://foundryvtt.com/packages/token-action-coc-7)
+- [Token Action HUD COF1e](https://foundryvtt.com/packages/fvtt-token-action-hud-cof1e)
 - [Token Action HUD for Coriolis](https://foundryvtt.com/packages/token-action-hud-coriolis)
+- [Token Action HUD Crucible](https://foundryvtt.com/packages/token-action-hud-crucible)
 - [Token Action HUD CypherSystem](https://foundryvtt.com/packages/token-action-hud-cyphersystem)
+- [Token Action HUD DC20 RPG](https://foundryvtt.com/packages/token-action-hud-dc20rpg)
+- [Token Action HUD Delta Green](https://foundryvtt.com/packages/token-action-hud-dg)
 - [Token Action HUD D&D 5e](https://foundryvtt.com/packages/token-action-hud-dnd5e)
+- [Token Action HUD for Dungeon Crawl Classics](https://foundryvtt.com/packages/token-action-hud-dcc)
 - [Token Action HUD Earthdawn](https://foundryvtt.com/packages/token-action-hud-ed4e)
 - [Token Action HUD Exalted Third Edition](https://foundryvtt.com/packages/token-action-hud-exaltedthird)
+- [Token Action HUD for FFG Star Wars](https://foundryvtt.com/packages/token-action-hud-ffgsw)
+- [Token Action HUD Forbidden Lands](https://foundryvtt.com/packages/token-action-hud-forbidden-lands)
 - [Token Action HUD Ghostbusters](https://foundryvtt.com/packages/token-action-hud-gb)
+- [Token Action HUD Ironsworn](https://foundryvtt.com/packages/token-action-hud-ironsworn)
+- [Token Action HUD L5R 5e](https://foundryvtt.com/packages/token-action-hud-l5r5e)
+- [Token Action HUD LANCER](https://foundryvtt.com/packages/token-action-hud-lancer)
 - [Token Action HUD Mutants and Masterminds 3E](https://foundryvtt.com/packages/token-action-hud-mm3)
+- [Token Action HUD for Old-School Essentials](https://foundryvtt.com/packages/token-action-hud-ose)
 - [Token Action HUD OpenD6 Space](https://foundryvtt.com/packages/token-action-hud-od6s)
+- [Token Action HUD Ordem Paranormal](https://foundryvtt.com/packages/token-action-hud-ordem-paranormal)
 - [Token Action HUD Pathfinder 1e](https://foundryvtt.com/packages/token-action-hud-pf1)
 - [Token Action HUD Pathfinder 2](https://foundryvtt.com/packages/token-action-hud-pf2e)
+- [Token Action HUD Pirate Borg](https://foundryvtt.com/packages/token-action-hud-pirateborg)
 - [Token Action HUD for Savage Worlds](https://foundryvtt.com/packages/token-action-hud-swade)
+- [Token Action HUD Shadowdark](https://foundryvtt.com/packages/token-action-hud-shadowdark)
+- [Token Action HUD Sword World 2.5](https://foundryvtt.com/packages/token-action-hud-sw25)
 - [Token Action HUD for Symbaroum RPG](https://foundryvtt.com/packages/token-action-hud-symbaroum)
 - [Token Action HUD The Witcher TRPG](https://foundryvtt.com/packages/token-action-hud-thewitchertrpg)
 - [Token Action HUD for Twodsix](https://foundryvtt.com/packages/fvtt-token-action-hud-twodsix)
 - [Token Action HUD WFRP4e](https://foundryvtt.com/packages/token-action-hud-wfrp4e)
-
-For other systems, continue to use the [Token Action HUD Classic](https://foundryvtt.com/packages/token-action-hud).
+- [Token Action HUD for WoD](https://foundryvtt.com/packages/token-action-hud-wod)
+- [Token Action HUD Worlds Without Number](https://foundryvtt.com/packages/token-action-hud-wwn)
 
 ## socketlib
 Token Action HUD Core requires the [socketlib](https://foundryvtt.com/packages/socketlib) library module.

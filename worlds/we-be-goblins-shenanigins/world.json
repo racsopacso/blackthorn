@@ -4,12 +4,12 @@
   "system": "pf1",
   "joinTheme": "default",
   "description": "<p>Goblins doing Goblin things</p>",
-  "coreVersion": "11.315",
+  "coreVersion": "13.342",
   "compatibility": {
-    "minimum": "11",
-    "verified": "11"
+    "minimum": "13",
+    "verified": "13.342"
   },
-  "systemVersion": "9.6",
-  "lastPlayed": "Thu May 08 2025 14:32:45 GMT+0000 (Coordinated Universal Time)",
-  "playtime": 12004525
+  "systemVersion": "11.5",
+  "lastPlayed": "Thu May 08 2025 16:04:45 GMT+0000 (Coordinated Universal Time)",
+  "playtime": 12004691
 }
