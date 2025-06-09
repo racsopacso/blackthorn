@@ -9,3 +9,20 @@
 2025/06/05-17:59:41.787399 7ff63bfff6c0 Generated table #206@1: 1355 keys, 1686002 bytes
 2025/06/05-17:59:41.787416 7ff63bfff6c0 Compacted 1@1 + 2@2 files => 3813560 bytes
 2025/06/05-17:59:41.787910 7ff63bfff6c0 compacted to: files[ 0 0 2 0 0 0 0 ]
+2025/06/08-18:12:14.332861 7ff63bfff6c0 Level-0 table #208: started
+2025/06/08-18:12:14.342010 7ff63bfff6c0 Level-0 table #208: 324474 bytes OK
+2025/06/08-18:12:14.343099 7ff63bfff6c0 Delete type=2 #199
+2025/06/08-18:12:14.343796 7ff63bfff6c0 Delete type=2 #203
+2025/06/08-18:12:14.344158 7ff63bfff6c0 Delete type=2 #198
+2025/06/08-18:12:14.344289 7ff63bfff6c0 Delete type=0 #204
+2025/06/08-18:12:14.358477 7ff63bfff6c0 Manual compaction at level-0 from '!messages!05xBGNprAXLSXPOx' @ 72057594037927935 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at (end)
+2025/06/08-18:12:14.359428 7ff63bfff6c0 Manual compaction at level-1 from '!messages!05xBGNprAXLSXPOx' @ 72057594037927935 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at '!messages!z3k79wCIV9ztvenu' @ 10726 : 1
+2025/06/08-18:12:14.359432 7ff63bfff6c0 Compacting 1@1 + 2@2 files
+2025/06/08-18:12:14.384838 7ff63bfff6c0 Generated table #209@1: 1642 keys, 2125605 bytes
+2025/06/08-18:12:14.409169 7ff63bfff6c0 Generated table #210@1: 1624 keys, 2029421 bytes
+2025/06/08-18:12:14.409184 7ff63bfff6c0 Compacted 1@1 + 2@2 files => 4155026 bytes
+2025/06/08-18:12:14.409563 7ff63bfff6c0 compacted to: files[ 0 0 2 0 0 0 0 ]
+2025/06/08-18:12:14.409686 7ff63bfff6c0 Delete type=2 #206
+2025/06/08-18:12:14.410033 7ff63bfff6c0 Delete type=2 #205
+2025/06/08-18:12:14.410316 7ff63bfff6c0 Delete type=2 #208
+2025/06/08-18:12:14.412763 7ff63bfff6c0 Manual compaction at level-1 from '!messages!z3k79wCIV9ztvenu' @ 10726 : 1 .. '!messages!zzZzcftR13oMsPoi' @ 0 : 0; will stop at (end)

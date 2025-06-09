@@ -1,8 +1,17 @@
-2025/05/08-16:04:32.800116 7fd01c7bc6c0 Recovering log #74
-2025/05/08-16:04:32.801448 7fd01c7bc6c0 Delete type=0 #74
-2025/05/08-16:04:32.801473 7fd01c7bc6c0 Delete type=3 #72
-2025/05/08-16:04:45.891792 7fd01b8ca6c0 Level-0 table #80: started
-2025/05/08-16:04:45.891842 7fd01b8ca6c0 Level-0 table #80: 0 bytes OK
-2025/05/08-16:04:45.892365 7fd01b8ca6c0 Delete type=0 #78
-2025/05/08-16:04:45.895264 7fd01b8ca6c0 Manual compaction at level-0 from '!scenes!EiLOyGI4pYWlycYn' @ 72057594037927935 : 1 .. '!scenes.walls!yjwfM25qFPiwI9cS.ytCUhniuJFgWFAIG' @ 0 : 0; will stop at (end)
-2025/05/08-16:04:45.895299 7fd01b8ca6c0 Manual compaction at level-1 from '!scenes!EiLOyGI4pYWlycYn' @ 72057594037927935 : 1 .. '!scenes.walls!yjwfM25qFPiwI9cS.ytCUhniuJFgWFAIG' @ 0 : 0; will stop at (end)
+2025/06/08-18:18:31.651839 7ff8da7be6c0 Recovering log #102
+2025/06/08-18:18:31.652566 7ff8da7be6c0 Level-0 table #107: started
+2025/06/08-18:18:31.654746 7ff8da7be6c0 Level-0 table #107: 223118 bytes OK
+2025/06/08-18:18:31.655907 7ff8da7be6c0 Delete type=0 #102
+2025/06/08-18:18:31.655966 7ff8da7be6c0 Delete type=3 #81
+2025/06/08-18:18:31.914301 7ff63bfff6c0 Moved #107 to level-1 223118 bytes OK: files[ 0 1 1 0 0 0 0 ]
+2025/06/08-18:18:31.916667 7ff63bfff6c0 Compacting 1@1 + 1@2 files
+2025/06/08-18:18:31.919756 7ff63bfff6c0 Generated table #109@1: 1379 keys, 187559 bytes
+2025/06/08-18:18:31.919766 7ff63bfff6c0 Compacted 1@1 + 1@2 files => 187559 bytes
+2025/06/08-18:18:31.920287 7ff63bfff6c0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/06/08-18:18:31.920351 7ff63bfff6c0 Delete type=2 #105
+2025/06/08-18:18:31.920653 7ff63bfff6c0 Delete type=2 #107
+2025/06/08-18:18:50.391289 7ff63bfff6c0 Level-0 table #111: started
+2025/06/08-18:18:50.391463 7ff63bfff6c0 Level-0 table #111: 0 bytes OK
+2025/06/08-18:18:50.392129 7ff63bfff6c0 Delete type=0 #108
+2025/06/08-18:18:50.393927 7ff63bfff6c0 Manual compaction at level-0 from '!scenes!EiLOyGI4pYWlycYn' @ 72057594037927935 : 1 .. '!scenes.walls!yjwfM25qFPiwI9cS.ytCUhniuJFgWFAIG' @ 0 : 0; will stop at (end)
+2025/06/08-18:18:50.395228 7ff63bfff6c0 Manual compaction at level-1 from '!scenes!EiLOyGI4pYWlycYn' @ 72057594037927935 : 1 .. '!scenes.walls!yjwfM25qFPiwI9cS.ytCUhniuJFgWFAIG' @ 0 : 0; will stop at (end)
