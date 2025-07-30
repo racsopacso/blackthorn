@@ -18,7 +18,7 @@ Token Action HUD is a repositionable HUD of actions for a selected token.
 ## Method 1
 1. In Foundry VTT's **Configuration and Setup** screen, click **Add-on Modules**
 2. Click **Install Module**
-3. Search for **Token Action HUD Core** 
+3. Search for **Token Action HUD Core**
 4. Click **Install** next to the module listing
 
 ## Method 2
@@ -36,22 +36,27 @@ Token Action HUD Core requires a companion Token Action HUD system module to be 
 - [Token Action HUD for Alien RPG](https://foundryvtt.com/packages/token-action-hud-alien)
 - [Token Action HUD for Anime Campaign](https://foundryvtt.com/packages/token-action-hud-ac)
 - [Token Action HUD BCDice](https://foundryvtt.com/packages/token-action-hud-bcdice)
+- [Token Action HUD Black Flag](https://foundryvtt.com/packages/token-action-hud-bf)
 - [Token Action HUD for Blade Runner](https://foundryvtt.com/packages/token-action-hud-bladerunner)
 - [Token Action HUD Cairn](https://foundryvtt.com/packages/token-action-hud-cairn)
+- [Token Action HUD Castles & Crusades](https://foundryvtt.com/packages/fvtt-token-action-hud-castles-and-crusades)
 - [Token Action HUD CoC7](https://foundryvtt.com/packages/token-action-coc-7)
 - [Token Action HUD COF1e](https://foundryvtt.com/packages/fvtt-token-action-hud-cof1e)
 - [Token Action HUD for Coriolis](https://foundryvtt.com/packages/token-action-hud-coriolis)
 - [Token Action HUD Crucible](https://foundryvtt.com/packages/token-action-hud-crucible)
 - [Token Action HUD CypherSystem](https://foundryvtt.com/packages/token-action-hud-cyphersystem)
+- [Token Action HUD Cyberpunk RED](https://foundryvtt.com/packages/token-action-hud-cyberpunk-red)
 - [Token Action HUD DC20 RPG](https://foundryvtt.com/packages/token-action-hud-dc20rpg)
 - [Token Action HUD Delta Green](https://foundryvtt.com/packages/token-action-hud-dg)
 - [Token Action HUD D&D 5e](https://foundryvtt.com/packages/token-action-hud-dnd5e)
 - [Token Action HUD for Dungeon Crawl Classics](https://foundryvtt.com/packages/token-action-hud-dcc)
+- [Token Action HUD DS4](https://foundryvtt.com/packages/token-action-hud-ds4)
 - [Token Action HUD Earthdawn](https://foundryvtt.com/packages/token-action-hud-ed4e)
 - [Token Action HUD Exalted Third Edition](https://foundryvtt.com/packages/token-action-hud-exaltedthird)
 - [Token Action HUD for FFG Star Wars](https://foundryvtt.com/packages/token-action-hud-ffgsw)
-- [Token Action HUD Forbidden Lands](https://foundryvtt.com/packages/token-action-hud-forbidden-lands)
+- [Token Action HUD for Forbidden Lands](https://foundryvtt.com/packages/token-action-hud-forbidden-lands)
 - [Token Action HUD Ghostbusters](https://foundryvtt.com/packages/token-action-hud-gb)
+- [Token Action HUD GURPS](https://foundryvtt.com/packages/token-action-hud-gurps)
 - [Token Action HUD Ironsworn](https://foundryvtt.com/packages/token-action-hud-ironsworn)
 - [Token Action HUD L5R 5e](https://foundryvtt.com/packages/token-action-hud-l5r5e)
 - [Token Action HUD LANCER](https://foundryvtt.com/packages/token-action-hud-lancer)
@@ -66,11 +71,13 @@ Token Action HUD Core requires a companion Token Action HUD system module to be 
 - [Token Action HUD Shadowdark](https://foundryvtt.com/packages/token-action-hud-shadowdark)
 - [Token Action HUD Sword World 2.5](https://foundryvtt.com/packages/token-action-hud-sw25)
 - [Token Action HUD for Symbaroum RPG](https://foundryvtt.com/packages/token-action-hud-symbaroum)
+- [Token Action HUD The One Ring 2e](https://foundryvtt.com/packages/token-action-hud-tor2e)
 - [Token Action HUD The Witcher TRPG](https://foundryvtt.com/packages/token-action-hud-thewitchertrpg)
 - [Token Action HUD for Twodsix](https://foundryvtt.com/packages/fvtt-token-action-hud-twodsix)
 - [Token Action HUD WFRP4e](https://foundryvtt.com/packages/token-action-hud-wfrp4e)
 - [Token Action HUD for WoD](https://foundryvtt.com/packages/token-action-hud-wod)
 - [Token Action HUD Worlds Without Number](https://foundryvtt.com/packages/token-action-hud-wwn)
+- [Token Action HUD Wrath & Glory](https://foundryvtt.com/packages/token-action-hud-wng)
 
 ## socketlib
 Token Action HUD Core requires the [socketlib](https://foundryvtt.com/packages/socketlib) library module.

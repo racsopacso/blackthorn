@@ -763,11 +763,6 @@
   height: 100%;
   overflow: hidden;
 }
-.pf1.sheet .window-content .tab section.subdetails-body {
-  overflow: hidden auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--pf1-scrollbar-handle) var(--pf1-scrollbar-background);
-}
 .pf1.sheet .window-content .tab section.secret {
   height: unset;
   overflow: unset;
@@ -1050,6 +1045,7 @@ form.application.pf1-v2.apply-damage .window-content .targets > .target {
 form.application.pf1-v2.apply-damage .window-content .target-ident {
   display: flex;
   flex-flow: row nowrap;
+  font-family: inherit;
 }
 form.application.pf1-v2.apply-damage .window-content .target-ident > .name {
   flex: 1;
@@ -1061,13 +1057,17 @@ form.application.pf1-v2.apply-damage .window-content .target-ident > .total {
 form.application.pf1-v2.apply-damage .window-content .target-ident > .total::before {
   content: "±";
 }
-form.application.pf1-v2.apply-damage .window-content .instances > * {
+form.application.pf1-v2.apply-damage .window-content .instances > div {
   display: flex;
   flex-flow: row wrap;
+  gap: 2px;
 }
-form.application.pf1-v2.apply-damage .window-content .instances > * .instance {
+form.application.pf1-v2.apply-damage .window-content .instances > div .instance {
   flex: 1 100%;
   padding: 0 0.5rem;
+}
+form.application.pf1-v2.apply-damage .window-content input:read-only {
+  border: unset;
 }
 form.application.pf1-v2.apply-damage .window-content .target-reduction {
   display: flex;
@@ -1126,10 +1126,10 @@ form.application.pf1-v2.apply-damage .window-content .resistances > .reduction-c
 form.application.pf1-v2.apply-damage .window-content .resistances > .reduction-category > ul > li:last-child a::after {
   content: unset;
 }
-form.application.pf1-v2.apply-damage .window-content .resistances .reduction-choice:hover {
+form.application.pf1-v2.apply-damage .window-content .resistances :is(.reduction-choice, .immunity-choice):hover {
   text-shadow: 0 0 8px var(--pf1-v2-shadow-primary);
 }
-form.application.pf1-v2.apply-damage .window-content .resistances .reduction-choice > label {
+form.application.pf1-v2.apply-damage .window-content .resistances :is(.reduction-choice, .immunity-choice) > label {
   display: inline-flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -1137,22 +1137,22 @@ form.application.pf1-v2.apply-damage .window-content .resistances .reduction-cho
   cursor: pointer;
   color: var(--pf1-v2-text-link);
 }
-form.application.pf1-v2.apply-damage .window-content .resistances .reduction-choice > label input {
+form.application.pf1-v2.apply-damage .window-content .resistances :is(.reduction-choice, .immunity-choice) > label input {
   display: none;
 }
-form.application.pf1-v2.apply-damage .window-content .resistances .reduction-choice > label::before {
+form.application.pf1-v2.apply-damage .window-content .resistances :is(.reduction-choice, .immunity-choice) > label::before {
   content: "✔ ";
   visibility: hidden;
 }
-form.application.pf1-v2.apply-damage .window-content .resistances .reduction-choice > label:has(input:checked) {
+form.application.pf1-v2.apply-damage .window-content .resistances :is(.reduction-choice, .immunity-choice) > label:has(input:checked) {
   background-color: var(--pf1-apply-damage-choice-bg);
   outline: 1px solid var(--pf1-apply-damage-choice-outline);
   border-radius: 0.3rem;
 }
-form.application.pf1-v2.apply-damage .window-content .resistances .reduction-choice > label:has(input:checked)::before {
+form.application.pf1-v2.apply-damage .window-content .resistances :is(.reduction-choice, .immunity-choice) > label:has(input:checked)::before {
   visibility: visible;
 }
-form.application.pf1-v2.apply-damage .window-content .resistances .reduction-choice > label:has(input:disabled) {
+form.application.pf1-v2.apply-damage .window-content .resistances :is(.reduction-choice, .immunity-choice) > label:has(input:disabled) {
   text-decoration: line-through;
 }
 form.application.pf1-v2.apply-damage .window-content .resistances :is(.immunity-choice, .vulnerability-choice) a {
@@ -1190,6 +1190,22 @@ form.application.pf1-v2.apply-damage .window-content .switch .switch-option:has(
 }
 form.application.pf1-v2.apply-damage .window-content .switch .switch-option:has(input:checked):hover {
   background-color: var(--pf1-switch-active-hover);
+}
+form.application.pf1-v2.apply-damage .window-content .tag-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-size-13);
+  display: flex;
+  flex-flow: row wrap;
+  gap: 2px 3px;
+}
+form.application.pf1-v2.apply-damage .window-content .tag-list .tag {
+  background-color: var(--pf1-bg-dark-0);
+  border: 1px dashed var(--pf1-bg-dark-1);
+  border-radius: 3px;
+  padding: 0 0.2rem;
+  margin: 0;
 }
 form.application.pf1-v2.apply-damage[inert] {
   opacity: 0.6;
@@ -1424,6 +1440,9 @@ dialog.application.pf1-v2:is(.delete-item, .delete-action) .dialog-content p:fir
   margin: 0;
   padding: 0;
   list-style: none;
+}
+.app.pf1.compendium-browser .window-content > div aside.sidebar .filter-container > .filter .filter-content .filter-choice.hidden-entry {
+  display: none;
 }
 .app.pf1.compendium-browser .window-content > div aside.sidebar .filter-container > .filter .filter-content .no-choices {
   text-align: center;
@@ -2797,6 +2816,9 @@ form.application.pf1-v2.html-editor .editor {
 .pf1.sheet form.editable label:has(input:not(:disabled)) {
   cursor: pointer;
 }
+.pf1.sheet input:indeterminate {
+  accent-color: var(--color-checkbox-checked, #666);
+}
 .pf1.sheet .action.roll {
   justify-self: center;
   display: inline-flex;
@@ -3737,7 +3759,7 @@ form.application.pf1-v2.html-editor .editor {
 .pf1.sheet.actor.vehicle form .tab.summary .driving {
   display: flex;
   flex-flow: row wrap;
-  gap: 1px 3px;
+  gap: 2px 3px;
 }
 .pf1.sheet.actor.vehicle form .tab.summary .defenses h3,
 .pf1.sheet.actor.vehicle form .tab.summary .combat h3,
@@ -3754,7 +3776,7 @@ form.application.pf1-v2.html-editor .editor {
 }
 .pf1.sheet.actor.vehicle form .tab.summary .driver {
   padding-bottom: 2px;
-  gap: 1px 5px;
+  gap: 0.5rem;
 }
 .pf1.sheet.actor.vehicle form .tab.summary .driver-info {
   flex-flow: nowrap;
@@ -3769,10 +3791,6 @@ form.application.pf1-v2.html-editor .editor {
   padding-left: 5px;
   border: unset;
 }
-.pf1.sheet.actor.vehicle form .tab.summary .driver-skill {
-  padding-left: 5px;
-  padding-right: 5px;
-}
 .pf1.sheet.actor.vehicle form .tab.summary .driver-skill select {
   text-align: center;
 }
@@ -3786,8 +3804,29 @@ form.application.pf1-v2.html-editor .editor {
 .pf1.sheet.actor.vehicle form .tab.summary .capacity h3 {
   flex: 1 100%;
 }
+.pf1.sheet.actor.vehicle form .tab.summary .driving-info > .info-box,
+.pf1.sheet.actor.vehicle form .tab.summary .capacity > .info-box {
+  flex: 2;
+}
+.pf1.sheet.actor.vehicle form .tab.summary .driving-info > .info-box.driving-space,
+.pf1.sheet.actor.vehicle form .tab.summary .capacity > .info-box.driving-space {
+  flex: 3;
+}
+.pf1.sheet.actor.vehicle form .tab.summary .driving-info > .info-box.decks,
+.pf1.sheet.actor.vehicle form .tab.summary .capacity > .info-box.decks {
+  flex: 1;
+}
+.pf1.sheet.actor.vehicle form .tab.summary .driving-info > .info-box {
+  flex: 2;
+}
+.pf1.sheet.actor.vehicle form .tab.summary .driving-info > .info-box.propulsion {
+  flex: 4;
+}
+.pf1.sheet.actor.vehicle form .tab.summary .driving-info > .info-box.forward-facing {
+  flex: 3;
+}
 .pf1.sheet.actor.vehicle form .tab.summary .combat-attacks {
-  height: 20%;
+  flex-basis: 20%;
 }
 .pf1.sheet.actor.vehicle form .item-detail.item-type {
   flex: 0 0 100px;
@@ -4004,7 +4043,15 @@ form.application.pf1-v2.html-editor .editor {
 .pf1.actor.sheet form .tab.summary .quick-info > div {
   gap: 2px;
 }
-.pf1.actor.sheet form .classes-body .item-controls {
+.pf1.actor.sheet form .subdetails-body {
+  overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.pf1.actor.sheet form .subdetails-body .classes-body {
+  overflow: hidden;
+}
+.pf1.actor.sheet form .subdetails-body .classes-body .item-controls {
   flex: 0 0 68px;
 }
 .pf1.sheet.actor form .tab.attributes .armor-attributes {
@@ -4534,30 +4581,39 @@ form.application.pf1-v2.html-editor .editor {
 .pf1.sheet.item form .item-properties input:focus {
   background: var(--pf1-bg-dark-0);
 }
-.pf1.item.sheet form .tab.changes :is(.changes-list, .changeflags-list) .item-list-header {
+.pf1.item.sheet form .tab.changes :is(.changes-list, .changeflags-list, .contextnotes-list) .item-list-header {
   display: flex;
   flex-flow: row nowrap;
   gap: 1em;
-  padding-right: 5px;
 }
-.pf1.item.sheet form .tab.changes :is(.changes-list, .changeflags-list) .item-list-header h3 {
+.pf1.item.sheet form .tab.changes :is(.changes-list, .changeflags-list, .contextnotes-list) .item-list-header h3 {
   border: unset;
   flex: 1;
 }
-.pf1.item.sheet form .tab.changes :is(.changes-list, .changeflags-list) .item-list-header .controls {
-  flex: 0;
+.pf1.item.sheet form .tab.changes :is(.changes-list, .changeflags-list, .contextnotes-list) .item-list-header .controls {
+  flex: 0 1.5rem;
+}
+.pf1.item.sheet form .tab.changes .controls {
+  flex: 0 1.5rem;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+.pf1.item.sheet form .tab.changes .changes-list .controls {
+  grid-row: span 2;
 }
 .pf1.item.sheet form .tab.changes .changes-list > .changes {
   display: flex;
   flex-flow: column nowrap;
-  gap: 0;
+  gap: 2px 0;
 }
 .pf1.item.sheet form .tab.changes .changes-list .change {
   display: grid;
-  grid-template-columns: min-content 1fr min-content;
+  grid-template-columns: min-content 1fr 1.5rem;
   grid-template-rows: min-content;
   gap: 1px 0.3em;
-  padding: 1px 0.3em;
+  padding: 0;
 }
 .pf1.item.sheet form .tab.changes .changes-list .change:nth-child(even) {
   background-color: var(--pf1-bg-dark-0);
@@ -4600,12 +4656,6 @@ form.application.pf1-v2.html-editor .editor {
 }
 .pf1.item.sheet form .tab.changes .changes-list .change :is(.target, .type, .priority) {
   white-space: nowrap;
-  align-items: center;
-}
-.pf1.item.sheet form .tab.changes .changes-list .change .controls {
-  grid-row: span 2;
-  display: flex;
-  flex-flow: row wrap;
   align-items: center;
 }
 .pf1.item.sheet form .tab.changes .changes-list .change input {
@@ -4788,6 +4838,9 @@ form.application.pf1-v2.html-editor .editor {
 .pf1.sheet.item.type-class .tab.details .formula + .average {
   white-space: nowrap;
 }
+.pf1.sheet.item.type-class .tab.details .form-group label ~ label {
+  flex: 0;
+}
 .pf1.sheet.item form > .sidebar {
   grid-row: span 2;
   border-right: 1px groove var(--color-border-light-1);
@@ -4960,9 +5013,12 @@ form.application.pf1-v2.html-editor .editor {
   color: var(--color-text-dark-primary);
   opacity: 1;
 }
-.pf1.sheet.item form.editable > .sidebar input:hover {
+.pf1.sheet.item form.editable > .sidebar input:is(:hover, :focus) {
   box-shadow: 0 0 8px red;
-  border-color: black;
+  border-color: var(--color-border-dark-5);
+}
+.pf1.sheet.item form.editable > .sidebar input:focus {
+  border-color: var(--color-border-dark-1);
 }
 .pf1.sheet.item form .script-calls .item-list .item-controls {
   flex: 0 60px;
@@ -5232,6 +5288,9 @@ form.application.pf1-v2.html-editor .editor {
 }
 .pf1.sheet.action form select[name="save.type"] {
   flex: 0 8em;
+}
+.pf1.sheet.action form .per-attack {
+  flex: 0;
 }
 .journal-sheet .pf1.page-nesting {
   color: var(--color-text-subtle, var(--color-text-dark-6));
@@ -6037,30 +6096,48 @@ form.application.pf1-v2.html-editor .editor {
 .pf1.sheet.item form .tab[data-tab="advanced"] .flags .form-group {
   align-items: flex-start;
 }
-#hud .actions .control-icon {
+#token-hud .actions .control-icon {
   border: 2px solid var(--pf1-quick-action-default-border);
   padding: 0;
 }
-#hud .actions .control-icon.type-feat {
+#token-hud .actions .control-icon.type-feat {
   border-color: var(--pf1-quick-action-feat-border);
 }
-#hud .actions .control-icon.type-attack {
+#token-hud .actions .control-icon.type-attack {
   border-color: var(--pf1-quick-action-attack-border);
 }
-#hud .actions .control-icon.type-weapon {
+#token-hud .actions .control-icon.type-weapon {
   border-color: var(--pf1-quick-action-weapon-border);
 }
-#hud .actions .control-icon.type-equipment {
+#token-hud .actions .control-icon.type-equipment {
   border-color: var(--pf1-quick-action-equipment-border);
 }
-#hud .actions .control-icon.type-consumable {
+#token-hud .actions .control-icon.type-consumable {
   border-color: var(--pf1-quick-action-consumable-border);
 }
-#hud .actions .control-icon.type-spell {
+#token-hud .actions .control-icon.type-spell {
   border-color: var(--pf1-quick-action-spell-border);
 }
-#hud .actions .control-icon > img {
+#token-hud .actions .control-icon > img {
   filter: none;
+}
+#token-hud .status-effects .effect-control {
+  border-radius: 2px;
+}
+#token-hud .status-effects .effect-control.auxiliary {
+  outline: 1px var(--pf1-effect-aux-outline) inset;
+  opacity: 0.7;
+}
+#token-hud .status-effects .effect-control.active {
+  outline: 2px var(--pf1-effect-primary-outline) inset;
+}
+.theme-dark #token-hud .status-effects {
+  --pf1-effect-primary-outline: gold;
+  --pf1-effect-aux-outline: orangered;
+}
+.theme-light #token-hud .status-effects {
+  --pf1-effect-primary-outline: #00acd3;
+  --pf1-effect-aux-outline: #00909f;
 }
 /* ----------------------------------------- */
 /*  Chat Cards
@@ -6551,17 +6628,18 @@ form.application.pf1-v2.html-editor .editor {
 a.pf1-link {
   white-space: nowrap;
   word-break: break-all;
-  display: inline-block;
+  display: inline;
 }
 a.pf1-link.content,
 a.pf1-link.button {
-  outline: 1px solid var(--color-border-light-tertiary);
+  outline: 1px solid var(--pf1-button-outline);
   border-radius: 5px;
   padding: 0 4px;
-  background: #ddd;
+  background: var(--pf1-button-bg, #ddd);
+  color: var(--pf1-button-text);
 }
 a.pf1-link.broken {
-  background: #ecc;
+  background: var(--pf1-button-broken-bg, #ecc);
   outline: unset;
   color: var(--color-level-error);
   cursor: initial;
@@ -6576,6 +6654,21 @@ a.pf1-info {
 }
 a.pf1-info > i {
   color: var(--color-text-dark-5);
+}
+.theme-dark a.pf1-link {
+  --pf1-button-bg: #ddd;
+  --pf1-button-broken-bg: #ecc;
+  --pf1-button-outline: var(--color-border-light-tertiary, var(--color-border-light-secondary));
+  --pf1-button-text: inherit;
+}
+.theme-light a.pf1-link {
+  --pf1-button-bg: #ddd;
+  --pf1-button-broken-bg: #ecc;
+  --pf1-button-outline: var(--color-border-light-tertiary, var(--color-border-light-secondary));
+  --pf1-button-text: inherit;
+}
+.theme-light a.pf1-link:hover {
+  --pf1-button-text: black;
 }
 .chat-message.pf1 header.message-header h4.message-sender {
   border: unset;
@@ -7177,6 +7270,23 @@ a.pf1-info > i {
 }
 #tooltip.pf1 code {
   padding: unset;
+  padding: 0 3px;
+  color: var(--color-light-1, white);
+}
+#tooltip.pf1 :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--color-light-1);
+  margin: 0.3rem 0;
+  font-family: inherit;
+}
+#tooltip.pf1 p:first-child {
+  margin-top: 0;
+}
+#tooltip.pf1 p:last-child {
+  margin-bottom: 0;
+}
+#tooltip.pf1 h5 {
+  font-size: var(--font-size-16);
+  border-bottom: 1px solid var(--color-underline-header);
 }
 #tooltip.pf1.extended {
   --font-h4-size: var(--font-size-14);
@@ -7200,7 +7310,6 @@ a.pf1-info > i {
 #tooltip.pf1.extended > hr {
   grid-column: span 4;
   text-align: center;
-  margin: 0;
 }
 #tooltip.pf1.extended :is(h3, h4) {
   min-width: min-content;
@@ -9207,15 +9316,15 @@ body {
   height: unset;
   line-height: unset;
 }
-.tour ul.pf1-tour {
+#tooltip.tour ul.pf1-tour {
   display: grid;
   gap: 0.5rem;
 }
-.tour#tooltip .content .icon-pf.text-icon {
+#tooltip.tour .icon-pf.text-icon {
   display: inline-block;
   width: var(--font-size-16);
   height: var(--font-size-16);
-  background-color: var(--color-select-option-bg);
+  background-color: var(--color-select-option-bg, var(--color-text-primary));
 }
 :is(.pf1, .pf1-v2) {
   --icon-info: url("icons/misc/info.svg");
@@ -9225,4 +9334,12 @@ body {
 .pf1 .disabled,
 .pf1-v2 .disabled {
   pointer-events: inherit;
+}
+.pf1 input,
+.pf1-v2 input {
+  --input-box-shadow: none;
+  transition: border-color 0.5s, outline-color 0.5s, box-shadow 0.5s;
+}
+.chat-message .pf1 .dice-tooltip[popover] {
+  color: var(--color-text-primary);
 }

@@ -64,7 +64,7 @@ export class JournalStatblockPageSheet extends JournalPageSheet {
       const api = game.modules.get("pf1-statblock-converter").api?.openSBCDialog;
       if (!api) {
         ui.notifications.warn(
-          'There is a new version of "sbc | PF1 Statblock Converter". Please update for better results.'
+          'There is a new version of "Pathfinder 1e Statblock Converter (SBC)". Please update for better results.'
         );
         const wait = async (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -75,10 +75,12 @@ export class JournalStatblockPageSheet extends JournalPageSheet {
         window.$("#sbcInput")[0].value = formInput;
         window.$("#sbcInput").keyup();
       } else {
-        await api(formInput);
+        await api(formInput, this.object.uuid);
       }
     } else {
-      ui.notifications.warn('Please install and enable "sbc | PF1 Statblock Converter" to import this statblock');
+      ui.notifications.warn(
+        'Please install and enable "Pathfinder 1e Statblock Converter (SBC)" to import this statblock'
+      );
     }
   };
 

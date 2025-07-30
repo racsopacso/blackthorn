@@ -1,8 +1,15 @@
-2025/06/08-18:18:32.382797 7ff8d97bc6c0 Recovering log #25
-2025/06/08-18:18:32.384085 7ff8d97bc6c0 Delete type=3 #23
-2025/06/08-18:18:32.384118 7ff8d97bc6c0 Delete type=0 #25
-2025/06/08-18:18:50.296416 7ff63bfff6c0 Level-0 table #30: started
-2025/06/08-18:18:50.296434 7ff63bfff6c0 Level-0 table #30: 0 bytes OK
-2025/06/08-18:18:50.297095 7ff63bfff6c0 Delete type=0 #28
-2025/06/08-18:18:50.299093 7ff63bfff6c0 Manual compaction at level-0 from '!folders!13dReUJWCsEjXV2p' @ 72057594037927935 : 1 .. '!items!zvimna0Hb2kltmqo' @ 0 : 0; will stop at (end)
-2025/06/08-18:18:50.299139 7ff63bfff6c0 Manual compaction at level-1 from '!folders!13dReUJWCsEjXV2p' @ 72057594037927935 : 1 .. '!items!zvimna0Hb2kltmqo' @ 0 : 0; will stop at (end)
+2025/07/29-15:45:20.889149 7ff8d97bc6c0 Recovering log #4
+2025/07/29-15:45:20.890637 7ff8d97bc6c0 Delete type=0 #4
+2025/07/29-15:45:20.890665 7ff8d97bc6c0 Delete type=3 #2
+2025/07/29-16:31:17.127215 7ff63bfff6c0 Level-0 table #9: started
+2025/07/29-16:31:17.149839 7ff63bfff6c0 Level-0 table #9: 1970551 bytes OK
+2025/07/29-16:31:17.150718 7ff63bfff6c0 Delete type=0 #7
+2025/07/29-16:31:17.180966 7ff63bfff6c0 Manual compaction at level-0 from '!folders!13dReUJWCsEjXV2p' @ 72057594037927935 : 1 .. '!items!zvimna0Hb2kltmqo' @ 0 : 0; will stop at (end)
+2025/07/29-16:31:17.181041 7ff63bfff6c0 Manual compaction at level-1 from '!folders!13dReUJWCsEjXV2p' @ 72057594037927935 : 1 .. '!items!zvimna0Hb2kltmqo' @ 0 : 0; will stop at '!items!zvimna0Hb2kltmqo' @ 3981 : 1
+2025/07/29-16:31:17.181048 7ff63bfff6c0 Compacting 1@1 + 1@2 files
+2025/07/29-16:31:17.215633 7ff63bfff6c0 Generated table #10@1: 1998 keys, 1972117 bytes
+2025/07/29-16:31:17.215654 7ff63bfff6c0 Compacted 1@1 + 1@2 files => 1972117 bytes
+2025/07/29-16:31:17.216558 7ff63bfff6c0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/07/29-16:31:17.216782 7ff63bfff6c0 Delete type=2 #9
+2025/07/29-16:31:17.217476 7ff63bfff6c0 Delete type=2 #5
+2025/07/29-16:31:17.267229 7ff63bfff6c0 Manual compaction at level-1 from '!items!zvimna0Hb2kltmqo' @ 3981 : 1 .. '!items!zvimna0Hb2kltmqo' @ 0 : 0; will stop at (end)

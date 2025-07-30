@@ -19,7 +19,7 @@ const MLT = {
     foundry.data.ShapeData.TYPES.POLYGON],
 };
 
-/* TODO section : 
+/* TODO section :
   Play sound : game.socket.emit("playAudio", {src: "path/to/your/sound.ogg"}, {recipients: [game.users.getName("user name").id]});
 */
 
@@ -196,6 +196,7 @@ class MultilevelTokens {
   }
 
   _isAuthorisedRegion(drawing) {
+    // Debug :console.log(MLT.LOG_PREFIX, "Checking if drawing is an authorized region", drawing  );
     return (drawing.shape.type === foundry.data.ShapeData.TYPES.RECTANGLE ||
             drawing.shape.type === foundry.data.ShapeData.TYPES.ELLIPSE ||
             drawing.shape.type === foundry.data.ShapeData.TYPES.POLYGON) &&
@@ -512,8 +513,11 @@ class MultilevelTokens {
     const targetPosition = this._getTokenPositionFromCentre(targetScene, data, targetCentre);
     data.x = targetPosition.x;
     data.y = targetPosition.y;
+    if (Number(data?.elevation) && Number(sourceRegion?.elevation) && Number(targetRegion?.elevation) ) { // Fix issue 21
+      data.elevation = data.elevation - sourceRegion.elevation + targetRegion.elevation
+    }
     data.rotation += targetRegion.rotation - sourceRegion.rotation;
-    data.tint = Color.fromRGB(tintRgb).toString(16);
+    data.texture.tint = Color.fromRGB(tintRgb).toString(16);
     data.alpha = token.alpha * opacity;
     if (!data.flags || !cloneModuleFlags) {
       data.flags = {};
@@ -525,6 +529,17 @@ class MultilevelTokens {
     data.flags[MLT.SCOPE][MLT.FLAG_SOURCE_TOKEN] = token._id;
     data.flags[MLT.SCOPE][MLT.FLAG_SOURCE_REGION] = sourceRegion._id;
     data.flags[MLT.SCOPE][MLT.FLAG_TARGET_REGION] = targetRegion._id;
+    if(this._hasRegionFlag(targetRegion, "flipTrue")){
+      if(this._hasRegionFlag(targetRegion, "flipX")){
+        data.texture.scaleX = -token.texture.scaleX
+      }
+      if(this._hasRegionFlag(targetRegion, "flipY")){
+        data.texture.scaleY = -token.texture.scaleY
+      }
+      if((this._hasRegionFlag(targetRegion, "flipY") != this._hasRegionFlag(targetRegion, "flipX"))){
+        data.rotation = -data.rotation
+      }
+    }
     return data;
   }
 
@@ -793,7 +808,7 @@ class MultilevelTokens {
         continue;
       }
       if (data.delete.length) {
-        promise = promise.then(() => scene.deleteEmbeddedDocuments(Token.embeddedName, data.delete, foundry.utils.duplicate(baseOptions)));
+        promise = promise.then(() => scene.deleteEmbeddedDocuments(foundry.canvas.placeables.Token.embeddedName, data.delete, foundry.utils.duplicate(baseOptions)));
       }
       if (data.updateAnimateDiff.length) {
         promise = promise.then(() => scene.updateEmbeddedDocuments(Token.embeddedName, data.updateAnimateDiff,
@@ -832,7 +847,7 @@ class MultilevelTokens {
                                                                    Object.assign({diff: false}, foundry.utils.duplicate(baseOptions))));
       }
       if (data.create.length) {
-        promise = promise.then(() => scene.createEmbeddedDocuments(Token.embeddedName, data.create, foundry.utils.duplicate(baseOptions)));
+        promise = promise.then(() => scene.createEmbeddedDocuments(foundry.canvas.placeables.Token.embeddedName, data.create, foundry.utils.duplicate(baseOptions)));
       }
     }
     for (const f of requestBatch._extraActions) {
@@ -1023,7 +1038,14 @@ class MultilevelTokens {
       }
       const animate = this._hasRegionFlag(inRegion, "animate") || this._hasRegionFlag(outRegion, "animate");
       //console.log("Output scene : ", outScene);
-      destinations.push([foundry.utils.duplicate(token), outScene, animate, position]);
+      const duplToken = foundry.utils.duplicate(token);
+      if (Number(outRegion?.elevation) && Number(inRegion?.elevation)) { // Fix issue 21
+        duplToken.elevation = duplToken.elevation - Number(inRegion.elevation) + Number(outRegion.elevation)
+      } else {
+        duplToken.elevation = duplToken?.elevation || 0
+      }
+      // Previous elevation setting : duplToken.elevation = outRegion.elevation ?? duplToken.elevation;
+      destinations.push([duplToken, outScene, animate, position]);
     }
     this._queueAsync(requestBatch => {
       for (const [token, outScene, animate, position] of destinations) {
@@ -1179,15 +1201,21 @@ class MultilevelTokens {
 
   _injectDrawingConfigTab(app, html, data) {
     let flags = {};
-    if (data.object.flags && data.object.flags[MLT.SCOPE]) {
-      flags = data.object.flags[MLT.SCOPE];
+    if (data.document.flags?.[MLT.SCOPE]) {
+      flags = data.document.flags[MLT.SCOPE];
     }
 
-    const tab = `<a class="item" data-tab="multilevel-tokens">
+    let newTab = foundry.utils.duplicate(data.tabs['text'])
+    newTab.id = "multilevel-tokens";
+    newTab.label = game.i18n.localize("MLT.TabTitle");
+    data.tabs["multilevel-tokens"] = newTab;
+    console.log("MLT: Drawing config tab", data);
+
+    const tab = `<a data-action="tab" data-group="sheet" data-tab="multilevel-tokens">
       <i class="fas fa-building"></i> ${game.i18n.localize("MLT.TabTitle")}
     </a>`;
     const contents = `
-    <div class="tab" data-tab="multilevel-tokens">
+    <div class="tab" style="overflow-y: auto; max-height: 400px;" data-group="sheet" data-tab="multilevel-tokens" data-application-part="multilevel-tokens">
       <p class="notes">${game.i18n.localize("MLT.TabNotes")}</p>
       <div class="form-group">
         <label for="flags.multilevel-tokens.disabled">${game.i18n.localize("MLT.FieldDisableRegion")}</label>
@@ -1277,6 +1305,10 @@ class MultilevelTokens {
           <label for="flags.multilevel-tokens.flipY">${game.i18n.localize("MLT.FieldMirrorVertically")}</label>
           <input type="checkbox" name="flags.multilevel-tokens.flipY" data-dtype="Boolean"/>
         </div>
+        <div class="form-group">
+          <label for="flags.multilevel-tokens.flipTrue">${game.i18n.localize("MLT.FieldMirrorTrue")}</label>
+          <input type="checkbox" name="flags.multilevel-tokens.flipTrue" data-dtype="Boolean"/>
+        </div>
       </div>
       <h3 class="form-header">
         <i class="fas fa-magic"/></i> ${game.i18n.localize("MLT.SectionMacroTriggers")}
@@ -1318,9 +1350,9 @@ class MultilevelTokens {
       </div>
     </div>`;
 
-    html.find(".tabs .item").last().after(tab);
-    html.find(".tab").last().after(contents);
-    const mltTab = html.find(".tab").last();
+    $(html).find(".tabs a").last().after(tab);
+    $(html).find(".tab").last().after(contents);
+    const mltTab = $(html).find(".tab").last();
     const input = (name) => mltTab.find(`input[name="flags.multilevel-tokens.${name}"]`);
     const group = (name) => mltTab.find(`#${name}`);
 
@@ -1339,6 +1371,7 @@ class MultilevelTokens {
     input("scale").prop("value", flags.scale || 1);
     input("flipX").prop("checked", flags.flipX);
     input("flipY").prop("checked", flags.flipY);
+    input("flipTrue").prop("checked", flags.flipTrue);
     input("macroEnter").prop("checked", flags.macroEnter);
     input("macroLeave").prop("checked", flags.macroLeave);
     input("macroMove").prop("checked", flags.macroMove);
@@ -1380,6 +1413,7 @@ class MultilevelTokens {
       enable("scale", isTarget);
       enable("flipX", isTarget);
       enable("flipY", isTarget);
+      enable("flipTrue", isTarget);
       enable("macroName", isMacro);
       enable("macroArgs", isMacro);
       enable("levelNumber", isLevel);
@@ -1395,16 +1429,16 @@ class MultilevelTokens {
   }
 
   _convertDrawingConfigUpdateData(data, update) {
-    if (!update.flags || !update.flags[MLT.SCOPE]) {
+    if (!update.flags?.[MLT.SCOPE]) {
       return;
     }
 
     let manualText = "text" in update && update.text;
-    if (!update.flags || !update.flags[MLT.SCOPE]) {
+    if (!update.flags?.[MLT.SCOPE]) {
       return;
     }
     const flags = update.flags[MLT.SCOPE];
-    const oldFlags = data.flags && data.flags[MLT.SCOPE] ? data.flags[MLT.SCOPE] : {};
+    const oldFlags = data?.flags[MLT.SCOPE] ? data.flags[MLT.SCOPE] : {};
 
     if ("scale" in flags && (isNaN(flags.scale) || flags.scale <= 0)) {
       flags.scale = 1;
@@ -1435,7 +1469,7 @@ class MultilevelTokens {
     if (!this._isPrimaryGamemaster()) {
       return;
     }
-    console.log(MLT.LOG_PREFIX, "Refreshing all");
+    // Remove console spamming #11 : console.log(MLT.LOG_PREFIX, "Refreshing all");
     this._queueAsync(requestBatch => {
       game.scenes.forEach(scene => {
         this._getInvalidReplicatedTokensForScene(scene)
@@ -1574,7 +1608,7 @@ class MultilevelTokens {
       this._queueAsync(requestBatch =>
           this._updateAllReplicatedTokensForToken(requestBatch, token.parent, t, Object.keys(update)));
       if ('x' in update || 'y' in update) {
-        this._doMacros(token.parent, token);
+        // Deprecated, moved below : this._doMacros(token.parent, token);
       }
       if (MLT.REPLICATED_UPDATE in options) {
         this._setLastTeleport(token.parent, token);
@@ -1584,6 +1618,7 @@ class MultilevelTokens {
 
         (animationPromise || Promise.resolve()).then(() => {
           this._doTeleport(token.parent, token) || this._doLevelTeleport(token.parent, token);
+          this._doMacros(token.parent, token); // Moved here as a fix for #12
         })
       }
     }
@@ -1719,7 +1754,8 @@ class MultilevelTokens {
   }
 
   _onRenderDrawingConfig(app, html, data) {
-    if (this._isAuthorisedRegion(data.object) && MLT.SUPPORTED_TYPES.includes(data.object.shape.type)) {
+    // Debug: console.log(MLT.LOG_PREFIX, "Drawing config render", data);
+    if (this._isAuthorisedRegion(data.document) && MLT.SUPPORTED_TYPES.includes(data.document.shape.type)) {
       this._injectDrawingConfigTab(app, html, data);
     }
   }

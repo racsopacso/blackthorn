@@ -18,7 +18,7 @@
 {{/if}}
 <ul class="filter-choices">
   {{#each filter.choices as |choice i|}}
-    <li class="filter-choice flexrow" data-choice="{{choice.key}}">
+    <li class="filter-choice flexrow {{#if hidden}}hidden-entry{{/if}}" data-choice="{{choice.key}}">
       <input
         type="checkbox"
         name="filter.{{../id}}.choice.{{choice.key}}"

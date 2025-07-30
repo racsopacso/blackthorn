@@ -7,6 +7,135 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [5.6.0] - 2025-07-27
+
+### Added
+
+* Also include ration cost when consuming rations in cost sidebar
+* Allow non Character actors to consume rations
+
+### Fixed
+
+* Do not render cult activity event section for players
+
+### Changed
+
+* Update toolchain and dependencies
+
+## [5.5.4] - 2025-06-16
+
+### Fixed
+
+* Improve labelling of vacancies and add available actions to phases
+* Ask DC before performing Clear Hex instead of simply setting 0
+
+## [5.5.3] - 2025-06-16
+
+### Fixed
+
+* Rerender sheet when changing active leader drop down
+* Cleanup weather effects and post precipitation effects to chat
+* When using partial construction, display the amount paid in addition to the total amount on the structure browser section if it is different
+* When using partial construction, mark structures as buildable if their RP cost per structure or total cost, whichever is lower, is lower or equal than your total funds
+* Always allow spending RP in Under Construction tab if RP are available
+* Limit spending RP for structures under construction to current RP amount
+* Disable Spend RP button if kingdom has 0 RP available
+
+## [5.5.2] - 2025-06-16
+
+### Fixed
+
+* Rerender sheet upon changing bonus feat drop downs
+* Strip HTML from new Rolltable entries which is generated in V13
+
+
+## [5.5.1] - 2025-06-15
+
+### Fixed
+
+* Do not display slowed structures in Under Construction tab
+
+## [5.5.0] - 2025-06-15
+
+### Added 
+
+* When placing V&K Civic buildings, the structure browser now shows the amount of additional settlement actions that you can take for each settlement
+* Added a setting to enable structure rp cost tracking. RP is tracked using the structure actors HP
+
+### Changed
+
+* Changes to V&K 1.1 rules changed how resource dice per settlements are calculated. This required hard coding the RD values; instead of configuring it per settlement type, you now need to toggle a new setting (Settlements Generate Resource Dice) to enable this behavior.
+
+### Fixed
+
+* Allow configuring all hex scenes to store party actor location in camping settings
+
+
+## [5.4.1] - 2025-06-06
+
+### Fixed
+
+* Fixed translations for realm tile type macro
+
+## [5.4.0] - 2025-06-04
+
+### Changed
+
+* Require PF2E 7.1.0
+* Instead of activating parties from the camping sheet menu, use the new checkbox on the party actor in the actor sidebar 
+
+### Fixed
+
+* Remove Leadership activity increase text from V&K Palace, Town Hall & Castle
+* Fix Read All About It requirement text
+* Fix Hospital downtime description
+* Make Seasoned Wings and Thighs effect critical success descriptions more apparent in what each effect does
+* Fixed Camping Sheet not opening due to API breaks in PF2 7.1.0
+
+## [5.3.0] - 2025-05-26
+
+### Added
+
+* Allow to open Settlement Inspect dialog in structure browser 
+
+### Fixed
+
+* Ruin Resistance correctly asks you to pick 1 ruin to increase instead of 2
+
+
+## [5.2.0] - 2025-05-16
+
+### Added
+
+* Party actor icons can now be hidden if you only rely on macros
+* Schema version is now visible and changeable through settings to make debugging/support easier
+
+## [5.1.10] - 2025-05-14
+
+### Fixed
+
+* Also update army consumption when changing the army folder in kingdom settings
+
+
+## [5.1.9] - 2025-05-14
+
+### Fixed
+
+* When changing from manual army consumption to automatic, immediately update army consumption on the sheet
+
+## [5.1.8] - 2025-05-11
+
+### Fixed
+
+* Fix activity syncing when always performed activities are changed in settings
+
+## [5.1.7] - 2025-05-10
+
+### Fixed
+
+* Prevent users from upgrading from versions that haven't been properly migrated on V12 yet to prevent potential bugs during data migration
+* Fix migration successful popup
+
 ## [5.1.6] - 2025-05-04
 
 ### Fixed
@@ -89,6 +218,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Fix leadership lores not working when containing special characters
 * Display kingdom activity automation notes
 
+## [4.8.5] - 2025-06-16
+
+### Fixed
+
+* Fix Kingdom Sheet not re-rendering when choosing bonus feats in the Bonus tab
+
+## [4.8.4] - 2025-05-18
+
+### Fixed
+
+* Fix pre update hooks breaking preventing meal updates and combat tracks from working properly
+
+## [4.8.3] - 2025-05-11
+
+### Fixed
+
+* Fix activity syncing when always performed activities are changed in settings
 
 ## [4.8.2] - 2025-05-03
 

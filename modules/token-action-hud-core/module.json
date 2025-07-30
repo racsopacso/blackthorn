@@ -16,10 +16,10 @@
     ],
     "url": "https://github.com/Larkinabout/fvtt-token-action-hud-core",
     "flags": {},
-    "version": "2.0.11",
+    "version": "2.0.16",
     "compatibility": {
         "minimum": "12.331",
-        "verified": "12.331"
+        "verified": "13.342"
     },
     "esmodules": [
         "./dist/token-action-hud-core.min.mjs"
@@ -28,7 +28,9 @@
         "./styles/token-action-hud.css",
         "./styles/tah-custom.css",
         "./styles/tah-docked-left.css",
+        "./styles/tah-docked-left-v13.css",
         "./styles/tah-docked-right.css",
+        "./styles/tah-docked-right-v13.css",
         "./styles/tah-foundry-vtt-dark.css",
         "./styles/tah-foundry-vtt-dark-compact.css",
         "./styles/tah-foundry-vtt-light.css",
@@ -114,7 +116,7 @@
     },
     "socket": true,
     "manifest": "https://github.com/Larkinabout/fvtt-token-action-hud-core/releases/latest/download/module.json",
-    "download": "https://github.com/Larkinabout/fvtt-token-action-hud-core/releases/download/2.0.11/module.zip",
+    "download": "https://github.com/Larkinabout/fvtt-token-action-hud-core/releases/download/2.0.16/module.zip",
     "protected": false,
     "coreTranslation": false,
     "library": true,

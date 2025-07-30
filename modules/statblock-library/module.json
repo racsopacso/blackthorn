@@ -1,7 +1,7 @@
 {
-  "title": "Pathfinder 1e Statblock Library",
+  "title": "Pathfinder 1e Statblock Library (SBL)",
   "description": "Contains organized Statblocks for Pathfinder 1e from over 200 Books and 192 PFS Scenarios; including 23 Full Adventure Pathss, NPC Codexes, Tome of Horrors, Occult Bestiary, and various modules (Emerald Spire, Rappan Athuk, Sword of Air, The Lost City of Barakus (FGG)) that can be easily imported using SBC",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "compatibility": {
     "minimum": "11",
     "verified": "12"
@@ -16,6 +16,13 @@
           "minimum": "9",
           "verified": "11"
         }
+      }
+    ],
+    "modules": [
+      {
+        "id": "pf1-statblock-converter",
+        "type": "module",
+        "manifest": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-statblock-converter/-/releases/permalink/latest/downloads/module.json"
       }
     ]
   },
@@ -543,7 +550,7 @@
   "id": "statblock-library",
   "url": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-statblock-library",
   "manifest": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-statblock-library/-/releases/permalink/latest/downloads/module.json",
-  "download": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-statblock-library/-/releases/0.5.0/downloads/statblock-library.zip",
+  "download": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-statblock-library/-/releases/0.6.0/downloads/statblock-library.zip",
   "readme": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-statblock-library/-/blob/main/README.md",
   "changelog": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-statblock-library/-/blob/main/changelog.md"
 }

@@ -1,8 +1,15 @@
-2025/06/08-18:18:32.212703 7ff8da7be6c0 Recovering log #25
-2025/06/08-18:18:32.214189 7ff8da7be6c0 Delete type=3 #23
-2025/06/08-18:18:32.214225 7ff8da7be6c0 Delete type=0 #25
-2025/06/08-18:18:50.282805 7ff63bfff6c0 Level-0 table #30: started
-2025/06/08-18:18:50.282989 7ff63bfff6c0 Level-0 table #30: 0 bytes OK
-2025/06/08-18:18:50.283747 7ff63bfff6c0 Delete type=0 #28
-2025/06/08-18:18:50.284603 7ff63bfff6c0 Manual compaction at level-0 from '!items!0D2y2ZD2wRqy7S1m' @ 72057594037927935 : 1 .. '!items!zfeKCQsoGM530tTV' @ 0 : 0; will stop at (end)
-2025/06/08-18:18:50.284643 7ff63bfff6c0 Manual compaction at level-1 from '!items!0D2y2ZD2wRqy7S1m' @ 72057594037927935 : 1 .. '!items!zfeKCQsoGM530tTV' @ 0 : 0; will stop at (end)
+2025/07/29-15:45:20.745768 7ff8d97bc6c0 Recovering log #4
+2025/07/29-15:45:20.747124 7ff8d97bc6c0 Delete type=0 #4
+2025/07/29-15:45:20.747153 7ff8d97bc6c0 Delete type=3 #2
+2025/07/29-16:31:16.711941 7ff63bfff6c0 Level-0 table #9: started
+2025/07/29-16:31:16.714193 7ff63bfff6c0 Level-0 table #9: 95770 bytes OK
+2025/07/29-16:31:16.714809 7ff63bfff6c0 Delete type=0 #7
+2025/07/29-16:31:16.747430 7ff63bfff6c0 Manual compaction at level-0 from '!items!0D2y2ZD2wRqy7S1m' @ 72057594037927935 : 1 .. '!items!zfeKCQsoGM530tTV' @ 0 : 0; will stop at (end)
+2025/07/29-16:31:16.813800 7ff63bfff6c0 Manual compaction at level-1 from '!items!0D2y2ZD2wRqy7S1m' @ 72057594037927935 : 1 .. '!items!zfeKCQsoGM530tTV' @ 0 : 0; will stop at '!items!zfeKCQsoGM530tTV' @ 218 : 1
+2025/07/29-16:31:16.813816 7ff63bfff6c0 Compacting 1@1 + 1@2 files
+2025/07/29-16:31:16.815962 7ff63bfff6c0 Generated table #10@1: 109 keys, 95770 bytes
+2025/07/29-16:31:16.815975 7ff63bfff6c0 Compacted 1@1 + 1@2 files => 95770 bytes
+2025/07/29-16:31:16.816383 7ff63bfff6c0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/07/29-16:31:16.816438 7ff63bfff6c0 Delete type=2 #9
+2025/07/29-16:31:16.816510 7ff63bfff6c0 Delete type=2 #5
+2025/07/29-16:31:16.816603 7ff63bfff6c0 Manual compaction at level-1 from '!items!zfeKCQsoGM530tTV' @ 218 : 1 .. '!items!zfeKCQsoGM530tTV' @ 0 : 0; will stop at (end)

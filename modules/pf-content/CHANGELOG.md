@@ -1,6 +1,15 @@
 # Changelog
 
-## 11.1
+## 11.2.0
+
+- Changed: Updated and enhanced many racial traits with mechanical effects
+- Cleanup: Druid Domains
+- Cleanup: removed invisibility and fly buff
+- Cleanup: moved quick stow feat to system
+- Cleanuo: removed Grab, Freeze, Blood Drain, Blindsense, Engulf and Frightful Presence UMR
+- Fix: removed incorrect `:` in some feats
+
+## 11.1.0
 
 - Bugfix: Restored Custom HD formulas for animal companions and eidolons
 - Cleanup: removed lifesense UMR

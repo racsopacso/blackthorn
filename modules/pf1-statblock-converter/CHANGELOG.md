@@ -1,5 +1,41 @@
 # Change Log
 
+## 06-26-25 - v5.7.1
+
+- Fixed: Spellbook parsing would break sometimes in v13
+- Fixed: HP parsing would fail with PC actors
+
+## 06-26-25 - v5.7.0
+
+- Fixed: Compatibility warnings with Foundry v13
+- Fixed: Import button was not displayed on Foundry v13
+- Fixed: Weapon Groups were not properly carried over when creating attacks on the Combat tab
+- Added: Support for setting the actor and token art when importing a statblock
+- Added: Drag-and-drop support for uploading an image and assigning it as actor or token art
+
+## 06-16-25 - v5.6.2
+
+- Added: A post-import hook called `sbc.actorImported` for module interactions after the actor is fully imported
+- Added: If passed a statblock and a UUID as a source, SBC stores the UUID in `flags.pf1-statblock-converter.uuid` on the actor
+- Changed: Default settings for spell-like ability spellbooks didn't account for new spellbook settings
+- Fixed: SBC Migration crashed when trying to detect if actors were imported with SBC
+- Fixed: SBC Migration would stop if it failed on an actor, skipping all remaining
+- Added: SBC Migration is more informative about progress
+
+## 05-18-25 - v5.6.1
+
+- Fixed: Migration ran every time, was not informative, and processed unnecessary actors.
+
+## 05-18-25 - v5.6.0
+
+- Added: SBC now has a migration system (adapted from the system) to handle past errors
+- Fixed: Silver weapons weren't discovered properly
+- Fixed: Speeds without units weren't processed
+- Fixed: Error message text couldn't be highlighted/selected for easy access
+- Fixed: Double processing of crit ranges on attacks with Roll Bonus integration
+- Fixed: Raging Song's abilities weren't discovered properly
+- Fixed: DR and ER amounts were processed as strings instead of numbers
+
 ## 04-27-25 - v5.5.0
 
 - Added: Converted SBC to AppV2, with light and dark theme support

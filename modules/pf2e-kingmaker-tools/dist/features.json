@@ -165,7 +165,7 @@
             20
         ],
         "ruinThresholdIncreases": {
-            "amount": 2,
+            "amount": 1,
             "increase": 2
         },
         "name": "features.ruin-resistance.name",

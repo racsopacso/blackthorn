@@ -1,5 +1,146 @@
 # Changelog
 
+## 11.8 - 2025-7-6
+
+### Bug Fixes
+
+- Lifesense was incorrectly edited as feet with metric enabled despite labeling. ([4240](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4240))
+- Vehicle sheet action section was sized oddly.
+- Vehicle sheet displays did not use roll data for anything that needed it. ([4251](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4251))
+- Special range was incorrectly treated as a formula when it was simply free text.
+- Range display for spells could sometimes display odd results. ([4266](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4266))
+- Full day of rest was giving less hit point healing than it should've (healing was incremented by 1 instead of doubled). ([4267](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4267))
+- Full day of rest was giving more wound healing than it should've (healed exactly 1 point more).
+- Traps and vehicles no longer heal as if they were creatures even if they're run through resting functionality.
+- Vehicles were missing hit point resource bar option for tokens. ([4247](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4247))
+- Drag & dropping items from compendium browser in Firefox could cause the app to get stuck in transparent passthrough state.
+- Combat handling could error if combat was created with no combatants.
+- ACP did not apply to skills correctly if no ability score was selected for them.
+- Sense ranges were not properly translated on actor sheet attributes tab.
+- Custom traits could render poorly on actor attributes tab if they contained certain words.
+- Immunities were not correctly applied via apply damage dialog.
+- Bonus damage/healing did not work correctly in apply damage dialog.
+- Hardness was not correctly provided as damage reduction choice in apply damage dialog.
+- Class items, notably racial HD, did not have creature type & subtype selectors.
+- Attempting to open apply damage dialog for plain damage chat cards would always fail.
+- Toggling darkvision or similar did not take effect immediately without secondary token update (such as move).
+- Characters could lose normal sight under obscure circumstances until token was updated (such as moved).
+- Conditional modifiers that do nothing could not be drag & dropped to copy them.
+- Opening default token config would cause a harmless error on Foundry v12.
+- Actor sheet overview tour was nonfunctional on Foundry v13.
+- Combat tab range column displayed at least spell ranges unscaled.
+- Ability damage and penalty were incorrectly applied twice to skill and ability rolls.
+- Unrolled deterministic inline rolls would not resolve correctly if the result was zero (as seen in context notes displayed in tooltips or item sheet descriptions, for example).
+- Quadruped state on actors was not tracked properly.
+- Initiative roll chat cards did not correctly attribute the rolls.
+- Migration did not correctly report skipped compendiums.
+- With metric distances vehicle acceleration and speeds editing garbled the numbers.
+- Hit points label was used in places where it should've said Vigor when the optional rule was enabled.
+
+### Changelog
+
+- Improved vehicle sheet layout by giving certain inputs more space. ([4252](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4252))
+- Added _Manual_ trap trigger type. ([4268](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4268))
+- Creature types and subtypes granted by an item besides race now display it in the sidebar.
+- Server-side migration is now performed when process all option is selected in troubleshooter.
+- Vehicle acceleration and speeds are now constrained to valid values.
+
+### Compendium
+
+- Added medium damage progression to tables of _unarmed strike_ class abilities. ([4159](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4159))
+- Changed saving throw type from Reflex to Fortitude for _Shout_ and _Greater Shout_ spells.
+- Fixed _Frightful Presence_ UMR incorrect DC formula.
+- Added missing save actions to _Eidolon_'s _Frightful Presence_ evolutions.
+- Improved various spells with _Acid_ descriptor.
+
+### API
+
+- Added `pf1ApplyDamage` and `pf1ApplyDamageTargetOptions` hooks. ([4250](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4250))
+- `pf1.utils.simplifyRange()` no longer returns miles for 0 ft.
+- Server-side migration is now correctly performed for modules when server option is enabled (default true) with `migrateModules()`
+- Module migration now does minimal processing to journal compendiums.
+- Apply damage workflow now preserves all standard options better across the entire process.
+
+## 11.7 - 2025-6-15
+
+### Bug Fixes
+
+- Apply damage dialog pre-selected energy resistances in inverted manner. ([4177](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4177))
+- ER & DR applied to more damage than there was of valid type in apply damage dialog. ([4177](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4177))
+- Item summary could not be opened in container sheets without an owning actor.
+- Items could not be drag & dropped into secondary sheets.
+- Book source tooltip was rendered strangely on Foundry v13.
+- TokenHUD could error under certain circumstances and cascade into other faults.
+- Unidentified items incorrectly disclosed their max and current charges. ([4186](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4186))
+- Unidentified items had excess UI elements visible only relevant to identified items.
+- Worn armor incorrectly had its enhancement bonus in wrong type, causing some hard to spot issues.
+- FCB entries incorrectly claimed the roll data variables ended in `.value` ([4179](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4179))
+- Canvas could become unresponsive under certain circumstances, for example if light's priority was adjusted. ([4230](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4230))
+- Some trait selector choices, e.g. conditions in buffs, were not alphasorted. ([4199](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4199))
+- Added workaround to Foundry v13 issue with vision modes.
+
+### Changelog
+
+- Held option is now available in attack dialog regardless of power attack. ([4178](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4178))
+- Added curse effects to condition immunities. ([4196](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4196))
+- Added bonus damage/healing input field to apply damage dialog.
+- Added basic detection of magic weapons to apply damage dialog to penetrate DR/magic.
+- Containers are now more resistant to their contents becoming corrupt.
+- Apply damage dialog now takes materials and enhancement bonus into account for penetrating resistances, including adamantine's effect on hardness. ([4192](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4192))
+- Apply damage dialog now takes DR/magic into account with natural attacks. ([4191](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4191))
+- Apply damage dialog now displays tags signaling relevant additional details of the attack, such as magic and relevant materials.
+- Apply damage dialog now disables or hides ER, DR, DI and DV entries that are not relevant.
+- Apply damage dialog now accounts for damage immunities (mixed damage is ignored).
+- Improved item and action sheet input value presentation in many cases.
+
+### Compendium
+
+- Removed incorrect max dex value in _hard light shield_. ([4202](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4202))
+- Moved identified description to superficial details for armor and weapons. ([4209](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4209))
+- Updated some icons of common spells like _Blade Barrier_, _Prismatic Pattern_, or _Earthquake_.
+- Added missing base equipment types to buckler-typed shields, needed by proficiency matching and other features.
+- Corrected an invalid supplement link in _Ravener_ template. ([3407](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3407))
+- Added missing +4 Bonus in _Grab_ UMR ability and replaced second action with conditional modifer.
+
+### API
+
+- `ItemPhysicalPF#getValue()` now returns correct value with customized currency rates with `inLowestDenomination` option enabled. ([4206](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4206))
+- Broken, timeworn and depleted timeworn cost multipliers are now configurable in `pf1.config.costMultipliers`.
+- `ItemAction.addonMaterial` now correctly returns item addon material if there's no override.
+- ⚠️ Apply damage dialog partially refactored in breaking manner to account for bugs.
+
+## 11.6 - 2025-5-18
+
+### Bug Fixes
+
+- Token HUD conditions did not display active conditions correctly in all cases. ([4146](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4146))
+- Migration would fail on Foundry v13 when document type change was required. ([4148](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4148))
+- Concentration and caster level displays did not include context notes in their tooltip.
+- Rolling concentration or caster level check did not include all relevant context notes in the chat cards.
+- Data model initialization made less strict, allowing corrupt data to not prevent document preparation or migration.
+- Enricher buttons were styled strangely in some circumstances on Foundry v13.
+- Creating items directly in folders did not pre-populate folder selection correctly.
+- Creating items in compendiums provided items directory folder selection instead of the one in the compendium.
+- Instructions editor used only part of its given space.
+- Loot sheet item value column failed to display actual values.
+
+### Changelog
+
+- Compendium browser source filter now only shows sources that actually have any relevant entries. ([4157](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4157))
+- Misc features now have show in combat tab option. ([4165](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4165))
+- Race items no longer have default placeholder _humanoid_ type if no types are defined.
+
+### Compendium
+
+- Added abilities used by templates in _Bestiary 2_. ([3407](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/3407))
+- Added missing Dark- and Low-light vision to _Dragon_ racial HD.
+- Added missing _Close Weapon Mastery_ class feature to _Brawler_.
+
+### API
+
+- `Actor.toggleStatusEffect()` now respects system conditions and their tracking. ([4145](https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues/4145))
+- ⚠️ `actor.system.traits.type` has been removed as it could no longer hold the information it previously did.
+
 ## 11.5 - 2025-5-4
 
 ### Bug Fixes

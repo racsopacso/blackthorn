@@ -1,7 +1,7 @@
 {
   "title": "PF1.Tours.ActorSheet.Title",
   "description": "PF1.Tours.ActorSheet.Description",
-  "canBeResumed": true,
+  "canBeResumed": false,
   "display": true,
   "actorId": "AQQnEgudQaoQsLF6",
   "compendiumId": "pf1.basic-monsters",
@@ -14,17 +14,17 @@
     },
     {
       "id": "highlight-street-magician-in-compendium",
-      "selector": "li.directory-item.actor[data-document-id='AQQnEgudQaoQsLF6']",
+      "selector": "li.directory-item.actor:is([data-document-id='AQQnEgudQaoQsLF6'],[data-entry-id='AQQnEgudQaoQsLF6'])",
       "title": "PF1.Tours.ActorSheet.HighlightStreetMagicianInCompendium.Title",
       "content": "PF1.Tours.ActorSheet.HighlightStreetMagicianInCompendium.Content"
     },
     {
       "id": "highlight-sheet",
-      "selector": "div.sheet.pf1",
+      "selector": ".sheet.pf1",
       "title": "PF1.Tours.ActorSheet.HighlightSheet.Title",
       "content": "PF1.Tours.ActorSheet.HighlightSheet.Content",
-      "sheetTab": {
-        "tabName": "summary",
+      "tabs": {
+        "id": "summary",
         "group": "primary"
       }
     },
@@ -35,11 +35,11 @@
     },
     {
       "id": "roll-buttons",
-      "selector": "div.sheet.pf1 section.subdetails-body div.quick-info div.flexcol:has(li.generic-defenses) h3 i.fa-dice-d20",
+      "selector": ".sheet.pf1 .subdetails-body .quick-info .generic-defenses h3 i.fa-dice-d20",
       "title": "PF1.Tours.ActorSheet.RollButtons.Title",
       "content": "PF1.Tours.ActorSheet.RollButtons.Content",
-      "sheetTab": {
-        "tabName": "summary",
+      "tabs": {
+        "id": "summary",
         "group": "primary"
       }
     },
@@ -50,107 +50,107 @@
     },
     {
       "id": "sheet-tabs",
-      "selector": "div.sheet.pf1 nav.sheet-navigation",
+      "selector": ".sheet.pf1 nav.sheet-navigation",
       "title": "PF1.Tours.ActorSheet.SheetTabs.Title",
       "content": "PF1.Tours.ActorSheet.SheetTabs.Content"
     },
     {
       "id": "details-in-sheet",
-      "selector": "div.sheet.pf1 div.summary-header",
+      "selector": ".sheet.pf1 .summary-header",
       "title": "PF1.Tours.ActorSheet.DetailsInSheet.Title",
       "content": "PF1.Tours.ActorSheet.DetailsInSheet.Content",
-      "sheetTab": {
-        "tabName": "summary",
+      "tabs": {
+        "id": "summary",
         "group": "primary"
       }
     },
     {
       "id": "hd-cr-and-experience",
-      "selector": "div.sheet.pf1 div.summary-header div.hd-level",
+      "selector": ".sheet.pf1 .summary-header .hd-level",
       "title": "PF1.Tours.ActorSheet.HdCrAndExperience.Title",
       "content": "PF1.Tours.ActorSheet.HdCrAndExperience.Content",
-      "sheetTab": {
-        "tabName": "summary",
+      "tabs": {
+        "id": "summary",
         "group": "primary"
       }
     },
     {
       "id": "rest-button",
-      "selector": "div.sheet.pf1 div.summary-header div.misc-header-items:has(button.rest)",
+      "selector": ".sheet.pf1 .tab.summary .summary-header .actor-quick-actions",
       "title": "PF1.Tours.ActorSheet.RestButton.Title",
       "content": "PF1.Tours.ActorSheet.RestButton.Content",
-      "sheetTab": {
-        "tabName": "summary",
+      "tabs": {
+        "id": "summary",
         "group": "primary"
       }
     },
     {
       "id": "race",
-      "selector": "div.sheet.pf1 div.summary-header div.race",
+      "selector": ".sheet.pf1 .summary-header .race",
       "title": "PF1.Tours.ActorSheet.Race.Title",
       "content": "PF1.Tours.ActorSheet.Race.Content",
-      "sheetTab": {
-        "tabName": "summary",
+      "tabs": {
+        "id": "summary",
         "group": "primary"
       }
     },
     {
       "id": "hit-points-and-speed",
-      "selector": "div.sheet.pf1 div.attributes:has(div.health-details)",
+      "selector": ".sheet.pf1 .tab.summary .attributes",
       "title": "PF1.Tours.ActorSheet.HitPointsAndSpeed.Title",
       "content": "PF1.Tours.ActorSheet.HitPointsAndSpeed.Content",
-      "sheetTab": {
-        "tabName": "summary",
+      "tabs": {
+        "id": "summary",
         "group": "primary"
       }
     },
     {
       "id": "quick-actions-in-summary",
-      "selector": "div.sheet.pf1 section.subdetails-body div.quick-info",
+      "selector": ".sheet.pf1 .subdetails-body .quick-info",
       "title": "PF1.Tours.ActorSheet.QuickActionsInSummary.Title",
       "content": "PF1.Tours.ActorSheet.QuickActionsInSummary.Content",
-      "sheetTab": {
-        "tabName": "summary",
+      "tabs": {
+        "id": "summary",
         "group": "primary"
       }
     },
     {
       "id": "classes",
-      "selector": "div.sheet.pf1 div.classes-body",
+      "selector": ".sheet.pf1 .classes-body",
       "title": "PF1.Tours.ActorSheet.Classes.Title",
       "content": "PF1.Tours.ActorSheet.Classes.Content",
-      "sheetTab": {
-        "tabName": "summary",
+      "tabs": {
+        "id": "summary",
         "group": "primary"
       }
     },
     {
       "id": "attributes-tab",
-      "selector": "div.sheet.pf1 div.tab.attributes[data-tab='attributes']",
+      "selector": ".sheet.pf1 .tab.attributes[data-tab='attributes']",
       "title": "PF1.Tours.ActorSheet.AttributesTab.Title",
       "content": "PF1.Tours.ActorSheet.AttributesTab.Content",
-      "sheetTab": {
-        "tabName": "attributes",
+      "tabs": {
+        "id": "attributes",
         "group": "primary"
       }
     },
     {
       "id": "ability-scores-section",
-      "selector": "div.sheet.pf1 div.attributes div.ability-scores",
+      "selector": ".sheet.pf1 .attributes .ability-scores",
       "title": "PF1.Tours.ActorSheet.AbilityScoresSection.Title",
       "content": "PF1.Tours.ActorSheet.AbilityScoresSection.Content",
-      "sheetTab": {
-        "tabName": "attributes",
+      "tabs": {
+        "id": "attributes",
         "group": "primary"
       }
     },
     {
       "id": "traits-section",
-      "selector": "div.sheet.pf1 div.attributes div.traits",
+      "selector": ".sheet.pf1 .attributes .traits",
       "title": "PF1.Tours.ActorSheet.TraitsSection.Title",
       "content": "PF1.Tours.ActorSheet.TraitsSection.Content",
-      "sheetTab": {
-        "tabName": "attributes",
+      "tabs": {
+        "id": "attributes",
         "group": "primary"
       }
     },
@@ -161,161 +161,168 @@
     },
     {
       "id": "combat-tab",
-      "selector": "div.sheet.pf1 div.tab.combat[data-tab='combat']",
+      "selector": ".sheet.pf1 .tab.combat[data-tab='combat']",
       "title": "PF1.Tours.ActorSheet.CombatTab.Title",
       "content": "PF1.Tours.ActorSheet.CombatTab.Content",
-      "sheetTab": {
-        "tabName": "combat",
+      "tabs": {
+        "id": "combat",
         "group": "primary"
       }
     },
     {
       "id": "filter-options",
-      "selector": "div.sheet.pf1 div.tab.combat div.inventory-filters",
+      "selector": ".sheet.pf1 .tab.combat .inventory-filters",
       "title": "PF1.Tours.ActorSheet.FilterOptions.Title",
       "content": "PF1.Tours.ActorSheet.FilterOptions.Content",
-      "sheetTab": {
-        "tabName": "combat",
+      "tabs": {
+        "id": "combat",
         "group": "primary"
       }
     },
     {
       "id": "inventory-tab",
-      "selector": "div.sheet.pf1 div.tab.inventory[data-tab='inventory']",
+      "selector": ".sheet.pf1 .tab.inventory[data-tab='inventory']",
       "title": "PF1.Tours.ActorSheet.InventoryTab.Title",
       "content": "PF1.Tours.ActorSheet.InventoryTab.Content",
-      "sheetTab": {
-        "tabName": "inventory",
+      "tabs": {
+        "id": "inventory",
         "group": "primary"
       }
     },
     {
       "id": "items-details",
-      "selector": "div.sheet.pf1 div.tab.inventory ol[data-list='equipment'] li.item-list-header",
+      "selector": ".sheet.pf1 .tab.inventory ol[data-list='equipment'] li.item-list-header",
       "title": "PF1.Tours.ActorSheet.ItemsDetails.Title",
       "content": "PF1.Tours.ActorSheet.ItemsDetails.Content",
-      "sheetTab": {
-        "tabName": "inventory",
+      "tabs": {
+        "id": "inventory",
         "group": "primary"
       }
     },
     {
       "id": "features-tab",
-      "selector": "div.sheet.pf1 div.tab.features[data-tab='feats']",
+      "selector": ".sheet.pf1 .tab.features[data-tab='feats']",
       "title": "PF1.Tours.ActorSheet.FeaturesTab.Title",
       "content": "PF1.Tours.ActorSheet.FeaturesTab.Content",
-      "sheetTab": {
-        "tabName": "feats",
+      "tabs": {
+        "id": "feats",
         "group": "primary"
       }
     },
     {
       "id": "charges",
-      "selector": "div.sheet.pf1 div.tab.features ol[data-list='classFeat'] li.item div.item-detail.item-uses:has(span.max)",
+      "selector": ".sheet.pf1 .tab.features ol[data-list='classFeat'] li.item .item-detail.item-uses:has(.max)",
       "title": "PF1.Tours.ActorSheet.Charges.Title",
       "content": "PF1.Tours.ActorSheet.Charges.Content",
-      "sheetTab": {
-        "tabName": "feats",
+      "tabs": {
+        "id": "feats",
         "group": "primary"
       }
     },
     {
       "id": "skills-tab",
-      "selector": "div.sheet.pf1 div.tab.skills[data-tab='skills']",
+      "selector": ".sheet.pf1 .tab.skills[data-tab='skills']",
       "title": "PF1.Tours.ActorSheet.SkillsTab.Title",
       "content": "PF1.Tours.ActorSheet.SkillsTab.Content",
-      "sheetTab": {
-        "tabName": "skills",
+      "tabs": {
+        "id": "skills",
         "group": "primary"
       }
     },
     {
       "id": "unlock-skills",
-      "selector": "div.sheet.pf1 div.tab.skills a.skill-lock-button",
+      "selector": ".sheet.pf1 .tab.skills a.skill-lock-button",
       "title": "PF1.Tours.ActorSheet.UnlockSkills.Title",
       "content": "PF1.Tours.ActorSheet.UnlockSkills.Content",
-      "sheetTab": {
-        "tabName": "skills",
+      "tabs": {
+        "id": "skills",
         "group": "primary"
       }
     },
     {
       "id": "add-subskill",
-      "selector": "div.sheet.pf1 div.tab.skills li[data-skill='crf'] a.skill-create",
+      "selector": ".sheet.pf1 .tab.skills li.skill[data-skill='crf'] a.skill-create",
       "title": "PF1.Tours.ActorSheet.AddSubskill.Title",
       "content": "PF1.Tours.ActorSheet.AddSubskill.Content",
-      "sheetTab": {
-        "tabName": "skills",
-        "group": "primary"
-      }
+      "tabs": [
+        {
+          "id": "background",
+          "group": "skills",
+          "setting": "allowBackgroundSkills"
+        },
+        {
+          "id": "skills",
+          "group": "primary"
+        }
+      ]
     },
     {
       "id": "buffs-tab",
-      "selector": "div.sheet.pf1 div.tab.buffs[data-tab='buffs']",
+      "selector": ".sheet.pf1 .tab.buffs[data-tab='buffs']",
       "title": "PF1.Tours.ActorSheet.BuffsTab.Title",
       "content": "PF1.Tours.ActorSheet.BuffsTab.Content",
-      "sheetTab": {
-        "tabName": "buffs",
+      "tabs": {
+        "id": "buffs",
         "group": "primary"
       }
     },
     {
       "id": "condition-duration",
-      "selector": "div.sheet.pf1 div.tab.buffs a[data-condition-id='bleed']",
+      "selector": ".sheet.pf1 .tab.buffs a[data-condition-id='bleed']",
       "title": "PF1.Tours.ActorSheet.ConditionDuration.Title",
       "content": "PF1.Tours.ActorSheet.ConditionDuration.Content",
-      "sheetTab": {
-        "tabName": "buffs",
+      "tabs": {
+        "id": "buffs",
         "group": "primary"
       }
     },
     {
       "id": "spells-tab",
-      "selector": "div.sheet.pf1 div.tab.spellbook[data-tab='spellbook']",
+      "selector": ".sheet.pf1 .tab.spellbook[data-tab='spellbook']",
       "title": "PF1.Tours.ActorSheet.SpellsTab.Title",
       "content": "PF1.Tours.ActorSheet.SpellsTab.Content",
-      "sheetTab": {
-        "tabName": "spellbook",
+      "tabs": {
+        "id": "spellbook",
         "group": "primary"
       }
     },
     {
       "id": "spellbooks-tab",
-      "selector": "div.sheet.pf1 div.tab.spellbook nav.tabs.spellbooks",
+      "selector": ".sheet.pf1 .tab.spellbook nav.tabs.spellbooks",
       "title": "PF1.Tours.ActorSheet.SpellbooksTab.Title",
       "content": "PF1.Tours.ActorSheet.SpellbooksTab.Content",
-      "sheetTab": {
-        "tabName": "spellbook",
+      "tabs": {
+        "id": "spellbook",
         "group": "primary"
       }
     },
     {
       "id": "spellbooks-configuration",
-      "selector": "div.sheet.pf1 div.tab.spellbook a[data-for='spellbook-info_primary']",
+      "selector": ".sheet.pf1 .tab.spellbook a[data-for='spellbook-info_primary']",
       "title": "PF1.Tours.ActorSheet.SpellbooksConfiguration.Title",
       "content": "PF1.Tours.ActorSheet.SpellbooksConfiguration.Content",
-      "sheetTab": {
-        "tabName": "spellbook",
+      "tabs": {
+        "id": "spellbook",
         "group": "primary"
       }
     },
     {
       "id": "biography-tab",
-      "selector": "div.sheet.pf1 div.tab.biography[data-tab='biography']",
+      "selector": ".sheet.pf1 .tab.biography[data-tab='biography']",
       "title": "PF1.Tours.ActorSheet.BiographyTab.Title",
       "content": "PF1.Tours.ActorSheet.BiographyTab.Content",
-      "sheetTab": {
-        "tabName": "biography",
+      "tabs": {
+        "id": "biography",
         "group": "primary"
       }
     },
     {
       "id": "notes-tab",
-      "selector": "div.sheet.pf1 div.tab.actor-notes[data-tab='notes']",
+      "selector": ".sheet.pf1 .tab.actor-notes[data-tab='notes']",
       "title": "PF1.Tours.ActorSheet.NotesTab.Title",
       "content": "PF1.Tours.ActorSheet.NotesTab.Content",
-      "sheetTab": {
-        "tabName": "notes",
+      "tabs": {
+        "id": "notes",
         "group": "primary"
       }
     },
@@ -323,18 +330,18 @@
       "id": "magic-items-table",
       "title": "PF1.Tours.ActorSheet.MagicItemsTable.Title",
       "content": "PF1.Tours.ActorSheet.MagicItemsTable.Content",
-      "sheetTab": {
-        "tabName": "notes",
+      "tabs": {
+        "id": "notes",
         "group": "primary"
       }
     },
     {
       "id": "settings-tab",
-      "selector": "div.sheet.pf1 div.tab.settings[data-tab='settings']",
+      "selector": ".sheet.pf1 .tab.settings[data-tab='settings']",
       "title": "PF1.Tours.ActorSheet.SettingsTab.Title",
       "content": "PF1.Tours.ActorSheet.SettingsTab.Content",
-      "sheetTab": {
-        "tabName": "settings",
+      "tabs": {
+        "id": "settings",
         "group": "primary"
       }
     }

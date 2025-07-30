@@ -8,7 +8,7 @@
       <h3>{{localize "PF1.General"}}</h3>
 
       {{!-- Hit Points --}}
-      <label>{{localize "PF1.HitPoints"}}</label>
+      <label>{{#if @root.useWoundsAndVigor}}{{localize "PF1.Vigor"}}{{else}}{{localize "PF1.HitPoints"}}{{/if}}</label>
       <select name="system.attributes.hpAbility">
         {{selectOptions @root.config.abilities selected=system.attributes.hpAbility blank=""}}
       </select>

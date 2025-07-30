@@ -240,7 +240,7 @@
     "SkillKPl": "Saber (Planos)",
     "SkillKRe": "Saber (Religión)",
     "SkillLin": "Lingüística",
-    "SkillLor": "Saberes",
+    "SkillLor": "Sabiduría popular (Lore)",
     "SkillPer": "Percepción",
     "SkillPrf": "Interpretación",
     "SkillPro": "Profesión",
@@ -388,8 +388,8 @@
     "Changes": "Cambios",
     "ClassAbilities": "Habilidades de Clase",
     "Conditionals": "Modificadores Condicionales",
-    "ConImm": "Inmunidades a Condiciones",
-    "ConRes": "Resistencias a Condiciones",
+    "ConImm": "Inmunidades a Estados",
+    "ConRes": "Resistencias a Estados",
     "Critical": "Crítico",
     "CriticalConfirmation": "Confirmación del Crítico",
     "Damage": "Daño",
@@ -480,7 +480,7 @@
     "Type": "Tipo",
     "ActionPlural": "Acciones",
     "ChargePlural": "Cargas",
-    "ConditionPlural": "Condiciones",
+    "ConditionPlural": "Estados",
     "Add": "Añadir",
     "ItemName": "Nombre del Objeto",
     "BuffName": "Nombre del Buff",
@@ -1581,7 +1581,8 @@
         "Touch": "Toque",
         "Visual": "Visual",
         "ElectricEyes": "Ojos eléctricos",
-        "Genetic": "Genética"
+        "Genetic": "Genética",
+        "Manual": "Manual"
       },
       "Types": {
         "Magic": "Mágica",
@@ -1740,7 +1741,8 @@
       "flatFooted": "Desprevenido/a",
       "stable": "Estable",
       "unconscious": "Inconsciente",
-      "moraleEffects": "Efectos de moral"
+      "moraleEffects": "Efectos de moral",
+      "curse": "Efectos de maldición"
     },
     "ActionTypes": {
       "mwak": "Ataque con Arma Cuerpo a Cuerpo",
@@ -2902,8 +2904,8 @@
       },
       "HideTokenConditionsN": "Ocultar Buffs del Token",
       "HideTokenConditionsH": "Si deberían ocultarse los íconos de Buff del Token",
-      "CoreEffectsN": "Condiciones de Token por Defect",
-      "CoreEffectsH": "Muestra solo las Condiciones de PF1 en los Tokens (Desactivado) o los íconos base de Foundry también (Activado)",
+      "CoreEffectsN": "Estados de la ficha (token) por defecto",
+      "CoreEffectsH": "Muestra solo los Estados de PF1 en las fichas (tokens) (Desactivado) o los íconos base de Foundry también (Activado)",
       "UnchainedActionEconomyN": "Economía de Acciones de Unchained",
       "UnchainedActionEconomyH": "Si deseas usar las reglas de Economía de Acciones de Unchained.",
       "Cybertech": "Cibertecnología",
@@ -3291,7 +3293,7 @@
         },
         "TooltipsWithDefinitions": {
           "Title": "Referencias de datos",
-          "Content": "Puedes pasar el ratón por encima de cualquier entrada de la hoja de personaje y se mostrará un mensaje que indica cómo hacer referencia a los datos en las fórmulas (<code>@attributes.hp.max</code>, entre otros, pasando el ratón por encima de PG Máx., por ejemplo)."
+          "Content": "Puedes pasar el ratón por encima de cualquier entrada de la hoja de personaje y se mostrará un mensaje que indica cómo hacer referencia a los datos en las fórmulas (por ejemplo <code>@attributes.hp.max</code>, entre otros, pasando el ratón por encima de PG Máx., por ejemplo)."
         },
         "DetailsInSheet": {
           "Title": "Sección de detalles",
@@ -3323,7 +3325,7 @@
         },
         "AbilityScoresSection": {
           "Title": "Puntuaciones de característica",
-          "Content": "La puntuación de característica <em>Total</em> es editable, así como <em>Daño</em>, <em>Drenaje</em> y <em>Penalizador</em>.<br/>Los <em>modificadores</em>, <em>PdA <small>(Penalizador de armadura)</small></em> y <em>FdCA <small>(Fallo de conjuro arcano)</small></em> se calculan automáticamente."
+          "Content": "La puntuación de característica <em>Total</em> es editable, pero edita el valor base. <em>Daño</em>, <em>Drenaje</em> y <em>Penalizador</em> pueden ajustarse de igual manera."
         },
         "TraitsSection": {
           "Title": "Rasgos",
@@ -3346,7 +3348,7 @@
           "Content": "Aquí podrás ver todos los objetos que tienes en tu inventario.<br/>Al igual que en la <em>pestaña de combate</em> las entradas están agrupadas por tipo.<br/><br/>Puedes añadir objetos desde el <code>CompendiumBrowser</code> haciendo clic en <i class='fas fa-folder-plus'></i>. <br/>También tienes las opciones <i class='fas fa-plus'></i>, <i class='fas fa-edit'></i>, <i class='fas fa-trash'></i> y <i class='fas fa-copy'></i>."
         },
         "ItemsDetails": {
-          "Title": "Detalles y opciones de los artículos",
+          "Title": "Detalles y opciones del artículo",
           "Content": "Puede pasar el ratón por encima de cada uno de los iconos de la cabecera del grupo (<i class='icon-pf text-icon icon-inventory-slot'></i>, <i class='icon-pf text-icon icon-gears'></i>, <i class='icon-pf text-icon icon-weight'></i>, <i class='icon-pf text-icon icon-quill-ink'></i>, ...) para obtener más información sobre su significado."
         },
         "FeaturesTab": {
@@ -3367,7 +3369,7 @@
         },
         "BuffsTab": {
           "Title": "Pestaña potenciadores (buffs) y estados",
-          "Content": "Todos los estados y potenciadores se pueden encontrar aquí.<br/>Una vez añadido un potenciador verás las opciones <i class='fas fa-edit'></i>, <i class='fas fa-trash'></i> y <i class='fas fa-copy'></i>. También puedes crear uno con las opciones <i class='fas fa-folder-plus'></i> y <i class='fas fa-plus'></i>.<br/><br/>La mayoría de las condiciones de Pathfinder 1e se muestran arriba, si no puedes buscarlas en el <code>CompendiumBrowser</code>."
+          "Content": "Todos los estados y potenciadores se pueden encontrar aquí.<br/>Una vez añadido un potenciador verás las opciones <i class='fas fa-edit'></i>, <i class='fas fa-trash'></i> y <i class='fas fa-copy'></i>. También puedes crear uno con las opciones <i class='fas fa-folder-plus'></i> y <i class='fas fa-plus'></i>.<br/><br/>La mayoría de los estados de Pathfinder 1e se muestran arriba, si no puedes buscarlas en el <code>CompendiumBrowser</code>."
         },
         "ConditionDuration": {
           "Title": "Duración del estado",
@@ -3457,7 +3459,71 @@
     "WoundThreshold": "Umbral de heridas",
     "UnidentifiedDescription": "Detalles superficiales",
     "IdentifiedDescription": "Propiedades identificadas",
-    "InvalidSpellLevelHint": "Nivel de conjuro inválido<br>Sólo se muestra debido a los conjuros que tiene asignados."
+    "InvalidSpellLevelHint": "Nivel de conjuro inválido<br>Sólo se muestra debido a los conjuros que tiene asignados.",
+    "Calendar": {
+      "Days": {
+        "1": {
+          "Name": "Día de la luna"
+        },
+        "2": {
+          "Name": "Día del trabajo"
+        },
+        "3": {
+          "Name": "Día del bienestar"
+        },
+        "4": {
+          "Name": "Día del juramento"
+        },
+        "5": {
+          "Name": "Día del fuego"
+        },
+        "6": {
+          "Name": "Día de las estrellas"
+        },
+        "7": {
+          "Name": "Día del sol"
+        }
+      },
+      "Label": "Calendario de Golarian",
+      "Months": {
+        "1": {
+          "Name": "Abadio"
+        },
+        "2": {
+          "Name": "Calistril"
+        },
+        "3": {
+          "Name": "Farasto"
+        },
+        "4": {
+          "Name": "Gozran"
+        },
+        "5": {
+          "Name": "Desnio"
+        },
+        "6": {
+          "Name": "Sarenith"
+        },
+        "7": {
+          "Name": "Erasto"
+        },
+        "8": {
+          "Name": "Arodio"
+        },
+        "9": {
+          "Name": "Rova"
+        },
+        "10": {
+          "Name": "Lamashan"
+        },
+        "11": {
+          "Name": "Neth"
+        },
+        "12": {
+          "Name": "Kuthona"
+        }
+      }
+    }
   },
   "TOKEN": {
     "VisionLowLight": "Visión en la Penumbra",

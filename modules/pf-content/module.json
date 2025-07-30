@@ -1,7 +1,7 @@
 {
   "title": "Pathfinder 1e Content",
   "description": "Contains magic items, non-magical items, feats, traits, class abilities, racial traits, diseases, drugs, special weapon/armor qualities, buffs/debuffs, familiars, eidolons, companions, magic item, and encounter tables. Additionally, Includes a huge amount of Rule journals for PF, bios and info for deities. Along with a host of other resources. These compendiums are not perfect. Except for buffs, most of them do not contain the appropriate changes to attacks, bonuses, etc. However, the item description and most of the relevant info needed to make work them are included, and Change formulas are slowly being added.",
-  "version": "11.1.0",
+  "version": "11.2.0",
   "relationships": {
     "systems": [
       {
@@ -436,7 +436,7 @@
   "id": "pf-content",
   "url": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-content",
   "manifest": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-content/-/releases/permalink/latest/downloads/module.json",
-  "download": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-content/-/releases/11.1.0/downloads/pf1-content.zip",
+  "download": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-content/-/releases/11.2.0/downloads/pf1-content.zip",
   "readme": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-content/-/blob/main/README.md",
   "changelog": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-content/-/blob/main/changelog.md"
 }

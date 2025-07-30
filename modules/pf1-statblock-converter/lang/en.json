@@ -1,17 +1,22 @@
 {
   "SBCPF1": {
+    "actorArt": "Actor Artwork",
+    "tokenArt": "Token Artwork",
     "sbcButton": "sbc | Convert Statblock",
     "sbcTitle": "sbc | Statblock Converter by Fair Strides",
     "log": {
       "inputDialogDoesNotYetExist": "The input dialog does not yet exist. Creating it now...",
       "openingInputDialog": "Opening the input dialog...",
       "configInitialized": "sbc | Config initialized",
-      "renderingButton": "Rendering the sbc button"
+      "renderingButton": "Rendering the sbc button",
+      "migrationMessage": "sbc | Migration | From {oldVersion} to {newVersion}"
     },
     "interfaceMessages": {
       "pleaseWaitForSetup": "Please wait for the Statblock Converter to finish initializing...",
       "readyForUse": "Statblock Converter is ready to use!",
-      "folderCreated": "sbc-pf1 | Created a custom folder for imported statblocks."
+      "folderCreated": "sbc | Created a custom folder for imported statblocks.",
+      "migrationStarted": "sbc | Migration started...",
+      "migrationFinished": "sbc | Migration finished."
     },
     "parser": {
       "age": {
@@ -429,6 +434,28 @@
       "debug": {
         "name": "Enable Debug Mode",
         "hint": "Enable the Debug Mode to get additional information in the console of your browser (F12). Default: False"
+      },
+      "actorArtFolder": {
+        "name": "Actor Artwork Folder",
+        "hint": "Define the folder where SBC browses for actor artwork. Default: none."
+      },
+      "tokenArtFolder": {
+        "name": "Token Artwork Folder",
+        "hint": "Define the folder where SBC browses for token artwork. Default: none."
+      },
+      "fileStorageSource": "If using Forge, the area files should be uploaded to",
+      "fileStorageFolder": {
+        "name": "The path to the folder where the files should be stored",
+        "hint": "Should look like 'sbc' or 'sbc/characters'."
+      },
+      "fileStorageBucket": "If using S3, what S3 bucket should be used"
+    },
+    "dialog": {
+      "artwork": {
+        "actor": "Actor",
+        "selectType": "Please select if this image is for an Actor portrait or a Token art.",
+        "title": "Artwork Selection",
+        "token": "Token"
       }
     },
     "spellLevelEnum": {
@@ -637,13 +664,15 @@
     "templates": {
       "autoConvert": "Convert automatically",
       "convert": "Convert",
-      "enterStatblockToConvert": "Enter the Statblock you want to convert to an actor",
+      "enterStatblockToConvert": "Enter the Statblock you want to convert",
       "inputPlaceholder": "How-to use:\n- Copy & Paste Statblocks into this field, you can edit the statblock after copying.\n- Errors, warnings and information will be shown below to help you identify potential errors in the statblock.\n- If you use multiple custom compendia, loading times may get very long.\n\nPlease note:\n- The conversion from statblock text to actor is not perfect.\n- To reproduce the statblock as written, some adjustments (e.g. through buffs or changes to attacks) are added automatically.\n- Statblocks often include typographical errors (e.g. extra linebreaks) or ligatures (e.g. ﬁ instead of fi). You may need to fix these manually.\n- For important NPCs (e.g. named one's, bosses or the BBEG), check them manually after the conversion!\n- Skills are almost never given in full in statblocks, sbc only fills in the ones given.",
       "import": "Import",
       "reset": "Reset",
       "input": "Input",
       "preview": "Preview",
-      "badLanguage": "Invalid language detected. SBC only supports English as the current language.<br />(You many have to change to English for importing, and then change back to your language)"
+      "badLanguage": "Invalid language detected. SBC only supports English as the current language.<br />(You many have to change to English for importing, and then change back to your language)",
+      "actorArtPathPlaceholder": "Actor Portrait Image",
+      "tokenArtPathPlaceholder": "Token Image"
     },
     "magicAuras": {
       "abj": "Abjuration",

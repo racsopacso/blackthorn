@@ -802,7 +802,7 @@
         "Experience": {
           "DisableHint": "Disabilita le funzionalità di progressione dei Punti Esperienza, come barre dell'esperienza, rilevamento dell'aumento di livello, soglie PE, ecc.",
           "Track": {
-            "CustomUsage": "La formula dell'esperienza personalizzata è cumulativa. Ciò significa, ad esempio, che per imitare l'esperienza in stile PF2 dovresti semplicemente inserire <code>1000</code>, poiché ogni singolo livello richiede esattamente 1000 punti esperienza, mentre impostandolo su <code>@level * 1000</code> significherebbe che ogni singolo livello richiederebbe mille pe in più rispetto al livello precedente. Utilizza i normali dati di tiro del personaggio con l'aggiunta di <code>@level</code> per il livello corrente.",
+            "CustomUsage": "La formula dell'esperienza personalizzata è cumulativa. Ciò significa, ad esempio, che per imitare l'esperienza in stile PF2 dovresti semplicemente inserire <code>1000</code>, poiché ogni singolo livello richiede esattamente 1000 punti esperienza, mentre impostandolo su <code>@level * 1000</code> significherebbe che ogni singolo livello richiederebbe mille PE in più rispetto al livello precedente. Utilizza i normali dati di tiro del personaggio con l'aggiunta di <code>@level</code> per il livello da ottenere.",
             "Hint": "La velocità con cui i personaggi avanzano di livello",
             "Label": "Progressione Esperienza",
             "Options": {
@@ -869,7 +869,7 @@
           "Title": "Configurazione Salute",
           "Label": "Configura Salute",
           "Hint": "Configura il calcolo della salute per gli attori.",
-          "Reset": "Ripristina la configurazione di Salute ai valori predefiniti.",
+          "Reset": "Ripristina la configurazione di Salute ai valori predefiniti. Salva per confermare.",
           "TabBase": "Base",
           "TabVariant": "Regole Alternative",
           "Rate": "Rateo",
@@ -1298,7 +1298,8 @@
       "entangled": "Intralciato",
       "exhausted": "Esausto",
       "fatigued": "Affaticato",
-      "fear": "Paura"
+      "fear": "Paura",
+      "curse": "Effetti Maledizione"
     },
     "AbilityPenalty": "Penalità Abilità",
     "ActionTypes": {
@@ -2784,8 +2785,8 @@
         "SpellPointCostHint": "Il costo predefinito dei punti magia impostato sugli incantesimi, se non configurati sui singoli incantesimo."
       },
       "Chat": {
-        "ObscureInlineRolls": "Oscura tiri in linea",
-        "ObscureSaveDCs": "Oscura la CD dei tiri salvezza",
+        "ObscureInlineRolls": "Offusca Tiri",
+        "ObscureSaveDCs": "Oscura le CD",
         "ObscureSaveDCsHint": "Nascondi i valori di CD dalle schede chat dei giocatori.",
         "AutoCollapse": "Comprimi le schede degli oggetti nella chat",
         "HideButtons": "Nascondi i Bottoni delle schede Chat",
@@ -2793,7 +2794,7 @@
         "NoTargetsHint": "Impedisce agli attori presi di mira di comparire sulle schede di attacco in chat",
         "ClearTargets": "Cancella i target dopo l'attacco",
         "ClearTargetsHint": "Determina se rimuovere tutti i target dopo un tiro di attacco.",
-        "ObscureInlineRollsHint": "Nascondi i tiri in linea a coloro che non hanno almeno il permesso di osservatore.",
+        "ObscureInlineRollsHint": "Nascondi i bonus e i dettagli del tiro a coloro che non hanno almeno il permesso di osservatore.",
         "HideButtonsHint": "determina se nascondere i pulsanti delle schede chat, come quelli che si trovano sui tiri di attacco.",
         "AutoCollapseHint": "Riduci automaticamente le descrizioni degli oggetti nella chat"
       },
@@ -2840,15 +2841,15 @@
     "Tours": {
       "ActorSheet": {
         "FeaturesTab": {
-          "Content": "Tutto ciò che riguarda i talenti o le abilità concesse dalla classe, dalla razza, dal dado o da altri effetti può essere trovato qui.<br /><br />Come prima, troverai il filtro in alto e le opzioni <i class='fas fa-folder-plus'></i>, <i class='fas fa-plus'></i>, <i class='fas fa-edit'></i>, <i class='fas fa-trash'></i> e <i class='fas fa-copy'></i>.<br /><br />Puoi anche passare il mouse sulle icone per informazioni.",
+          "Content": "Tutto ciò che riguarda i talenti o le abilità concesse dalla classe, dalla razza, dal dado o da altri effetti può essere trovato qui.<br><br>Come prima, troverai il filtro in alto e le opzioni <i class='fas fa-folder-plus'></i>, <i class='fas fa-plus'></i>, <i class='fas fa-edit'></i>, <i class='fas fa-trash'></i> e <i class='fas fa-copy'></i>.<br><br>Puoi anche passare il mouse sulle icone per informazioni.",
           "Title": "Scheda Talenti e Privilegi di Classe"
         },
         "HighlightStreetMagicianInCompendium": {
-          "Content": "Questo è uno dei PNG più completi del compendio.<br />Ha molte abilità e caratteristiche, oltre ad alcune capacità magiche e alcuni oggetti magici con script.",
+          "Content": "Questo è uno dei PNG più completi del compendio.<br>Ha molte abilità e caratteristiche, oltre ad alcune capacità magiche e alcuni oggetti magici con script.",
           "Title": "Mago di strada"
         },
         "GoToBasicMonsters": {
-          "Content": "Pathfinder 1e include alcuni mostri base pronti all'uso.<br />Ne useremo uno per rivedere la scheda e come è stata configurata.",
+          "Content": "Pathfinder 1e include alcuni mostri base pronti all'uso.<br >Ne useremo uno per rivedere la scheda e come è stata configurata.",
           "Title": "Mostri Base pronti all'uso"
         },
         "TooltipsWithDefinitions": {
@@ -2856,42 +2857,42 @@
           "Title": "Riferimenti dati"
         },
         "OtherCommonButtons": {
-          "Content": "Tieni d'occhio anche i seguenti pulsanti, poiché condividono tutti la stessa funzionalità <em>item</em> (razza, classe, arma, talento, priv. di classe...) in tutta la scheda. Se non sei un GM non potrai vedere queste icone in <strong>questo foglio specifico</strong>.<br /><ul class='pf1-tour'><li><i class='fas fa-folder-plus'></i> Cerca un <em>item</em> nel <code>CompendiumBrowser</code>.</li><li><i class='fas fa-edit'></i> Modifica un <em>item</em>.</li><li><i class='fas fa-trash'></i> Elimina un <em>item</em>.</li><li><i class='fas fa-copy'></i> Clona l'<em>item</em>.</li><li><i class='fas fa-plus'></i> Aggiungi un <em>item</em> da zero.</li></ul>",
+          "Content": "Tieni d'occhio anche i seguenti pulsanti, poiché condividono tutti la stessa funzionalità <em>item</em> (razza, classe, arma, talento, priv. di classe...) in tutta la scheda. Se non sei un GM non potrai vedere queste icone in <strong>questo foglio specifico</strong>.<br><ul class='pf1-tour'><li><i class='fas fa-folder-plus'></i> Cerca un <em>item</em> nel <code>CompendiumBrowser</code>.</li><li><i class='fas fa-edit'></i> Modifica un <em>item</em>.</li><li><i class='fas fa-trash'></i> Elimina un <em>item</em>.</li><li><i class='fas fa-copy'></i> Clona l'<em>item</em>.</li><li><i class='fas fa-plus'></i> Aggiungi un <em>item</em> da zero.</li></ul>",
           "Title": "Altri pulsanti comuni"
         },
         "Classes": {
-          "Content": "Allo stesso modo della Razza puoi cliccare su <i class='fas fa-folder-plus'></i> per aggiungere una classe da <code>CompendiumBrowser</code>, cliccare su <i class='fas fa-edit'></i> per modificare la classe o eliminarla cliccando su <i class='fas fa-trash'></i>.<br /><br />Ogni volta che aggiungi una classe o ne fai salire di livello una esistente, apparirà una finestra di dialogo di Aumento di livello guidata per aiutarti a configurare le modifiche.<br /><br />Inoltre puoi clonare una classe esistente cliccando su <i class='fas fa-copy'></i>.",
+          "Content": "Allo stesso modo della Razza puoi cliccare su <i class='fas fa-folder-plus'></i> per aggiungere una classe da <code>CompendiumBrowser</code>, cliccare su <i class='fas fa-edit'></i> per modificare la classe o eliminarla cliccando su <i class='fas fa-trash'></i>.<br><br>Ogni volta che aggiungi una classe o ne fai salire di livello una esistente, apparirà una finestra di dialogo di Aumento di livello guidata per aiutarti a configurare le modifiche.<br><br>Inoltre puoi clonare una classe esistente cliccando su <i class='fas fa-copy'></i>.",
           "Title": "Classi"
         },
         "SheetTabs": {
-          "Content": "La scheda contiene molte schede diverse che riportano parti diverse dei dati.<br />È possibile considerarle come sezioni diverse della scheda.",
+          "Content": "La scheda contiene molte schede diverse che riportano parti diverse dei dati.<br>È possibile considerarle come sezioni diverse della scheda.",
           "Title": "Schede"
         },
         "Race": {
-          "Content": "Ecco la visualizzazione della razza.<br />Se l'attore non ha ancora una razza, potrai selezionarne una dal <code>CompendiumBrowser</code> cliccando su <i class='fas fa-folder-plus'></i> oppure crearne una personalizzata cliccando su <i class='fas fa-plus'></i>.<br /><br />Inoltre, puoi modificare la razza e aggiungere le parti mancanti, se necessario (ad esempio +2 per l'umano a qualsiasi punteggio di caratteristica) cliccando su <i class='fas fa-edit'></i> oppure eliminarla cliccando su <i class='fas fa-trash'></i>.",
+          "Content": "Ecco la visualizzazione della razza.<br>Se l'attore non ha ancora una razza, potrai selezionarne una dal <code>CompendiumBrowser</code> cliccando su <i class='fas fa-folder-plus'></i> oppure crearne una personalizzata cliccando su <i class='fas fa-plus'></i>.<br><br>Inoltre, puoi modificare la razza e aggiungere le parti mancanti, se necessario (ad esempio +2 per l'umano a qualsiasi punteggio di caratteristica) cliccando su <i class='fas fa-edit'></i> oppure eliminarla cliccando su <i class='fas fa-trash'></i>.",
           "Title": "Razza"
         },
         "HdCrAndExperience": {
-          "Content": "Questo vale solo per <strong>schede PNG</strong>. Per <strong>schede PG</strong>, verrà invece visualizzata una barra dell'esperienza se abilitata (come di default).<br /><br />I dadi vita e l'esperienza che questo PNG fornisce vengono calcolati automaticamente. I dadi vita si basano sulla sezione delle classi, mentre l'esperienza si basa sul GS.<br /><br />Il GM può modificare manualmente il GS.",
+          "Content": "Questo vale solo per <strong>schede PNG</strong>. Per <strong>schede PG</strong>, verrà invece visualizzata una barra dell'esperienza se abilitata (come di default).<br><br>I dadi vita e l'esperienza che questo PNG fornisce vengono calcolati automaticamente. I dadi vita si basano sulla sezione delle classi, mentre l'esperienza si basa sul GS.<br><br>Il GM può modificare manualmente il GS.",
           "Title": "Dadi Vita, GS ed Esperienza"
         },
         "Title": "Panoramica della Scheda del Personaggio",
         "Description": "Una rapida occhiata a come appare la scheda del personaggio in Pathfinder 1e per Foundry e dove si trova ogni cosa.",
         "HighlightSheet": {
           "Title": "La Scheda",
-          "Content": "Questa è la scheda del PNG.<br />A prima vista sembra complicato, ma lo capirai presto."
+          "Content": "Questa è la scheda del PNG.<br>A prima vista sembra complicata, ma la capirai presto."
         },
         "RollButtons": {
           "Title": "Pulsanti di Tiro",
-          "Content": "Tieni a mente le icone <i class='fas fa-dice-d20'></i> e <i class='fas fa-dice'></i>.<br />Sono sparse ovunque sul foglio e puoi cliccarci sopra per effettuare tiri salvezza, attacchi, visualizzare difese, ecc..."
+          "Content": "Tieni a mente le icone <i class='fas fa-dice-d20'></i> e <i class='fas fa-dice'></i>.<br>Sono sparse ovunque sul foglio e puoi cliccarci sopra per effettuare tiri salvezza, attacchi, visualizzare difese, ecc..."
         },
         "DetailsInSheet": {
           "Title": "Sezione Dettagli",
-          "Content": "La scheda Riepilogo è composta da molte sezioni diverse.<br /><br />In questa parte dovrai indicare dettagli quali <em>Sesso</em>, <em>Età</em>, ecc... nonché la razza.<br />Torneremo su questo argomento più avanti."
+          "Content": "La scheda Riepilogo è composta da molte sezioni diverse.<br><br>In questa parte dovrai indicare dettagli quali <em>Sesso</em>, <em>Età</em>, ecc... nonché la razza.<br />Torneremo su questo argomento più avanti."
         },
         "RestButton": {
           "Title": "Riposo",
-          "Content": "Il pulsante di riposo riempirà automaticamente tutte le cariche per le abilità e gli elementi giornalieri.<br /> Aggiungerà anche i punti ferita recuperati in base alle ore di riposo."
+          "Content": "Il pulsante di riposo riempirà automaticamente tutte le cariche per le abilità e gli elementi giornalieri.<br> Aggiungerà anche i punti ferita recuperati in base alle ore di riposo."
         },
         "HitPointsAndSpeed": {
           "Title": "Punti Ferita e Velocità",
@@ -2903,38 +2904,38 @@
         },
         "AttributesTab": {
           "Title": "Scheda Attributi",
-          "Content": "Ecco una panoramica dei punteggi delle caratteristiche e degli attributi.<br />Chiamiamo attributi l'insieme di Sensi, Dimensioni, Linguaggi, Resistenze, Immunità... Li esamineremo rapidamente."
+          "Content": "Ecco una panoramica dei punteggi delle caratteristiche e degli attributi.<br>Chiamiamo attributi l'insieme di Sensi, Dimensioni, Linguaggi, Resistenze, Immunità... Li esamineremo rapidamente."
         },
         "TraitsSection": {
-          "Content": "Taglia, sensi, resistenze, immunità... tutte le voci qui sono modificabili cliccando su <i class='fas fa-edit'></i>, digitando direttamente l'input o selezionando da un menu a discesa.<br /><br />I sensi funzionano automaticamente con il sistema di illuminazione Foundry, ad eccezione di quelli non supportati e contrassegnati come tali (<code>*</code>).",
+          "Content": "Taglia, sensi, resistenze, immunità... tutte le voci qui sono modificabili cliccando su <i class='fas fa-edit'></i>, digitando direttamente l'input o selezionando da un menu a discesa.<br <br>I sensi funzionano automaticamente con il sistema di illuminazione Foundry, ad eccezione di quelli non supportati e contrassegnati come tali (<code>*</code>).",
           "Title": "Attributi"
         },
         "InventoryTab": {
-          "Content": "Qui potrai vedere tutti gli oggetti che hai nel tuo inventario.<br />Come nella <em>scheda Combattimento</em>, le voci sono raggruppate per tipo.<br /><br />Puoi aggiungere oggetti dal <code>CompendiumBrowser</code> cliccando su <i class='fas fa-folder-plus'></i>.<br />Hai anche le opzioni <i class='fas fa-plus'></i>, <i class='fas fa-edit'></i>, <i class='fas fa-trash'></i> e <i class='fas fa-copy'></i>.",
+          "Content": "Qui potrai vedere tutti gli oggetti che hai nel tuo inventario.<br>Come nella <em>scheda Combattimento</em>, le voci sono raggruppate per tipo.<br><br>Puoi aggiungere oggetti dal <code>CompendiumBrowser</code> cliccando su <i class='fas fa-folder-plus'></i>.<br>Hai anche le opzioni <i class='fas fa-plus'></i>, <i class='fas fa-edit'></i>, <i class='fas fa-trash'></i> e <i class='fas fa-copy'></i>.",
           "Title": "Scheda Inventario"
         },
         "SettingsTab": {
-          "Content": "Qui potrai configurare quali abilità usare per calcoli specifici (ad esempio <em>Carisma</em> invece di <em>Costituzione</em> per i Non Morti) e anche i libri degli incantesimi.<br /><br />Inoltre puoi usare il <code>Calcolatore Point Buy</code> in qualsiasi momento, non solo durante la creazione del personaggio.",
+          "Content": "Qui potrai configurare quali abilità usare per calcoli specifici (ad esempio <em>Carisma</em> invece di <em>Costituzione</em> per i Non Morti) e anche i libri degli incantesimi.<br><br>Inoltre puoi usare il <code>Calcolatore Point Buy</code> in qualsiasi momento, non solo durante la creazione del personaggio.",
           "Title": "Impostazioni"
         },
         "CombatTab": {
-          "Content": "Qui troverai tutte le scorciatoie di cui potresti aver bisogno quando affronti un scontro. Come puoi vedere, gli elementi sono raggruppati per tipo.<br /><br />Puoi modificare le voci cliccando su <i class='fas fa-edit'></i>, eliminarle cliccando su <i class='fas fa-trash'></i> o clonarle cliccando su <i class='fas fa-copy'></i>.<br />Inoltre, puoi aggiungere un oggetto da zero cliccando su <code><i class='fas fa-plus'></i>Add</code>.",
+          "Content": "Qui troverai tutte le scorciatoie di cui potresti aver bisogno quando affronti un scontro. Come puoi vedere, gli elementi sono raggruppati per tipo.<br><br>Puoi modificare le voci cliccando su <i class='fas fa-edit'></i>, eliminarle cliccando su <i class='fas fa-trash'></i> o clonarle cliccando su <i class='fas fa-copy'></i>.<br>Inoltre, puoi aggiungere un oggetto da zero cliccando su <code><i class='fas fa-plus'></i>Add</code>.",
           "Title": "Scheda Combattimento"
         },
         "BuffsTab": {
-          "Content": "Tutte le condizioni e i buff possono essere trovati qui.<br />Una volta aggiunto un buff, vedrai le opzioni <i class='fas fa-edit'></i>, <i class='fas fa-trash'></i> e <i class='fas fa-copy'></i>. Puoi anche crearne uno con le opzioni <i class='fas fa-folder-plus'></i> e <i class='fas fa-plus'></i>.<br /><br/>La maggior parte delle condizioni di Pathfinder 1e sono visualizzate sopra, altrimenti puoi cercarle nel <code>CompendiumBrowser</code>.",
+          "Content": "Tutte le condizioni e i buff possono essere trovati qui.<br>Una volta aggiunto un buff, vedrai le opzioni <i class='fas fa-edit'></i>, <i class='fas fa-trash'></i> e <i class='fas fa-copy'></i>. Puoi anche crearne uno con le opzioni <i class='fas fa-folder-plus'></i> e <i class='fas fa-plus'></i>.<br><br>La maggior parte delle condizioni di Pathfinder 1e sono visualizzate sopra, altrimenti puoi cercarle nel <code>CompendiumBrowser</code>.",
           "Title": "Scheda Effetti e Condizioni"
         },
         "SpellsTab": {
-          "Content": "Se la tua classe è un incantatore o hai configurato capacità magiche, queste verranno mostrate qui.<br />Come al solito puoi trovare le opzioni <i class='fas fa-folder-plus'></i>, <i class='fas fa-plus'></i>, <i class='fas fa-edit'></i>, <i class='fas fa-trash'></i> e <i class='fas fa-copy'></i>.",
+          "Content": "Se la tua classe è un incantatore o hai configurato capacità magiche, queste verranno mostrate qui.<br>Come al solito puoi trovare le opzioni <i class='fas fa-folder-plus'></i>, <i class='fas fa-plus'></i>, <i class='fas fa-edit'></i>, <i class='fas fa-trash'></i> e <i class='fas fa-copy'></i>.",
           "Title": "Scheda Incantesimi"
         },
         "Charges": {
-          "Content": "Questa è la quantità di cariche di un oggetto (<strong>non la quantità di utilizzi rimanenti</strong>; ad esempio 4 <em>Imposizione delle mani</em> rimanenti non significano 4 <em>Incanalamento di energia positiva</em> rimanenti). Seguito dalla quantità massima.<br /><br />Puoi modificare manualmente le cariche digitando nell'input o cliccando su <i class='fas fa-edit'></i>.<br /><br />Puoi anche modificare il costo della carica cliccando su <i class='fas fa-edit'></i>.",
+          "Content": "Questa è la quantità di cariche di un oggetto (<strong>non la quantità di utilizzi rimanenti</strong>; ad esempio 4 <em>Imposizione delle mani</em> rimanenti non significano 4 <em>Incanalamento di energia positiva</em> rimanenti). Seguito dalla quantità massima.<br><br>Puoi modificare manualmente le cariche digitando nell'input o cliccando su <i class='fas fa-edit'></i>.<br><br>Puoi anche modificare il costo della carica cliccando su <i class='fas fa-edit'></i>.",
           "Title": "Cariche"
         },
         "SpellbooksConfiguration": {
-          "Content": "Puoi configurare i libri degli incantesimi qui cliccando sull'icona <i class='fas fa-cogs'></i>. Qui potrai modificare a tuo piacimento le numerose opzioni dei libri degli incantesimi.<br /><br />Se il tuo libro degli incantesimi proviene da un incantatore del <code>CompendiumBrowser</code>, è già configurato, fatta eccezione per alcune piccole modifiche (come incantesimi extra per lo Stregone).",
+          "Content": "Puoi configurare i libri degli incantesimi qui cliccando sull'icona <i class='fas fa-cogs'></i>. Qui potrai modificare a tuo piacimento le numerose opzioni dei libri degli incantesimi.<br><br>Se il tuo libro degli incantesimi proviene da un incantatore del <code>CompendiumBrowser</code>, è già configurato, fatta eccezione per alcune piccole modifiche (come incantesimi extra per lo Stregone).",
           "Title": "Configurazione Libri degli Incantesimi"
         },
         "MagicItemsTable": {
@@ -2943,7 +2944,7 @@
         },
         "AbilityScoresSection": {
           "Title": "Punteggi Caratteristiche",
-          "Content": "Il punteggio di caratteristica <em>Totale</em> è modificabile, così come <em>Danno</em>, <em>Risucchio</em> e <em>Penalità</em>.<br />I <em>modificatori</em>, <em>PCA <small>(Penalità alla Classe Armatura)</small></em> e <em>FIA <small>(Fallimento Incantesimi Arcani)</small></em> vengono calcolati automaticamente."
+          "Content": "Il punteggio di caratteristica <em>Totale</em> è modificabile, ma modifica il valore base. Anche <em>Danno</em>, <em>Risucchio</em> e <em>Penalità</em> possono essere modificati qui."
         },
         "ResistancesAndImmunitiesDialog": {
           "Title": "Finestra Resistenze e Immunità",
@@ -2951,7 +2952,7 @@
         },
         "FilterOptions": {
           "Title": "Filtra Opzioni",
-          "Content": "Nota le opzioni di filtro. Queste opzioni vengono utilizzate per filtrare le voci. E sono disponibili anche in altre schede.<br /><br />Ogni scheda avrà filtri per i propri tipi di elementi specifici."
+          "Content": "Nota le opzioni di filtro. Queste opzioni vengono utilizzate per filtrare le voci. E sono disponibili anche in altre schede.<br><br>Ogni scheda avrà filtri per i propri tipi di elementi specifici."
         },
         "ItemsDetails": {
           "Title": "Dettagli e Opzioni Elementi",
@@ -2959,11 +2960,11 @@
         },
         "SkillsTab": {
           "Title": "Scheda Abilità",
-          "Content": "Qui sono elencate tutte le abilità di Pathfinder.<br />Se passi il mouse su una qualsiasi di esse, verrà visualizzata un'icona <i class='fas fa-book'></i> che aprirà la voce del compendio per l'abilità.<br /><br />Inoltre, puoi aggiungere abilità personalizzate cliccando su <code><i class='fas fa-plus'></i>Aggiungi abilità</code> in fondo all'elenco."
+          "Content": "Qui sono elencate tutte le abilità di Pathfinder.<br>Se passi il mouse su una qualsiasi di esse, verrà visualizzata un'icona <i class='fas fa-book'></i> che aprirà la voce del compendio per l'abilità.<br><br>Inoltre, puoi aggiungere abilità personalizzate cliccando su <code><i class='fas fa-plus'></i>Aggiungi abilità</code> in fondo all'elenco."
         },
         "UnlockSkills": {
           "Title": "Sblocca abilità per la modifica",
-          "Content": "Puoi sbloccare le abilità per la modifica cliccando su <i class='fas fa-lock'></i>.<br />Dopodiché vedrai l'icona <i class='fas fa-edit'></i>. Puoi anche bloccare di nuovo le abilità cliccando su <i class='fas fa-lock-open'></i>."
+          "Content": "Puoi sbloccare le abilità per la modifica cliccando su <i class='fas fa-lock'></i>.<br>Dopodiché vedrai l'icona <i class='fas fa-edit'></i>. Puoi anche bloccare di nuovo le abilità cliccando su <i class='fas fa-lock-open'></i>."
         },
         "AddSubskill": {
           "Title": "Aggiungi sotto-abilità",
@@ -2971,7 +2972,7 @@
         },
         "ConditionDuration": {
           "Title": "Durata Condizioni",
-          "Content": "Come previsto, puoi attivare/disattivare la condizione cliccando sull'icona.<br /><br />Puoi anche impostare una durata per la condizione cliccandoci sopra con il <em>tasto destro</em> del mouse."
+          "Content": "Come previsto, puoi attivare/disattivare la condizione cliccando sull'icona.<br><br>Puoi anche impostare una durata per la condizione cliccandoci sopra con il <em>tasto destro</em> del mouse."
         },
         "SpellbooksTab": {
           "Title": "Libri degli Incantesimi",
@@ -2979,7 +2980,7 @@
         },
         "BiographyTab": {
           "Title": "Scheda Biografia",
-          "Content": "Questo è un campo di testo libero che puoi usare per scrivere la biografia del tuo personaggio, i suoi vantaggi, ecc.<br /><br />L'unica cosa da tenere a mente è che il testo qui è <strong>visibile a chiunque abbia un permesso <code>Limitato</code></strong>."
+          "Content": "Questo è un campo di testo libero che puoi usare per scrivere la biografia del tuo personaggio, i suoi vantaggi, ecc.<br><br>L'unica cosa da tenere a mente è che il testo qui è <strong>visibile a chiunque abbia un permesso <code>Limitato</code></strong>."
         },
         "NotesTab": {
           "Title": "Scheda Note",

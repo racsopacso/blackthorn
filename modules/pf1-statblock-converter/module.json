@@ -1,6 +1,6 @@
 {
   "id": "pf1-statblock-converter",
-  "title": "Statblock Converter (SBC) for Pathfinder 1E",
+  "title": "Pathfinder 1e Statblock Converter (SBC)",
   "description": "Converts Pathfinder 1st Edition statblocks into working PC or NPC actors.",
   "authors": [
     {
@@ -19,11 +19,11 @@
   "url": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-statblock-converter",
   "bugs": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-statblock-converter/-/issues",
   "manifest": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-statblock-converter/-/releases/permalink/latest/downloads/module.json",
-  "download": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-statblock-converter/-/releases/5.5.0/downloads/pf1-statblock-converter.zip",
-  "version": "5.5.0",
+  "download": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-statblock-converter/-/releases/5.7.1/downloads/pf1-statblock-converter.zip",
+  "version": "5.7.1",
   "compatibility": {
     "minimum": "12",
-    "verified": "12"
+    "verified": "13"
   },
   "esmodules": [
     "./scripts/sbc.js"
@@ -59,7 +59,7 @@
         "manifest": "https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/releases/permalink/latest/downloads/system.json",
         "compatibility": {
           "minimum": "11",
-          "verified": "11"
+          "verified": "11.7"
         }
       }
     ],
@@ -73,6 +73,11 @@
         "id": "pf1e-archetypes",
         "type": "module",
         "manifest": "https://gitlab.com/Tryss_Farron/pf1e-archetypes/-/releases/permalink/latest/downloads/module.json"
+      },
+      {
+        "id": "statblock-library",
+        "type": "module",
+        "manifest": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-statblock-library/-/releases/permalink/latest/downloads/module.json"
       }
     ]
   },

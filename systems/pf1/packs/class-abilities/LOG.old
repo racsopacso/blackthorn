@@ -1,8 +1,17 @@
-2025/06/08-18:18:32.045326 7ff8da7be6c0 Recovering log #35
-2025/06/08-18:18:32.046645 7ff8da7be6c0 Delete type=3 #33
-2025/06/08-18:18:32.046686 7ff8da7be6c0 Delete type=0 #35
-2025/06/08-18:18:50.266670 7ff63bfff6c0 Level-0 table #40: started
-2025/06/08-18:18:50.266763 7ff63bfff6c0 Level-0 table #40: 0 bytes OK
-2025/06/08-18:18:50.267480 7ff63bfff6c0 Delete type=0 #38
-2025/06/08-18:18:50.268396 7ff63bfff6c0 Manual compaction at level-0 from '!folders!2d6BU1ebPZTB2fOU' @ 72057594037927935 : 1 .. '!items!zyyB1AU3s5PAuBPU' @ 0 : 0; will stop at (end)
-2025/06/08-18:18:50.268434 7ff63bfff6c0 Manual compaction at level-1 from '!folders!2d6BU1ebPZTB2fOU' @ 72057594037927935 : 1 .. '!items!zyyB1AU3s5PAuBPU' @ 0 : 0; will stop at (end)
+2025/07/29-15:45:20.602280 7ff8d97bc6c0 Recovering log #4
+2025/07/29-15:45:20.603897 7ff8d97bc6c0 Delete type=0 #4
+2025/07/29-15:45:20.603923 7ff8d97bc6c0 Delete type=3 #2
+2025/07/29-16:31:16.433975 7ff63bfff6c0 Level-0 table #9: started
+2025/07/29-16:31:16.482716 7ff63bfff6c0 Level-0 table #9: 4519965 bytes OK
+2025/07/29-16:31:16.484299 7ff63bfff6c0 Delete type=0 #7
+2025/07/29-16:31:16.496108 7ff63bfff6c0 Manual compaction at level-0 from '!folders!2d6BU1ebPZTB2fOU' @ 72057594037927935 : 1 .. '!items!zyyB1AU3s5PAuBPU' @ 0 : 0; will stop at (end)
+2025/07/29-16:31:16.500564 7ff63bfff6c0 Manual compaction at level-1 from '!folders!2d6BU1ebPZTB2fOU' @ 72057594037927935 : 1 .. '!items!zyyB1AU3s5PAuBPU' @ 0 : 0; will stop at '!items!zyyB1AU3s5PAuBPU' @ 9332 : 1
+2025/07/29-16:31:16.500575 7ff63bfff6c0 Compacting 1@1 + 1@2 files
+2025/07/29-16:31:16.534406 7ff63bfff6c0 Generated table #10@1: 2236 keys, 2129143 bytes
+2025/07/29-16:31:16.563376 7ff63bfff6c0 Generated table #11@1: 2177 keys, 2127903 bytes
+2025/07/29-16:31:16.568211 7ff63bfff6c0 Generated table #12@1: 268 keys, 263946 bytes
+2025/07/29-16:31:16.568226 7ff63bfff6c0 Compacted 1@1 + 1@2 files => 4520992 bytes
+2025/07/29-16:31:16.568649 7ff63bfff6c0 compacted to: files[ 0 0 3 0 0 0 0 ]
+2025/07/29-16:31:16.569072 7ff63bfff6c0 Delete type=2 #9
+2025/07/29-16:31:16.570503 7ff63bfff6c0 Delete type=2 #5
+2025/07/29-16:31:16.584811 7ff63bfff6c0 Manual compaction at level-1 from '!items!zyyB1AU3s5PAuBPU' @ 9332 : 1 .. '!items!zyyB1AU3s5PAuBPU' @ 0 : 0; will stop at (end)

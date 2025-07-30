@@ -1426,7 +1426,8 @@
       "dazed": "Hébété",
       "dazzled": "Ébloui",
       "dead": "Mort",
-      "deaf": "Assourdi"
+      "deaf": "Assourdi",
+      "curse": "Effets de Malédiction"
     },
     "Distance": {
       "mi": "Miles",
@@ -2964,7 +2965,7 @@
           "Title": "Classes"
         },
         "AbilityScoresSection": {
-          "Content": "Les caractéristiques <em>Total</em> peut être modifié, de même pour <em>dégâts</em>, <em>diminutions</em> et <em>affaiblissement</em>.<br>Les <em>modificateurs</em>, <em>MAT<small>(Malus d'Armure aux Tests)</small></em> et <em>RE<small>(Risque d'Échec des sorts profanes)</small></em> sont calculés automatiquement.",
+          "Content": "La caractéristique <em>Total</em> peut être modifiée, mais ceci modifie la valeur de base. <em>Dégâts</em>, <em>Diminution</em> et <em>Affaiblissement</em> peuvent aussi être ajustés ici.",
           "Title": "Caractéristiques"
         },
         "InventoryTab": {
@@ -3018,7 +3019,7 @@
           "Content": "Notez les options de filtre. Ces options servent à filtrer les entrées et sont également disponibles dans d'autres onglets.<br><br>Chaque onglet dispose de filtres adaptés à ses propres types d'objets."
         },
         "ItemsDetails": {
-          "Title": "Détails des objets et options",
+          "Title": "Détails de l'objet et options",
           "Content": "Vous pouvez survoler chacune des icônes dans l'en-tête de chaque groupe (<i class='icon-pf text-icon icon-inventory-slot'></i>, <i class='icon-pf text-icon icon-gears'></i>, <i class='icon-pf text-icon icon-weight'></i>, <i class='icon-pf text-icon icon-quill-ink'></i>, ...) pour obtenir plus d'informations sur leur signification."
         },
         "FeaturesTab": {

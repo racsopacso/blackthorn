@@ -1,8 +1,15 @@
-2025/06/08-18:18:32.033019 7ff8d97bc6c0 Recovering log #33
-2025/06/08-18:18:32.034424 7ff8d97bc6c0 Delete type=3 #31
-2025/06/08-18:18:32.034465 7ff8d97bc6c0 Delete type=0 #33
-2025/06/08-18:18:50.263845 7ff63bfff6c0 Level-0 table #38: started
-2025/06/08-18:18:50.263988 7ff63bfff6c0 Level-0 table #38: 0 bytes OK
-2025/06/08-18:18:50.264776 7ff63bfff6c0 Delete type=0 #36
-2025/06/08-18:18:50.264851 7ff63bfff6c0 Manual compaction at level-0 from '!folders!0rW9NwM4coxKB7uY' @ 72057594037927935 : 1 .. '!items!tM956KLS078oZF72' @ 0 : 0; will stop at (end)
-2025/06/08-18:18:50.264888 7ff63bfff6c0 Manual compaction at level-1 from '!folders!0rW9NwM4coxKB7uY' @ 72057594037927935 : 1 .. '!items!tM956KLS078oZF72' @ 0 : 0; will stop at (end)
+2025/07/29-15:45:20.588853 7ff8d9fbd6c0 Recovering log #4
+2025/07/29-15:45:20.590655 7ff8d9fbd6c0 Delete type=0 #4
+2025/07/29-15:45:20.590687 7ff8d9fbd6c0 Delete type=3 #2
+2025/07/29-16:31:16.392644 7ff63bfff6c0 Level-0 table #9: started
+2025/07/29-16:31:16.394097 7ff63bfff6c0 Level-0 table #9: 41777 bytes OK
+2025/07/29-16:31:16.394661 7ff63bfff6c0 Delete type=0 #7
+2025/07/29-16:31:16.403475 7ff63bfff6c0 Manual compaction at level-0 from '!folders!0rW9NwM4coxKB7uY' @ 72057594037927935 : 1 .. '!items!tbYOVRDBl2uywz2o' @ 0 : 0; will stop at (end)
+2025/07/29-16:31:16.415920 7ff63bfff6c0 Manual compaction at level-1 from '!folders!0rW9NwM4coxKB7uY' @ 72057594037927935 : 1 .. '!items!tbYOVRDBl2uywz2o' @ 0 : 0; will stop at '!items!tbYOVRDBl2uywz2o' @ 80 : 1
+2025/07/29-16:31:16.415930 7ff63bfff6c0 Compacting 1@1 + 1@2 files
+2025/07/29-16:31:16.417337 7ff63bfff6c0 Generated table #10@1: 42 keys, 41929 bytes
+2025/07/29-16:31:16.417350 7ff63bfff6c0 Compacted 1@1 + 1@2 files => 41929 bytes
+2025/07/29-16:31:16.417724 7ff63bfff6c0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/07/29-16:31:16.417787 7ff63bfff6c0 Delete type=2 #9
+2025/07/29-16:31:16.417860 7ff63bfff6c0 Delete type=2 #5
+2025/07/29-16:31:16.429395 7ff63bfff6c0 Manual compaction at level-1 from '!items!tbYOVRDBl2uywz2o' @ 80 : 1 .. '!items!tbYOVRDBl2uywz2o' @ 0 : 0; will stop at (end)

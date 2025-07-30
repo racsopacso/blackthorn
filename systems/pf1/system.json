@@ -2,7 +2,7 @@
   "id": "pf1",
   "title": "Pathfinder 1e",
   "description": "A comprehensive implementation of the Pathfinder 1e tabletop RPG.",
-  "version": "11.5",
+  "version": "11.8",
   "authors": [
     {
       "name": "Furyspark",
@@ -354,5 +354,5 @@
   "bugs": "https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/issues",
   "url": "https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1",
   "manifest": "https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/releases/permalink/latest/downloads/system.json",
-  "download": "https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/releases/v11.5/downloads/pf1.zip"
+  "download": "https://gitlab.com/foundryvtt_pathfinder1e/foundryvtt-pathfinder1/-/releases/v11.8/downloads/pf1.zip"
 }

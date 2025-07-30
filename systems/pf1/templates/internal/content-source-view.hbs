@@ -9,7 +9,7 @@
     {{~#if errata}}{{localize "PF1.ContentSource.Info.Errata"}}: {{errata}}<br>{{else if date}}{{localize "PF1.ContentSource.Info.Release"}}: {{date}}<br>{{/if~}}
     {{~#if publisher}}{{localize "PF1.ContentSource.Info.Publisher"}}: {{publisher}}<br>{{/if~}}
     {{#with ../bookSources.extras}}
-      <h4>{{localize "PF1.ContentSource.Extras"}}</h4>
+      <h5>{{localize "PF1.ContentSource.Extras"}}</h5>
       <p>{{#each this}}{{title}}<br>{{/each}}
     {{/with}}
     "{{/if}}>

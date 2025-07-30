@@ -349,6 +349,7 @@
     {
         "id": "castle-vk",
         "name": "structures.castle-vk.name",
+        "maximumCivicRdLimit": 3,
         "activityBonusRules": [
             {
                 "value": 2,
@@ -457,7 +458,8 @@
             "town": 1,
             "city": 2,
             "metropolis": 3
-        }
+        },
+        "increaseMinimumSettlementActions": 2
     },
     {
         "id": "castle",
@@ -2190,6 +2192,7 @@
     {
         "id": "palace-vk",
         "name": "structures.palace-vk.name",
+        "maximumCivicRdLimit": 4,
         "activityBonusRules": [
             {
                 "value": 3,
@@ -2305,7 +2308,8 @@
             "town": 1,
             "city": 2,
             "metropolis": 4
-        }
+        },
+        "increaseMinimumSettlementActions": 2
     },
     {
         "id": "palace",
@@ -3454,6 +3458,8 @@
             "building",
             "edifice"
         ],
+        "maximumCivicRdLimit": 2,
+        "increaseMinimumSettlementActions": 1,
         "affectsDowntime": false,
         "reducesUnrest": true,
         "reduceUnrestBy": {
