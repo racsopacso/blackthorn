@@ -1,8 +1,8 @@
-2025/07/29-16:31:45.849640 7ff8da7be6c0 Recovering log #8
-2025/07/29-16:31:45.851294 7ff8da7be6c0 Delete type=3 #6
-2025/07/29-16:31:45.851328 7ff8da7be6c0 Delete type=0 #8
-2025/08/19-17:49:08.305995 7ff63bfff6c0 Level-0 table #14: started
-2025/08/19-17:49:08.306175 7ff63bfff6c0 Level-0 table #14: 0 bytes OK
-2025/08/19-17:49:08.306979 7ff63bfff6c0 Delete type=0 #12
-2025/08/19-17:49:08.308902 7ff63bfff6c0 Manual compaction at level-0 from '!journal!08mt83gaNyMe4VYb' @ 72057594037927935 : 1 .. '!journal.pages!yC9fCYwt83rYjZqr.7tTQgrgES87n91fF' @ 0 : 0; will stop at (end)
-2025/08/19-17:49:08.308931 7ff63bfff6c0 Manual compaction at level-1 from '!journal!08mt83gaNyMe4VYb' @ 72057594037927935 : 1 .. '!journal.pages!yC9fCYwt83rYjZqr.7tTQgrgES87n91fF' @ 0 : 0; will stop at (end)
+2025/08/19-17:49:22.532070 7ff8d9fbd6c0 Recovering log #13
+2025/08/19-17:49:22.534212 7ff8d9fbd6c0 Delete type=0 #13
+2025/08/19-17:49:22.534244 7ff8d9fbd6c0 Delete type=3 #11
+2025/09/14-17:55:14.514979 7ff63bfff6c0 Level-0 table #18: started
+2025/09/14-17:55:14.515160 7ff63bfff6c0 Level-0 table #18: 0 bytes OK
+2025/09/14-17:55:14.516005 7ff63bfff6c0 Delete type=0 #16
+2025/09/14-17:55:14.517150 7ff63bfff6c0 Manual compaction at level-0 from '!journal!08mt83gaNyMe4VYb' @ 72057594037927935 : 1 .. '!journal.pages!yC9fCYwt83rYjZqr.7tTQgrgES87n91fF' @ 0 : 0; will stop at (end)
+2025/09/14-17:55:14.517316 7ff63bfff6c0 Manual compaction at level-1 from '!journal!08mt83gaNyMe4VYb' @ 72057594037927935 : 1 .. '!journal.pages!yC9fCYwt83rYjZqr.7tTQgrgES87n91fF' @ 0 : 0; will stop at (end)
