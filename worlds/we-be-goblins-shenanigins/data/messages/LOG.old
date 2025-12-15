@@ -1,15 +1,8 @@
-2025/11/23-18:48:24.483549 7ff8d9fbd6c0 Recovering log #78
-2025/11/23-18:48:24.485204 7ff8d9fbd6c0 Delete type=3 #76
-2025/11/23-18:48:24.485247 7ff8d9fbd6c0 Delete type=0 #78
-2025/12/08-18:45:13.727681 7ff63bfff6c0 Level-0 table #84: started
-2025/12/08-18:45:13.728802 7ff63bfff6c0 Level-0 table #84: 25668 bytes OK
-2025/12/08-18:45:13.729458 7ff63bfff6c0 Delete type=0 #82
-2025/12/08-18:45:13.731288 7ff63bfff6c0 Manual compaction at level-0 from '!messages!00IVi5mJZNneDvVb' @ 72057594037927935 : 1 .. '!messages!zyaHPZPaSSv58xXx' @ 0 : 0; will stop at (end)
-2025/12/08-18:45:13.732588 7ff63bfff6c0 Manual compaction at level-1 from '!messages!00IVi5mJZNneDvVb' @ 72057594037927935 : 1 .. '!messages!zyaHPZPaSSv58xXx' @ 0 : 0; will stop at '!messages!zEUt8UWp4Nd26Jxb' @ 3353 : 1
-2025/12/08-18:45:13.732594 7ff63bfff6c0 Compacting 1@1 + 1@2 files
-2025/12/08-18:45:13.747587 7ff63bfff6c0 Generated table #85@1: 972 keys, 1005758 bytes
-2025/12/08-18:45:13.747599 7ff63bfff6c0 Compacted 1@1 + 1@2 files => 1005758 bytes
-2025/12/08-18:45:13.747989 7ff63bfff6c0 compacted to: files[ 0 0 1 0 0 0 0 ]
-2025/12/08-18:45:13.748036 7ff63bfff6c0 Delete type=2 #84
-2025/12/08-18:45:13.748259 7ff63bfff6c0 Delete type=2 #80
-2025/12/08-18:45:13.750408 7ff63bfff6c0 Manual compaction at level-1 from '!messages!zEUt8UWp4Nd26Jxb' @ 3353 : 1 .. '!messages!zyaHPZPaSSv58xXx' @ 0 : 0; will stop at (end)
+2025/12/08-18:45:19.478778 7ff8d9fbd6c0 Recovering log #83
+2025/12/08-18:45:19.480108 7ff8d9fbd6c0 Delete type=3 #81
+2025/12/08-18:45:19.480144 7ff8d9fbd6c0 Delete type=0 #83
+2025/12/08-18:45:43.865348 7ff63bfff6c0 Level-0 table #89: started
+2025/12/08-18:45:43.865498 7ff63bfff6c0 Level-0 table #89: 0 bytes OK
+2025/12/08-18:45:43.866027 7ff63bfff6c0 Delete type=0 #87
+2025/12/08-18:45:43.866097 7ff63bfff6c0 Manual compaction at level-0 from '!messages!00IVi5mJZNneDvVb' @ 72057594037927935 : 1 .. '!messages!zyaHPZPaSSv58xXx' @ 0 : 0; will stop at (end)
+2025/12/08-18:45:43.867956 7ff63bfff6c0 Manual compaction at level-1 from '!messages!00IVi5mJZNneDvVb' @ 72057594037927935 : 1 .. '!messages!zyaHPZPaSSv58xXx' @ 0 : 0; will stop at (end)
