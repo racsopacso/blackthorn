@@ -1,8 +1,15 @@
-2025/12/08-18:45:19.493095 7ff8d97bc6c0 Recovering log #140
-2025/12/08-18:45:19.494438 7ff8d97bc6c0 Delete type=0 #140
-2025/12/08-18:45:19.494465 7ff8d97bc6c0 Delete type=3 #138
-2025/12/08-18:45:43.892371 7ff63bfff6c0 Level-0 table #146: started
-2025/12/08-18:45:43.892668 7ff63bfff6c0 Level-0 table #146: 0 bytes OK
-2025/12/08-18:45:43.893379 7ff63bfff6c0 Delete type=0 #144
-2025/12/08-18:45:43.893436 7ff63bfff6c0 Manual compaction at level-0 from '!fog!4fH9wxrllbN6pwvY' @ 72057594037927935 : 1 .. '!fog!v4DBTfAZ6qiiY9Wi' @ 0 : 0; will stop at (end)
-2025/12/08-18:45:43.893456 7ff63bfff6c0 Manual compaction at level-1 from '!fog!4fH9wxrllbN6pwvY' @ 72057594037927935 : 1 .. '!fog!v4DBTfAZ6qiiY9Wi' @ 0 : 0; will stop at (end)
+2025/12/14-14:29:42.019742 7ff8d9fbd6c0 Recovering log #145
+2025/12/14-14:29:42.021557 7ff8d9fbd6c0 Delete type=3 #143
+2025/12/14-14:29:42.021607 7ff8d9fbd6c0 Delete type=0 #145
+2026/01/06-21:19:13.863389 7ff63bfff6c0 Level-0 table #150: started
+2026/01/06-21:19:13.870028 7ff63bfff6c0 Level-0 table #150: 70996 bytes OK
+2026/01/06-21:19:13.871290 7ff63bfff6c0 Delete type=0 #148
+2026/01/06-21:19:13.871407 7ff63bfff6c0 Manual compaction at level-0 from '!fog!4fH9wxrllbN6pwvY' @ 72057594037927935 : 1 .. '!fog!v4DBTfAZ6qiiY9Wi' @ 0 : 0; will stop at (end)
+2026/01/06-21:19:13.871441 7ff63bfff6c0 Manual compaction at level-1 from '!fog!4fH9wxrllbN6pwvY' @ 72057594037927935 : 1 .. '!fog!v4DBTfAZ6qiiY9Wi' @ 0 : 0; will stop at '!fog!cYqATzbPn1EeRBW3' @ 766 : 1
+2026/01/06-21:19:13.871448 7ff63bfff6c0 Compacting 1@1 + 1@2 files
+2026/01/06-21:19:13.992957 7ff63bfff6c0 Generated table #151@1: 19 keys, 692995 bytes
+2026/01/06-21:19:13.992974 7ff63bfff6c0 Compacted 1@1 + 1@2 files => 692995 bytes
+2026/01/06-21:19:13.993670 7ff63bfff6c0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/01/06-21:19:13.993804 7ff63bfff6c0 Delete type=2 #142
+2026/01/06-21:19:13.993963 7ff63bfff6c0 Delete type=2 #150
+2026/01/06-21:19:13.994050 7ff63bfff6c0 Manual compaction at level-1 from '!fog!cYqATzbPn1EeRBW3' @ 766 : 1 .. '!fog!v4DBTfAZ6qiiY9Wi' @ 0 : 0; will stop at (end)
