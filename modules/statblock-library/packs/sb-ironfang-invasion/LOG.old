@@ -1,8 +1,5 @@
-2026/02/26-18:32:45.616858 7ff8d97bc6c0 Recovering log #49
-2026/02/26-18:32:45.618532 7ff8d97bc6c0 Delete type=3 #47
-2026/02/26-18:32:45.618570 7ff8d97bc6c0 Delete type=0 #49
-2026/03/29-17:46:34.317269 7ff63bfff6c0 Level-0 table #54: started
-2026/03/29-17:46:34.317591 7ff63bfff6c0 Level-0 table #54: 0 bytes OK
-2026/03/29-17:46:34.318503 7ff63bfff6c0 Delete type=0 #52
-2026/03/29-17:46:34.321242 7ff63bfff6c0 Manual compaction at level-0 from '!journal!0HdTX8K96Q6Cp87D' @ 72057594037927935 : 1 .. '!journal.pages!zuENFL0Mnnm5Pi86.XiriPyx0FrrW3DuE' @ 0 : 0; will stop at (end)
-2026/03/29-17:46:34.321283 7ff63bfff6c0 Manual compaction at level-1 from '!journal!0HdTX8K96Q6Cp87D' @ 72057594037927935 : 1 .. '!journal.pages!zuENFL0Mnnm5Pi86.XiriPyx0FrrW3DuE' @ 0 : 0; will stop at (end)
+2026/03/07-21:20:38.542865 7d8c493fc6c0 Delete type=3 #1
+2026/03/07-21:20:38.548192 7d8c48bfb6c0 Level-0 table #5: started
+2026/03/07-21:20:38.558307 7d8c48bfb6c0 Level-0 table #5: 513761 bytes OK
+2026/03/07-21:20:38.559503 7d8c48bfb6c0 Delete type=0 #3
+2026/03/07-21:20:38.559762 7d8c48bfb6c0 Manual compaction at level-0 from '!journal!0HdTX8K96Q6Cp87D' @ 72057594037927935 : 1 .. '!journal.pages!zuENFL0Mnnm5Pi86.XiriPyx0FrrW3DuE' @ 0 : 0; will stop at (end)

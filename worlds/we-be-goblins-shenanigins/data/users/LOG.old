@@ -1,8 +1,15 @@
-2026/01/25-18:01:44.221173 7ff8d97bc6c0 Recovering log #88
-2026/01/25-18:01:44.222651 7ff8d97bc6c0 Delete type=0 #88
-2026/01/25-18:01:44.222701 7ff8d97bc6c0 Delete type=3 #86
-2026/02/26-18:32:33.038250 7ff63bfff6c0 Level-0 table #94: started
-2026/02/26-18:32:33.038633 7ff63bfff6c0 Level-0 table #94: 0 bytes OK
-2026/02/26-18:32:33.039349 7ff63bfff6c0 Delete type=0 #92
-2026/02/26-18:32:33.039420 7ff63bfff6c0 Manual compaction at level-0 from '!users!G6XUnVo704T3mudr' @ 72057594037927935 : 1 .. '!users!v06lPBK758OIbVqE' @ 0 : 0; will stop at (end)
-2026/02/26-18:32:33.039772 7ff63bfff6c0 Manual compaction at level-1 from '!users!G6XUnVo704T3mudr' @ 72057594037927935 : 1 .. '!users!v06lPBK758OIbVqE' @ 0 : 0; will stop at (end)
+2026/03/29-17:46:43.832371 7ff8da7be6c0 Recovering log #93
+2026/03/29-17:46:43.834019 7ff8da7be6c0 Delete type=3 #91
+2026/03/29-17:46:43.834064 7ff8da7be6c0 Delete type=0 #93
+2026/10/04-14:52:07.800682 7ff63bfff6c0 Level-0 table #98: started
+2026/10/04-14:52:07.802272 7ff63bfff6c0 Level-0 table #98: 963 bytes OK
+2026/10/04-14:52:07.803483 7ff63bfff6c0 Delete type=0 #96
+2026/10/04-14:52:07.803641 7ff63bfff6c0 Manual compaction at level-0 from '!users!G6XUnVo704T3mudr' @ 72057594037927935 : 1 .. '!users!v06lPBK758OIbVqE' @ 0 : 0; will stop at (end)
+2026/10/04-14:52:07.804085 7ff63bfff6c0 Manual compaction at level-1 from '!users!G6XUnVo704T3mudr' @ 72057594037927935 : 1 .. '!users!v06lPBK758OIbVqE' @ 0 : 0; will stop at '!users!G6XUnVo704T3mudr' @ 77 : 1
+2026/10/04-14:52:07.804099 7ff63bfff6c0 Compacting 1@1 + 1@2 files
+2026/10/04-14:52:07.808773 7ff63bfff6c0 Generated table #99@1: 5 keys, 2092 bytes
+2026/10/04-14:52:07.808812 7ff63bfff6c0 Compacted 1@1 + 1@2 files => 2092 bytes
+2026/10/04-14:52:07.810360 7ff63bfff6c0 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/10/04-14:52:07.810748 7ff63bfff6c0 Delete type=2 #90
+2026/10/04-14:52:07.811363 7ff63bfff6c0 Delete type=2 #98
+2026/10/04-14:52:07.813718 7ff63bfff6c0 Manual compaction at level-1 from '!users!G6XUnVo704T3mudr' @ 77 : 1 .. '!users!v06lPBK758OIbVqE' @ 0 : 0; will stop at (end)

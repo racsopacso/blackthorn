@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable prefer-const */
-import { JournalStatblockPageSheet } from "./statblock-page.js";
+import { JournalStatblockPageSheet } from "./statblock-page.mjs";
 
 () => {
   const module = "Pathfinder 1e Statblock Library";

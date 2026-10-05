@@ -1,0 +1,33 @@
+{{#if flags.loot.warning}}
+  <div class="warning">{{localize "ERROR.lsInvalidParentPermission"}}</div>
+{{/if}}
+{{#unless flags.loot.warning}}
+  <ol class="permissions-list">
+    {{#each flags.loot.players as |player p|}}
+      <li class="permission">
+        {{#if @root.isGM}}<input type="hidden" name="{{player.userId}}" value="{{player.lootPermission}}" data-dtype="Number" actor="{{player.actorId}}"/>{{/if}}
+        <a class="permission-proficiency" data-tooltip="{{player.lootPermissionDescription}}">{{{player.icon}}}</a>
+        {{#if ../flags.loot.limitUsers}}
+          {{#each player.actors as |actorName actorId|}}
+            <h4 class="permission-name">{{actorName}} ({{player.name}})</h4>
+          {{/each}}
+        {{else}}
+          <h4 class="permission-name">{{player.name}}
+            <select class="default-actor-selector" name="flags.lootsheetnpcpf1.playerIds.{{player.userId}}" data-user-id="{{player.userId}}"> {{!-- </select>{{#unless player.limited}}disabled{{/unless}}> --}}
+              {{selectOptions player.actors selected=player.defaultActor}}
+            </select>
+          </h4>
+        {{/if}}
+      </li>
+    {{/each}}
+
+    {{!-- Batch Update --}}
+    {{#if @root.isGM}}
+    <div class="batch-update">{{localize "ls.batchUpdate"}}
+      <a class="permission-batch" data-tooltip="{{localize "ls.permissionNoaccess"}}" data-perm="0"><i class="far fa-circle"></i></a>
+      <a class="permission-batch" data-tooltip="{{localize "ls.permissionLimited"}}" data-perm="1"><i class="fas fa-eye"></i></a>
+      <a class="permission-batch" data-tooltip="{{localize "ls.permissionObserver"}}" data-perm="2"><i class="fas fa-check"></i></a>
+    </div>
+    {{/if}}
+  </ol>
+  {{/unless}}

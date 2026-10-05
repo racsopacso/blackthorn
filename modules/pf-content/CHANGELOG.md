@@ -1,5 +1,35 @@
 # Changelog
 
+## 11.4
+
+- Added: Distinct Compendium for Pathfinder Society content
+- Added: Distinct Compendium for Intelligent Items and Scaling Items
+- Added: Huge Updates on Wondrous Belts
+- Added: Flawed and Cracked Ioun Stone Variants
+- Cleanup: Minor cleanups of redundant items already available in the system
+- Cleanup: Fixed a few lingering bad formulas
+- Cleanup: Some items had bad icon paths
+- Fix: Magic armors had malformed enhancement bonuses
+
+## 11.3.2
+
+- Changed: Updated more ioun stones, including reorganizing some (like cursed versions)
+- Cleanup: Removed powerful stance barbarian class feat.
+- Cleanup: Removed clothing items already in system.
+- Fix: Many items had instructions that were not accessible to users
+
+## 11.3.1
+
+- Fixed: 16 ioun stones were missing, resulting in broken links
+
+## 11.3.0
+
+- Changed: Add updates on racial traits, buffs, ioun stones and tables from contribution server
+- Changed: Update folder structure and icons of magic weapon, armor and shield qualities
+- Fix: Paragraphs of special qualities
+- Fix: The Eidolon class and features had issues with formulas
+- Fix: Compendium links in _EitR_ items
+
 ## 11.2.0
 
 - Changed: Updated and enhanced many racial traits with mechanical effects

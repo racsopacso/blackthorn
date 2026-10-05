@@ -1,5 +1,22 @@
 # Changelog
 
+## 03-06-25 - v0.8.0
+
+- 300+ journals had an older style of journals that needed updating
+- Spellbooks were improperly formatted in clean-up
+- Many duplicate statblocks existed and were removed
+- Many fixes by mana to statblocks with extra or duplicated info, typos, and other formatting woes
+
+## 01-30-25 - v0.7.0
+
+- The "Gardener" statblock in Tyrant's Grasp could not be imported
+- Many other statblocks had issues around their skill bonus formatting
+- 300+ statblocks had the old Import button still embedded in them
+- Added Planar Adventures statblocks
+- Added basic Familiar statblocks (not the Improved Familiar ones, as those tend to be normal creatures)
+- Added Niobe statblocks
+- Added Ire of the Storm statblocks
+
 ## 06-16-25 - v0.6.0
 
 - Changed name for better presentation

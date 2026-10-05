@@ -1,7 +1,7 @@
 {
   "title": "Pathfinder 1e Content",
   "description": "Contains magic items, non-magical items, feats, traits, class abilities, racial traits, diseases, drugs, special weapon/armor qualities, buffs/debuffs, familiars, eidolons, companions, magic item, and encounter tables. Additionally, Includes a huge amount of Rule journals for PF, bios and info for deities. Along with a host of other resources. These compendiums are not perfect. Except for buffs, most of them do not contain the appropriate changes to attacks, bonuses, etc. However, the item description and most of the relevant info needed to make work them are included, and Change formulas are slowly being added.",
-  "version": "11.2.0",
+  "version": "11.4.0",
   "relationships": {
     "systems": [
       {
@@ -16,7 +16,7 @@
   },
   "compatibility": {
     "minimum": "12",
-    "verified": "12"
+    "verified": "13"
   },
   "packFolders": [
     {
@@ -57,7 +57,9 @@
         "pf-cursed-items",
         "pf-goods-services",
         "pf-items",
+        "pf-intelligent-items",
         "pf-magic-items",
+        "pf-scaling-items",
         "pf-special-qualities",
         "pf-wondrous"
       ],
@@ -87,6 +89,7 @@
       "packs": [
         "pf-35-content",
         "pf-collab-content",
+        "pf-society",
         "pf-third-party",
         "pf-maladies",
         "pf-occult-rituals"
@@ -276,6 +279,16 @@
       }
     },
     {
+      "name": "pf-intelligent-items",
+      "label": "Intelligent Items",
+      "system": "pf1",
+      "path": "packs/pf-intelligent-items",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER"
+      }
+    },
+    {
       "name": "pf-items",
       "label": "Additional Items",
       "system": "pf1",
@@ -356,6 +369,26 @@
       }
     },
     {
+      "name": "pf-scaling-items",
+      "label": "Scaling Items",
+      "system": "pf1",
+      "path": "packs/pf-scaling-items",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER"
+      }
+    },
+    {
+      "name": "pf-society",
+      "label": "Pathfinder Society",
+      "system": "pf1",
+      "path": "packs/pf-society",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER"
+      }
+    },
+    {
       "name": "pf-special-qualities",
       "label": "Special Qualities",
       "system": "pf1",
@@ -421,7 +454,7 @@
   ],
   "authors": [
     {
-      "name": "Tristan Goucher, with major contributions (see Credits)",
+      "name": "Tryss Farron, with major contributions (see Credits)",
       "discord": "fairstrides"
     },
     {
@@ -436,7 +469,7 @@
   "id": "pf-content",
   "url": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-content",
   "manifest": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-content/-/releases/permalink/latest/downloads/module.json",
-  "download": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-content/-/releases/11.2.0/downloads/pf1-content.zip",
+  "download": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-content/-/releases/11.4.0/downloads/pf1-content.zip",
   "readme": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-content/-/blob/main/README.md",
   "changelog": "https://gitlab.com/foundryvtt_pathfinder1e/pf1-content/-/blob/main/changelog.md"
 }

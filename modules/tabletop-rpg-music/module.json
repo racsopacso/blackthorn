@@ -12,7 +12,7 @@
   "version": "3.4.0",
   "compatibility": {
     "minimum": "11",
-    "verified": "12"
+    "verified": "14"
   },
   "scripts": [
     "scripts/tabletop-rpg-music.js"

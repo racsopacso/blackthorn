@@ -17,19 +17,19 @@ Carrion Crown, Council of Thieves, Curse of the Crimson Throne, Emerald Spire, G
 
 Game Mastery Guide, Inner Sea NPC Codex, NPC Codex, NPC Guide, NPC Guide Web, Rival Guide, and Villain Codex
 
-## Pathfinder Companions and Campaign Settings (46 Books)
+## Pathfinder Companions and Campaign Settings (47 Books)
 
-Andoran Birthplace Of Freedom, Artifacts & Legends, Belkzen Hold Of The Orc Hordes, Castles Of The Inner Sea, Cheliax, The Infernal Empire, Chronicle Of The Righteous, Darklands Revisited, Demons Revisited, Distant Shores, Distant Worlds, Dragons Unleashed, Druma, Profit and Prophecy, Dungeons Of Golarion, Fey Revisited, Giants Revisited, Gnomes Of Golarion, Heart of the Jungle, Heaven Unleashed, Hell Unleashed, Inner Sea Gods, Inner Sea Temples, Inner Sea World Guide, Irrisen Land Of Eternal Winter, Isles Of The Shackles, Lands Of Conflict, Lands Of The Linnorm Kings, Legacy Of Dragons, Lost Cities Of Golarion, Lost Kingdoms, Lost Treasures, Magnimar City Of Monuments, Misfit Monsters, Mystery Monsters Revisited, Nidal, Land of Shadows, Numeria Land Of Fallen Stars, Osirion, Legacy Of Pharaohs, Phantom Phenomena, Planes Of Power, Qadira Jewel Of The East, Seekers of Secrets, Ships Of The Inner Sea, Taldor, The First Empire, The First World Realm Of The Fey, The Worldwound, Tombs Of Golarion, Towns Of The Inner Sea
+Andoran Birthplace Of Freedom, Artifacts & Legends, Belkzen Hold Of The Orc Hordes, Castles Of The Inner Sea, Cheliax, The Infernal Empire, Chronicle Of The Righteous, Darklands Revisited, Demons Revisited, Distant Shores, Distant Worlds, Dragons Unleashed, Druma, Profit and Prophecy, Dungeons Of Golarion, Fey Revisited, Giants Revisited, Gnomes Of Golarion, Heart of the Jungle, Heaven Unleashed, Hell Unleashed, Inner Sea Gods, Inner Sea Temples, Inner Sea World Guide, Irrisen Land Of Eternal Winter, Isles Of The Shackles, Lands Of Conflict, Lands Of The Linnorm Kings, Legacy Of Dragons, Lost Cities Of Golarion, Lost Kingdoms, Lost Treasures, Magnimar City Of Monuments, Misfit Monsters, Mystery Monsters Revisited, Nidal, Land of Shadows, Numeria Land Of Fallen Stars, Osirion, Legacy Of Pharaohs, Phantom Phenomena, Planar Adventures, Planes Of Power, Qadira Jewel Of The East, Seekers of Secrets, Ships Of The Inner Sea, Taldor, The First Empire, The First World Realm Of The Fey, The Worldwound, Tombs Of Golarion, Towns Of The Inner Sea
 
-## Modules (13 Books)
+## Modules (14 Books)
 
-Academy of Secrets, Clash of the Kingslayers (\*), Crucible of Chaos (\*), Emerald Spire Megadungeon, House on Hook Street, Plunder & Peril, Rappan Athuk (FGG), Sword of Air (FGG), The Dragon's Demand, The Lost City of Barakus (FGG), The Puzzle Box, Tomb of the Iron Medusa, We Be Goblins
+Academy of Secrets, Clash of the Kingslayers (\*), Crucible of Chaos (\*), Emerald Spire Megadungeon, House on Hook Street, Ire of the Storm, Plunder & Peril, Rappan Athuk (FGG), Sword of Air (FGG), The Dragon's Demand, The Lost City of Barakus (FGG), The Puzzle Box, Tomb of the Iron Medusa, We Be Goblins
 
 (\*) Converted from 3.5e
 
 ## Bestiaries (18 Books)
 
-PF Bestiaries 1-6, Tome of Horrors, Occult Bestiary, various Monster books (Book of the Damned, d20pfsrd, Inner Sea Bestiary, Inner Sea Monster Codex, Monster Codex, Inner Sea Gods, Undead Revisited, Undead Unleashed), and Mythic Monsters!
+PF Bestiaries 1-6, Tome of Horrors, Occult Bestiary, Familiars, Niobe, various Monster books (Book of the Damned, d20pfsrd, Inner Sea Bestiary, Inner Sea Monster Codex, Monster Codex, Inner Sea Gods, Undead Revisited, Undead Unleashed), and Mythic Monsters!
 
 ## PFS (192 Scenarios)
 

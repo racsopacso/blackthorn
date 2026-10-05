@@ -3,7 +3,7 @@
   "description": "Adds rule texts for Archetypes, Archetype Class Features, along with 119 Prestige Classes, and associated Prestige Features. Read the README for more information.",
   "version": "11.0.1",
   "esmodules": [
-    "./pf-archetypes.js"
+    "pf-archetypes.js"
   ],
   "relationships": {
     "systems": [
@@ -12,13 +12,14 @@
         "compatibility": {
           "minimum": "11",
           "verified": "11"
-        }
+        },
+        "type": "system"
       }
     ]
   },
   "compatibility": {
     "minimum": "12",
-    "verified": "12"
+    "verified": "13"
   },
   "packFolders": [
     {
@@ -29,14 +30,16 @@
         "pf-arch-features",
         "pf-prestige-features"
       ],
-      "color": "#777777"
+      "color": "#777777",
+      "folders": []
     },
     {
       "name": "Conditions",
       "packs": [
         "pf-arch-buffs"
       ],
-      "color": "#792291"
+      "color": "#792291",
+      "folders": []
     }
   ],
   "packs": [
@@ -45,49 +48,77 @@
       "label": "Archetypes",
       "system": "pf1",
       "path": "packs/pf-archetypes",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "pf-arch-features",
       "label": "Archetype Features",
       "system": "pf1",
       "path": "packs/pf-arch-features",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "pf-arch-buffs",
       "label": "Archetype / Prestige Buffs",
       "system": "pf1",
       "path": "packs/pf-arch-buffs",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "pf-prestige-classes",
       "label": "Prestige Classes",
       "system": "pf1",
       "path": "packs/pf-prestige-classes",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     },
     {
       "name": "pf-prestige-features",
       "label": "Prestige Features",
       "system": "pf1",
       "path": "packs/pf-prestige-features",
-      "type": "Item"
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
     }
   ],
   "authors": [
     {
       "name": "Tristan Goucher (Fair Strides)",
-      "discord": "fairstrides"
+      "discord": "fairstrides",
+      "flags": {}
     },
     {
       "name": "McGreger",
-      "discord": "mcgreger"
+      "discord": "mcgreger",
+      "flags": {}
     },
     {
       "name": "fadedshadow589 (With major contributions from JoshyNeurotic)",
-      "discord": "fadedshadow589"
+      "discord": "fadedshadow589",
+      "flags": {}
     }
   ],
   "id": "pf1e-archetypes",
