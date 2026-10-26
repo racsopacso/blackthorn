@@ -10,3 +10,10 @@
 2026/10/18-18:36:44.757024 7ff63bfff6c0 Level-0 table #168: started
 2026/10/18-18:36:44.877562 7ff63bfff6c0 Level-0 table #168: 1753088 bytes OK
 2026/10/18-18:36:44.879085 7ff63bfff6c0 Delete type=0 #165
+2026/10/25-19:21:02.174392 7ff63bfff6c0 Compacting 2@0 + 1@1 files
+2026/10/25-19:21:02.289780 7ff63bfff6c0 Generated table #169@0: 5 keys, 352742 bytes
+2026/10/25-19:21:02.289808 7ff63bfff6c0 Compacted 2@0 + 1@1 files => 352742 bytes
+2026/10/25-19:21:02.290751 7ff63bfff6c0 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/10/25-19:21:02.290990 7ff63bfff6c0 Delete type=2 #168
+2026/10/25-19:21:02.291886 7ff63bfff6c0 Delete type=2 #164
+2026/10/25-19:21:02.292658 7ff63bfff6c0 Delete type=2 #166
